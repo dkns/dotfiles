@@ -13,10 +13,10 @@ set nu
 " syntax highlighting
 syntax enable
 
-" set background=dark
-" colorscheme solarized
+set background=dark
+colorscheme solarized
 " colorscheme tomorrow-night-eighties
-" se t_Co=16
+se t_Co=16
 
 " When opening a new line and no filetype-specific indenting is enabled, keep
 " the same indent as the line you're currently on. Useful for READMEs, etc.
