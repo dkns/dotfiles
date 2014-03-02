@@ -59,3 +59,4 @@ nnoremap <C-H> <C-W><C-H>
 
 " open new splits to the right
 set splitright
+set splitbelow
