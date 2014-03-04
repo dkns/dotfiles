@@ -27,8 +27,9 @@ set scrolloff=5
 " Show partial commands in the last line of the screen
 set showcmd
 
-" Highlight searches
+" Start highlighting search as soon as you begin typing
 set hlsearch
+set incsearch
 
 " Use case insensitive search, except when using capital letters
 set ignorecase
