@@ -1,0 +1,9 @@
+[user]
+	name = Daniel Kosinski
+	email = de.kosinski@gmail.com
+[credential]
+	helper = cache --timeout=3600
+[alias]
+	lg = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr)%C(bold blue)<%an>%Creset' --abbrev-commit
+[color]
+	ui = true
