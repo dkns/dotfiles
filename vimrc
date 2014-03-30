@@ -82,3 +82,6 @@ endfunction
 
 "Don't display warning about found swap file
 set shortmess+=A
+
+"Python indenting
+autocmd FileType python setlocal expandtab shiftwidth=4 softtabstop=4
