@@ -91,3 +91,5 @@ set tabstop=4
 
 "Python indenting
 autocmd FileType python setlocal expandtab shiftwidth=4 softtabstop=4
+"html indenting
+autocmd FileType html setlocal ts=2 et sts=2 sw=2
