@@ -97,4 +97,4 @@ autocmd FileType html setlocal ts=2 et sts=2 sw=2
 "Custom keybinds
 "Error checking
 autocmd FileType php nmap <buffer> <F5> :w<Esc>:!php -l %<CR>
-autocmd FileType python nmap <buffer> <F5> :w<Esc>mwG:r!python %<CR>`.
+autocmd FileType python nmap <buffer> <F5> :w<Esc>:exec '!python' shellescape(@%, 1)<CR>
