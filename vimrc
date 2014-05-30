@@ -95,5 +95,6 @@ autocmd FileType python setlocal expandtab shiftwidth=4 softtabstop=4
 autocmd FileType html setlocal ts=2 et sts=2 sw=2
 
 "Custom keybinds
-"Run php file to check if there are any errors
-map <F5> :!php -l %<CR>
+"Error checking
+autocmd FileType php nmap <buffer> <F5> :w<Esc>:!php -l %<CR>
+autocmd FileType python nmap <buffer> <F5> :w<Esc>mwG:r!python %<CR>`.
