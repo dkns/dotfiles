@@ -53,7 +53,7 @@ set wildmenu
 set cursorline
 
 " set leader key
-let mapleader = ","
+let mapleader=" "
 
 " navigating splits 
 nnoremap <C-J> <C-W><C-J>
