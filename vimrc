@@ -52,13 +52,16 @@ set wildmenu
 " highlight current line
 set cursorline
 
+" set leader key
+let mapleader = ","
+
 " navigating splits 
 nnoremap <C-J> <C-W><C-J>
 nnoremap <C-K> <C-W><C-K>
 nnoremap <C-L> <C-W><C-L>
 nnoremap <C-H> <C-W><C-H>
 
-" open new splits to the right
+" open new splits to the right and below
 set splitright
 set splitbelow
 
