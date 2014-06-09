@@ -8,5 +8,5 @@ installation
 
     git clone https://github.com/dkns/dotfiles.git
     mv dotfiles ~
-    cd dotfiles
+    cd ~/dotfiles
     ./install.sh
