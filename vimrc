@@ -92,10 +92,6 @@ set shiftwidth=4
 set softtabstop=4
 set tabstop=4
 
-" Backup dirs
-set backupdir=~/.vim/backup
-set directory=~/.vim/backup
-
 "Python indenting
 autocmd FileType python setlocal expandtab shiftwidth=4 softtabstop=4
 "html indenting
