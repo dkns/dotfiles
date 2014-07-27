@@ -104,6 +104,9 @@ set undodir=~/.vim/undo     " where to save undo histories
 set undolevels=1000         " How many undos
 set undoreload=10000        " number of lines to save for undo
 
+" use fzf as fuzzy search
+set rtp+=~/.fzf
+
 "Custom keybinds
 "Error checking
 autocmd FileType php nmap <buffer> <F5> :w<Esc>:!php -l %<CR>
