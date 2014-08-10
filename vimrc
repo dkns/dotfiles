@@ -55,6 +55,9 @@ set cursorline
 " set leader key
 let mapleader=" "
 
+" fancier statusline
+set statusline=%<%f\ %h%m%r%=%k[%{(&fenc==\"\")?&enc:&fenc}%{(&bomb?\",BOM\":\"\")}]\ %-14.(%l,%c%V%)\ %P
+
 " navigating splits 
 nnoremap <C-J> <C-W><C-J>
 nnoremap <C-K> <C-W><C-K>
@@ -107,7 +110,7 @@ set undoreload=10000        " number of lines to save for undo
 " use fzf as fuzzy search
 set rtp+=~/.fzf
 
-"Custom keybinds
-"Error checking
+" Custom keybinds
+" Error checking
 autocmd FileType php nmap <buffer> <F5> :w<Esc>:!php -l %<CR>
 autocmd FileType python nmap <buffer> <F5> :w<Esc>:exec '!python' shellescape(@%, 1)<CR>
