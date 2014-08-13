@@ -116,3 +116,5 @@ autocmd FileType php nmap <buffer> <F5> :w<Esc>:!php -l %<CR>
 autocmd FileType python nmap <buffer> <F5> :w<Esc>:exec '!python' shellescape(@%, 1)<CR>
 " Make Y behave similar to D and C
 nnoremap Y y$
+" Search
+nnoremap <F4> :FZF<CR>
