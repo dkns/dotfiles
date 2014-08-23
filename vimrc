@@ -118,3 +118,7 @@ autocmd FileType python nmap <buffer> <F5> :w<Esc>:exec '!python' shellescape(@%
 nnoremap Y y$
 " Search
 nnoremap <F4> :FZF<CR>
+
+" String to put at the start of lines that have been wrapped "
+let &showbreak='↪ '
+set colorcolumn=80 " Draws a vertical line at column 80 "
