@@ -99,6 +99,23 @@ set tabstop=4
 autocmd FileType python setlocal expandtab shiftwidth=4 softtabstop=4
 "html indenting
 autocmd FileType html setlocal ts=2 et sts=2 sw=2
+
+" Create backup/undo dirs
+let swapdir = expand('~/.vim/swap')
+if !isdirectory(swapdir)
+  call mkdir(swapdir)
+endif
+
+let backupdir = expand('~/.vim/backup')
+if !isdirectory(backupdir)
+  call mkdir(backupdir)
+endif
+
+let backupdir = expand('~/.vim/undo')
+if !isdirectory(backupdir)
+  call mkdir(backupdir)
+endif
+
 """""""""""""""""""
 " Persistent Undo "
 """""""""""""""""""
