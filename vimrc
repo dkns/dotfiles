@@ -116,6 +116,9 @@ if !isdirectory(backupdir)
   call mkdir(backupdir)
 endif
 
+" Force backups to be copied from original, not renamed
+set backupcopy=yes
+
 """""""""""""""""""
 " Persistent Undo "
 """""""""""""""""""
