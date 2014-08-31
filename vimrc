@@ -137,7 +137,7 @@ autocmd FileType python nmap <buffer> <F5> :w<Esc>:exec '!python' shellescape(@%
 " Make Y behave similar to D and C
 nnoremap Y y$
 " Search
-nnoremap <F4> :FZF<CR>
+nnoremap <leader>t :FZF<CR>
 
 " String to put at the start of lines that have been wrapped "
 let &showbreak='↪ '
