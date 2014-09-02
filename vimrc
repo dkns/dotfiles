@@ -152,3 +152,10 @@ set list listchars=tab:▸\ ,trail:-,extends:>,precedes:<,eol:¬
 " Wrapped lines goes down/up to next row, rather than next line in file.
 nnoremap j gj
 nnoremap k gk
+
+" Allow backspacing over lines and stuff
+set backspace=indent,eol,start
+
+" Keep search matches in the middle of the window.
+nnoremap n nzzzv
+nnoremap N Nzzzv
