@@ -148,3 +148,7 @@ set lazyredraw
 
 set showmatch " show matching brackets
 set list listchars=tab:›-,trail:-,extends:>,precedes:<,eol:¬
+
+" Wrapped lines goes down/up to next row, rather than next line in file.
+nnoremap j gj
+nnoremap k gk
