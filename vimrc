@@ -159,3 +159,5 @@ set backspace=indent,eol,start
 " Keep search matches in the middle of the window.
 nnoremap n nzzzv
 nnoremap N Nzzzv
+
+set autoread
