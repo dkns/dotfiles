@@ -160,4 +160,9 @@ set backspace=indent,eol,start
 nnoremap n nzzzv
 nnoremap N Nzzzv
 
+" Automatically reload file in vim if it was changed outside of vim
 set autoread
+
+" User H and L to move to beginning and end of the line
+noremap H ^
+noremap L $
