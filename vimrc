@@ -146,4 +146,5 @@ set colorcolumn=80 " Draws a vertical line at column 80 "
 " Don't update the display while executing macros
 set lazyredraw
 
-set showmatch
+set showmatch " show matching brackets
+set list listchars=tab:›-,trail:-,extends:>,precedes:<,eol:¬
