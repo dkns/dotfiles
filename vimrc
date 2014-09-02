@@ -142,3 +142,6 @@ nnoremap <leader>t :FZF<CR>
 " String to put at the start of lines that have been wrapped "
 let &showbreak='↪ '
 set colorcolumn=80 " Draws a vertical line at column 80 "
+
+" Don't update the display while executing macros
+set lazyredraw
