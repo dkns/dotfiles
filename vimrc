@@ -166,3 +166,6 @@ set autoread
 " User H and L to move to beginning and end of the line
 noremap H ^
 noremap L $
+
+nnoremap <leader>v :vsplit<CR>
+nnoremap <leader>h :split<CR>
