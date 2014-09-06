@@ -13,7 +13,7 @@ set runtimepath+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 
 Plugin 'gmarik/Vundle.vim'
-Plugin 'amdt/vim-niji'
+Plugin 'tpope/vim-surround'
 
 call vundle#end()
 
