@@ -1,11 +1,23 @@
 " Set 'nocompatible' to ward off unexpected things that your distro might
 " have made, as well as sanely reset options when re-sourcing .vimrc
 set nocompatible
+" Vundle install
+filetype off                   " must be off before Vundle has run
 
-" Attempt to determine the type of a file based on its name and possibly its
-" contents. Use this to allow intelligent auto-indenting for each filetype,
-" and for plugins that are filetype specific.
-filetype indent plugin on
+if !isdirectory(expand("~/.vim/bundle/Vundle.vim/.git"))
+    !git clone https://github.com/gmarik/Vundle.vim.git ~/.vim/bundle/Vundle.vim
+endif
+
+set runtimepath+=~/.vim/bundle/Vundle.vim
+
+call vundle#begin()
+
+Plugin 'gmarik/Vundle.vim'
+Plugin 'amdt/vim-niji'
+
+call vundle#end()
+
+filetype plugin indent on " and turn it back on!
 
 " show numberlines
 set nu
@@ -15,7 +27,6 @@ syntax enable
 
 set background=dark
 colorscheme solarized
-" colorscheme tomorrow-night-eighties
 se t_Co=16
 
 " When opening a new line and no filetype-specific indenting is enabled, keep
