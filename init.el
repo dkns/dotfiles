@@ -17,6 +17,22 @@ re-downloaded in order to locate PACKAGE."
 
 (package-initialize)
 
+(unless (package-installed-p 'evil)
+  (package-refresh-contents)
+  (package-install 'evil))
+
+(unless (package-installed-p 'solarized-theme)
+  (package-refresh-contents)
+  (package-install 'solarized-theme))
+
+(unless (package-installed-p 'php-mode)
+  (package-refresh-contents)
+  (package-install 'php-mode))
+
+(unless (package-installed-p 'web-mode)
+  (package-refresh-contents)
+  (package-install 'web-mode))
+
 (require-package 'evil)
 
 (setq evil-search-module 'evil-search
