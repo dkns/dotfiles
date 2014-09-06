@@ -15,6 +15,7 @@ call vundle#begin()
 Plugin 'gmarik/Vundle.vim'
 Plugin 'tpope/vim-surround'
 Plugin 'Valloric/YouCompleteMe'
+Plugin 'StanAngeloff/php.vim'
 
 call vundle#end()
 
@@ -53,6 +54,9 @@ set ruler
 
 " Always display the status line, even if only one window is displayed
 set laststatus=2
+
+" Syntax highlight shell scripts as per POSIX, not the original Bourne shell which very few use.
+let g:is_posix = 1
 
 " Set the command window height to 2 lines, to avoid many cases of having to
 " press <Enter> to continue
@@ -179,5 +183,18 @@ set autoread
 noremap H ^
 noremap L $
 
+" Yank to clipboard
+set clipboard+=unnamed 
+
 nnoremap <leader>v :vsplit<CR>
 nnoremap <leader>h :split<CR>
+
+" Use better syntax highlighting for php
+function! PhpSyntaxOverride()
+  hi! def link phpDocTags  phpDefine
+  hi! def link phpDocParam phpType
+endfunction
+augroup phpSyntaxOverride
+  autocmd!
+  autocmd FileType php call PhpSyntaxOverride()
+augroup END
