@@ -18,6 +18,7 @@ Plugin 'Valloric/YouCompleteMe'
 Plugin 'StanAngeloff/php.vim'
 Plugin 'shawncplus/phpcomplete.vim'
 Plugin 'scrooloose/syntastic'
+Plugin 'Raimondi/delimitMate'
 
 call vundle#end()
 
