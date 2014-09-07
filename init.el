@@ -89,6 +89,9 @@ re-downloaded in order to locate PACKAGE."
 (define-key minibuffer-local-must-match-map [escape] 'minibuffer-keyboard-quit)
 (define-key minibuffer-local-isearch-map [escape] 'minibuffer-keyboard-quit)
 
+(require 'autopair)
+(autopair-global-mode) ;; enable autopair in all buffers
+
 ;; ========== Line by line scrolling ==========
 
 ;; This makes the buffer scroll by only a single line when the up or
