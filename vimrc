@@ -16,6 +16,8 @@ Plugin 'gmarik/Vundle.vim'
 Plugin 'tpope/vim-surround'
 Plugin 'Valloric/YouCompleteMe'
 Plugin 'StanAngeloff/php.vim'
+Plugin 'shawncplus/phpcomplete.vim'
+Plugin 'scrooloose/syntastic'
 
 call vundle#end()
 
@@ -198,3 +200,19 @@ augroup phpSyntaxOverride
   autocmd!
   autocmd FileType php call PhpSyntaxOverride()
 augroup END
+
+" Syntastic
+let g:syntastic_warning_symbol='W>'
+let g:syntastic_style_warning_symbol='s>'
+let g:syntastic_error_symbol='E>'
+let g:syntastic_style_error_symbol='S>'
+" Check for syntax errors.
+nnoremap <silent> <F9> :w<CR>:SyntasticCheck<CR>
+inoremap <silent> <F9> <Esc>:w<CR>:SyntasticCheck<CR>a
+
+" Better php completion
+let g:phpcomplete_relax_static_constraint = 1
+let g:phpcomplete_search_tags_for_variables = 1
+let g:phpcomplete_parse_docblock_comments = 1
+let g:phpcomplete_cache_taglists = 1
+let g:phpcomplete_enhance_jump_to_definition = 1
