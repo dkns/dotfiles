@@ -23,6 +23,7 @@ re-downloaded in order to locate PACKAGE."
 (setq
  wanted-packages
  '(
+   flycheck
    smartparens
    evil
    solarized-theme
@@ -92,6 +93,7 @@ re-downloaded in order to locate PACKAGE."
 ;; smartparens
 (smartparens-global-mode t)
 
+(add-hook 'after-init-hook #'global-flycheck-mode)
 ;; ========== Line by line scrolling ==========
 
 ;; This makes the buffer scroll by only a single line when the up or
