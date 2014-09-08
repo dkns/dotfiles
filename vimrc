@@ -23,6 +23,9 @@ Plugin 'sheerun/vim-polyglot'
 Plugin 'chriskempson/vim-tomorrow-theme'
 Plugin 'jnurmine/Zenburn'
 Plugin 'vim-scripts/twilight256.vim'
+Plugin 'morhetz/gruvbox'
+Plugin 'tomasr/molokai'
+Plugin 'sickill/vim-monokai' 
 
 call vundle#end()
 
@@ -35,7 +38,7 @@ set nu
 syntax enable
 
 set background=dark
-colorscheme solarized
+colorscheme monokai
 set t_ut=
 
 " When opening a new line and no filetype-specific indenting is enabled, keep
@@ -160,7 +163,7 @@ autocmd FileType python nmap <buffer> <F5> :w<Esc>:exec '!python' shellescape(@%
 " Make Y behave similar to D and C
 nnoremap Y y$
 " Search
-nnoremap <leader>t :FZF<CR>
+nnoremap <leader>t :FZF
 
 " String to put at the start of lines that have been wrapped "
 let &showbreak='↪ '
