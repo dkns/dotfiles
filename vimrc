@@ -218,3 +218,10 @@ let g:phpcomplete_search_tags_for_variables = 1
 let g:phpcomplete_parse_docblock_comments = 1
 let g:phpcomplete_cache_taglists = 1
 let g:phpcomplete_enhance_jump_to_definition = 1
+
+if has('gui_running')
+    set guioptions-=m " remove menu bar
+    set guioptions-=T " remove toolbar
+    set guioptions-=r " remove right-hand scroll bar
+    set guioptions-=L " remove left-hand scroll bar
+endif
