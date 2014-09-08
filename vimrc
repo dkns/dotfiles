@@ -20,6 +20,7 @@ Plugin 'scrooloose/syntastic'
 Plugin 'Raimondi/delimitMate'
 Plugin 'nathanaelkane/vim-indent-guides'
 Plugin 'sheerun/vim-polyglot'
+Plugin 'chriskempson/vim-tomorrow-theme'
 
 call vundle#end()
 
@@ -32,8 +33,8 @@ set nu
 syntax enable
 
 set background=dark
-colorscheme solarized
-se t_Co=16
+colorscheme Tomorrow-Night-Bright
+se t_Co=256
 
 " When opening a new line and no filetype-specific indenting is enabled, keep
 " the same indent as the line you're currently on. Useful for READMEs, etc.
