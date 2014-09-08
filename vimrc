@@ -33,8 +33,8 @@ set nu
 syntax enable
 
 set background=dark
-colorscheme Tomorrow-Night-Bright
-se t_Co=256
+colorscheme solarized
+set t_ut=
 
 " When opening a new line and no filetype-specific indenting is enabled, keep
 " the same indent as the line you're currently on. Useful for READMEs, etc.
