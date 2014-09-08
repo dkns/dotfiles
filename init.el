@@ -23,7 +23,7 @@ re-downloaded in order to locate PACKAGE."
 (setq
  wanted-packages
  '(
-   autopair
+   smartparens
    evil
    solarized-theme
    php-mode
@@ -89,8 +89,8 @@ re-downloaded in order to locate PACKAGE."
 (define-key minibuffer-local-must-match-map [escape] 'minibuffer-keyboard-quit)
 (define-key minibuffer-local-isearch-map [escape] 'minibuffer-keyboard-quit)
 
-(require 'autopair)
-(autopair-global-mode) ;; enable autopair in all buffers
+;; smartparens
+(smartparens-global-mode t)
 
 ;; ========== Line by line scrolling ==========
 
