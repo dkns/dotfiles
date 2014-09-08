@@ -19,6 +19,7 @@ Plugin 'StanAngeloff/php.vim'
 Plugin 'shawncplus/phpcomplete.vim'
 Plugin 'scrooloose/syntastic'
 Plugin 'Raimondi/delimitMate'
+Plugin 'nathanaelkane/vim-indent-guides'
 
 call vundle#end()
 
