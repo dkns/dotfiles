@@ -21,6 +21,8 @@ Plugin 'Raimondi/delimitMate'
 Plugin 'nathanaelkane/vim-indent-guides'
 Plugin 'sheerun/vim-polyglot'
 Plugin 'chriskempson/vim-tomorrow-theme'
+Plugin 'jnurmine/Zenburn'
+Plugin 'vim-scripts/twilight256.vim'
 
 call vundle#end()
 
