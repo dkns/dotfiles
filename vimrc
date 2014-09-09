@@ -26,6 +26,7 @@ Plugin 'vim-scripts/twilight256.vim'
 Plugin 'morhetz/gruvbox'
 Plugin 'tomasr/molokai'
 Plugin 'sickill/vim-monokai' 
+Plugin 'molok/vim-smartusline'
 
 call vundle#end()
 
