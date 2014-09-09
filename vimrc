@@ -174,6 +174,7 @@ set colorcolumn=80 " Draws a vertical line at column 80 "
 set lazyredraw
 
 set showmatch " show matching brackets
+set matchtime=2 " reduce blinking time
 set list listchars=tab:▸\ ,trail:-,extends:>,precedes:<,eol:¬
 
 " Wrapped lines goes down/up to next row, rather than next line in file.
