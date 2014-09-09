@@ -27,6 +27,7 @@ Plugin 'morhetz/gruvbox'
 Plugin 'tomasr/molokai'
 Plugin 'sickill/vim-monokai' 
 Plugin 'molok/vim-smartusline'
+Plugin 'Valloric/MatchTagAlways'
 
 call vundle#end()
 
@@ -34,6 +35,8 @@ filetype plugin indent on " and turn it back on!
 
 " show numberlines
 set nu
+" set relative numbers
+set rnu
 
 " syntax highlighting
 syntax enable
