@@ -231,3 +231,7 @@ if has('gui_running')
     set guioptions-=r " remove right-hand scroll bar
     set guioptions-=L " remove left-hand scroll bar
 endif
+
+" I've had enough
+:command W w
+:command Q q
