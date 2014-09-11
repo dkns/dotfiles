@@ -23,6 +23,7 @@ re-downloaded in order to locate PACKAGE."
 (setq
  wanted-packages
  '(
+   multiple-cursors
    flycheck
    smartparens
    evil
@@ -92,6 +93,10 @@ re-downloaded in order to locate PACKAGE."
 
 ;; smartparens
 (smartparens-global-mode t)
+
+;; multiple cursors
+(require 'multiple-cursors)
+(global-set-key (kbd "C->") 'mc/mark-next-like-this)
 
 (add-hook 'after-init-hook #'global-flycheck-mode)
 ;; ========== Line by line scrolling ==========
