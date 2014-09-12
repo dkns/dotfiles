@@ -72,9 +72,8 @@ re-downloaded in order to locate PACKAGE."
 ;; Install wanted packages
 (install-wanted-packages)
 
+;; evil
 (require-package 'evil)
-
-(require 'evil) ;; Vim 4 lyfe, yo
 (evil-mode t)
 
 (setq evil-search-module 'evil-search
@@ -95,10 +94,11 @@ re-downloaded in order to locate PACKAGE."
 (smartparens-global-mode t)
 
 ;; multiple cursors
-(require 'multiple-cursors)
-(global-set-key (kbd "C->") 'mc/mark-next-like-this)
+(global-set-key (kbd "C->") 'mc/mark-next-word-like-this)
 
+;; flycheck
 (add-hook 'after-init-hook #'global-flycheck-mode)
+
 ;; ========== Line by line scrolling ==========
 
 ;; This makes the buffer scroll by only a single line when the up or
@@ -137,8 +137,7 @@ re-downloaded in order to locate PACKAGE."
 ;; Save all backup file in this directory.
 (setq backup-directory-alist (quote ((".*" . "~/.emacs_backups/"))))
 
-;; Solarized theme
-(require 'solarized-theme)
+;; Theme
 (load-theme 'solarized-dark t)
 
 (custom-set-variables
@@ -154,14 +153,9 @@ re-downloaded in order to locate PACKAGE."
  ;; If there is more than one, they won't work right.
  )
 
-;; Editing php files
-;; This obviously doesn't work right now. Needs to be enabled.
-(require 'php-mode)
-
 ;; Editing html/css/js/php files
-(require 'web-mode)
 (add-to-list 'auto-mode-alist '("\\.phtml\\'" . web-mode))
-(add-to-list 'auto-mode-alist '("\\.tpl\\.php\\'" . web-mode))
+(add-to-list 'auto-mode-alist '("\\.tpl\\.php\\'" . web-mode)) ;; decide wheter to use php-mode or web-mode for php files
 (add-to-list 'auto-mode-alist '("\\.[gj]sp\\'" . web-mode))
 (add-to-list 'auto-mode-alist '("\\.as[cp]x\\'" . web-mode))
 (add-to-list 'auto-mode-alist '("\\.erb\\'" . web-mode))
@@ -170,7 +164,6 @@ re-downloaded in order to locate PACKAGE."
 (add-to-list 'auto-mode-alist '("\\.html?\\'" . web-mode))
 
 ;; Org mode!
-(require 'org)
 (define-key global-map "\C-cl" 'org-store-link)
 (define-key global-map "\C-ca" 'org-agenda)
 (setq org-log-done t)
@@ -190,3 +183,6 @@ re-downloaded in order to locate PACKAGE."
 ;; Remove useless whitespace before saving a file
 (add-hook 'before-save-hook 'whitespace-cleanup)
 (add-hook 'before-save-hook (lambda() (delete-trailing-whitespace)))
+
+;; because why not
+(nyan-mode t)
