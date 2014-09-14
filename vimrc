@@ -36,6 +36,7 @@ set rnu
 " syntax highlighting
 syntax enable
 
+" colorscheme
 set background=dark
 colorscheme solarized
 set t_ut=
@@ -50,12 +51,13 @@ set scrolloff=5
 set showcmd
 
 " Start highlighting search as soon as you begin typing
+" Use case insensitive search, except when using capital letters
 set hlsearch
 set incsearch
-
-" Use case insensitive search, except when using capital letters
 set ignorecase
 set smartcase
+" clear the last search (instead of typing /asdfghjkl)
+nnoremap <leader>c :noh<CR>
 
 " Display the cursor position on the last line of the screen or in the status
 " line of a window
