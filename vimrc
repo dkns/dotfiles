@@ -23,6 +23,7 @@ Plugin 'sheerun/vim-polyglot'
 Plugin 'molok/vim-smartusline'
 Plugin 'Valloric/MatchTagAlways'
 Plugin 'tpope/vim-commentary'
+Plugin 'Yggdroot/indentLine'
 
 call vundle#end()
 
