@@ -254,5 +254,5 @@ augroup END
 
 " YouCompleteMe
 let g:ycm_collect_identifiers_from_tags_files = 1
-
+let g:ycm_collect_identifiers_from_comments_and_strings = 1
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
