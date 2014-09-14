@@ -252,5 +252,7 @@ augroup phpSyntaxOverride
   autocmd FileType php call PhpSyntaxOverride()
 augroup END
 
+" YouCompleteMe
+let g:ycm_collect_identifiers_from_tags_files = 1
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
