@@ -30,6 +30,7 @@ re-downloaded in order to locate PACKAGE."
    solarized-theme
    php-mode
    web-mode
+   indent-guide
 ))
 
 ;; Package manager and packages handler
@@ -186,3 +187,7 @@ re-downloaded in order to locate PACKAGE."
 
 ;; because why not
 (nyan-mode t)
+
+;; indent-guide
+(setq indent-guide-recursive t)
+(indent-guide-global-mode)
