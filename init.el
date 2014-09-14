@@ -23,6 +23,8 @@ re-downloaded in order to locate PACKAGE."
 (setq
  wanted-packages
  '(
+   flycheck-pos-tip
+   popup
    multiple-cursors
    flycheck
    smartparens
@@ -191,3 +193,8 @@ re-downloaded in order to locate PACKAGE."
 ;; indent-guide
 (setq indent-guide-recursive t)
 (indent-guide-global-mode)
+
+;; show popup when using flycheck
+(eval-after-load 'flycheck
+  '(custom-set-variables
+   '(flycheck-display-errors-function #'flycheck-pos-tip-error-messages)))
