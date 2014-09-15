@@ -23,7 +23,6 @@ re-downloaded in order to locate PACKAGE."
 (setq
  wanted-packages
  '(
-   flycheck-pos-tip
    popup
    multiple-cursors
    flycheck
@@ -33,6 +32,7 @@ re-downloaded in order to locate PACKAGE."
    php-mode
    web-mode
    indent-guide
+   flycheck-pos-tip
 ))
 
 ;; Package manager and packages handler
