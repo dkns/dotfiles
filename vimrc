@@ -18,15 +18,8 @@ call vundle#begin()
 Plugin 'gmarik/Vundle.vim'
 Plugin 'tpope/vim-surround'
 Plugin 'Valloric/YouCompleteMe'
-Plugin 'shawncplus/phpcomplete.vim'
-Plugin 'scrooloose/syntastic'
 Plugin 'Raimondi/delimitMate'
-Plugin 'nathanaelkane/vim-indent-guides'
-Plugin 'sheerun/vim-polyglot'
-Plugin 'bling/vim-airline'
-Plugin 'Valloric/MatchTagAlways'
 Plugin 'tpope/vim-commentary'
-Plugin 'Yggdroot/indentLine'
 
 call vundle#end()
 filetype plugin indent on " and turn it back on!
@@ -93,6 +86,9 @@ set splitbelow
 
 "Don't display warning about found swap file
 set shortmess+=A
+
+" Look for tags in directory above
+set tags=./tags;/
 
 "Default indenting
 set expandtab
@@ -225,32 +221,6 @@ endfunction
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Plugins
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-
-"" Airline
-let g:airline#extensions#tabline#enabled = 1
-
-" Syntastic
-let g:syntastic_warning_symbol='W>'
-let g:syntastic_style_warning_symbol='s>'
-let g:syntastic_error_symbol='E>'
-let g:syntastic_style_error_symbol='S>'
-
-" Better php completion
-let g:phpcomplete_relax_static_constraint = 1
-let g:phpcomplete_search_tags_for_variables = 1
-let g:phpcomplete_parse_docblock_comments = 1
-let g:phpcomplete_cache_taglists = 1
-let g:phpcomplete_enhance_jump_to_definition = 1
-
-" Use better syntax highlighting for php
-function! PhpSyntaxOverride()
-  hi! def link phpDocTags  phpDefine
-  hi! def link phpDocParam phpType
-endfunction
-augroup phpSyntaxOverride
-  autocmd!
-  autocmd FileType php call PhpSyntaxOverride()
-augroup END
 
 " YouCompleteMe
 let g:ycm_collect_identifiers_from_tags_files = 1
