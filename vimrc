@@ -94,6 +94,9 @@ set splitbelow
 "Don't display warning about found swap file
 set shortmess+=A
 
+" Look for tags in directory above
+set tags=./tags;/
+
 "Default indenting
 set expandtab
 set shiftwidth=4
