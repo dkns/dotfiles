@@ -33,6 +33,7 @@ re-downloaded in order to locate PACKAGE."
    web-mode
    indent-guide
    flycheck-pos-tip
+   nyan-mode
 ))
 
 ;; Package manager and packages handler
