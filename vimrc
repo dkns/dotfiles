@@ -20,6 +20,7 @@ Plugin 'tpope/vim-surround'
 Plugin 'Valloric/YouCompleteMe'
 Plugin 'Raimondi/delimitMate'
 Plugin 'tpope/vim-commentary'
+Plugin 'Valloric/MatchTagAlways'
 
 call vundle#end()
 filetype plugin indent on " and turn it back on!
