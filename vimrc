@@ -132,11 +132,6 @@ set undoreload=10000        " number of lines to save for undo
 " use fzf as fuzzy search
 set rtp+=~/.fzf
 
-" Custom keybinds
-" Error checking
-autocmd FileType php nmap <buffer> <F5> :w<Esc>:!php -l %<CR>
-autocmd FileType python nmap <buffer> <F5> :w<Esc>:exec '!python' shellescape(@%, 1)<CR>
-
 " String to put at the start of lines that have been wrapped "
 let &showbreak='↪ '
 set colorcolumn=80 " Draws a vertical line at column 80 "
@@ -199,6 +194,12 @@ nnoremap k gk
 " User H and L to move to beginning and end of the line
 noremap H ^
 noremap L $
+" Error checking
+autocmd FileType php nmap <buffer> <F5> :w<Esc>:!php -l %<CR>
+autocmd FileType python nmap <buffer> <F5> :w<Esc>:exec '!python' shellescape(@%, 1)<CR>
+" Easier pasting from clipboard
+nnoremap <leader>p "+p
+
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Custom functions
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
