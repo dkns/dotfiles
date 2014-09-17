@@ -97,6 +97,9 @@ set shiftwidth=4
 set softtabstop=4
 set tabstop=4
 
+" No swap files, thanks
+set noswapfile
+
 "Python indenting
 autocmd FileType python setlocal expandtab shiftwidth=4 softtabstop=4
 "html indenting
