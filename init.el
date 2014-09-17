@@ -85,7 +85,6 @@ re-downloaded in order to locate PACKAGE."
       evil-want-C-w-in-emacs-state t)
 
 ;; esc quits
-
 (define-key evil-normal-state-map [escape] 'keyboard-quit)
 (define-key evil-visual-state-map [escape] 'keyboard-quit)
 (define-key minibuffer-local-map [escape] 'minibuffer-keyboard-quit)
@@ -111,6 +110,9 @@ re-downloaded in order to locate PACKAGE."
 ;; the center of the screen, but this can make the scrolling confusing
 
 (setq scroll-step 1)
+
+;; Who use the bar to scroll?
+(scroll-bar-mode 0)
 
 ;; ===== Set the highlight current line minor mode =====
 
