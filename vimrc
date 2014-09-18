@@ -202,7 +202,8 @@ autocmd FileType php nmap <buffer> <F5> :w<Esc>:!php -l %<CR>
 autocmd FileType python nmap <buffer> <F5> :w<Esc>:exec '!python' shellescape(@%, 1)<CR>
 " Easier pasting from clipboard
 nnoremap <leader>p "+p
-
+" (c)opy (e)verything to clipboard
+nnoremap <leader>ce ggVG"+y
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Custom functions
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
