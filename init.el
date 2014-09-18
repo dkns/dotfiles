@@ -34,6 +34,7 @@ re-downloaded in order to locate PACKAGE."
    indent-guide
    flycheck-pos-tip
    nyan-mode
+   smooth-scrolling
 ))
 
 ;; Package manager and packages handler
@@ -75,6 +76,7 @@ re-downloaded in order to locate PACKAGE."
 
 ;; Install wanted packages
 (install-wanted-packages)
+
 
 ;; evil
 (require-package 'evil)
@@ -201,3 +203,6 @@ re-downloaded in order to locate PACKAGE."
 (eval-after-load 'flycheck
   '(custom-set-variables
    '(flycheck-display-errors-function #'flycheck-pos-tip-error-messages)))
+
+;; smooth scrolling
+(require smooth-scrolling)
