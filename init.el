@@ -209,3 +209,6 @@ re-downloaded in order to locate PACKAGE."
 (setq smooth-scroll-margin 5)
 (setq scroll-conservatively 9999
       scroll-preserve-screen-position t)
+
+(custom-set-variables
+ '(initial-frame-alist (quote ((fullscreen . maximized))))) ;; start maximized
