@@ -28,6 +28,14 @@ re-downloaded in order to locate PACKAGE."
    flycheck
    smartparens
    evil
+   evil-numbers
+   evil-jumper
+   evil-leader
+   evil-matchit
+   evil-org
+   evil-surround
+   evil-nerd-commenter
+   evil-visualstar
    solarized-theme
    php-mode
    web-mode
@@ -77,16 +85,40 @@ re-downloaded in order to locate PACKAGE."
 ;; Install wanted packages
 (install-wanted-packages)
 
-
 ;; evil
+(global-evil-matchit-mode t)
+(global-evil-surround-mode t)
+(global-evil-leader-mode)
 (require-package 'evil)
 (evil-mode t)
-
+(evil-leader/set-leader "SPC")
+(setq evil-leader/in-all-states t)
+(setq evil-emacs-state-cursor '("red" box)
+      evil-normal-state-cursor '("green" box)
+      evil-visual-state-cursor '("orange" box)
+      evil-insert-state-cursor '("red" bar)
+      evil-replace-state-cursor '("red" bar)
+      evil-operator-state-cursor '("red" hollow))
 (setq evil-search-module 'evil-search
       evil-want-C-u-scroll t
       evil-want-C-w-in-emacs-state t)
 
-;; esc quits
+(evil-leader/set-key "co" 'evilnc-comment-or-uncomment-lines)
+
+;; j and k move the visual line in long wrapped lines
+(define-key evil-normal-state-map (kbd "j") 'evil-next-visual-line)
+(define-key evil-normal-state-map (kbd "k") 'evil-previous-visual-line)
+;; esc quits!
+(defun minibuffer-keyboard-quit ()
+  "Abort recursive edit.
+    In Delete Selection mode, if the mark is active, just deactivate it;
+    then it takes a second \\[keyboard-quit] to abort the minibuffer."
+  (interactive)
+  (if (and delete-selection-mode transient-mark-mode mark-active)
+      (setq deactivate-mark  t)
+    (when (get-buffer "*Completions*") (delete-windows-on "*Completions*"))
+    (abort-recursive-edit)))
+
 (define-key evil-normal-state-map [escape] 'keyboard-quit)
 (define-key evil-visual-state-map [escape] 'keyboard-quit)
 (define-key minibuffer-local-map [escape] 'minibuffer-keyboard-quit)
@@ -94,6 +126,7 @@ re-downloaded in order to locate PACKAGE."
 (define-key minibuffer-local-completion-map [escape] 'minibuffer-keyboard-quit)
 (define-key minibuffer-local-must-match-map [escape] 'minibuffer-keyboard-quit)
 (define-key minibuffer-local-isearch-map [escape] 'minibuffer-keyboard-quit)
+(global-set-key [escape] 'evil-exit-emacs-state)
 
 ;; smartparens
 (smartparens-global-mode t)
