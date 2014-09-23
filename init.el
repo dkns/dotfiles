@@ -277,3 +277,5 @@ re-downloaded in order to locate PACKAGE."
 ;; powerline
 (require 'powerline)
 (powerline-default-theme)
+
+(blink-cursor-mode (- (*) (*) (*)))
