@@ -197,9 +197,11 @@ nnoremap N Nzzzv
 " Wrapped lines goes down/up to next row, rather than next line in file.
 nnoremap j gj
 nnoremap k gk
-" User H and L to move to beginning and end of the line
+" Use H and L to move to beginning and end of the line
 noremap H ^
 noremap L $
+" Use jk to exit insert mode 
+imap jk <ESC>
 " Error checking
 autocmd FileType php nmap <buffer> <F5> :w<Esc>:!php -l %<CR>
 autocmd FileType python nmap <buffer> <F5> :w<Esc>:exec '!python' shellescape(@%, 1)<CR>
