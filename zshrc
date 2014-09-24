@@ -87,4 +87,4 @@ export PROJECT_HOME=$HOME/projects
 export VIRTUALENVWRAPPER_SCRIPT=/usr/local/bin/virtualenvwrapper.sh
 source /usr/local/bin/virtualenvwrapper_lazy.sh
 
-alias em='emacs -nw'
+alias em='emacsclient -nw'
