@@ -168,7 +168,6 @@ endif
 " I've had enough
 :command W w
 :command Q q
-:command X x
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Keybinds
