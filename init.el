@@ -178,9 +178,6 @@ re-downloaded in order to locate PACKAGE."
 ;; Line number displayed on left hand side
 (global-linum-mode 1)
 
-;; Save all backup file in this directory.
-(setq backup-directory-alist (quote ((".*" . "~/.emacs_backups/"))))
-
 ;; Theme
 (load-theme 'solarized-dark t)
 
