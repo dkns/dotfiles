@@ -159,8 +159,10 @@ re-downloaded in order to locate PACKAGE."
 
 ;; ========== Place Backup Files in Specific Directory ==========
 
-;; Enable backup files.
-(setq make-backup-files nil)
+;; Disable backup files.
+(setq make-backup-files t)
+(setq backup-by-copying t)
+(setq backup-directory-alist `(("." . "~/.saves")))
 
 ;; Enable versioning with default values (keep five last versions, I think!)
 (setq version-control t)
@@ -206,9 +208,10 @@ re-downloaded in order to locate PACKAGE."
 (add-to-list 'auto-mode-alist '("\\.html?\\'" . web-mode))
 
 ;; Org mode!
-(define-key global-map "\C-cl" 'org-store-link)
-(define-key global-map "\C-ca" 'org-agenda)
+(require 'org)
 (setq org-log-done t)
+(setq org-todo-keywords
+  '((sequence "TODO" "IN-PROGRESS" "DONE")))
 
 ;; Ask "y" or "n" instead of "yes" or "no". Yes, laziness is great.
 (fset 'yes-or-no-p 'y-or-n-p)
