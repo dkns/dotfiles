@@ -279,3 +279,7 @@ re-downloaded in order to locate PACKAGE."
 (powerline-default-theme)
 
 (blink-cursor-mode (- (*) (*) (*)))
+
+(require 'server)
+(unless (server-running-p)
+  (start-server))
