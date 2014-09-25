@@ -40,7 +40,6 @@ re-downloaded in order to locate PACKAGE."
    solarized-theme
    php-mode
    web-mode
-   indent-guide
    flycheck-pos-tip
    nyan-mode
    smooth-scrolling
@@ -226,12 +225,12 @@ re-downloaded in order to locate PACKAGE."
 (add-hook 'before-save-hook 'whitespace-cleanup)
 (add-hook 'before-save-hook (lambda() (delete-trailing-whitespace)))
 
-;; because why not
-;; (nyan-mode t)
-
-;; indent-guide
-(setq indent-guide-recursive t)
-(indent-guide-global-mode)
+;; show spaces, tabs and stuff
+(setq whitespace-style '(face
+                         tabs
+                         tab-mark
+                         trailing))
+(global-whitespace-mode)
 
 ;; show popup when using flycheck
 (eval-after-load 'flycheck
