@@ -118,9 +118,9 @@ if !isdirectory(backupdir)
   call mkdir(backupdir)
 endif
 
-let backupdir = expand('~/.vim/undo')
-if !isdirectory(backupdir)
-  call mkdir(backupdir)
+let undodir = expand('~/.vim/undo')
+if !isdirectory(undodir)
+  call mkdir(undodir)
 endif
 
 " Force backups to be copied from original, not renamed
