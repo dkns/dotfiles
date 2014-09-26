@@ -234,6 +234,12 @@ endfunction
 
 " Don't move on * From sjl dotfiles
 nnoremap <silent> * :let stay_star_view = winsaveview()<cr>*:call winrestview(stay_star_view)<cr>
+
+" sudo apt-get install wmctrl for this to work
+function Maximize_Window()
+  silent !wmctrl -r :ACTIVE: -b add,maximized_vert,maximized_horz
+endfunction
+au GUIEnter * call Maximize_Window()
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Plugins
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
