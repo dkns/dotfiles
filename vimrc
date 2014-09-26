@@ -23,6 +23,7 @@ Plugin 'tpope/vim-commentary'
 Plugin 'Valloric/MatchTagAlways'
 Plugin 'bling/vim-airline'
 Plugin 'altercation/vim-colors-solarized'
+Plugin 'mhinz/vim-blockify'
 
 call vundle#end()
 filetype plugin indent on " and turn it back on!
