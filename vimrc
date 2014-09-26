@@ -139,7 +139,7 @@ set rtp+=~/.fzf
 
 " String to put at the start of lines that have been wrapped "
 let &showbreak='↪ '
-set colorcolumn=80 " Draws a vertical line at column 80 "
+" set colorcolumn=80 " Draws a vertical line at column 80
 
 " Don't update the display while executing macros
 set lazyredraw
@@ -155,7 +155,9 @@ set backspace=indent,eol,start
 set autoread
 
 " Yank to clipboard
-set clipboard+=unnamed
+set clipboard+=unnamedplus
+
+set synmaxcol=256
 
 if has('gui_running')
     set guioptions-=m " remove menu bar
@@ -200,7 +202,7 @@ nnoremap k gk
 " Use H and L to move to beginning and end of the line
 noremap H ^
 noremap L $
-" Use jk to exit insert mode 
+" Use jk to exit insert mode
 imap jk <ESC>
 " Error checking
 autocmd FileType php nmap <buffer> <F5> :w<Esc>:!php -l %<CR>
