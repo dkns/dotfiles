@@ -181,8 +181,8 @@ let mapleader=" "
 nnoremap <silent> <F9> :w<CR>:SyntasticCheck<CR>
 inoremap <silent> <F9> <Esc>:w<CR>:SyntasticCheck<CR>a
 " opening new splits
-nnoremap <leader>v :vsplit<CR>
-nnoremap <leader>h :split<CR>
+nnoremap <leader>v :split<CR>
+nnoremap <leader>h :vsplit<CR>
 " clear the last search (instead of typing /asdfghjkl)
 nnoremap <leader>c :noh<CR>
 " navigating splits
