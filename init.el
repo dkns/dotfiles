@@ -1,6 +1,6 @@
 (require 'package)
 (add-to-list 'package-archives
-	     '("melpa" . "http://melpa.milkbox.net/packages/") t)
+             '("melpa" . "http://melpa.milkbox.net/packages/") t)
 
 ;;; from purcell/emacs.d
 (defun require-package (package &optional min-version no-refresh)
@@ -10,10 +10,10 @@ re-downloaded in order to locate PACKAGE."
   (if (package-installed-p package min-version)
       t
     (if (or (assoc package package-archive-contents) no-refresh)
-	(package-install package)
+        (package-install package)
       (progn
-	(package-refresh-contents)
-	(require-package package min-version t)))))
+        (package-refresh-contents)
+        (require-package package min-version t)))))
 
 (package-initialize)
 ;; Set up the package manager of choice. Supports "el-get" and "package.el"
@@ -59,13 +59,13 @@ re-downloaded in order to locate PACKAGE."
     (package-initialize)
     (let ((need-refresh nil))
       (mapc (lambda (package-name)
-	  (unless (package-installed-p package-name)
-	(set 'need-refresh t))) wanted-packages)
+          (unless (package-installed-p package-name)
+        (set 'need-refresh t))) wanted-packages)
       (if need-refresh
-	(package-refresh-contents)))
+        (package-refresh-contents)))
     (mapc (lambda (package-name)
-	(unless (package-installed-p package-name)
-	  (package-install package-name))) wanted-packages)
+        (unless (package-installed-p package-name)
+          (package-install package-name))) wanted-packages)
     )
    ;; el-get
    ((string= pmoc "el-get")
@@ -253,8 +253,8 @@ re-downloaded in order to locate PACKAGE."
 (defun my-linum-get-format-string ()
   ; The + 2 defines the leeway we have in the sidebar
   (let* ((width (+ 3 (length (number-to-string
-			     (count-lines (point-min) (point-max))))))
-	 (format (concat "%" (number-to-string width) "d")))
+                             (count-lines (point-min) (point-max))))))
+         (format (concat "%" (number-to-string width) "d")))
     (setq my-linum-format-string format)))
 
 (defvar my-linum-current-line-number 0)
@@ -265,12 +265,12 @@ re-downloaded in order to locate PACKAGE."
 (defun my-linum-relative-line-numbers (line-number)
     (let ((offset (- line-number my-linum-current-line-number)))
       (if (= offset 0)
-	  (propertize (format my-linum-format-string line-number) 'face 'linum)
-	  (propertize (format my-linum-format-string (abs offset)) 'face 'linum))))
+          (propertize (format my-linum-format-string line-number) 'face 'linum)
+          (propertize (format my-linum-format-string (abs offset)) 'face 'linum))))
 
 (defadvice linum-update (around my-linum-update)
-	     (let ((my-linum-current-line-number (line-number-at-pos)))
-		   ad-do-it))
+             (let ((my-linum-current-line-number (line-number-at-pos)))
+                   ad-do-it))
 (ad-activate 'linum-update)
 
 ;; powerline
