@@ -158,7 +158,7 @@ set autoread
 " Yank to clipboard
 set clipboard+=unnamedplus
 
-set synmaxcol=256
+set synmaxcol=180
 
 if has('gui_running')
     set guioptions-=m " remove menu bar
