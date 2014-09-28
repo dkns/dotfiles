@@ -25,6 +25,7 @@ Plugin 'bling/vim-airline'
 Plugin 'mhinz/vim-blockify'
 Plugin 'altercation/vim-colors-solarized'
 Plugin 'othree/html5.vim'
+Plugin 'sjl/gundo.vim'
 
 call vundle#end()
 filetype plugin indent on " and turn it back on!
