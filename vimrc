@@ -135,6 +135,7 @@ set undoreload=10000        " number of lines to save for undo
 set rtp+=~/.fzf
 
 " String to put at the start of lines that have been wrapped "
+set linebreak
 let &showbreak='↪ '
 
 " Don't update the display while executing macros
