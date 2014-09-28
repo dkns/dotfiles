@@ -17,13 +17,13 @@ call vundle#begin()
 
 Plugin 'gmarik/Vundle.vim'
 Plugin 'tpope/vim-surround'
-Plugin 'Valloric/YouCompleteMe'
-Plugin 'Raimondi/delimitMate'
 Plugin 'tpope/vim-commentary'
+Plugin 'Valloric/YouCompleteMe'
 Plugin 'Valloric/MatchTagAlways'
+Plugin 'Raimondi/delimitMate'
 Plugin 'bling/vim-airline'
-Plugin 'altercation/vim-colors-solarized'
 Plugin 'mhinz/vim-blockify'
+Plugin 'altercation/vim-colors-solarized'
 
 call vundle#end()
 filetype plugin indent on " and turn it back on!
@@ -68,7 +68,8 @@ set ruler
 " Always display the status line, even if only one window is displayed
 set laststatus=2
 
-" Syntax highlight shell scripts as per POSIX, not the original Bourne shell which very few use.
+" Syntax highlight shell scripts as per POSIX,
+" not the original Bourne shell which very few use.
 let g:is_posix = 1
 
 " Set the command window height to 2 lines, to avoid many cases of having to
@@ -80,9 +81,6 @@ set wildmenu
 
 " highlight current line
 set cursorline
-
-" fancier statusline
-set statusline=%<%f\ %h%m%r%=%k[%{(&fenc==\"\")?&enc:&fenc}%{(&bomb?\",BOM\":\"\")}]\ %-14.(%l,%c%V%)\ %P
 
 " open new splits to the right and below
 set splitright
@@ -109,11 +107,6 @@ autocmd FileType python setlocal expandtab shiftwidth=4 softtabstop=4
 autocmd FileType html setlocal ts=2 et sts=2 sw=2
 
 " Create backup/undo dirs
-let swapdir = expand('~/.vim/swap')
-if !isdirectory(swapdir)
-  call mkdir(swapdir)
-endif
-
 let backupdir = expand('~/.vim/backup')
 if !isdirectory(backupdir)
   call mkdir(backupdir)
@@ -140,7 +133,6 @@ set rtp+=~/.fzf
 
 " String to put at the start of lines that have been wrapped "
 let &showbreak='↪ '
-" set colorcolumn=80 " Draws a vertical line at column 80
 
 " Don't update the display while executing macros
 set lazyredraw
@@ -158,6 +150,7 @@ set autoread
 " Yank to clipboard
 set clipboard+=unnamedplus
 
+" Better handling of large files (no idea why this works though)
 set synmaxcol=180
 
 if has('gui_running')
@@ -177,9 +170,6 @@ endif
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " set leader key
 let mapleader=" "
-" Check for syntax errors using syntastic
-nnoremap <silent> <F9> :w<CR>:SyntasticCheck<CR>
-inoremap <silent> <F9> <Esc>:w<CR>:SyntasticCheck<CR>a
 " opening new splits
 nnoremap <leader>v :split<CR>
 nnoremap <leader>h :vsplit<CR>
