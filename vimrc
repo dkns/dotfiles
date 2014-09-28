@@ -26,6 +26,7 @@ Plugin 'mhinz/vim-blockify'
 Plugin 'altercation/vim-colors-solarized'
 Plugin 'othree/html5.vim'
 Plugin 'sjl/gundo.vim'
+Plugin 'kien/ctrlp.vim'
 
 call vundle#end()
 filetype plugin indent on " and turn it back on!
@@ -236,9 +237,12 @@ au GUIEnter * call Maximize_Window()
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Plugins
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-
 " YouCompleteMe
 let g:ycm_collect_identifiers_from_tags_files = 1
 let g:ycm_collect_identifiers_from_comments_and_strings = 1
 let g:ycm_seed_identifiers_with_syntax = 1
 let g:ycm_autoclose_preview_window_after_completion = 1
+" CtrlP
+let g:ctrlp_extensions = ['tag', 'buffertag', 'dir',
+                          \ 'undo', 'line', 'changes', 'mixed', 'bookmarkdir']
+let g:ctrlp_cmd = 'CtrlPMixed'
