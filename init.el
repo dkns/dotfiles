@@ -104,6 +104,14 @@ re-downloaded in order to locate PACKAGE."
       evil-want-C-w-in-emacs-state t)
 
 (evil-leader/set-key "co" 'evilnc-comment-or-uncomment-lines)
+;; open splits
+(evil-leader/set-key "v" 'split-window-vertically)
+(evil-leader/set-key "h" 'split-window-horizontally)
+;; navigate splits
+(global-set-key (kbd "C-h") 'windmove-left)
+(global-set-key (kbd "C-j") 'windmove-down)
+(global-set-key (kbd "C-k") 'windmove-up)
+(global-set-key (kbd "C-l") 'windmove-right)
 
 ;; j and k move the visual line in long wrapped lines
 (define-key evil-normal-state-map (kbd "j") 'evil-next-visual-line)
