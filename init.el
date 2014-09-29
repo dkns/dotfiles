@@ -46,7 +46,6 @@ re-downloaded in order to locate PACKAGE."
    flycheck-pos-tip
    nyan-mode
    smooth-scrolling
-   smex
 ))
 
 ;; Package manager and packages handler
@@ -93,8 +92,6 @@ re-downloaded in order to locate PACKAGE."
 (global-evil-matchit-mode t)
 (global-evil-surround-mode t)
 (global-evil-leader-mode)
-(require-package 'evil)
-(evil-mode t)
 (evil-leader/set-leader "SPC")
 (setq evil-leader/in-all-states t)
 (setq evil-emacs-state-cursor '("red" box)
@@ -299,6 +296,9 @@ re-downloaded in order to locate PACKAGE."
 (add-hook 'after-init-hook 'global-company-mode)
 
 ;; smex
-(require 'smex)
-(smex-initalize)
-(global-set-key (kbd "M-x") 'smex)
+; (require 'smex)
+; (smex-initialize)
+; (global-set-key (kbd "M-x") 'smex)
+
+(require 'evil)
+(evil-mode 1)
