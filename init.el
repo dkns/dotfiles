@@ -1,6 +1,4 @@
 (require 'package)
-(smex-initalize)
-(global-set-key (kbd "M-x") 'smex)
 (add-to-list 'package-archives
              '("melpa" . "http://melpa.milkbox.net/packages/") t)
 
@@ -46,6 +44,7 @@ re-downloaded in order to locate PACKAGE."
    flycheck-pos-tip
    nyan-mode
    smooth-scrolling
+   smex
 ))
 
 ;; Package manager and packages handler
@@ -296,9 +295,9 @@ re-downloaded in order to locate PACKAGE."
 (add-hook 'after-init-hook 'global-company-mode)
 
 ;; smex
-; (require 'smex)
-; (smex-initialize)
-; (global-set-key (kbd "M-x") 'smex)
+(require 'smex)
+(smex-initialize)
+(global-set-key (kbd "M-x") 'smex)
 
 (require 'evil)
 (evil-mode 1)
