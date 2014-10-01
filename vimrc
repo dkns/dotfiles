@@ -200,7 +200,7 @@ noremap L $
 " Use jk to exit insert mode
 imap jk <ESC>
 " insert ; at the end of the line
-imap <leader>e <ESC>A;<ESC>
+" imap <leader>e <ESC>A;<ESC>
 " Error checking
 autocmd FileType php nmap <buffer> <F5> :w<Esc>:!php -l %<CR>
 autocmd FileType python nmap <buffer> <F5> :w<Esc>:exec '!python' shellescape(@%, 1)<CR>
