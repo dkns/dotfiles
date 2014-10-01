@@ -186,8 +186,6 @@ nnoremap <C-L> <C-W><C-L>
 nnoremap <C-H> <C-W><C-H>
 " Make Y behave similar to D and C
 nnoremap Y y$
-" Search
-nnoremap <leader>t :FZF
 " Keep search matches in the middle of the window.
 nnoremap n nzzzv
 nnoremap N Nzzzv
