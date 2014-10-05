@@ -88,6 +88,8 @@ re-downloaded in order to locate PACKAGE."
 (install-wanted-packages)
 
 ;; evil
+(require 'evil)
+(evil-mode 1)
 (global-evil-matchit-mode t)
 (global-evil-surround-mode t)
 (global-evil-leader-mode)
@@ -299,5 +301,3 @@ re-downloaded in order to locate PACKAGE."
 (smex-initialize)
 (global-set-key (kbd "M-x") 'smex)
 
-(require 'evil)
-(evil-mode 1)
