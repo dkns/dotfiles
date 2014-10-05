@@ -20,7 +20,6 @@ Plugin 'tpope/vim-surround'
 Plugin 'tpope/vim-commentary'
 Plugin 'Valloric/YouCompleteMe'
 Plugin 'Valloric/MatchTagAlways'
-Plugin 'Raimondi/delimitMate'
 Plugin 'bling/vim-airline'
 Plugin 'mhinz/vim-blockify'
 Plugin 'altercation/vim-colors-solarized'
@@ -28,6 +27,7 @@ Plugin 'othree/html5.vim'
 Plugin 'sjl/gundo.vim'
 Plugin 'kien/ctrlp.vim'
 Plugin 'bronson/vim-trailing-whitespace'
+Plugin 'jiangmiao/auto-pairs'
 
 call vundle#end()
 filetype plugin indent on " and turn it back on!
