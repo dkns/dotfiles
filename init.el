@@ -289,10 +289,6 @@ re-downloaded in order to locate PACKAGE."
 
 (blink-cursor-mode (- (*) (*) (*)))
 
-(require 'server)
-(unless (server-running-p)
-  (start-server))
-
 ;; company mode
 (add-hook 'after-init-hook 'global-company-mode)
 
@@ -300,4 +296,3 @@ re-downloaded in order to locate PACKAGE."
 (require 'smex)
 (smex-initialize)
 (global-set-key (kbd "M-x") 'smex)
-
