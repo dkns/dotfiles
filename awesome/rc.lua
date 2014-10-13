@@ -72,7 +72,7 @@ layouts =
 -- {{{ Tags
 -- Define a tag table which hold all screen tags.
 tags = {
-    names = { "main", "test" },
+    names = { "1:Web", "2:Terminal", "3:Comms" },
     layout = { layouts[1], layouts[1]
 }}
 for s = 1, screen.count() do
@@ -382,3 +382,4 @@ client.add_signal("unfocus", function(c) c.border_color = beautiful.border_norma
 
 -- autostart apps
 awful.util.spawn_with_shell("pgrep -u $USER -x nm-applet > /dev/null || (nm-applet &)")
+awful.util.spawn_with_shell("dropbox start")
