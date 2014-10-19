@@ -117,3 +117,5 @@ fkill() {
 alias fe=fe()
 alias fd=fd()
 alias fkill=fkill()
+
+alias pingg='ping 8.8.8.8 -c 60'
