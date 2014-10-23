@@ -189,8 +189,8 @@ nnoremap Y y$
 nnoremap n nzzzv
 nnoremap N Nzzzv
 " Wrapped lines goes down/up to next row, rather than next line in file.
-nnoremap j gj
-nnoremap k gk
+nnoremap <expr> k (v:count == 0 ? 'gk' : 'k')
+nnoremap <expr> j (v:count == 0 ? 'gj' : 'j')
 " Use H and L to move to beginning and end of the line
 noremap H ^
 noremap L $
