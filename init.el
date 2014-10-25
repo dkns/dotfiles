@@ -23,6 +23,7 @@ re-downloaded in order to locate PACKAGE."
 (setq
  wanted-packages
  '(
+   aggressive-indent
    powerline
    popup
    multiple-cursors
@@ -296,3 +297,6 @@ re-downloaded in order to locate PACKAGE."
 (require 'smex)
 (smex-initialize)
 (global-set-key (kbd "M-x") 'smex)
+
+;; aggresive indent
+(global-aggressive-indent-mode 1)
