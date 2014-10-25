@@ -234,6 +234,16 @@ function Maximize_Window()
   silent !wmctrl -r :ACTIVE: -b add,maximized_vert,maximized_horz
 endfunction
 au GUIEnter * call Maximize_Window()
+" jump to last known cursos position when reopening a buffer
+function! s:JumpToLastKnownCursorPosition()
+    if line("'\"") <= 1 | return | endif
+    if line("'\"") > line("$") | return | endif
+    " Ignore git commit messages and git rebase scripts
+    if expand("%") =~# '\(^\|/\)\.git/' | return | endif
+    execute "normal! g`\"" |
+endfunction
+
+autocmd BufReadPost * call s:JumpToLastKnownCursorPosition()
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Plugins
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
