@@ -1,6 +1,6 @@
 (require 'package)
 (add-to-list 'package-archives
-             '("melpa" . "http://melpa.milkbox.net/packages/") t)
+             '("melpa" . "http://melpa.org/packages/") t)
 
 ;;; from purcell/emacs.d
 (defun require-package (package &optional min-version no-refresh)
@@ -56,7 +56,7 @@ re-downloaded in order to locate PACKAGE."
    ((string= pmoc "package.el")
     (require 'package)
     (add-to-list 'package-archives '("gnu" . "http://elpa.gnu.org/packages/"))
-    (add-to-list 'package-archives '("melpa" . "http://melpa.milkbox.net/packages/"))
+    (add-to-list 'package-archives '("melpa" . "http://melpa.org/packages/"))
     (add-to-list 'package-archives '("marmelade" . "http://marmalade-repo.org/packages/"))
     (package-initialize)
     (let ((need-refresh nil))
