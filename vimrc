@@ -205,6 +205,8 @@ autocmd FileType python nmap <buffer> <F5> :w<Esc>:exec '!python' shellescape(@%
 nnoremap <leader>p "+p
 " (c)opy (e)verything to clipboard
 nnoremap <leader>ce ggVG"+y
+" save read only file
+cnoremap w!! w !sudo tee % >/dev/null
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Custom functions
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
