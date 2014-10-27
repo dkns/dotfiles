@@ -211,6 +211,8 @@ nnoremap <leader>ce ggVG"+y
 cnoremap w!! w !sudo tee % >/dev/null
 " statusline
 set statusline=%<[%n]\ %F\ %m%r%y\ %{exists('g:loaded_fugitive')?fugitive#statusline():''}\ %=%-14.(%l,%c%V%)\ %P
+" Show absolute line numbers when the window isn't in focus.
+au WinEnter * setl rnu | au WinLeave * setl nornu
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Custom functions
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
