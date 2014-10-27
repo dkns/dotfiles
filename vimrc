@@ -2,38 +2,39 @@
 " have made, as well as sanely reset options when re-sourcing .vimrc
 set nocompatible
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Vundle
+" Plugin manager
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Vundle install
-filetype off                   " must be off before Vundle has run
 
-if !isdirectory(expand("~/.vim/bundle/Vundle.vim/.git"))
-    !git clone https://github.com/gmarik/Vundle.vim.git ~/.vim/bundle/Vundle.vim
+let iCanHazPlugged=1
+let vim_plug_file=expand("~/.vim/autoload/plug.vim")
+if !filereadable(vim_plug_file)
+    echo "Installing vim-plug"
+    echo ""
+    silent !mkdir -p ~/.vim/autoload
+    silent !curl -fLo ~/.vim/autoload/plug.vim https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+    let iCanHazPlugged=0
 endif
 
-set runtimepath+=~/.vim/bundle/Vundle.vim
+call plug#begin()
 
-call vundle#begin()
+Plug 'junegunn/vim-plug'
+Plug 'tpope/vim-surround'
+Plug 'tpope/vim-commentary', { 'on': '<Plug>Commentary' }
+Plug 'Valloric/YouCompleteMe'
+Plug 'Valloric/MatchTagAlways', { 'for': 'html' }
+Plug 'justinmk/vim-matchparenalways'
+Plug 'altercation/vim-colors-solarized'
+Plug 'othree/html5.vim', { 'for': 'html' }
+Plug 'sjl/gundo.vim', { 'on': 'GundoToggle' }
+Plug 'bronson/vim-trailing-whitespace', { 'on': 'FixWhitespace' }
+Plug 'jiangmiao/auto-pairs'
 
-Plugin 'gmarik/Vundle.vim'
-Plugin 'tpope/vim-surround'
-Plugin 'tpope/vim-commentary'
-Plugin 'Valloric/YouCompleteMe'
-Plugin 'Valloric/MatchTagAlways'
-Plugin 'justinmk/vim-matchparenalways'
-Plugin 'altercation/vim-colors-solarized'
-Plugin 'othree/html5.vim'
-Plugin 'sjl/gundo.vim'
-Plugin 'bronson/vim-trailing-whitespace'
-Plugin 'jiangmiao/auto-pairs'
-
-call vundle#end()
-filetype plugin indent on " and turn it back on!
+call plug#end()
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " General
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-
+filetype plugin indent on
 " show numberlines
 set nu
 " set relative numbers
