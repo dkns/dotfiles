@@ -28,6 +28,7 @@ Plug 'othree/html5.vim', { 'for': 'html' }
 Plug 'sjl/gundo.vim', { 'on': 'GundoToggle' }
 Plug 'bronson/vim-trailing-whitespace', { 'on': 'FixWhitespace' }
 Plug 'jiangmiao/auto-pairs'
+Plug 'tpope/vim-fugitive'
 
 call plug#end()
 
@@ -208,6 +209,8 @@ nnoremap <leader>p "+p
 nnoremap <leader>ce ggVG"+y
 " save read only file
 cnoremap w!! w !sudo tee % >/dev/null
+" statusline
+set statusline=%<[%n]\ %F\ %m%r%y\ %{exists('g:loaded_fugitive')?fugitive#statusline():''}\ %=%-14.(%l,%c%V%)\ %P
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Custom functions
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
