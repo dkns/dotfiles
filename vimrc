@@ -214,6 +214,8 @@ cnoremap w!! w !sudo tee % >/dev/null
 set statusline=%<[%n]\ %F\ %m%r%y\ %{exists('g:loaded_fugitive')?fugitive#statusline():''}\ %=%-14.(%l,%c%V%)\ %P
 " Show absolute line numbers when the window isn't in focus.
 au WinEnter * setl rnu | au WinLeave * setl nornu
+" ignore files
+set wildignore+=*.zip,*.tar.gz,*.tar.bz2,*.rar,*.tar.xz
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Custom functions
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
