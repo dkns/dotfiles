@@ -29,6 +29,7 @@ Plug 'sjl/gundo.vim', { 'on': 'GundoToggle' }
 Plug 'bronson/vim-trailing-whitespace', { 'on': 'FixWhitespace' }
 Plug 'jiangmiao/auto-pairs'
 Plug 'tpope/vim-fugitive'
+Plug 'scrooloose/syntastic'
 
 call plug#end()
 
