@@ -58,6 +58,12 @@ set t_ut=
 " When opening a new line and no filetype-specific indenting is enabled, keep
 " the same indent as the line you're currently on. Useful for READMEs, etc.
 set autoindent
+" smart tab handling for indenting
+set smarttab
+" smart auto indent
+set smartindent
+" remember copy registers after quitting in the .viminfo file -- 20 jump links, regs up to 500 lines'
+set viminfo='20,\"500
 
 set scrolloff=5
 
