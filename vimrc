@@ -221,6 +221,9 @@ nnoremap <leader>p "+p
 nnoremap <leader>ce ggVG"+y
 " save read only file
 cnoremap w!! w !sudo tee % >/dev/null
+" delete to blackhole register
+nnoremap <leader>d "_d
+vnoremap <leader>d "_d
 " statusline
 set statusline=%<[%n]\ %F\ %m%r%y\ %{exists('g:loaded_fugitive')?fugitive#statusline():''}\ %=%-14.(%l,%c%V%)\ %P
 " Show absolute line numbers when the window isn't in focus.
