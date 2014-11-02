@@ -19,7 +19,7 @@ call plug#begin()
 
 Plug 'junegunn/vim-plug'
 Plug 'tpope/vim-surround'
-Plug 'tpope/vim-commentary', { 'on': '<Plug>Commentary' }
+Plug 'tpope/vim-commentary',
 Plug 'Valloric/YouCompleteMe'
 Plug 'Valloric/MatchTagAlways', { 'for': 'html' }
 Plug 'justinmk/vim-matchparenalways'
