@@ -173,10 +173,12 @@ if has('gui_running')
     set guicursor=a:blinkon0
 endif
 
-" I've had enough
-:command W w
-:command Q q
-
+" statusline
+set statusline=%<[%n]\ %F\ %m%r%y\ %{exists('g:loaded_fugitive')?fugitive#statusline():''}\ %=%-14.(%l,%c%V%)\ %P
+" Show absolute line numbers when the window isn't in focus.
+au WinEnter * setl rnu | au WinLeave * setl nornu
+" ignore files
+set wildignore+=*.zip,*.tar.gz,*.tar.bz2,*.rar,*.tar.xz
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Keybinds
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -224,12 +226,9 @@ cnoremap w!! w !sudo tee % >/dev/null
 " delete to blackhole register
 nnoremap <leader>d "_d
 vnoremap <leader>d "_d
-" statusline
-set statusline=%<[%n]\ %F\ %m%r%y\ %{exists('g:loaded_fugitive')?fugitive#statusline():''}\ %=%-14.(%l,%c%V%)\ %P
-" Show absolute line numbers when the window isn't in focus.
-au WinEnter * setl rnu | au WinLeave * setl nornu
-" ignore files
-set wildignore+=*.zip,*.tar.gz,*.tar.bz2,*.rar,*.tar.xz
+" I've had enough
+:command W w
+:command Q q
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Custom functions
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
