@@ -170,9 +170,7 @@ re-downloaded in order to locate PACKAGE."
 ;; ========== Place Backup Files in Specific Directory ==========
 
 ;; Disable backup files.
-(setq make-backup-files t)
-(setq backup-by-copying t)
-(setq backup-directory-alist `(("." . "~/.saves")))
+(setq make-backup-files nil)
 
 ;; Enable versioning with default values (keep five last versions, I think!)
 (setq version-control t)
