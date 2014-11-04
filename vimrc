@@ -107,6 +107,8 @@ set shortmess+=A
 
 " Look for tags in directory above
 set tags=./tags;/
+" enable mouse in all modes
+mouse=a
 
 "Default indenting
 set expandtab
