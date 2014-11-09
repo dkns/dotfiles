@@ -161,6 +161,8 @@ re-downloaded in order to locate PACKAGE."
 ;; Who use the bar to scroll?
 (scroll-bar-mode 0)
 
+;; word wrapping
+(visual-line-mode 1)
 ;; ===== Set the highlight current line minor mode =====
 
 ;; In every buffer, the line which contains the cursor will be fully
