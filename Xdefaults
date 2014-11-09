@@ -12,6 +12,7 @@ URxvt*scrollTtyKeypress: True
 URxvt*secondaryScroll: True
 URxvt*saveLines: 8000
 URxvt.intensityStyles: false
+URxvt*loginShell: true
 
 ! Solarized color scheme for the X Window System
 !
