@@ -112,10 +112,10 @@ re-downloaded in order to locate PACKAGE."
 (evil-leader/set-key "v" 'split-window-vertically)
 (evil-leader/set-key "h" 'split-window-horizontally)
 ;; navigate splits
-(global-set-key (kbd "C-h") 'windmove-left)
-(global-set-key (kbd "C-j") 'windmove-down)
-(global-set-key (kbd "C-k") 'windmove-up)
-(global-set-key (kbd "C-l") 'windmove-right)
+(define-key evil-normal-state-map (kbd "C-h") 'evil-window-left)
+(define-key evil-normal-state-map (kbd "C-j") 'evil-window-down)
+(define-key evil-normal-state-map (kbd "C-k") 'evil-window-up)
+(define-key evil-normal-state-map (kbd "C-l") 'evil-window-right)
 
 ;; j and k move the visual line in long wrapped lines
 (define-key evil-normal-state-map (kbd "j") 'evil-next-visual-line)
