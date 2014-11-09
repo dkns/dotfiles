@@ -46,7 +46,8 @@ re-downloaded in order to locate PACKAGE."
    nyan-mode
    smooth-scrolling
    smex
-))
+   projectile
+   ))
 
 ;; Package manager and packages handler
 (defun install-wanted-packages ()
@@ -298,3 +299,9 @@ re-downloaded in order to locate PACKAGE."
 
 ;; aggresive indent
 (global-aggressive-indent-mode 1)
+
+;; projectile mode
+(projectile-global-mode)
+
+;; enforce trailing newline
+(setq require-final-newline t)
