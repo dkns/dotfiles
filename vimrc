@@ -31,6 +31,7 @@ Plug 'jiangmiao/auto-pairs'
 Plug 'tpope/vim-fugitive'
 Plug 'scrooloose/syntastic'
 Plug 'Konfekt/FastFold'
+Plug 'SirVer/ultisnips'
 
 call plug#end()
 
