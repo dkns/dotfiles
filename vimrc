@@ -32,6 +32,7 @@ Plug 'tpope/vim-fugitive'
 Plug 'scrooloose/syntastic'
 Plug 'Konfekt/FastFold'
 Plug 'SirVer/ultisnips'
+Plug 'mattn/emmet-vim'
 
 call plug#end()
 
