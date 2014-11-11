@@ -24,7 +24,6 @@ re-downloaded in order to locate PACKAGE."
  wanted-packages
  '(
    aggressive-indent
-   powerline
    popup
    multiple-cursors
    flycheck
@@ -284,10 +283,6 @@ re-downloaded in order to locate PACKAGE."
              (let ((my-linum-current-line-number (line-number-at-pos)))
                    ad-do-it))
 (ad-activate 'linum-update)
-
-;; powerline
-(require 'powerline)
-(powerline-default-theme)
 
 (blink-cursor-mode (- (*) (*) (*)))
 
