@@ -216,7 +216,7 @@ noremap L $
 " Use jk to exit insert mode
 imap jk <ESC>
 " insert ; at the end of the line
-" imap <leader>e <ESC>A;<ESC>
+imap ;; <ESC>A;<ESC>
 " use arrows to resize window
 noremap <up>    <C-W>+
 noremap <down>  <C-W>-
