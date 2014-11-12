@@ -46,6 +46,8 @@ re-downloaded in order to locate PACKAGE."
    god-mode
    smex
    projectile
+   dash
+   smart-mode-line
    ))
 
 ;; Package manager and packages handler
@@ -196,7 +198,9 @@ re-downloaded in order to locate PACKAGE."
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(custom-safe-themes (quote ("8aebf25556399b58091e533e455dd50a6a9cba958cc4ebb0aab175863c25b9a4" default))))
+ '(custom-safe-themes (quote ("6a37be365d1d95fad2f4d185e51928c789ef7a4ccf17e7ca13ad63a8bf5b922f" "8aebf25556399b58091e533e455dd50a6a9cba958cc4ebb0aab175863c25b9a4" default)))
+ '(flycheck-display-errors-function (function flycheck-pos-tip-error-messages))
+ '(initial-frame-alist (quote ((fullscreen . maximized)))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
@@ -254,8 +258,7 @@ re-downloaded in order to locate PACKAGE."
 (setq scroll-conservatively 9999
       scroll-preserve-screen-position t)
 
-(custom-set-variables
- '(initial-frame-alist (quote ((fullscreen . maximized))))) ;; start maximized
+ ;; start maximized
 
 (defvar my-linum-format-string "%5d")
 
@@ -305,3 +308,7 @@ re-downloaded in order to locate PACKAGE."
 
 ;; god mode
 (require 'god-mode)
+
+;; smart mode line
+(require 'smart-mode-line)
+(sml/setup)
