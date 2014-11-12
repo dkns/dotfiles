@@ -42,8 +42,8 @@ re-downloaded in order to locate PACKAGE."
    php-mode
    web-mode
    flycheck-pos-tip
-   nyan-mode
    smooth-scrolling
+   god-mode
    smex
    projectile
    ))
@@ -302,3 +302,6 @@ re-downloaded in order to locate PACKAGE."
 
 ;; enforce trailing newline
 (setq require-final-newline t)
+
+;; god mode
+(require 'god-mode)
