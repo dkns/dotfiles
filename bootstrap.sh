@@ -15,7 +15,7 @@
 #
 
 check_programs=(vim-gnome i3 curl cmus ranger zsh \
-exuberant-ctags fonts-inconsolata rxvt-unicode-265color \
+exuberant-ctags fonts-inconsolata rxvt-unicode \
 ack-grep)
 
 install_programs=()
