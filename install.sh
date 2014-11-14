@@ -8,8 +8,6 @@
 
 dir=~/dotfiles                    # dotfiles directory
 olddir=~/dotfiles_old             # old dotfiles backup directory
-# TODO: make this go through every file/dir in dotfiles repo instead of manually typing which
-# files/dirs should be linked
 files="vimrc bashrc zshrc gitconfig tmux.conf"    # list of files/folders to symlink in homedir
 
 ##########
@@ -32,6 +30,3 @@ for file in $files; do
     ln -s $dir/$file ~/.$file
 done
 
-# TODO: install i3, bin scripts, emacs.d, awesome?, Xdefaults
-# required programs: urxvt, wmctrl (used for maximizing gvim), vim-gnome, emacs,
-# inconsolata font, some stuff for installing youcompleteme
