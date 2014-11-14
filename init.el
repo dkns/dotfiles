@@ -49,6 +49,7 @@ re-downloaded in order to locate PACKAGE."
    dash
    smart-mode-line
    jedi
+   helm
    ))
 
 ;; Package manager and packages handler
@@ -332,3 +333,13 @@ re-downloaded in order to locate PACKAGE."
 (setq ido-enable-flex-matching t)
 (setq ido-everywhere t)
 (ido-mode 1)
+
+;; god mode keybinds for navigating buffers
+(global-set-key (kbd "C-x C-1") 'delete-other-windows)
+(global-set-key (kbd "C-x C-2") 'split-window-below)
+(global-set-key (kbd "C-x C-3") 'split-window-right)
+(global-set-key (kbd "C-x C-0") 'delete-window)
+
+;; helm
+('require helm-config)
+(helm-mode 1)
