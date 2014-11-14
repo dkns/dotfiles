@@ -341,5 +341,5 @@ re-downloaded in order to locate PACKAGE."
 (global-set-key (kbd "C-x C-0") 'delete-window)
 
 ;; helm
-('require helm-config)
+(require 'helm-config)
 (helm-mode 1)
