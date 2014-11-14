@@ -1,11 +1,11 @@
-URxvt.perl-ext-common : default,matcher
+URxvt.perl-ext-common : default,matcher,clipboard
 URxvt.urlLauncher     : firefox
 URxvt.matcher.button  : 1
 
 ! fonts
 ! run "fc-list" for a list of available fonts
 ! URxvt*font: xft:Monospace:pixelsize=12
-URxvt*font:  xft:inconsolata:size=12:antialias=true
+URxvt*font:  xft:inconsolata:size=10:antialias=true
 
 URxvt*scrollBar: False
 URxvt*scrollTtyOutput: False
