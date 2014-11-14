@@ -68,6 +68,8 @@ set autoindent
 set smarttab
 " smart auto indent
 set smartindent
+" copy the previous indentation on autoindenting
+set copyindent
 " remember copy registers after quitting in the .viminfo file -- 20 jump links, regs up to 500 lines'
 set viminfo='20,\"500
 
