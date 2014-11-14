@@ -327,3 +327,8 @@ re-downloaded in order to locate PACKAGE."
 
 ;; autocompletion for python
 (add-hook 'python-mode-hook 'jedi:setup)
+
+;; enable ido mode
+(setq ido-enable-flex-matching t)
+(setq ido-everywhere t)
+(ido-mode 1)
