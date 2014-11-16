@@ -157,6 +157,9 @@ set undoreload=10000        " number of lines to save for undo
 " use fzf as fuzzy search
 set rtp+=~/.fzf
 
+"add snipets to path
+set rtp+=~/dotfiles/vimsnippets
+
 " String to put at the start of lines that have been wrapped "
 set linebreak
 let &showbreak='↪ '
@@ -298,3 +301,5 @@ let g:ctrlp_cmd = 'CtrlPMixed'
 
 " UltiSnips
 let g:UltiSnipsExpandTrigger="<s-f>"
+let g:UltiSnipsSnippetsDir="~/dotfiles/vimsnippets"
+let g:UltiSnipsSnippetDirectory=["vimsnippets"]
