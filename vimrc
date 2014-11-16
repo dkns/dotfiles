@@ -301,5 +301,5 @@ let g:ctrlp_cmd = 'CtrlPMixed'
 
 " UltiSnips
 let g:UltiSnipsExpandTrigger="<s-f>"
-let g:UltiSnipsSnippetsDir="~/dotfiles/vimsnippets"
-let g:UltiSnipsSnippetDirectory=["vimsnippets"]
+let g:UltiSnipsSnippetsDir="~/dotfiles/snips"
+let g:UltiSnipsSnippetDirectory=["snips"]
