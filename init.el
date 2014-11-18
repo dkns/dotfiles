@@ -313,6 +313,7 @@ re-downloaded in order to locate PACKAGE."
 (setq
  make-backup-files t        ; backup a file the first time it is saved
  backup-directory-alist `((".*" . ,backup-directory)) ; save backup files in ~/.backups
+ auto-save-file-name-transforms `((".*" ,backup-directory t))
  backup-by-copying t     ; copy the current file into backup directory
  version-control t   ; version numbers for backup files
  delete-old-versions t   ; delete unnecessary versions
