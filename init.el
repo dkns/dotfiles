@@ -39,7 +39,6 @@ re-downloaded in order to locate PACKAGE."
    evil-nerd-commenter
    evil-visualstar
    solarized-theme
-   php-mode
    web-mode
    flycheck-pos-tip
    smooth-scrolling
