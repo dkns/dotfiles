@@ -33,7 +33,7 @@ Plug 'scrooloose/syntastic'
 Plug 'Konfekt/FastFold'
 Plug 'SirVer/ultisnips'
 Plug 'mattn/emmet-vim', { 'for': 'html' }
-Plug 'vimwiki/vimwiki', { 'on': 'Vimwikiindex' }
+Plug 'vimwiki/vimwiki'
 Plug 'sickill/vim-pasta'
 
 call plug#end()
