@@ -303,8 +303,8 @@ re-downloaded in order to locate PACKAGE."
 (require 'god-mode)
 
 ;; smart mode line
-(require 'smart-mode-line)
-(sml/setup)
+;; (require 'smart-mode-line)
+;; (sml/setup)
 
 (defvar backup-directory "~/.backups")
 (if (not (file-exists-p backup-directory))
