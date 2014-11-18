@@ -94,6 +94,9 @@ set ruler
 " Always display the status line, even if only one window is displayed
 set laststatus=2
 
+" Word wrap without breaking words in the middle
+set formatoptions=l
+
 " Syntax highlight shell scripts as per POSIX,
 " not the original Bourne shell which very few use.
 let g:is_posix = 1
