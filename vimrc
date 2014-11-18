@@ -32,7 +32,9 @@ Plug 'tpope/vim-fugitive'
 Plug 'scrooloose/syntastic'
 Plug 'Konfekt/FastFold'
 Plug 'SirVer/ultisnips'
-Plug 'mattn/emmet-vim'
+Plug 'mattn/emmet-vim', { 'for': 'html' }
+Plug 'vimwiki/vimwiki', { 'on': 'Vimwikiindex' }
+Plug 'sickill/vim-pasta'
 
 call plug#end()
 
