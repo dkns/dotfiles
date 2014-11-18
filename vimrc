@@ -277,10 +277,10 @@ endfunction
 nnoremap <silent> * :let stay_star_view = winsaveview()<cr>*:call winrestview(stay_star_view)<cr>
 
 " sudo apt-get install wmctrl for this to work
-function Maximize_Window()
-  silent !wmctrl -r :ACTIVE: -b add,maximized_vert,maximized_horz
-endfunction
-au GUIEnter * call Maximize_Window()
+" function Maximize_Window()
+"   silent !wmctrl -r :ACTIVE: -b add,maximized_vert,maximized_horz
+" endfunction
+" au GUIEnter * call Maximize_Window()
 " jump to last known cursos position when reopening a buffer
 function! s:JumpToLastKnownCursorPosition()
     if line("'\"") <= 1 | return | endif
