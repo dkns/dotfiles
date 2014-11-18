@@ -351,4 +351,3 @@ re-downloaded in order to locate PACKAGE."
 (menu-bar-mode 0)
 (setq initial-scratch-message "")
 (setq inhibit-startup-message t)
-(setq visible-bell t)
