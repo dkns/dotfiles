@@ -308,3 +308,10 @@ let g:ctrlp_cmd = 'CtrlPMixed'
 let g:UltiSnipsExpandTrigger="<s-f>"
 let g:UltiSnipsSnippetsDir="~/dotfiles/snips"
 let g:UltiSnipsSnippetDirectory=["snips"]
+
+" vimwiki
+let vimwikidir = expand('~/Dropbox/vimwiki')
+if !isdirectory(vimwikidir)
+  call mkdir(vimwikidir)
+endif
+let g:vimwiki_list = [{'path': '~/Dropbox/vimwiki'}]
