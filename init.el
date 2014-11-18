@@ -344,3 +344,10 @@ re-downloaded in order to locate PACKAGE."
 ;; helm
 (require 'helm-config)
 (helm-mode 1)
+
+;; remove gui and stuff
+(tool-bar-mode 0)
+(menu-bar-mode 0)
+(setq initial-scratch-message "")
+(setq inhibit-startup-message t)
+(setq visible-bell t)
