@@ -25,3 +25,8 @@ data.location=~/Dropbox/taskwarrior
 #include /usr/local/share/doc/task/rc/dark-yellow-green.theme
 #include /usr/local/share/doc/task/rc/dark-gray-256.theme
 
+taskd.server=freecinc.com:53589
+taskd.certificate=\/home\/daniel\/Dropbox\/taskwarrior\/freecinc_73d0b909.cert.pem
+taskd.ca=\/home\/daniel\/Dropbox\/taskwarrior\/freecinc_73d0b909.ca.pem
+taskd.key=\/home\/daniel\/Dropbox\/taskwarrior\/freecinc_73d0b909.key.pem
+taskd.credentials=FreeCinc\/freecinc_73d0b909\/7ad412ff-70e2-4827-8261-317315a608b9
