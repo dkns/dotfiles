@@ -34,7 +34,6 @@ re-downloaded in order to locate PACKAGE."
    evil-jumper
    evil-leader
    evil-matchit
-   evil-org
    evil-surround
    evil-nerd-commenter
    evil-visualstar
@@ -59,7 +58,6 @@ re-downloaded in order to locate PACKAGE."
    ;; package.el
    ((string= pmoc "package.el")
     (require 'package)
-    (add-to-list 'package-archives '("gnu" . "http://elpa.gnu.org/packages/"))
     (add-to-list 'package-archives '("melpa" . "http://melpa.org/packages/"))
     (add-to-list 'package-archives '("marmelade" . "http://marmalade-repo.org/packages/"))
     (package-initialize)
@@ -98,7 +96,7 @@ re-downloaded in order to locate PACKAGE."
 (global-evil-surround-mode t)
 (global-evil-leader-mode)
 (evil-leader/set-leader "SPC")
-(setq evil-leader/in-all-states t)
+;;(setq evil-leader/in-all-states t)
 (setq evil-emacs-state-cursor '("red" box)
       evil-normal-state-cursor '("green" box)
       evil-visual-state-cursor '("orange" box)
@@ -211,11 +209,6 @@ re-downloaded in order to locate PACKAGE."
 (add-to-list 'auto-mode-alist '("\\.djhtml\\'" . web-mode))
 (add-to-list 'auto-mode-alist '("\\.html?\\'" . web-mode))
 
-;; Org mode!
-(require 'org)
-(setq org-log-done t)
-(setq org-todo-keywords
-  '((sequence "TODO" "IN-PROGRESS" "DONE")))
 
 ;; Ask "y" or "n" instead of "yes" or "no". Yes, laziness is great.
 (fset 'yes-or-no-p 'y-or-n-p)
@@ -350,3 +343,14 @@ re-downloaded in order to locate PACKAGE."
 (menu-bar-mode 0)
 (setq initial-scratch-message "")
 (setq inhibit-startup-message t)
+
+;; org mode keybinds
+(require 'org)
+(add-hook 'org-mode-hook 'turn-on-font-lock)
+(setq org-log-done t)
+(setq org-todo-keywords
+      '((sequence "TODO" "IN-PROGRESS" "DONE")))
+(evil-leader/set-key "ww" 'org-agenda)
+(evil-leader/set-key "we" 'org-store-link)
+(evil-leader/set-key "we" 'org-iswitchb)
+
