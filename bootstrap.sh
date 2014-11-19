@@ -12,15 +12,9 @@
 
 # TODO: remove not needed programs?
 
-# TODO: split programs into 3 groups, let user decide which one they want to install
-
-check_programs=(vim-gnome i3 curl cmus ranger zsh \
-exuberant-ctags fonts-inconsolata rxvt-unicode \
-ack-grep)
-
 base_programs=(vim-gnome i3 curl ranger zsh exuberant-ctags fonts-inconsolata\
     rxvt-unicode ack-grep emacs python-pip firefox chromium-browser)
-work_programs=(subversion)
+work_programs=(subversion libreoffice)
 entertainment_programs=(cmus)
 
 install_programs=()
@@ -48,31 +42,35 @@ if yes; then
     echo 0
 fi
 # TODO: put all of this stuff into seperate function
-echo "Checking previous installations..."
-for program in ${check_programs[@]}; do
-    echo "Checking $program"
-    if dpkg -s $program >/dev/null 2>&1; then
-        echo "found $program"
-    else
-        echo "$program not found."
-        echo "Searching for $program in repositories."
-        search="$(apt-cache search $program)"
-        if [ -n "$search" ]; then
-            echo "Adding $program to install list."
-            install_programs+=($program)
-        else
-            echo "Couldn't find $program, skipping."
-        fi
-        echo "Checking complete."
-    fi
-done
 
-# TODO: make this a function
-echo "Installing required programs..."
-for program in ${install_programs[@]}; do
-    echo "Installing $program"
-    apt-get install $program
-done
+function check_install {
+    echo "Checking previous installations..."
+    for program in ${check_programs[@]}; do
+        echo "Checking $program"
+        if dpkg -s $program >/dev/null 2>&1; then
+            echo "found $program"
+        else
+            echo "$program not found."
+            echo "Searching for $program in repositories."
+            search="$(apt-cache search $program)"
+            if [ -n "$search" ]; then
+                echo "Adding $program to install list."
+                install_programs+=($program)
+            else
+                echo "Couldn't find $program, skipping."
+            fi
+            echo "Checking complete."
+        fi
+    done
+}
+
+function install_programs {
+    echo "Installing required programs..."
+    for program in ${install_programs[@]}; do
+        echo "Installing $program"
+        apt-get install $program
+    done
+}
 
 echo "All done."
 echo "Welcome on board, Commander."
