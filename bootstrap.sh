@@ -74,5 +74,7 @@ function install_programs {
     done
 }
 
+#TODO: install automatically projects from git/github?
+
 echo "All done."
 echo "Welcome on board, Commander."
