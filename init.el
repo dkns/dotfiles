@@ -37,6 +37,7 @@ re-downloaded in order to locate PACKAGE."
    evil-surround
    evil-nerd-commenter
    evil-visualstar
+   evil-org
    solarized-theme
    web-mode
    flycheck-pos-tip
@@ -353,4 +354,3 @@ re-downloaded in order to locate PACKAGE."
 (evil-leader/set-key "ww" 'org-agenda)
 (evil-leader/set-key "we" 'org-store-link)
 (evil-leader/set-key "we" 'org-iswitchb)
-
