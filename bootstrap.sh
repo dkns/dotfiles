@@ -7,6 +7,8 @@
 # inconsolata font, some stuff for installing youcompleteme, ctags, virtualenv, virtualenvwrapper
 # ranger, cmus, i3blocks, curl, LAMP stack, dropbox, libre office suite, ack-grep, fzf, zsh, oh-my-zsh
 
+# need to make/compile other programs: libgnutls-dev
+
 # TODO: consider these:
 # hosts file?
 
@@ -15,7 +17,7 @@
 base_programs=(vim-gnome i3 curl ranger zsh exuberant-ctags fonts-inconsolata\
     rxvt-unicode ack-grep emacs python-pip firefox chromium-browser)
 work_programs=(subversion libreoffice)
-entertainment_programs=(cmus)
+entertainment_programs=(cmus weechat)
 
 install_programs=()
 
