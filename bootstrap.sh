@@ -15,7 +15,7 @@
 # TODO: remove not needed programs?
 
 base_programs=(vim-gnome i3 curl ranger zsh exuberant-ctags fonts-inconsolata\
-    rxvt-unicode ack-grep emacs python-pip firefox chromium-browser)
+    rxvt-unicode ack-grep emacs python-pip firefox chromium-browser htop)
 work_programs=(subversion libreoffice)
 entertainment_programs=(cmus weechat)
 
