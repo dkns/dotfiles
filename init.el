@@ -38,7 +38,6 @@ re-downloaded in order to locate PACKAGE."
    evil-nerd-commenter
    evil-visualstar
    evil-org
-   solarized-theme
    web-mode
    flycheck-pos-tip
    smooth-scrolling
@@ -49,6 +48,7 @@ re-downloaded in order to locate PACKAGE."
    smart-mode-line
    jedi
    helm
+   color-theme-solarized
    ))
 
 ;; Package manager and packages handler
@@ -183,7 +183,10 @@ re-downloaded in order to locate PACKAGE."
 (global-linum-mode 1)
 
 ;; Theme
-(load-theme 'solarized-dark t)
+(require 'color-theme)
+(setq color-theme-is-global t)
+(color-theme-initialize)
+(color-theme-solarized-dark)
 
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
