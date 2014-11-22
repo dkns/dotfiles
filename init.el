@@ -366,3 +366,7 @@ re-downloaded in order to locate PACKAGE."
 (evil-leader/set-key "ww" 'org-agenda)
 (evil-leader/set-key "we" 'org-store-link)
 (evil-leader/set-key "we" 'org-iswitchb)
+
+;; display tooltips in echo area
+(tooltip-mode -1)
+(setq tooltip-use-echo-area t)
