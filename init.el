@@ -110,8 +110,17 @@ re-downloaded in order to locate PACKAGE."
 
 (evil-leader/set-key "co" 'evilnc-comment-or-uncomment-lines)
 ;; open splits
-(evil-leader/set-key "v" 'split-window-vertically)
-(evil-leader/set-key "h" 'split-window-horizontally)
+(defun my-open-window-vertically ()
+  (interactive)
+  (split-window-vertically)
+  (windmove-down))
+(defun my-open-window-horizontally ()
+  (interactive)
+  (split-window-horizontally)
+  (windmove-right))
+
+(evil-leader/set-key "v" 'my-open-window-vertically)
+(evil-leader/set-key "h" 'my-open-window-horizontally)
 ;; navigate splits
 (define-key evil-normal-state-map (kbd "C-h") 'evil-window-left)
 (define-key evil-normal-state-map (kbd "C-j") 'evil-window-down)
