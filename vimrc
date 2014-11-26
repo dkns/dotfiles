@@ -36,6 +36,7 @@ Plug 'mattn/emmet-vim', { 'for': 'html' }
 Plug 'vimwiki/vimwiki'
 Plug 'sickill/vim-pasta'
 Plug 'christoomey/vim-tmux-navigator'
+Plug 'airblade/vim-rooter'
 
 call plug#end()
 
