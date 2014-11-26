@@ -35,6 +35,7 @@ Plug 'SirVer/ultisnips'
 Plug 'mattn/emmet-vim', { 'for': 'html' }
 Plug 'vimwiki/vimwiki'
 Plug 'sickill/vim-pasta'
+Plug 'christoomey/vim-tmux-navigator'
 
 call plug#end()
 
@@ -316,3 +317,6 @@ if !isdirectory(vimwikidir)
   call mkdir(vimwikidir)
 endif
 let g:vimwiki_list = [{'path': '~/Dropbox/vimwiki'}]
+
+" tmux navigator
+let g:tmux_navigator_save_on_switch = 1
