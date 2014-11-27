@@ -176,7 +176,7 @@ set lazyredraw
 
 set showmatch " show matching brackets
 set matchtime=2 " reduce blinking time
-set list listchars=tab:▸\ ,trail:•,extends:>,precedes:<,eol:¬
+set list listchars=tab:▸\ ,trail:•,extends:>,precedes:<
 
 " Allow backspacing over lines and stuff
 set backspace=indent,eol,start
