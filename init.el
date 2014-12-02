@@ -50,6 +50,8 @@ re-downloaded in order to locate PACKAGE."
    jedi
    helm
    color-theme-solarized
+   zenburn-theme
+   dash
    ))
 
 ;; Package manager and packages handler
@@ -193,10 +195,11 @@ re-downloaded in order to locate PACKAGE."
 (global-linum-mode 1)
 
 ;; Theme
-(require 'color-theme)
-(setq color-theme-is-global t)
-(color-theme-initialize)
-(color-theme-solarized-dark)
+(load-theme 'zenburn t)
+;; (require 'color-theme)
+;; (setq color-theme-is-global t)
+;; (color-theme-initialize)
+;; (color-theme-solarized-dark)
 
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
