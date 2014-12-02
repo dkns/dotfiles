@@ -38,6 +38,7 @@ re-downloaded in order to locate PACKAGE."
    evil-nerd-commenter
    evil-visualstar
    evil-org
+   php-mode
    web-mode
    flycheck-pos-tip
    smooth-scrolling
@@ -214,7 +215,7 @@ re-downloaded in order to locate PACKAGE."
 
 ;; Editing html/css/js/php files
 (add-to-list 'auto-mode-alist '("\\.phtml\\'" . web-mode))
-(add-to-list 'auto-mode-alist '("\\.tpl\\.php\\'" . web-mode)) ;; decide wheter to use php-mode or web-mode for php files
+(add-to-list 'auto-mode-alist '("\\.tpl\\.php\\'" . php-mode)) ;; decide wheter to use php-mode or web-mode for php files
 (add-to-list 'auto-mode-alist '("\\.[gj]sp\\'" . web-mode))
 (add-to-list 'auto-mode-alist '("\\.as[cp]x\\'" . web-mode))
 (add-to-list 'auto-mode-alist '("\\.erb\\'" . web-mode))
