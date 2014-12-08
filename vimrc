@@ -38,6 +38,7 @@ Plug 'sickill/vim-pasta'
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'airblade/vim-rooter'
 Plug 'vimoutliner/vimoutliner'
+Plug 'Valloric/python-indent'
 
 call plug#end()
 
