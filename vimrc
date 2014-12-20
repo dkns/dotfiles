@@ -167,7 +167,7 @@ set undoreload=10000        " number of lines to save for undo
 set rtp+=~/.fzf
 
 "add snipets to path
-set rtp+=~/dotfiles/vimsnippets
+set rtp+=~/dotfiles/snips
 
 " String to put at the start of lines that have been wrapped "
 set linebreak
@@ -207,6 +207,8 @@ set statusline=%<[%n]\ %F\ %m%r%y\ %{exists('g:loaded_fugitive')?fugitive#status
 au WinEnter * setl rnu | au WinLeave * setl nornu
 " ignore files
 set wildignore+=*.zip,*.tar.gz,*.tar.bz2,*.rar,*.tar.xz,*.py[co],*.pyc,*.jpg,*.mp3,*.wav,*.pdf
+" let terminal resize scale the internal windows
+autocmd VimResized * :wincmd =
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Keybinds
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
