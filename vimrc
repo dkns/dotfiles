@@ -39,6 +39,7 @@ Plug 'christoomey/vim-tmux-navigator'
 Plug 'airblade/vim-rooter'
 Plug 'vimoutliner/vimoutliner'
 Plug 'Valloric/python-indent'
+Plug 'ctrlpvim/ctrlp.vim'
 
 call plug#end()
 
@@ -307,6 +308,7 @@ let g:ycm_autoclose_preview_window_after_completion = 1
 " CtrlP
 let g:ctrlp_extensions = ['tag', 'buffertag', 'dir',
                           \ 'undo', 'line', 'changes', 'mixed', 'bookmarkdir']
+let g:ctrlp_custom_ignore = '\v\.(mp3|m3u|jpg|jpeg|png|bpm|wav)$'
 let g:ctrlp_cmd = 'CtrlPMixed'
 
 " UltiSnips
