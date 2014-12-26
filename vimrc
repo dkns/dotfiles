@@ -40,6 +40,8 @@ Plug 'airblade/vim-rooter'
 Plug 'vimoutliner/vimoutliner'
 Plug 'Valloric/python-indent'
 Plug 'ctrlpvim/ctrlp.vim'
+Plug 'junegunn/vim-pseudocl'
+Plug 'junegunn/vim-oblique'
 
 call plug#end()
 
@@ -325,3 +327,6 @@ let g:vimwiki_list = [{'path': '~/Dropbox/vimwiki'}]
 
 " tmux navigator
 let g:tmux_navigator_save_on_switch = 1
+
+" oblique
+let g:oblique#incsearch_highlight_all = 1
