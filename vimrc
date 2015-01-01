@@ -66,7 +66,7 @@ endif
 syntax enable
 
 " colorscheme
-set background=dark
+set background=light
 colorscheme solarized
 set t_ut=
 
