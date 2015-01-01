@@ -118,7 +118,8 @@ alias fe=fe()
 alias fd=fd()
 alias fkill=fkill()
 
-alias pingg='ping 8.8.8.8 -c 60'
-
 LC_CTYPE=en_US.UTF-8
 LC_ALL=en_US.UTF-8
+
+alias gd='git diff'
+alias gst='git status'
