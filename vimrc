@@ -35,7 +35,6 @@ Plug 'SirVer/ultisnips'
 Plug 'mattn/emmet-vim', { 'for': 'html' }
 Plug 'vimwiki/vimwiki'
 Plug 'sickill/vim-pasta'
-Plug 'christoomey/vim-tmux-navigator'
 Plug 'airblade/vim-rooter'
 Plug 'vimoutliner/vimoutliner'
 Plug 'Valloric/python-indent'
@@ -324,9 +323,6 @@ if !isdirectory(vimwikidir)
   call mkdir(vimwikidir)
 endif
 let g:vimwiki_list = [{'path': '~/Dropbox/vimwiki'}]
-
-" tmux navigator
-let g:tmux_navigator_save_on_switch = 1
 
 " incsearch
 map /  <Plug>(incsearch-forward)
