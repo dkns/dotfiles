@@ -27,7 +27,7 @@ font pango: Terminus 11px
 floating_modifier $mod
 
 # start a terminal
-bindsym $mod+Return exec rxvt-unicode
+bindsym $mod+Return exec sakura
 
 # kill focused window
 bindsym $mod+Shift+q kill
