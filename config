@@ -151,7 +151,7 @@ bindsym $mod+r mode "resize"
 bar {
         position top
         status_command i3status
-        tray_output LVDS
+        tray_output primary
 }
 
 # remove title bar for chromium
