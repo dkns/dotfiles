@@ -13,6 +13,9 @@ while :; do
     inithash="$currhash"
     clear
     echo "Clearing old output"
+    echo
+    echo "Running command: $run_command"
+    echo
     cd "$work_dir"
     $run_command
   fi
