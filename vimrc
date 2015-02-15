@@ -340,3 +340,4 @@ let g:incsearch#consistent_n_direction = 1
 
 " hardtime
 let g:hardtime_default_on = 1
+let g:hardtime_showmsg = 1
