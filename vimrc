@@ -41,7 +41,6 @@ Plug 'Valloric/python-indent'
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'junegunn/vim-pseudocl'
 Plug 'haya14busa/incsearch.vim'
-Plug 'takac/vim-hardtime'
 
 call plug#end()
 
@@ -337,7 +336,3 @@ map #  <Plug>(incsearch-nohl-#)
 map g* <Plug>(incsearch-nohl-g*)
 map g# <Plug>(incsearch-nohl-g#)
 let g:incsearch#consistent_n_direction = 1
-
-" hardtime
-let g:hardtime_default_on = 1
-let g:hardtime_showmsg = 1
