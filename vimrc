@@ -231,9 +231,6 @@ nnoremap N Nzzzv
 " Wrapped lines goes down/up to next row, rather than next line in file.
 nnoremap <expr> k (v:count == 0 ? 'gk' : 'k')
 nnoremap <expr> j (v:count == 0 ? 'gj' : 'j')
-" Use H and L to move to beginning and end of the line
-noremap H ^
-noremap L $
 " Use jk to exit insert mode
 imap jk <ESC>
 " use arrows to resize window
