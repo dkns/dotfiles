@@ -41,6 +41,7 @@ Plug 'Valloric/python-indent'
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'junegunn/vim-pseudocl'
 Plug 'haya14busa/incsearch.vim'
+Plug 'tpope/vim-sleuth'
 
 call plug#end()
 
