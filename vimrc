@@ -28,15 +28,12 @@ Plug 'othree/html5.vim', { 'for': 'html' }
 Plug 'sjl/gundo.vim', { 'on': 'GundoToggle' }
 Plug 'bronson/vim-trailing-whitespace', { 'on': 'FixWhitespace' }
 Plug 'jiangmiao/auto-pairs'
-Plug 'tpope/vim-fugitive'
 Plug 'scrooloose/syntastic'
 Plug 'Konfekt/FastFold'
-Plug 'SirVer/ultisnips'
 Plug 'mattn/emmet-vim', { 'for': 'html' }
 Plug 'vimwiki/vimwiki'
 Plug 'sickill/vim-pasta'
 Plug 'airblade/vim-rooter'
-Plug 'vimoutliner/vimoutliner'
 Plug 'Valloric/python-indent'
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'haya14busa/incsearch.vim'
