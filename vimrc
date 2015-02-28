@@ -38,6 +38,7 @@ Plug 'Valloric/python-indent'
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'haya14busa/incsearch.vim'
 Plug 'tpope/vim-sleuth'
+Plug 'sheerun/vim-polyglot'
 
 call plug#end()
 
