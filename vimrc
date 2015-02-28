@@ -28,18 +28,14 @@ Plug 'othree/html5.vim', { 'for': 'html' }
 Plug 'sjl/gundo.vim', { 'on': 'GundoToggle' }
 Plug 'bronson/vim-trailing-whitespace', { 'on': 'FixWhitespace' }
 Plug 'jiangmiao/auto-pairs'
-Plug 'tpope/vim-fugitive'
 Plug 'scrooloose/syntastic'
 Plug 'Konfekt/FastFold'
-Plug 'SirVer/ultisnips'
 Plug 'mattn/emmet-vim', { 'for': 'html' }
 Plug 'vimwiki/vimwiki'
 Plug 'sickill/vim-pasta'
 Plug 'airblade/vim-rooter'
-Plug 'vimoutliner/vimoutliner'
 Plug 'Valloric/python-indent'
 Plug 'ctrlpvim/ctrlp.vim'
-Plug 'junegunn/vim-pseudocl'
 Plug 'haya14busa/incsearch.vim'
 Plug 'tpope/vim-sleuth'
 
@@ -235,9 +231,6 @@ nnoremap N Nzzzv
 " Wrapped lines goes down/up to next row, rather than next line in file.
 nnoremap <expr> k (v:count == 0 ? 'gk' : 'k')
 nnoremap <expr> j (v:count == 0 ? 'gj' : 'j')
-" Use H and L to move to beginning and end of the line
-noremap H ^
-noremap L $
 " Use jk to exit insert mode
 imap jk <ESC>
 " use arrows to resize window
