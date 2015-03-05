@@ -2,6 +2,8 @@ autoload -Uz compinit promptinit
 compinit
 promptinit
 
+bindkey -e
+
 HISTFILE=~/.histfile
 HISTSIZE=1000
 SAVEHIST=1000
