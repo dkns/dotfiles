@@ -1,125 +1,97 @@
-# Path to your oh-my-zsh installation.
-export ZSH=$HOME/.oh-my-zsh
+autoload -Uz compinit promptinit
+compinit
+promptinit
 
-# Set name of the theme to load.
-# Look in ~/.oh-my-zsh/themes/
-# Optionally, if you set this to "random", it'll load a random theme each
-# time that oh-my-zsh is loaded.
-ZSH_THEME="gentoo"
+HISTFILE=~/.histfile
+HISTSIZE=1000
+SAVEHIST=1000
+setopt hist_ignore_dups
 
-# Uncomment the following line to use case-sensitive completion.
-# CASE_SENSITIVE="true"
-
-# Uncomment the following line to disable bi-weekly auto-update checks.
-# DISABLE_AUTO_UPDATE="true"
-
-# Uncomment the following line to change how often to auto-update (in days).
-# export UPDATE_ZSH_DAYS=13
-
-# Uncomment the following line to disable colors in ls.
-# DISABLE_LS_COLORS="true"
-
-# Uncomment the following line to disable auto-setting terminal title.
-# DISABLE_AUTO_TITLE="true"
-
-# Uncomment the following line to enable command auto-correction.
-ENABLE_CORRECTION="true"
-
-# Uncomment the following line to display red dots whilst waiting for completion.
-COMPLETION_WAITING_DOTS="true"
-
-# Uncomment the following line if you want to disable marking untracked files
-# under VCS as dirty. This makes repository status check for large repositories
-# much, much faster.
-# DISABLE_UNTRACKED_FILES_DIRTY="true"
-
-# Uncomment the following line if you want to change the command execution time
-# stamp shown in the history command output.
-# The optional three formats: "mm/dd/yyyy"|"dd.mm.yyyy"|"yyyy-mm-dd"
-# HIST_STAMPS="mm/dd/yyyy"
-
-# Would you like to use another custom folder than $ZSH/custom?
-# ZSH_CUSTOM=/path/to/new-custom-folder
-
-# Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
-# Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
-# Example format: plugins=(rails git textmate ruby lighthouse)
-# Add wisely, as too many plugins slow down shell startup.
-plugins=(git)
-
-source $ZSH/oh-my-zsh.sh
-
-# User configuration
-
+export BROWSER="firefox"
+export EDITOR="vim"
+export TERM="xterm-256color"
 export PATH="/home/daniel/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/home/daniel/.local/bin"
-# export MANPATH="/usr/local/man:$MANPATH"
 
-# You may need to manually set your language environment
-# export LANG=en_US.UTF-8
-
-# Preferred editor for local and remote sessions
-# if [[ -n $SSH_CONNECTION ]]; then
-#   export EDITOR='vim'
-# else
-#   export EDITOR='mvim'
-# fi
-
-# Compilation flags
-# export ARCHFLAGS="-arch x86_64"
-
-# ssh
-# export SSH_KEY_PATH="~/.ssh/dsa_id"
-
-# Set personal aliases, overriding those provided by oh-my-zsh libs,
-# plugins, and themes. Aliases can be placed here, though oh-my-zsh
-# users are encouraged to define aliases within the ZSH_CUSTOM folder.
-# For a full list of active aliases, run `alias`.
-#
-# Example aliases
-# alias zshconfig="mate ~/.zshrc"
-# alias ohmyzsh="mate ~/.oh-my-zsh"
+LS_COLORS='rs=0:di=01;34:ln=01;36:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:su=37;41:sg=30;43:tw=30;42:ow=34;42:st=37;44:ex=01;32:';
+export LS_COLORS
 
 # fixes tmux/vim issues
-export TERM="xterm-256color"
 
 source ~/.fzf.zsh
 export PROJECT_HOME=$HOME/projects
 export VIRTUALENVWRAPPER_SCRIPT=/usr/local/bin/virtualenvwrapper.sh
 source /usr/local/bin/virtualenvwrapper_lazy.sh
 
-alias em='emacsclient -nw'
-
-# edit file in vim
-fe() {
-  local file
-  file=$(fzf --query="$1" --select-1 --exit-0)
-  [ -n "$file" ] && ${EDITOR:-vim} "$file"
-}
-
-# fd - cd to selected directory
-fd() {
-  local dir
-  dir=$(find ${1:-*} -path '*/\.*' -prune \
-                  -o -type d -print 2> /dev/null | fzf +m) &&
-  cd "$dir"
-}
-
-# fh - repeat history
-fh() {
-  eval $(([ -n "$ZSH_NAME" ] && fc -l 1 || history) | fzf +s | sed 's/ *[0-9]* *//')
-}
-
-# fkill - kill process
-fkill() {
-  ps -ef | sed 1d | fzf -m | awk '{print $2}' | xargs kill -${1:-9}
-}
-
-alias fe=fe()
-alias fd=fd()
-alias fkill=fkill()
-
 LC_CTYPE=en_US.UTF-8
 LC_ALL=en_US.UTF-8
 
 alias gd='git diff'
 alias gst='git status'
+alias ls='ls --color=auto --human-readable --classify'
+
+man() {
+  env \
+    LESS_TERMCAP_mb=$(printf "\e[1;31m") \
+    LESS_TERMCAP_md=$(printf "\e[1;31m") \
+    LESS_TERMCAP_me=$(printf "\e[0m") \
+    LESS_TERMCAP_se=$(printf "\e[0m") \
+    LESS_TERMCAP_so=$(printf "\e[1;44;33m") \
+    LESS_TERMCAP_ue=$(printf "\e[0m") \
+    LESS_TERMCAP_us=$(printf "\e[1;32m") \
+    man "$@"
+}
+
+# autocomplete
+# zstyle ':completion:*:default' list-colors ${(s.:.)LS_COLORS}
+# zstyle ':completion:*:*:kill:*' menu yes select
+# zstyle ':completion:*:kill:*'   force-list always
+# zstyle ':completion:*:*:killall:*' menu yes select
+# zstyle ':completion:*:killall:*'   force-list always
+zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z}'
+zstyle ':completion:*' completer _expand _complete _ignored _approximate
+zstyle ':completion:*' menu select=2
+zstyle ':completion:*' select-prompt '%SScrolling active: current selection at %p%s'
+zstyle ':completion::complete:*' use-cache 1
+zstyle ':completion:*:descriptions' format '%U%F{cyan}%d%f%u'
+
+autoload -U colors zsh/terminfo
+colors
+
+autoload -Uz vcs_info
+zstyle ':vcs_info:*' enable git hg
+zstyle ':vcs_info:*' check-for-changes true
+zstyle ':vcs_info:git*' formats "%{${fg[cyan]}%}[%{${fg[green]}%}%s%{${fg[cyan]}%}][%{${fg[blue]}%}%r/%S%%{${fg[cyan]}%}][%{${fg[blue]}%}%b%{${fg[yellow]}%}%m%u%c%{${fg[cyan]}%}]%{$reset_color%}"
+
+setprompt() {
+  # load some modules
+  setopt prompt_subst
+
+  # make some aliases for the colours: (coud use normal escap.seq's too)
+  for color in RED GREEN YELLOW BLUE MAGENTA CYAN WHITE; do
+    eval PR_$color='%{$fg[${(L)color}]%}'
+  done
+  PR_NO_COLOR="%{$terminfo[sgr0]%}"
+
+  # Check the UID
+  if [[ $UID -ge 1000 ]]; then # normal user
+    eval PR_USER='${PR_GREEN}%n${PR_NO_COLOR}'
+    eval PR_USER_OP='${PR_GREEN}%#${PR_NO_COLOR}'
+  elif [[ $UID -eq 0 ]]; then # root
+    eval PR_USER='${PR_RED}%n${PR_NO_COLOR}'
+    eval PR_USER_OP='${PR_RED}%#${PR_NO_COLOR}'
+  fi
+
+  # Check if we are on SSH or not
+  if [[ -n "$SSH_CLIENT"  ||  -n "$SSH2_CLIENT" ]]; then 
+    eval PR_HOST='${PR_YELLOW}%M${PR_NO_COLOR}' #SSH
+  else 
+    eval PR_HOST='${PR_GREEN}%M${PR_NO_COLOR}' # no SSH
+  fi
+  # set the prompt
+  PS1=$'${PR_CYAN}${PR_USER}${PR_CYAN}@${PR_HOST}${PR_CYAN}${PR_BLUE}%~${PR_CYAN}${PR_USER_OP} '
+  PS2=$'%_>'
+  RPROMPT=$'${vcs_info_msg_0_}'
+}
+setprompt
+
+
