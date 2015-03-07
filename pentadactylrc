@@ -5,5 +5,22 @@ group user
 set cdpath=''
 set hintkeys=asdflkj
 set showtabline=never
+set incfind
+set hlfind
+
+map -b j 8j
+map -b k 8k
+map -b h 8h
+map -b l 8l
+
+hi -a HInt font-size: 9pt !important;
+
+command private-tab -nargs=+ -description "Open Private Tab" -javascript <<EOF
+    privateTab.readyToOpenTab(true);
+    gBrowser.addTab("about:blank");
+    dactyl.execute(":tablast");
+    dactyl.execute(":open " + args);
+    privateTab.stopToOpenTabs();
+EOF
 
 " vim: set ft=pentadactyl:
