@@ -1,0 +1,9 @@
+"hg7163
+
+loadplugins '\.(js|penta)$'
+group user
+set cdpath=''
+set hintkeys=asdflkj
+set showtabline=never
+
+" vim: set ft=pentadactyl:
