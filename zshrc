@@ -3,7 +3,6 @@ compinit
 promptinit
 
 bindkey -e
-
 HISTFILE=~/.histfile
 HISTSIZE=1000
 SAVEHIST=1000
@@ -12,7 +11,7 @@ setopt hist_ignore_dups
 export BROWSER="firefox"
 export EDITOR="vim"
 export TERM="xterm-256color"
-export PATH="/home/daniel/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/home/daniel/.local/bin"
+export PATH="/home/daniel/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/home/daniel/.local/bin:/home/daniel/dotfiles/bin"
 
 LS_COLORS='rs=0:di=01;34:ln=01;36:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:su=37;41:sg=30;43:tw=30;42:ow=34;42:st=37;44:ex=01;32:';
 export LS_COLORS
@@ -30,6 +29,7 @@ LC_ALL=en_US.UTF-8
 alias gd='git diff'
 alias gst='git status'
 alias ls='ls --color=auto --human-readable --classify'
+alias gptar='gitptar.sh'
 
 man() {
   env \
@@ -95,5 +95,3 @@ setprompt() {
   RPROMPT=$'${vcs_info_msg_0_}'
 }
 setprompt
-
-
