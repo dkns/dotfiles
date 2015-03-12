@@ -1,4 +1,4 @@
-#!/bin/zsh -x
+#!/bin/zsh
 
 if [ -d .git  ]; then
     branch=$(git branch | awk '{print $2}');
