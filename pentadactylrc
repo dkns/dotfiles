@@ -24,7 +24,7 @@ command private-tab -nargs=+ -description "Open Private Tab" -javascript <<EOF
 EOF
 
 command internal-search -nargs=+ -javascript <<EOF
-    dactyl.execute(":open https://internal/wiki/index.php?search=" + args + "&title=Special%3ASearch");
+    dactyl.execute(":tabopen https://internal/wiki/index.php?search=" + args + "&title=Special%3ASearch");
 EOF
 
 " vim: set ft=pentadactyl:
