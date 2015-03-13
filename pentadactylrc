@@ -27,4 +27,8 @@ command internal-search -nargs=+ -javascript <<EOF
     dactyl.execute(":tabopen https://internal/wiki/index.php?search=" + args + "&title=Special%3ASearch");
 EOF
 
+command pmp -nargs=+ -javascript <<EOF
+    dactyl.execute(":tabopen https://pw.enovation.lan:7272/STATE_ID/1426259469804/ShowViewInContentAreaAction.do?VIEW_TO_OPEN=SearchResult&CONTENTAREANAME=MainDAC&VIEW_UNIQUEID=SearchResult&ADDTOLIST=true&ACTION_SOURCE=SearchResult&searchtext=" + args + "&FLAG=TRUE&criteria=Search");
+EOF
+
 " vim: set ft=pentadactyl:
