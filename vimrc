@@ -40,6 +40,7 @@ Plug 'haya14busa/incsearch.vim'
 Plug 'tpope/vim-sleuth'
 Plug 'sheerun/vim-polyglot'
 Plug 'jaxbot/browserlink.vim'
+Plug 'ludovicchabant/vim-gutentags'
 
 call plug#end()
 
