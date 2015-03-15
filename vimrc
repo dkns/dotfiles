@@ -135,11 +135,6 @@ set tabstop=4
 " No swap files, thanks
 set noswapfile
 
-"Python indenting
-autocmd FileType python setlocal expandtab shiftwidth=4 softtabstop=4
-"html indenting
-autocmd FileType html setlocal ts=2 et sts=2 sw=2
-
 " Create backup/undo dirs
 let backupdir = expand('~/.vim/backup')
 if !isdirectory(backupdir)
@@ -216,8 +211,6 @@ let mapleader=" "
 " opening new splits
 nnoremap <leader>v :split<CR>
 nnoremap <leader>h :vsplit<CR>
-" clear the last search (instead of typing /asdfghjkl)
-nnoremap <leader>c :noh<CR>
 " navigating splits
 nnoremap <C-J> <C-W><C-J>
 nnoremap <C-K> <C-W><C-K>
@@ -238,9 +231,6 @@ noremap <up>    <C-W>+
 noremap <down>  <C-W>-
 noremap <left>  3<C-W><
 noremap <right> 3<C-W>>
-" Error checking
-autocmd FileType php nmap <buffer> <F5> :w<Esc>:!php -l %<CR>
-autocmd FileType python nmap <buffer> <F5> :w<Esc>:exec '!python' shellescape(@%, 1)<CR>
 " Easier pasting from clipboard
 nnoremap <leader>p "+p
 " (c)opy (e)verything to clipboard
@@ -305,11 +295,6 @@ let g:ctrlp_extensions = ['tag', 'buffertag', 'dir',
                           \ 'undo', 'line', 'changes', 'mixed', 'bookmarkdir']
 let g:ctrlp_custom_ignore = '\v\.(mp3|m3u|jpg|jpeg|png|bpm|wav)$'
 let g:ctrlp_cmd = 'CtrlPMixed'
-
-" UltiSnips
-let g:UltiSnipsExpandTrigger="<s-f>"
-let g:UltiSnipsSnippetsDir="~/dotfiles/snips"
-let g:UltiSnipsSnippetDirectory=["snips"]
 
 " vimwiki
 let vimwikidir = expand('~/Dropbox/vimwiki')
