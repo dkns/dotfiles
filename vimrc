@@ -201,8 +201,13 @@ set statusline=%<[%n]\ %F\ %m%r%y\ %{exists('g:loaded_fugitive')?fugitive#status
 au WinEnter * setl rnu | au WinLeave * setl nornu
 " ignore files
 set wildignore+=*.zip,*.tar.gz,*.tar.bz2,*.rar,*.tar.xz,*.py[co],*.pyc,*.jpg,*.mp3,*.wav,*.pdf
-" let terminal resize scale the internal windows
-autocmd VimResized * :wincmd =
+
+augroup resize
+  autocmd!
+  " let terminal resize scale the internal windows
+  autocmd VimResized * :wincmd =
+augroup END
+
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Keybinds
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -281,7 +286,10 @@ function! s:JumpToLastKnownCursorPosition()
     execute "normal! g`\"" |
 endfunction
 
-autocmd BufReadPost * call s:JumpToLastKnownCursorPosition()
+augroup bufread
+  autocmd!
+  autocmd BufReadPost * call s:JumpToLastKnownCursorPosition()
+augroup END
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Plugins
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
