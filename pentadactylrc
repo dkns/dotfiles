@@ -13,6 +13,16 @@ map -b k 8k
 map -b h 8h
 map -b l 8l
 
+" 'normal' copying and pasting
+nmap -b <C-c> <C-v><C-c>
+nmap -b <C-v> <C-v><C-v>
+nmap -b <C-x> <C-v><C-x>
+
+" Insert Mode Mappings
+imap -b <C-c> <C-v><C-c>
+imap -b <C-v> <C-v><C-v>
+imap -b <C-x> <C-v><C-x>
+
 hi -a HInt font-size: 9pt !important;
 
 command private-tab -nargs=+ -description "Open Private Tab" -javascript <<EOF
