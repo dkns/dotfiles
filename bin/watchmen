@@ -1,5 +1,7 @@
 #!/bin/sh
 
+# TODO: add timeout option; make it configurable
+
 file=$1
 shift
 run_command="$*"
@@ -17,7 +19,7 @@ while :; do
     echo "Running command: $run_command"
     echo
     cd "$work_dir"
-    $run_command
+    timeout 50.0 $run_command
   fi
   sleep 1
 done
