@@ -37,7 +37,8 @@ Plug 'haya14busa/incsearch.vim'
 Plug 'tpope/vim-sleuth'
 Plug 'sheerun/vim-polyglot'
 Plug 'jaxbot/browserlink.vim'
-Plug 'ludovicchabant/vim-gutentags'
+"Plug 'ludovicchabant/vim-gutentags'
+Plug 'christoomey/vim-tmux-navigator'
 
 call plug#end()
 
