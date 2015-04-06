@@ -95,3 +95,5 @@ setprompt() {
   RPROMPT=$'${vcs_info_msg_0_}'
 }
 setprompt
+
+alias nvi="/usr/local/bin/nvim"
