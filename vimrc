@@ -38,6 +38,7 @@ Plug 'tpope/vim-sleuth'
 Plug 'jaxbot/browserlink.vim'
 "Plug 'ludovicchabant/vim-gutentags'
 Plug 'christoomey/vim-tmux-navigator'
+Plug 'gorodinskiy/vim-coloresque'
 
 call plug#end()
 
