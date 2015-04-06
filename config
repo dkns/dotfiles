@@ -11,6 +11,9 @@
 
 set $mod Mod4
 
+#don't move to neighbouring screen with hjkl
+force_focus_wrapping yes
+
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below.
 # This font is widely installed, provides lots of unicode glyphs, right-to-left
