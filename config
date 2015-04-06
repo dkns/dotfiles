@@ -203,8 +203,8 @@ mode $sysmenu {
 
 }
 
-new_window none
-new_float none
+new_window pixel 2
+new_float pixel 2
 
 # autoexec stuff
 exec --no-startup-id /usr/bin/gnome-settings-daemon
