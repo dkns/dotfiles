@@ -43,12 +43,12 @@ TEXT
     { "full_text" : " cpu $cpu% " },
     { "full_text" : " bat $battery_percent% " },
     ${if_up wlp2s0}
-        {"full_text": "  ${wireless_essid wlp2s0} [${wireless_link_qual_perc wlp2s0}%] ","color":"\#33CC99"},
+        {"full_text": " ${wireless_essid wlp2s0} [${wireless_link_qual_perc wlp2s0}%] ","color":"\#33CC99"},
     $else${if_up ppp0}
-        {"full_text": "  vpn ","color":"\#33CC99"},
+        {"full_text": " vpn ","color":"\#33CC99"},
     $else${if_up eth0}
-        {"full_text": "  connected ","color":"\#33CC99"},
-    $else{"full_text": " ≈ no connection ","color":"\#33CC99"},
+        {"full_text": " connected ","color":"\#33CC99"},
+    $else{"full_text": " no connection ","color":"\#33CC99"},
     $endif$endif
     { "full_text" : " ${downspeed} " },
     { "full_text" : " ${time %F} ${time %H:%M} " }
