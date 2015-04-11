@@ -32,7 +32,7 @@ Plug 'vimwiki/vimwiki'
 Plug 'sickill/vim-pasta'
 Plug 'airblade/vim-rooter'
 Plug 'Valloric/python-indent'
-Plug 'ctrlpvim/ctrlp.vim'
+"Plug 'ctrlpvim/ctrlp.vim'
 Plug 'haya14busa/incsearch.vim'
 Plug 'tpope/vim-sleuth'
 Plug 'jaxbot/browserlink.vim'
@@ -249,6 +249,9 @@ vnoremap <leader>d "_d
 " I've had enough
 :command W w
 :command Q q
+" FZF
+nnoremap <silent> <c-p> :FZF<cr>
+nnoremap <silent> g/. :FZF <c-r>=fnameescape(expand("%:p:h"))<cr><cr>
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Custom functions
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -300,10 +303,10 @@ let g:ycm_collect_identifiers_from_comments_and_strings = 1
 let g:ycm_seed_identifiers_with_syntax = 1
 let g:ycm_autoclose_preview_window_after_completion = 1
 " CtrlP
-let g:ctrlp_extensions = ['tag', 'buffertag', 'dir',
-                          \ 'undo', 'line', 'changes', 'mixed', 'bookmarkdir']
-let g:ctrlp_custom_ignore = '\v\.(mp3|m3u|jpg|jpeg|png|bpm|wav)$'
-let g:ctrlp_cmd = 'CtrlPMixed'
+" let g:ctrlp_extensions = ['tag', 'buffertag', 'dir',
+"                           \ 'undo', 'line', 'changes', 'mixed', 'bookmarkdir']
+" let g:ctrlp_custom_ignore = '\v\.(mp3|m3u|jpg|jpeg|png|bpm|wav)$'
+" let g:ctrlp_cmd = 'CtrlPMixed'
 
 " vimwiki
 let vimwikidir = expand('~/Dropbox/vimwiki')
