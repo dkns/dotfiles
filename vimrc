@@ -40,6 +40,7 @@ Plug 'jaxbot/browserlink.vim'
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'gorodinskiy/vim-coloresque'
 Plug 'majutsushi/tagbar'
+Plug 'dkns/vim-distinguished'
 
 call plug#end()
 
@@ -65,7 +66,7 @@ syntax enable
 
 " colorscheme
 set background=dark
-colorscheme solarized
+colorscheme distinguished
 set t_ut=
 
 " When opening a new line and no filetype-specific indenting is enabled, keep
