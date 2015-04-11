@@ -153,8 +153,8 @@ bindsym $mod+r mode "resize"
 # finds out, if available)
 bar {
         position top
-        status_command $HOME/dotfiles/bin/i3conky
-        tray_output primary
+        #status_command $HOME/dotfiles/bin/i3conky
+        status_command i3status -c ~/dotfiles/i3status.conf
 
         colors {
             background #101010
