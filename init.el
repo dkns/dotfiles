@@ -52,6 +52,7 @@ re-downloaded in order to locate PACKAGE."
    color-theme-solarized
    zenburn-theme
    dash
+   js2-mode
    ))
 
 ;; Package manager and packages handler
@@ -225,6 +226,7 @@ re-downloaded in order to locate PACKAGE."
 (add-to-list 'auto-mode-alist '("\\.mustache\\'" . web-mode))
 (add-to-list 'auto-mode-alist '("\\.djhtml\\'" . web-mode))
 (add-to-list 'auto-mode-alist '("\\.html?\\'" . web-mode))
+(add-to-list 'auto-mode-alist '("\\.js\\''" . web-mode))
 
 
 ;; Ask "y" or "n" instead of "yes" or "no". Yes, laziness is great.
@@ -374,3 +376,4 @@ re-downloaded in order to locate PACKAGE."
 ;; display tooltips in echo area
 (tooltip-mode -1)
 (setq tooltip-use-echo-area t)
+(require 'js2-mode)
