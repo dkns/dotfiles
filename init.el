@@ -53,6 +53,7 @@ re-downloaded in order to locate PACKAGE."
    zenburn-theme
    dash
    js2-mode
+   darktooth-theme
    ))
 
 ;; Package manager and packages handler
@@ -196,7 +197,7 @@ re-downloaded in order to locate PACKAGE."
 (global-linum-mode 1)
 
 ;; Theme
-(load-theme 'zenburn t)
+(load-theme 'darktooth t)
 ;; (require 'color-theme)
 ;; (setq color-theme-is-global t)
 ;; (color-theme-initialize)
