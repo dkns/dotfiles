@@ -39,7 +39,6 @@ Plug 'jaxbot/browserlink.vim'
 "Plug 'ludovicchabant/vim-gutentags'
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'gorodinskiy/vim-coloresque'
-Plug 'majutsushi/tagbar'
 Plug 'dkns/vim-distinguished'
 
 call plug#end()
