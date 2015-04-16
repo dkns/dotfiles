@@ -40,6 +40,7 @@ Plug 'jaxbot/browserlink.vim'
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'gorodinskiy/vim-coloresque'
 Plug 'dkns/vim-distinguished'
+Plug 'amirh/HTML-AutoCloseTag'
 
 call plug#end()
 
