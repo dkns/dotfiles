@@ -52,7 +52,7 @@ filetype plugin indent on
 " show numberlines
 set nu
 " set relative numbers
-set rnu
+" set rnu
 
 " hide buffers instead of closing them
 set hidden
@@ -201,8 +201,6 @@ endif
 
 " statusline
 set statusline=%<[%n]\ %F\ %m%r%y\ %{exists('g:loaded_fugitive')?fugitive#statusline():''}\ %=%-14.(%l,%c%V%)\ %P
-" Show absolute line numbers when the window isn't in focus.
-au WinEnter * setl rnu | au WinLeave * setl nornu
 " ignore files
 set wildignore+=*.zip,*.tar.gz,*.tar.bz2,*.rar,*.tar.xz,*.py[co],*.pyc,*.jpg,*.mp3,*.wav,*.pdf
 
