@@ -41,6 +41,7 @@ Plug 'christoomey/vim-tmux-navigator'
 Plug 'gorodinskiy/vim-coloresque'
 Plug 'dkns/vim-distinguished'
 Plug 'amirh/HTML-AutoCloseTag'
+Plug 'tpope/vim-fugitive'
 
 call plug#end()
 
