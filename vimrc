@@ -20,7 +20,6 @@ Plug 'tpope/vim-commentary',
 Plug 'Valloric/YouCompleteMe'
 Plug 'Valloric/MatchTagAlways', { 'for': 'html' }
 Plug 'justinmk/vim-matchparenalways'
-Plug 'altercation/vim-colors-solarized'
 Plug 'othree/html5.vim', { 'for': 'html' }
 Plug 'sjl/gundo.vim', { 'on': 'GundoToggle' }
 Plug 'bronson/vim-trailing-whitespace', { 'on': 'FixWhitespace' }
@@ -32,11 +31,10 @@ Plug 'vimwiki/vimwiki'
 Plug 'sickill/vim-pasta'
 Plug 'airblade/vim-rooter'
 Plug 'Valloric/python-indent'
-"Plug 'ctrlpvim/ctrlp.vim'
+Plug 'Valloric/python-indent', { 'for': 'python' }
 Plug 'haya14busa/incsearch.vim'
 Plug 'tpope/vim-sleuth'
 Plug 'jaxbot/browserlink.vim'
-"Plug 'ludovicchabant/vim-gutentags'
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'gorodinskiy/vim-coloresque'
 Plug 'dkns/vim-distinguished'
@@ -303,11 +301,6 @@ let g:ycm_collect_identifiers_from_tags_files = 1
 let g:ycm_collect_identifiers_from_comments_and_strings = 1
 let g:ycm_seed_identifiers_with_syntax = 1
 let g:ycm_autoclose_preview_window_after_completion = 1
-" CtrlP
-" let g:ctrlp_extensions = ['tag', 'buffertag', 'dir',
-"                           \ 'undo', 'line', 'changes', 'mixed', 'bookmarkdir']
-" let g:ctrlp_custom_ignore = '\v\.(mp3|m3u|jpg|jpeg|png|bpm|wav)$'
-" let g:ctrlp_cmd = 'CtrlPMixed'
 
 " vimwiki
 let vimwikidir = expand('~/Dropbox/vimwiki')
