@@ -25,14 +25,6 @@ imap -b <C-x> <C-v><C-x>
 
 hi -a HInt font-size: 9pt !important;
 
-command private-tab -nargs=+ -description "Open Private Tab" -javascript <<EOF
-    privateTab.readyToOpenTab(true);
-    gBrowser.addTab("about:blank");
-    dactyl.execute(":tablast");
-    dactyl.execute(":open " + args);
-    privateTab.stopToOpenTabs();
-EOF
-
 command internal-search -nargs=+ -javascript <<EOF
     dactyl.execute(":tabopen https://internal/wiki/index.php?search=" + args + "&title=Special%3ASearch");
 EOF
