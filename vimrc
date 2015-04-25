@@ -196,8 +196,6 @@ if has('gui_running')
     set guicursor=a:blinkon0
 endif
 
-" statusline
-set statusline=%<[%n]\ %F\ %m%r%y\ %{exists('g:loaded_fugitive')?fugitive#statusline():''}\ %=%-14.(%l,%c%V%)\ %P
 " ignore files
 set wildignore+=*.zip,*.tar.gz,*.tar.bz2,*.rar,*.tar.xz,*.py[co],*.pyc,*.jpg,*.mp3,*.wav,*.pdf
 
@@ -320,3 +318,23 @@ map #  <Plug>(incsearch-nohl-#)
 map g* <Plug>(incsearch-nohl-g*)
 map g# <Plug>(incsearch-nohl-g#)
 let g:incsearch#consistent_n_direction = 1
+
+augroup statusline
+  autocmd!
+  autocmd BufWinEnter,WinEnter,VimEnter * let w:getcwd = getcwd()
+augroup END
+
+let &statusline = " %{StatuslineTag()} "
+let &statusline .= "\ue0b1 %<%f "
+let &statusline .= "%{&readonly ? \"\ue0a2 \" : &modified ? '+ ' : ''}"
+let &statusline .= "%=\u2571 %{&filetype == '' ? 'unknown' : &filetype} "
+let &statusline .= "\u2571 %l:%2c \u2571 %p%% "
+
+function! StatuslineTag()
+  if exists('b:git_dir')
+    let dir = fnamemodify(b:git_dir[:-6], ':t')
+    return dir." \ue0a0 ".fugitive#head(7)
+  else
+    return fnamemodify(getwinvar(0, 'getcwd', getcwd()), ':t')
+  endif
+endfunction
