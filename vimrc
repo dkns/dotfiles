@@ -49,8 +49,6 @@ call plug#end()
 filetype plugin indent on
 " show numberlines
 set nu
-" set relative numbers
-" set rnu
 
 " hide buffers instead of closing them
 set hidden
