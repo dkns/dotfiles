@@ -30,15 +30,14 @@ Plug 'mattn/emmet-vim', { 'for': 'html' }
 Plug 'vimwiki/vimwiki'
 Plug 'sickill/vim-pasta'
 Plug 'airblade/vim-rooter'
-Plug 'Valloric/python-indent'
 Plug 'Valloric/python-indent', { 'for': 'python' }
 Plug 'haya14busa/incsearch.vim'
 Plug 'tpope/vim-sleuth'
-Plug 'jaxbot/browserlink.vim'
+Plug 'jaxbot/browserlink.vim', { 'for': [ 'html', 'css', 'javascript', 'php' ] }
 Plug 'christoomey/vim-tmux-navigator'
-Plug 'gorodinskiy/vim-coloresque'
+Plug 'gorodinskiy/vim-coloresque', { 'for': ['css', 'sass', 'scss', 'less'] }
 Plug 'dkns/vim-distinguished'
-Plug 'amirh/HTML-AutoCloseTag'
+Plug 'amirh/HTML-AutoCloseTag', { 'for': 'html' }
 Plug 'tpope/vim-fugitive'
 
 call plug#end()
