@@ -160,9 +160,6 @@ set undoreload=10000        " number of lines to save for undo
 " use fzf as fuzzy search
 set rtp+=~/.fzf
 
-"add snipets to path
-set rtp+=~/dotfiles/snips
-
 " String to put at the start of lines that have been wrapped "
 set linebreak
 let &showbreak='↪ '
@@ -238,9 +235,6 @@ nnoremap <leader>p "+p
 nnoremap <leader>ce ggVG"+y
 " save read only file
 cnoremap w!! w !sudo tee % >/dev/null
-" delete to blackhole register
-nnoremap <leader>d "_d
-vnoremap <leader>d "_d
 " I've had enough
 :command W w
 :command Q q
