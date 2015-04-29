@@ -23,7 +23,7 @@ imap -b <C-c> <C-v><C-c>
 imap -b <C-v> <C-v><C-v>
 imap -b <C-x> <C-v><C-x>
 
-hi -a HInt font-size: 9pt !important;
+hi -a Hint font-size: 9pt !important;
 
 command internal-search -nargs=+ -javascript <<EOF
     dactyl.execute(":tabopen https://internal/wiki/index.php?search=" + args + "&title=Special%3ASearch");
