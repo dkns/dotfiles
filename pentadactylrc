@@ -25,9 +25,11 @@ imap -b <C-x> <C-v><C-x>
 
 " Move the current tab to the left
 noremap <leader>h <Esc>:tabmove! -1<CR>
-
 " Move the current tab to the right
 noremap <leader>l <Esc>:tabmove! +1<CR>
+
+map K :tn<CR>  # next tab
+map J :tp<CR>  # previous tab
 
 hi -a Hint font-size: 9pt !important;
 
