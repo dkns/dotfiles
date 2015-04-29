@@ -3,7 +3,7 @@
 loadplugins '\.(js|penta)$'
 group user
 set cdpath=''
-set hintkeys=asdflkj
+set hintkeys=asdfhlkj
 set showtabline=multitab
 set incfind
 set hlfind
