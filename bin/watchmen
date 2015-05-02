@@ -1,6 +1,7 @@
 #!/bin/sh
 
 # TODO: add timeout option; make it configurable
+# TODO: make it work on whole dir eg. run command if any file in dir changes
 
 file=$1
 shift
