@@ -37,6 +37,7 @@ Plug 'gorodinskiy/vim-coloresque', { 'for': ['css', 'sass', 'scss', 'less'] }
 Plug 'dkns/vim-distinguished'
 Plug 'amirh/HTML-AutoCloseTag', { 'for': 'html' }
 Plug 'tpope/vim-fugitive'
+Plug 'pelodelfuego/vim-swoop'
 
 call plug#end()
 
