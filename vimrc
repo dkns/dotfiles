@@ -75,6 +75,9 @@ set smarttab
 set smartindent
 " copy the previous indentation on autoindenting
 set copyindent
+if v:version >= 704 && has('patch338')
+  set breakindent
+endif
 " remember copy registers after quitting in the .viminfo file -- 20 jump links, regs up to 500 lines'
 set viminfo='20,\"500
 
