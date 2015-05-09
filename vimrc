@@ -2,14 +2,12 @@
 " Plugin manager
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
-let iCanHazPlugged=1
 let vim_plug_file=expand("~/.vim/autoload/plug.vim")
 if !filereadable(vim_plug_file)
     echo "Installing vim-plug"
     echo ""
     silent !mkdir -p ~/.vim/autoload
     silent !curl -fLo ~/.vim/autoload/plug.vim https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-    let iCanHazPlugged=0
 endif
 
 call plug#begin()
