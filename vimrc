@@ -314,25 +314,25 @@ map g* <Plug>(incsearch-nohl-g*)
 map g# <Plug>(incsearch-nohl-g#)
 let g:incsearch#consistent_n_direction = 1
 
-augroup statusline
-  autocmd!
-  autocmd BufWinEnter,WinEnter,VimEnter * let w:getcwd = getcwd()
-augroup END
+" augroup statusline
+"   autocmd!
+"   autocmd BufWinEnter,WinEnter,VimEnter * let w:getcwd = getcwd()
+" augroup END
 
-function! StatuslineTag()
-  if exists('b:git_dir')
-    let dir = fnamemodify(b:git_dir[:-6], ':t')
-    return dir." branch:".fugitive#head(7)
-  else
-    return fnamemodify(getwinvar(0, 'getcwd', getcwd()), ':t')
-  endif
-endfunction
+" function! StatuslineTag()
+"   if exists('b:git_dir')
+"     let dir = fnamemodify(b:git_dir[:-6], ':t')
+"     return dir." branch:".fugitive#head(7)
+"   else
+"     return fnamemodify(getwinvar(0, 'getcwd', getcwd()), ':t')
+"   endif
+" endfunction
 
-let &statusline = " %{StatuslineTag()} "
-let &statusline .= "\ue0b1 %<%f "
-let &statusline .= "%{&readonly ? \"\ue0a2 \" : &modified ? '+ ' : ''}"
-let &statusline .= "%=\u2571 %{&filetype == '' ? 'unknown' : &filetype} "
-let &statusline .= "\u2571 %l:%2c \u2571 %p%% "
+" let &statusline = " %{StatuslineTag()} "
+" let &statusline .= "\ue0b1 %<%f "
+" let &statusline .= "%{&readonly ? \"\ue0a2 \" : &modified ? '+ ' : ''}"
+" let &statusline .= "%=\u2571 %{&filetype == '' ? 'unknown' : &filetype} "
+" let &statusline .= "\u2571 %l:%2c \u2571 %p%% "
 
 " %< Where to truncate
 " %n buffer number
@@ -349,4 +349,4 @@ let &statusline .= "\u2571 %l:%2c \u2571 %p%% "
 " %P Percentage
 " %#HighlightGroup#
 
-"set statusline=%<[%n]\ %F\ %m%r%y\ %{exists('g:loaded_fugitive')?fugitive#head(7):''}\ %=%-14.(%l,%c%V%)\ %P
+set statusline=%<[%n]\ %F\ %m%r%y\ %{exists('g:loaded_fugitive')?fugitive#head(7):''}\ %=%-14.(%l,%c%V%)\ %P
