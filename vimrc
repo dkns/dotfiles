@@ -99,6 +99,7 @@ set ruler
 set laststatus=2
 
 " Word wrap without breaking words in the middle
+set wrap
 set formatoptions=l
 
 " Syntax highlight shell scripts as per POSIX,
