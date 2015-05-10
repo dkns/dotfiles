@@ -2,12 +2,15 @@
 " Plugin manager
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
-let vim_plug_file=expand("~/.vim/autoload/plug.vim")
+let s:prefix = has('nvim') ? 'nvim' : 'vim'
+let g:vim_dir = printf('$HOME/.%s', s:prefix)
+
+let vim_plug_file=expand(g:vim_dir . "/autoload/plug.vim")
 if !filereadable(vim_plug_file)
     echo "Installing vim-plug"
     echo ""
-    silent !mkdir -p ~/.vim/autoload
-    silent !curl -fLo ~/.vim/autoload/plug.vim https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+    silent exec "!mkdir -p " . g:vim_dir . "/autoload"
+    silent exec "!curl -fLo " . vim_plug_file . " https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim"
 endif
 
 call plug#begin()
