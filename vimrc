@@ -246,6 +246,10 @@ cnoremap w!! w !sudo tee % >/dev/null
 " FZF
 nnoremap <silent> <c-p> :FZF<cr>
 nnoremap <silent> g/. :FZF <c-r>=fnameescape(expand("%:p:h"))<cr><cr>
+" Terminal binds (neovim only)
+if has('nvim')
+  tnoremap <ESC><ESC> <C-\><C-n>
+endif
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Custom functions
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
