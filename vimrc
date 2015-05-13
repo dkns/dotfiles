@@ -41,6 +41,7 @@ Plug 'dkns/vim-distinguished'
 Plug 'amirh/HTML-AutoCloseTag', { 'for': 'html' }
 Plug 'tpope/vim-fugitive'
 Plug 'pelodelfuego/vim-swoop'
+Plug 'othree/javascript-libraries-syntax.vim', { 'for' : [ 'javascript' ] }
 
 call plug#end()
 
