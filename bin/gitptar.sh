@@ -4,7 +4,6 @@
 
 if [ -d .git  ]; then
     branch=$(git branch | grep "\*" | awk '{print $2}');
-    echo "$branch";
     for i in $(git remote -v | grep push | awk '{print $1}'); do
         git push "$i" "$branch"
     done
