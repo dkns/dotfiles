@@ -1,0 +1,16 @@
+set incsearch
+set hlsearch
+set ignorecase
+set smartcase
+
+set gui=none,tabs
+
+noremap j :noh<cr>8j
+noremap k :noh<cr>8k
+
+set hintchars=asdfhlkj
+hi -a Hint font-size: 9pt !important;
+
+let mapleader = ","
+
+noremap <leader>p i<C-S-p>
