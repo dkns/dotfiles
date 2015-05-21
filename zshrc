@@ -97,3 +97,4 @@ setprompt() {
 setprompt
 
 alias nvi="/usr/local/bin/nvim"
+alias slp="sudo sh -c \"echo mem > /sys/power/state\""
