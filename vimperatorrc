@@ -2,6 +2,7 @@ set incsearch
 set hlsearch
 set ignorecase
 set smartcase
+set focuscontent
 
 set gui=none,tabs
 
