@@ -101,7 +101,6 @@ re-downloaded in order to locate PACKAGE."
       evil-want-C-u-scroll t
       evil-want-C-w-in-emacs-state t)
 
-(evil-leader/set-key "co" 'evilnc-comment-or-uncomment-lines)
 ;; open splits
 (defun my-open-window-vertically ()
   (interactive)
@@ -119,6 +118,8 @@ re-downloaded in order to locate PACKAGE."
 (define-key evil-normal-state-map (kbd "C-j") 'evil-window-down)
 (define-key evil-normal-state-map (kbd "C-k") 'evil-window-up)
 (define-key evil-normal-state-map (kbd "C-l") 'evil-window-right)
+
+(define-key evil-normal-state-map (kbd "g c") 'evilnc-comment-or-uncomment-lines)
 
 ;; j and k move the visual line in long wrapped lines
 (define-key evil-normal-state-map (kbd "j") 'evil-next-visual-line)
@@ -191,29 +192,9 @@ re-downloaded in order to locate PACKAGE."
 ;; (color-theme-initialize)
 ;; (color-theme-solarized-dark)
 
-(custom-set-variables
- ;; custom-set-variables was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- '(custom-safe-themes (quote ("6a37be365d1d95fad2f4d185e51928c789ef7a4ccf17e7ca13ad63a8bf5b922f" "8aebf25556399b58091e533e455dd50a6a9cba958cc4ebb0aab175863c25b9a4" default)))
- '(flycheck-display-errors-function (function flycheck-pos-tip-error-messages))
- '(initial-frame-alist (quote ((fullscreen . maximized)))))
-(custom-set-faces
- ;; custom-set-faces was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- )
-
 ;; Editing html/css/js/php files
 (add-to-list 'auto-mode-alist '("\\.phtml\\'" . web-mode))
 (add-to-list 'auto-mode-alist '("\\.tpl\\.php\\'" . php-mode)) ;; decide wheter to use php-mode or web-mode for php files
-(add-to-list 'auto-mode-alist '("\\.[gj]sp\\'" . web-mode))
-(add-to-list 'auto-mode-alist '("\\.as[cp]x\\'" . web-mode))
-(add-to-list 'auto-mode-alist '("\\.erb\\'" . web-mode))
-(add-to-list 'auto-mode-alist '("\\.mustache\\'" . web-mode))
-(add-to-list 'auto-mode-alist '("\\.djhtml\\'" . web-mode))
 (add-to-list 'auto-mode-alist '("\\.html?\\'" . web-mode))
 (add-to-list 'auto-mode-alist '("\\.js\\''" . web-mode))
 (add-to-list 'auto-mode-alist '("\\.html?\\'" . web-mode))
@@ -253,10 +234,7 @@ re-downloaded in order to locate PACKAGE."
 (setq scroll-conservatively 9999
       scroll-preserve-screen-position t)
 
- ;; start maximized
-
 (defvar my-linum-format-string "%5d")
-
 (add-hook 'linum-before-numbering-hook 'my-linum-get-format-string)
 
 (defun my-linum-get-format-string ()
@@ -278,8 +256,8 @@ re-downloaded in order to locate PACKAGE."
           (propertize (format my-linum-format-string (abs offset)) 'face 'linum))))
 
 (defadvice linum-update (around my-linum-update)
-             (let ((my-linum-current-line-number (line-number-at-pos)))
-                   ad-do-it))
+  (let ((my-linum-current-line-number (line-number-at-pos)))
+    ad-do-it))
 (ad-activate 'linum-update)
 
 (blink-cursor-mode (- (*) (*) (*)))
@@ -298,19 +276,10 @@ re-downloaded in order to locate PACKAGE."
 ;; projectile mode
 (projectile-global-mode)
 
-;; enforce trailing newline
-(setq require-final-newline t)
-
-;; god mode
-(require 'god-mode)
-
-;; smart mode line
-;; (require 'smart-mode-line)
-;; (sml/setup)
-
 (defvar backup-directory "~/.backups")
 (if (not (file-exists-p backup-directory))
     (make-directory backup-directory t))
+
 (setq
  make-backup-files t        ; backup a file the first time it is saved
  backup-directory-alist `((".*" . ,backup-directory)) ; save backup files in ~/.backups
@@ -336,12 +305,6 @@ re-downloaded in order to locate PACKAGE."
 (setq ido-enable-flex-matching t)
 (setq ido-everywhere t)
 (ido-mode 1)
-
-;; god mode keybinds for navigating buffers
-(global-set-key (kbd "C-x C-1") 'delete-other-windows)
-(global-set-key (kbd "C-x C-2") 'split-window-below)
-(global-set-key (kbd "C-x C-3") 'split-window-right)
-(global-set-key (kbd "C-x C-0") 'delete-window)
 
 ;; helm
 (require 'helm-config)
