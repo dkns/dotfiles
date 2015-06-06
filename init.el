@@ -24,36 +24,39 @@ re-downloaded in order to locate PACKAGE."
  wanted-packages
  '(
    aggressive-indent
-   popup
-   multiple-cursors
-   flycheck
-   smartparens
+   color-theme-solarized
    company
+   darktooth-theme
+   dash
    evil
-   evil-numbers
    evil-jumper
    evil-leader
    evil-matchit
-   evil-surround
    evil-nerd-commenter
-   evil-visualstar
+   evil-numbers
    evil-org
-   php-mode
-   web-mode
+   evil-surround
+   evil-visualstar
+   exec-path-from-shell
+   flycheck
    flycheck-pos-tip
-   smooth-scrolling
+   git-gutter+
+   git-gutter-fringe+
    god-mode
-   smex
-   projectile
-   dash
-   smart-mode-line
-   jedi
+   guide-key
    helm
-   color-theme-solarized
-   zenburn-theme
-   dash
+   jedi
    js2-mode
-   darktooth-theme
+   magit
+   multiple-cursors
+   php-mode
+   popup
+   projectile
+   smartparens
+   smex
+   smooth-scrolling
+   web-mode
+   ycmd
    ))
 
 ;; Package manager and packages handler
@@ -144,6 +147,8 @@ re-downloaded in order to locate PACKAGE."
 (define-key minibuffer-local-isearch-map [escape] 'minibuffer-keyboard-quit)
 (global-set-key [escape] 'evil-exit-emacs-state)
 
+(global-set-key (kbd "RET") 'newline-and-indent)
+
 ;; smartparens
 (smartparens-global-mode t)
 
@@ -199,7 +204,6 @@ re-downloaded in order to locate PACKAGE."
 (add-to-list 'auto-mode-alist '("\\.js\\''" . web-mode))
 (add-to-list 'auto-mode-alist '("\\.html?\\'" . web-mode))
 
-
 ;; Ask "y" or "n" instead of "yes" or "no". Yes, laziness is great.
 (fset 'yes-or-no-p 'y-or-n-p)
 
@@ -226,13 +230,14 @@ re-downloaded in order to locate PACKAGE."
 ;; show popup when using flycheck
 (eval-after-load 'flycheck
   '(custom-set-variables
-   '(flycheck-display-errors-function #'flycheck-pos-tip-error-messages)))
+    '(flycheck-display-errors-function #'flycheck-pos-tip-error-messages)))
 
 ;; smooth scrolling
 (require 'smooth-scrolling)
 (setq smooth-scroll-margin 5)
-(setq scroll-conservatively 9999
-      scroll-preserve-screen-position t)
+(setq scroll-conservatively 101
+      scroll-preserve-screen-position t
+      auto-window-vscroll nil)
 
 (defvar my-linum-format-string "%5d")
 (add-hook 'linum-before-numbering-hook 'my-linum-get-format-string)
@@ -295,7 +300,7 @@ re-downloaded in order to locate PACKAGE."
  )
 
 ;; set font
-(set-default-font "Inconsolata-11")
+(set-frame-font "Inconsolata-11")
 
 ;; autocompletion for python
 (add-hook 'python-mode-hook 'jedi:setup)
@@ -309,6 +314,8 @@ re-downloaded in order to locate PACKAGE."
 ;; helm
 (require 'helm-config)
 (helm-mode 1)
+(evil-leader/set-key "b" 'helm-mini)
+(define-key evil-normal-state-map (kbd "C-p") 'helm-find-files)
 
 ;; remove gui and stuff
 (tool-bar-mode 0)
@@ -328,5 +335,31 @@ re-downloaded in order to locate PACKAGE."
 
 ;; display tooltips in echo area
 (tooltip-mode -1)
-(setq tooltip-use-echo-area t)
 (require 'js2-mode)
+
+;; exec path from shell
+(exec-path-from-shell-initialize)
+
+;; youcompleteme
+(require 'ycmd)
+(add-hook 'after-init-hook #'global-ycmd-mode)
+
+;; python stuff
+(add-hook 'python-mode 'run-pytho)
+
+;; guide key
+(guide-key-mode 1)
+(setq guide-key/guide-key-sequence t)
+(setq guide-key/idle-delay 0.5)
+
+;; start emacs server
+(load "server")
+(unless (server-running-p) (server-start))
+
+;; git-gutter
+(global-git-gutter+-mode t)
+(require 'git-gutter-fringe+)
+
+;; magit
+(require 'magit)
+(setq magit-last-seen-setup-instructions "1.4.0")
