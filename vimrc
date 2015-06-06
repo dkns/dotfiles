@@ -15,33 +15,34 @@ endif
 
 call plug#begin()
 
-Plug 'junegunn/vim-plug'
-Plug 'tpope/vim-surround'
-Plug 'tpope/vim-commentary'
-Plug 'Valloric/YouCompleteMe'
-Plug 'Valloric/MatchTagAlways', { 'for': 'html' }
-Plug 'justinmk/vim-matchparenalways'
-Plug 'othree/html5.vim', { 'for': 'html' }
-Plug 'sjl/gundo.vim', { 'on': 'GundoToggle' }
-Plug 'bronson/vim-trailing-whitespace', { 'on': 'FixWhitespace' }
-Plug 'jiangmiao/auto-pairs'
-Plug 'scrooloose/syntastic'
-Plug 'Konfekt/FastFold'
-Plug 'mattn/emmet-vim', { 'for': 'html' }
-Plug 'vimwiki/vimwiki'
-Plug 'sickill/vim-pasta'
 Plug 'airblade/vim-rooter'
+Plug 'Konfekt/FastFold'
+Plug 'Valloric/MatchTagAlways', { 'for': 'html' }
+Plug 'Valloric/YouCompleteMe'
 Plug 'Valloric/python-indent', { 'for': 'python' }
-Plug 'haya14busa/incsearch.vim'
-Plug 'tpope/vim-sleuth'
-Plug 'jaxbot/browserlink.vim', { 'for': [ 'html', 'css', 'javascript', 'php' ] }
-Plug 'christoomey/vim-tmux-navigator'
-Plug 'gorodinskiy/vim-coloresque', { 'for': ['css', 'sass', 'scss', 'less'] }
-Plug 'dkns/vim-distinguished'
+Plug 'airblade/vim-gitgutter'
 Plug 'amirh/HTML-AutoCloseTag', { 'for': 'html' }
-Plug 'tpope/vim-fugitive'
-Plug 'pelodelfuego/vim-swoop'
+Plug 'bronson/vim-trailing-whitespace', { 'on': 'FixWhitespace' }
+Plug 'christoomey/vim-tmux-navigator'
+Plug 'dkns/vim-distinguished'
+Plug 'gorodinskiy/vim-coloresque', { 'for': ['css', 'sass', 'scss', 'less'] }
+Plug 'haya14busa/incsearch.vim'
+Plug 'jaxbot/browserlink.vim', { 'for': [ 'html', 'css', 'javascript', 'php' ] }
+Plug 'jiangmiao/auto-pairs'
+Plug 'junegunn/vim-plug'
+Plug 'justinmk/vim-matchparenalways'
+Plug 'mattn/emmet-vim', { 'for': 'html' }
+Plug 'othree/html5.vim', { 'for': 'html' }
 Plug 'othree/javascript-libraries-syntax.vim', { 'for' : [ 'javascript' ] }
+Plug 'pelodelfuego/vim-swoop'
+Plug 'scrooloose/syntastic'
+Plug 'sickill/vim-pasta'
+Plug 'sjl/gundo.vim', { 'on': 'GundoToggle' }
+Plug 'tpope/vim-commentary'
+Plug 'tpope/vim-fugitive'
+Plug 'tpope/vim-sleuth'
+Plug 'tpope/vim-surround'
+Plug 'vimwiki/vimwiki'
 
 call plug#end()
 
