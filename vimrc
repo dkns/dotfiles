@@ -52,6 +52,8 @@ call plug#end()
 filetype plugin indent on
 " show numberlines
 set nu
+" don't highlight current line as it is really slow
+set nocursorline
 
 " hide buffers instead of closing them
 set hidden
@@ -117,9 +119,6 @@ set cmdheight=2
 
 " Better command-line completion
 set wildmenu
-
-" highlight current line
-set cursorline
 
 " open new splits to the right and below
 set splitright
