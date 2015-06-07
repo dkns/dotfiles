@@ -21,6 +21,7 @@ Plug 'Valloric/MatchTagAlways', { 'for': 'html' }
 Plug 'Valloric/YouCompleteMe'
 Plug 'Valloric/python-indent', { 'for': 'python' }
 Plug 'airblade/vim-gitgutter'
+Plug 'altercation/vim-colors-solarized'
 Plug 'amirh/HTML-AutoCloseTag', { 'for': 'html' }
 Plug 'bronson/vim-trailing-whitespace', { 'on': 'FixWhitespace' }
 Plug 'christoomey/vim-tmux-navigator'
@@ -66,7 +67,7 @@ syntax enable
 
 " colorscheme
 set background=dark
-colorscheme distinguished
+colorscheme solarized
 set t_ut=
 
 " When opening a new line and no filetype-specific indenting is enabled, keep

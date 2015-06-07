@@ -157,17 +157,12 @@ bar {
         #status_command i3status -c ~/dotfiles/i3status.conf
 
         colors {
-            background #101010
-            statusline #dcdccc
-            separator  #6ca0a3
-
-            #workspace buttons, goes colorclass border background text
-
-            focused_workspace  #777777 #777777 #dcdccc
-            #For two monitors only, might as well add
-            active_workspace   #5c888b #5c888b #dcdccc
-            inactive_workspace #202020 #202020 #dcdccc
-            urgent_workspace   #93e0e3 #93e0e3 #dcdccc
+            background #073642
+            statusline #839496
+            #yellow focused_workspace #b58900 #b58900 #eee8d5
+            focused_workspace #2aa198 #2aa198 #eee8d5
+            active_workspace #cb4b16 #cb4b16 #93a1a1
+            inactive_workspace #586e75 #586e75 #93a1a1}
         }
 }
 
@@ -203,8 +198,8 @@ mode $sysmenu {
 
 }
 
-new_window pixel 2
-new_float pixel 2
+new_window none
+new_float none
 
 # autoexec stuff
 exec --no-startup-id /usr/bin/gnome-settings-daemon
@@ -219,7 +214,7 @@ for_window [class="Steam"] floating enable #Enable floating for steam
 
 #Colours for windows
 # class                 border  backgr. text    indicator
-client.focused          #3498DB #3498DB #ECF0F1 #ECF0F1
-client.focused_inactive #95A5A6 #95A5A6 #ECF0F1 #ECF0F1
-client.unfocused        #34495E #34495E #ECF0F1 #ECF0F1
-client.urgent           #E67E22 #E67E22 #ECF0F1 #ECF0F1
+client.focused          #268bd2 #268bd2 #fdf6e3 #2e9ef4
+client.focused_inactive #93a1a1 #93a1a1 #fdf6e3 #2e9ef4
+client.unfocused        #073642 #073642 #657b83 #657b83
+client.urgent           #dc322f #dc322f #fdf6e3 #2e9ef4
