@@ -37,12 +37,12 @@ Plug 'othree/javascript-libraries-syntax.vim', { 'for' : [ 'javascript' ] }
 Plug 'pelodelfuego/vim-swoop'
 Plug 'scrooloose/syntastic'
 Plug 'sickill/vim-pasta'
-Plug 'sjl/gundo.vim', { 'on': 'GundoToggle' }
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-sleuth'
 Plug 'tpope/vim-surround'
 Plug 'vimwiki/vimwiki'
+Plug 'mbbill/undotree', { 'on': 'UndotreeToggle' }
 
 call plug#end()
 
