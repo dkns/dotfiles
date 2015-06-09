@@ -253,6 +253,8 @@ nnoremap <silent> g/. :FZF <c-r>=fnameescape(expand("%:p:h"))<cr><cr>
 if has('nvim')
   tnoremap <ESC><ESC> <C-\><C-n>
 endif
+
+iabbrev date- <c-r>=strftime("%Y-%m-%d")<cr>
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Custom functions
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
