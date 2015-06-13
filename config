@@ -212,8 +212,6 @@ exec --no-startup-id feh --bg-scale ~/Dropbox/wallpapers/arnold_schwarzenegger_m
 exec --no-startup-id dropbox start
 exec --no-startup-id redshift -l 53.4:14.6
 
-for_window [class="Steam"] floating enable #Enable floating for steam
-
 #Colours for windows
 # class                 border  backgr. text    indicator
 client.focused          #268bd2 #268bd2 #fdf6e3 #2e9ef4
