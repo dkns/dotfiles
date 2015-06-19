@@ -96,6 +96,10 @@ setprompt() {
 }
 setprompt
 
+bk() {
+  cp -a "$1" "${1}_$(date --iso-8601=seconds)"
+}
+
 alias nvi="/usr/local/bin/nvim"
 alias slp="sudo sh -c \"echo mem > /sys/power/state\""
 alias fullup="sudo apt-get update && sudo apt-get upgrade"
