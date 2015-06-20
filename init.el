@@ -23,11 +23,12 @@ re-downloaded in order to locate PACKAGE."
 (setq
  wanted-packages
  '(
+   anzu
    aggressive-indent
-   color-theme-solarized
    company
    darktooth-theme
    dash
+   emmet-mode
    evil
    evil-jumper
    evil-leader
@@ -42,21 +43,17 @@ re-downloaded in order to locate PACKAGE."
    flycheck-pos-tip
    git-gutter+
    git-gutter-fringe+
-   god-mode
    guide-key
    helm
-   jedi
+   helm-projectile
    js2-mode
    magit
-   multiple-cursors
    php-mode
    popup
    projectile
    smartparens
-   smex
    smooth-scrolling
    web-mode
-   ycmd
    ))
 
 ;; Package manager and packages handler
@@ -93,7 +90,7 @@ re-downloaded in order to locate PACKAGE."
 (global-evil-surround-mode t)
 (global-evil-leader-mode)
 (evil-leader/set-leader "SPC")
-;;(setq evil-leader/in-all-states t)
+(setq evil-leader/in-all-states t)
 (setq evil-emacs-state-cursor '("red" box)
       evil-normal-state-cursor '("green" box)
       evil-visual-state-cursor '("orange" box)
@@ -152,9 +149,6 @@ re-downloaded in order to locate PACKAGE."
 ;; smartparens
 (smartparens-global-mode t)
 
-;; multiple cursors
-(global-set-key (kbd "C->") 'mc/mark-next-word-like-this)
-
 ;; flycheck
 (add-hook 'after-init-hook #'global-flycheck-mode)
 
@@ -192,10 +186,6 @@ re-downloaded in order to locate PACKAGE."
 
 ;; Theme
 (load-theme 'darktooth t)
-;; (require 'color-theme)
-;; (setq color-theme-is-global t)
-;; (color-theme-initialize)
-;; (color-theme-solarized-dark)
 
 ;; Editing html/css/js/php files
 (add-to-list 'auto-mode-alist '("\\.phtml\\'" . web-mode))
@@ -270,16 +260,14 @@ re-downloaded in order to locate PACKAGE."
 ;; company mode
 (add-hook 'after-init-hook 'global-company-mode)
 
-;; smex
-(require 'smex)
-(smex-initialize)
-(global-set-key (kbd "M-x") 'smex)
-
 ;; aggresive indent
 (global-aggressive-indent-mode 1)
 
 ;; projectile mode
 (projectile-global-mode)
+(setq projectile-completion-system 'helm)
+(setq projectile-enable-caching t)
+(helm-projectile-on)
 
 (defvar backup-directory "~/.backups")
 (if (not (file-exists-p backup-directory))
@@ -302,20 +290,37 @@ re-downloaded in order to locate PACKAGE."
 ;; set font
 (set-frame-font "Inconsolata-11")
 
-;; autocompletion for python
-(add-hook 'python-mode-hook 'jedi:setup)
-(setq jedi:complete-on-dot t)
-
 ;; enable ido mode
 (setq ido-enable-flex-matching t)
 (setq ido-everywhere t)
 (ido-mode 1)
 
 ;; helm
+(require 'helm)
 (require 'helm-config)
 (helm-mode 1)
 (evil-leader/set-key "b" 'helm-mini)
-(define-key evil-normal-state-map (kbd "C-p") 'helm-find-files)
+(setq helm-buffers-fuzzy-matching t
+      helm-recentf-fuzzy-match t
+      helm-M-x-fuzzy-match t
+      helm-locate-fuzzy-match t)
+(define-key evil-normal-state-map (kbd "C-p") 'helm-for-files)
+(define-key evil-normal-state-map (kbd "C-o") 'helm-locate)
+(global-set-key (kbd "M-x") 'helm-M-x)
+(define-key helm-map (kbd "<tab>") 'helm-execute-persistent-action) ; rebind tab to do persistent action
+(setq helm-for-files-preferred-list '(
+				      helm-source-projectile-files-list
+				      helm-source-projectile-recentf-list
+				      helm-source-buffers-list
+				      helm-source-recentf
+				      helm-source-projectile-directories-list
+				      helm-source-projectile-projects
+				      helm-source-bookmarks
+				      helm-source-file-cache
+				      helm-source-files-in-current-dir
+				      helm-source-moccur
+				      helm-source-locate
+				      ))
 
 ;; remove gui and stuff
 (tool-bar-mode 0)
@@ -340,10 +345,6 @@ re-downloaded in order to locate PACKAGE."
 ;; exec path from shell
 (exec-path-from-shell-initialize)
 
-;; youcompleteme
-(require 'ycmd)
-(add-hook 'after-init-hook #'global-ycmd-mode)
-
 ;; python stuff
 (add-hook 'python-mode 'run-pytho)
 
@@ -363,3 +364,13 @@ re-downloaded in order to locate PACKAGE."
 ;; magit
 (require 'magit)
 (setq magit-last-seen-setup-instructions "1.4.0")
+
+;; emmet
+(require 'emmet-mode)
+(setq emmet-move-cursor-between-quotes t)
+(evil-leader/set-key "em" 'emmet-expand-line)
+(dolist (hook '(sgml-mode-hook html-mode-hook css-mode-hook web-mode-hook))
+  (add-hook 'hook 'emmet-mode))
+
+;; anzu-mode
+(global-anzu-mode +1)
