@@ -1,4 +1,5 @@
 autoload -Uz compinit promptinit
+autoload -U colors && colors
 compinit
 promptinit
 
@@ -6,7 +7,8 @@ bindkey -e
 HISTFILE=~/.histfile
 HISTSIZE=10000
 SAVEHIST=10000
-setopt hist_ignore_dups
+setopt histignorealldups
+setopt promptsubst
 
 export BROWSER="firefox"
 export EDITOR="vim"
@@ -43,59 +45,6 @@ man() {
     man "$@"
 }
 
-# autocomplete
-# zstyle ':completion:*:default' list-colors ${(s.:.)LS_COLORS}
-# zstyle ':completion:*:*:kill:*' menu yes select
-# zstyle ':completion:*:kill:*'   force-list always
-# zstyle ':completion:*:*:killall:*' menu yes select
-# zstyle ':completion:*:killall:*'   force-list always
-zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z}'
-zstyle ':completion:*' completer _expand _complete _ignored _approximate
-zstyle ':completion:*' menu select=2
-zstyle ':completion:*' select-prompt '%SScrolling active: current selection at %p%s'
-zstyle ':completion::complete:*' use-cache 1
-zstyle ':completion:*:descriptions' format '%U%F{cyan}%d%f%u'
-
-autoload -U colors zsh/terminfo
-colors
-
-autoload -Uz vcs_info
-zstyle ':vcs_info:*' enable git hg
-zstyle ':vcs_info:*' check-for-changes true
-zstyle ':vcs_info:git*' formats "%{${fg[cyan]}%}[%{${fg[green]}%}%s%{${fg[cyan]}%}][%{${fg[blue]}%}%r/%S%%{${fg[cyan]}%}][%{${fg[blue]}%}%b%{${fg[yellow]}%}%m%u%c%{${fg[cyan]}%}]%{$reset_color%}"
-
-setprompt() {
-  # load some modules
-  setopt prompt_subst
-
-  # make some aliases for the colours: (coud use normal escap.seq's too)
-  for color in RED GREEN YELLOW BLUE MAGENTA CYAN WHITE; do
-    eval PR_$color='%{$fg[${(L)color}]%}'
-  done
-  PR_NO_COLOR="%{$terminfo[sgr0]%}"
-
-  # Check the UID
-  if [[ $UID -ge 1000 ]]; then # normal user
-    eval PR_USER='${PR_GREEN}%n${PR_NO_COLOR}'
-    eval PR_USER_OP='${PR_GREEN}%#${PR_NO_COLOR}'
-  elif [[ $UID -eq 0 ]]; then # root
-    eval PR_USER='${PR_RED}%n${PR_NO_COLOR}'
-    eval PR_USER_OP='${PR_RED}%#${PR_NO_COLOR}'
-  fi
-
-  # Check if we are on SSH or not
-  if [[ -n "$SSH_CLIENT"  ||  -n "$SSH2_CLIENT" ]]; then 
-    eval PR_HOST='${PR_YELLOW}%M${PR_NO_COLOR}' #SSH
-  else 
-    eval PR_HOST='${PR_GREEN}%M${PR_NO_COLOR}' # no SSH
-  fi
-  # set the prompt
-  PS1=$'${PR_CYAN}${PR_USER}${PR_CYAN}@${PR_HOST}${PR_CYAN}${PR_BLUE}%~${PR_CYAN}${PR_USER_OP} '
-  PS2=$'%_>'
-  RPROMPT=$'${vcs_info_msg_0_}'
-}
-setprompt
-
 bk() {
   cp -a "$1" "${1}_$(date --iso-8601=seconds)"
 }
@@ -103,3 +52,48 @@ bk() {
 alias nvi="/usr/local/bin/nvim"
 alias slp="sudo sh -c \"echo mem > /sys/power/state\""
 alias fullup="sudo apt-get update && sudo apt-get upgrade"
+
+##
+# Completion system
+#
+
+autoload -Uz compinit
+compinit
+
+zstyle ":completion:*" auto-description "specify: %d"
+zstyle ":completion:*" completer _expand _complete _correct _approximate
+zstyle ":completion:*" format "Completing %d"
+zstyle ":completion:*" group-name ""
+zstyle ":completion:*" menu select=2
+zstyle ":completion:*:default" list-colors ${(s.:.)LS_COLORS}
+zstyle ":completion:*" list-colors ""
+zstyle ":completion:*" list-prompt %SAt %p: Hit TAB for more, or the character to insert%s
+zstyle ":completion:*" matcher-list "" "m:{a-z}={A-Z}" "m:{a-zA-Z}={A-Za-z}" "r:|[._-]=* r:|=* l:|=*"
+zstyle ":completion:*" menu select=long
+zstyle ":completion:*" select-prompt %SScrolling active: current selection at %p%s
+zstyle ":completion:*" verbose true
+zstyle ':completion::complete:*' use-cache 1
+
+zstyle ":completion:*:*:kill:*:processes" list-colors "=(#b) #([0-9]#)*=0=01;31"
+zstyle ":completion:*:kill:*" command "ps -u $USER -o pid,%cpu,tty,cputime,cmd"
+
+# version control info
+autoload -Uz vcs_info
+zstyle ":vcs_info:*" enable git svn
+zstyle ":vcs_info:*" get-revision true
+zstyle ":vcs_info:*" check-for-changes true
+zstyle ':vcs_info:*' stagedstr '%F{28}●'
+zstyle ':vcs_info:*' unstagedstr '%F{11}●'
+zstyle ':vcs_info:git*' actionformats "%s %b (%a) %m %u %c"
+
+precmd() {
+    if [[ -z $(git ls-files --other --exclude-standard 2> /dev/null) ]] {
+        zstyle ':vcs_info:*' formats ' [%F{green}%b%c%u%F{blue}]'
+    } else {
+        zstyle ':vcs_info:*' formats ' [%F{green}%b%c%u%F{red}●%F{blue}]'
+    }
+
+    vcs_info
+}
+setopt prompt_subst
+PROMPT='%F{blue}${PR_BLUE}%~${vcs_info_msg_0_}%F{blue} %(?/%F{blue}/%F{red})%% %{$reset_color%}'
