@@ -273,6 +273,7 @@ re-downloaded in order to locate PACKAGE."
 (if (not (file-exists-p backup-directory))
     (make-directory backup-directory t))
 
+(global-auto-revert-mode t)
 (setq
  make-backup-files t        ; backup a file the first time it is saved
  backup-directory-alist `((".*" . ,backup-directory)) ; save backup files in ~/.backups
