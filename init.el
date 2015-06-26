@@ -54,6 +54,7 @@ re-downloaded in order to locate PACKAGE."
    smartparens
    smooth-scrolling
    web-mode
+   virtualenvwrapper
    ))
 
 ;; Package manager and packages handler
@@ -347,7 +348,11 @@ re-downloaded in order to locate PACKAGE."
 (exec-path-from-shell-initialize)
 
 ;; python stuff
-(add-hook 'python-mode 'run-pytho)
+(add-hook 'python-mode 'run-python)
+(require 'virtualenvwrapper)
+(venv-initialize-interactive-shells)
+(venv-initialize-eshell)
+(setq venv-location "~/.virtualenvs")
 
 ;; guide key
 (guide-key-mode 1)
