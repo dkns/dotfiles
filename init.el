@@ -51,6 +51,7 @@ re-downloaded in order to locate PACKAGE."
    php-mode
    popup
    projectile
+   python-mode
    smartparens
    smooth-scrolling
    web-mode
@@ -346,7 +347,7 @@ re-downloaded in order to locate PACKAGE."
 (exec-path-from-shell-initialize)
 
 ;; python stuff
-(add-hook 'python-mode 'run-pytho)
+(add-hook 'python-mode 'run-python)
 
 ;; guide key
 (guide-key-mode 1)
@@ -374,3 +375,11 @@ re-downloaded in order to locate PACKAGE."
 
 ;; anzu-mode
 (global-anzu-mode +1)
+
+;; html
+(defun dkns/web-mode ()
+  (setq web-mode-markup-indent-offset 4)
+  (setq web-mode-code-indent-offset 4)
+  (setq web-mode-enable-current-element-highlight t))
+
+(add-hook 'web-mode-hook 'dkns/web-mode)
