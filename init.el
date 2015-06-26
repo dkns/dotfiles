@@ -331,16 +331,33 @@ re-downloaded in order to locate PACKAGE."
 (setq initial-scratch-message "")
 (setq inhibit-startup-message t)
 
-;; org mode keybinds
+;; org mode
 (require 'org)
+(require 'org-habit)
 (add-hook 'org-mode-hook 'turn-on-font-lock)
 (setq org-log-done t)
+(setq org-return-follows-link t)
+(setq org-enable-priority-commands t)
+(setq org-default-priority ?E)
+(setq org-lowest-priority ?E)
+(setq org-agenda-files (quote (
+			       "~/Dropbox/org/todo.org"
+			       "~/Dropbox/org/work.org")))
+(setq org-default-notes-file "~/Dropbox/org/refile.org")
 (setq org-todo-keywords
       '((sequence "TODO" "IN-PROGRESS" "DONE")))
-(evil-leader/set-key "ww" 'org-agenda)
-(evil-leader/set-key "we" 'org-store-link)
-(evil-leader/set-key "we" 'org-iswitchb)
+(evil-leader/set-key "oa" 'org-agenda)
+(evil-leader/set-key "osl" 'org-store-link)
+(evil-leader/set-key "oc" 'org-capture)
+(evil-leader/set-key-for-mode 'org-mode
+  "d" 'org-todo
+  "a" 'org-agenda)
 
+(add-hook 'org-mode-hook
+	  (lambda ()
+	    (evil-define-key 'normal org-mode-map (kbd "TAB") 'org-cycle)
+	    ;;(evil-define-key 'insert org-mode-map (kbd "C-\\") 'org-insert-heading)
+	    ))
 ;; display tooltips in echo area
 (tooltip-mode -1)
 (require 'js2-mode)
