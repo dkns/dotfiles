@@ -85,11 +85,11 @@ re-downloaded in order to locate PACKAGE."
 (install-wanted-packages)
 
 ;; evil
+(global-evil-leader-mode)
 (require 'evil)
 (evil-mode 1)
 (global-evil-matchit-mode t)
 (global-evil-surround-mode t)
-(global-evil-leader-mode)
 (evil-leader/set-leader "SPC")
 (setq evil-leader/in-all-states t)
 (setq evil-emacs-state-cursor '("red" box)
