@@ -380,3 +380,6 @@ re-downloaded in order to locate PACKAGE."
 
 ;; anzu-mode
 (global-anzu-mode +1)
+
+(modify-syntax-entry ?_ "w")
+(modify-syntax-entry ?- "w")
