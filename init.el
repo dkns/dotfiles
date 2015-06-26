@@ -55,6 +55,7 @@ re-downloaded in order to locate PACKAGE."
    smooth-scrolling
    web-mode
    virtualenvwrapper
+   undo-tree
    ))
 
 ;; Package manager and packages handler
