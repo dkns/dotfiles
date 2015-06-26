@@ -31,6 +31,7 @@ floating_modifier $mod
 
 # start a terminal
 bindsym $mod+Return exec sakura
+bindsym $mod+Shift+w exec emacsclient -c -a emacs
 
 # kill focused window
 bindsym $mod+Shift+q kill
@@ -211,6 +212,7 @@ exec --no-startup-id export $(gnome-keyring-daemon)
 exec --no-startup-id feh --bg-scale ~/Dropbox/wallpapers/arnold_schwarzenegger_monochrome_greyscale_desktop_1600x1000_hd-wallpaper-753333.jpg
 exec --no-startup-id dropbox start
 exec --no-startup-id redshift -l 53.4:14.6
+exec --no-startup-id emacs --daemon
 
 #Colours for windows
 # class                 border  backgr. text    indicator

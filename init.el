@@ -55,6 +55,8 @@ re-downloaded in order to locate PACKAGE."
    smartparens
    smooth-scrolling
    web-mode
+   virtualenvwrapper
+   undo-tree
    ))
 
 ;; Package manager and packages handler
@@ -85,11 +87,11 @@ re-downloaded in order to locate PACKAGE."
 (install-wanted-packages)
 
 ;; evil
+(global-evil-leader-mode)
 (require 'evil)
 (evil-mode 1)
 (global-evil-matchit-mode t)
 (global-evil-surround-mode t)
-(global-evil-leader-mode)
 (evil-leader/set-leader "SPC")
 (setq evil-leader/in-all-states t)
 (setq evil-emacs-state-cursor '("red" box)
@@ -274,6 +276,7 @@ re-downloaded in order to locate PACKAGE."
 (if (not (file-exists-p backup-directory))
     (make-directory backup-directory t))
 
+(global-auto-revert-mode t)
 (setq
  make-backup-files t        ; backup a file the first time it is saved
  backup-directory-alist `((".*" . ,backup-directory)) ; save backup files in ~/.backups
@@ -329,16 +332,33 @@ re-downloaded in order to locate PACKAGE."
 (setq initial-scratch-message "")
 (setq inhibit-startup-message t)
 
-;; org mode keybinds
+;; org mode
 (require 'org)
+(require 'org-habit)
 (add-hook 'org-mode-hook 'turn-on-font-lock)
 (setq org-log-done t)
+(setq org-return-follows-link t)
+(setq org-enable-priority-commands t)
+(setq org-default-priority ?E)
+(setq org-lowest-priority ?E)
+(setq org-agenda-files (quote (
+			       "~/Dropbox/org/todo.org"
+			       "~/Dropbox/org/work.org")))
+(setq org-default-notes-file "~/Dropbox/org/refile.org")
 (setq org-todo-keywords
       '((sequence "TODO" "IN-PROGRESS" "DONE")))
-(evil-leader/set-key "ww" 'org-agenda)
-(evil-leader/set-key "we" 'org-store-link)
-(evil-leader/set-key "we" 'org-iswitchb)
+(evil-leader/set-key "oa" 'org-agenda)
+(evil-leader/set-key "osl" 'org-store-link)
+(evil-leader/set-key "oc" 'org-capture)
+(evil-leader/set-key-for-mode 'org-mode
+  "d" 'org-todo
+  "a" 'org-agenda)
 
+(add-hook 'org-mode-hook
+	  (lambda ()
+	    (evil-define-key 'normal org-mode-map (kbd "TAB") 'org-cycle)
+	    ;;(evil-define-key 'insert org-mode-map (kbd "C-\\") 'org-insert-heading)
+	    ))
 ;; display tooltips in echo area
 (tooltip-mode -1)
 (require 'js2-mode)
@@ -348,6 +368,10 @@ re-downloaded in order to locate PACKAGE."
 
 ;; python stuff
 (add-hook 'python-mode 'run-python)
+(require 'virtualenvwrapper)
+(venv-initialize-interactive-shells)
+(venv-initialize-eshell)
+(setq venv-location "~/.virtualenvs")
 
 ;; guide key
 (guide-key-mode 1)
@@ -383,3 +407,22 @@ re-downloaded in order to locate PACKAGE."
   (setq web-mode-enable-current-element-highlight t))
 
 (add-hook 'web-mode-hook 'dkns/web-mode)
+(modify-syntax-entry ?_ "w")
+(modify-syntax-entry ?- "w")
+
+(custom-set-variables
+ ;; custom-set-variables was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(ansi-color-names-vector ["color-237" "#D75F5F" "#AFAF00" "#FFAF00" "#87AFAF" "#D787AF" "#87AF87" "color-223"])
+ '(custom-safe-themes (quote ("8db4b03b9ae654d4a57804286eb3e332725c84d7cdab38463cb6b97d5762ad26" "13590cc9554286c8e893463fd8e0dad7134d6b7db10060afbb6850db3e395f17" default)))
+ '(flycheck-display-errors-function (function flycheck-pos-tip-error-messages))
+ '(pos-tip-background-color "color-23")
+ '(pos-tip-foreground-color "color-230"))
+(custom-set-faces
+ ;; custom-set-faces was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ )
