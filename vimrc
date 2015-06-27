@@ -46,6 +46,7 @@ Plug 'vimwiki/vimwiki'
 Plug 'mbbill/undotree', { 'on': 'UndotreeToggle' }
 Plug 'Shougo/unite.vim'
 Plug 'Shougo/neomru.vim'
+Plug 'thinca/vim-quickrun'
 
 call plug#end()
 
