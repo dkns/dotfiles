@@ -30,10 +30,10 @@ re-downloaded in order to locate PACKAGE."
    dash
    emmet-mode
    evil
+   evil-commentary
    evil-jumper
    evil-leader
    evil-matchit
-   evil-nerd-commenter
    evil-numbers
    evil-org
    evil-surround
@@ -120,8 +120,6 @@ re-downloaded in order to locate PACKAGE."
 (define-key evil-normal-state-map (kbd "C-j") 'evil-window-down)
 (define-key evil-normal-state-map (kbd "C-k") 'evil-window-up)
 (define-key evil-normal-state-map (kbd "C-l") 'evil-window-right)
-
-(define-key evil-normal-state-map (kbd "g c") 'evilnc-comment-or-uncomment-lines)
 
 ;; j and k move the visual line in long wrapped lines
 (define-key evil-normal-state-map (kbd "j") 'evil-next-visual-line)
@@ -401,6 +399,9 @@ re-downloaded in order to locate PACKAGE."
 
 (modify-syntax-entry ?_ "w")
 (modify-syntax-entry ?- "w")
+
+(require 'evil-commentary)
+(evil-commentary-mode)
 
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
