@@ -1,8 +1,3 @@
-(eval-when-compile
-  (require 'use-package))
-(require 'diminish)
-(require 'bind-key)
-
 (require 'package)
 (add-to-list 'package-archives
              '("melpa" . "http://melpa.org/packages/") t)
@@ -23,6 +18,10 @@ re-downloaded in order to locate PACKAGE."
 (package-initialize)
 ;; Set up the package manager of choice. Supports "el-get" and "package.el"
 (setq pmoc "package.el")
+
+(require 'use-package)
+(require 'diminish)
+(require 'bind-key)
 
 ;; List of all wanted packages
 (setq
