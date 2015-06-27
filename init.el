@@ -1,3 +1,8 @@
+(eval-when-compile
+  (require 'use-package))
+(require 'diminish)
+(require 'bind-key)
+
 (require 'package)
 (add-to-list 'package-archives
              '("melpa" . "http://melpa.org/packages/") t)
@@ -57,6 +62,7 @@ re-downloaded in order to locate PACKAGE."
    web-mode
    virtualenvwrapper
    undo-tree
+   use-package
    ))
 
 ;; Package manager and packages handler
