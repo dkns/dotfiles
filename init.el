@@ -19,10 +19,6 @@ re-downloaded in order to locate PACKAGE."
 ;; Set up the package manager of choice. Supports "el-get" and "package.el"
 (setq pmoc "package.el")
 
-(require 'use-package)
-(require 'diminish)
-(require 'bind-key)
-
 ;; List of all wanted packages
 (setq
  wanted-packages
@@ -90,6 +86,10 @@ re-downloaded in order to locate PACKAGE."
 
 ;; Install wanted packages
 (install-wanted-packages)
+
+(require 'use-package)
+(require 'diminish)
+(require 'bind-key)
 
 ;; evil
 (global-evil-leader-mode)
