@@ -42,6 +42,7 @@ Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-sleuth'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-repeat'
+Plug 'tpope/vim-rsi'
 Plug 'vimwiki/vimwiki'
 Plug 'mbbill/undotree', { 'on': 'UndotreeToggle' }
 Plug 'Shougo/unite.vim'
