@@ -268,6 +268,7 @@ re-downloaded in order to locate PACKAGE."
 
 ;; aggresive indent
 (global-aggressive-indent-mode 1)
+(add-to-list 'aggressive-indent-excluded-modes 'html-mode 'python-mode)
 
 ;; projectile mode
 (projectile-global-mode)
@@ -413,9 +414,6 @@ re-downloaded in order to locate PACKAGE."
 (modify-syntax-entry ?_ "w")
 (modify-syntax-entry ?- "w")
 
-(require 'evil-commentary)
-(evil-commentary-mode)
-
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
@@ -436,8 +434,36 @@ re-downloaded in order to locate PACKAGE."
 (use-package rainbow-delimiters
   :ensure t
   :defer t
+  :diminish rainbow-delimiters
   :init (add-hook 'prog-mode-hook #'rainbow-delimiters-mode))
 
 (use-package quickrun
+  :ensure t
   :defer t
+  :diminish quickrun)
+
+(use-package evil-commentary
+  :ensure t
+  :defer t
+  :diminish evil-commentary-mode
+  :init
+  (evil-commentary-mode))
+
+(use-package jedi
   :ensure t)
+(autoload 'jedi:setup "jedi" nil t)
+(add-hook 'python-mode-hook 'jedi:setup)
+(setq jedi:complete-on-dot t)
+
+(use-package company-jedi
+  :ensure t)
+
+(defun dkns/python-mode-hook()
+  (add-to-list 'company-backends 'company-jedi))
+
+(defun run-python-once ()
+  (remove-hook 'python-mode-hook 'run-python-once)
+  (run-python))
+
+(add-hook 'python-mode-hook 'dkns/python-mode-hook)
+(add-hook 'python-mode-hook 'run-python-once)
