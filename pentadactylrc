@@ -8,10 +8,12 @@ set showtabline=multitab
 set incfind
 set hlfind
 
+map , <Leader>
 map -b j 8j
 map -b k 8k
 map -b h 8h
 map -b l 8l
+nmap -b <leader>p <C-v><C-S-p>
 
 " 'normal' copying and pasting
 nmap -b <C-c> <C-v><C-c>
