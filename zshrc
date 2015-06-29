@@ -52,6 +52,7 @@ bk() {
 alias nvi="/usr/local/bin/nvim"
 alias slp="sudo sh -c \"echo mem > /sys/power/state\""
 alias fullup="sudo apt-get update && sudo apt-get upgrade"
+alias tv="terminal_velocity ~/Dropbox/notes"
 
 ##
 # Completion system
