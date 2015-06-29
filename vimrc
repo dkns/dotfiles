@@ -379,4 +379,4 @@ let g:unite_split_rule = 'botright'
 let g:unite_enable_start_insert=1
 nnoremap <leader>fw :UniteWithCursorWord file_rec -default-action=split<CR>
 nnoremap <leader>lf :Unite file_mru<CR>
-nnoremap <silent> <c-p> :Unite -auto-resize file file_mru file_rec<cr>
+nnoremap <silent><leader>b :Unite -auto-resize file file_mru file_rec<cr>
