@@ -15,15 +15,8 @@ map -b h 8h
 map -b l 8l
 nmap -b <leader>p <C-v><C-S-p>
 
-" 'normal' copying and pasting
-nmap -b <C-c> <C-v><C-c>
-nmap -b <C-v> <C-v><C-v>
-nmap -b <C-x> <C-v><C-x>
-
-" Insert Mode Mappings
-imap -b <C-c> <C-v><C-c>
-imap -b <C-v> <C-v><C-v>
-imap -b <C-x> <C-v><C-x>
+map -count -modes=n,v,c,i,t <C-c> <count><Pass>
+map -count -modes=c,i,t <C-v> <Pass>
 
 hi -a Hint font-size: 9pt !important;
 
