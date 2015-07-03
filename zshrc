@@ -87,14 +87,19 @@ zstyle ':vcs_info:*' stagedstr '%F{28}●'
 zstyle ':vcs_info:*' unstagedstr '%F{11}●'
 zstyle ':vcs_info:git*' actionformats "%s %b (%a) %m %u %c"
 
-precmd() {
-    if [[ -z $(git ls-files --other --exclude-standard 2> /dev/null) ]] {
-        zstyle ':vcs_info:*' formats ' [%F{green}%b%c%u%F{blue}]'
-    } else {
-        zstyle ':vcs_info:*' formats ' [%F{green}%b%c%u%F{red}●%F{blue}]'
-    }
+# precmd() {
+#     if [[ -z $(git ls-files --other --exclude-standard 2> /dev/null) ]] {
+#         zstyle ':vcs_info:*' formats ' [%F{green}%b%c%u%F{blue}]'
+#     } else {
+#         zstyle ':vcs_info:*' formats ' [%F{green}%b%c%u%F{red}●%F{blue}]'
+#     }
 
-    vcs_info
-}
-setopt prompt_subst
-PROMPT='%F{blue}${PR_BLUE}%~${vcs_info_msg_0_}%F{blue} %(?/%F{blue}/%F{red})%% %{$reset_color%}'
+#     vcs_info
+# }
+# setopt prompt_subst
+# PROMPT='%F{blue}${PR_BLUE}%~${vcs_info_msg_0_}%F{blue} %(?/%F{blue}/%F{red})%% %{$reset_color%}'
+
+source $HOME/dotfiles/pure_prompt/async.zsh
+source $HOME/dotfiles/pure_prompt/pure.zsh
+autoload -Uz async && async
+autoload -Uz pure
