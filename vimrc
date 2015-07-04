@@ -21,7 +21,6 @@ Plug 'Valloric/MatchTagAlways', { 'for': 'html' }
 Plug 'Valloric/YouCompleteMe'
 Plug 'Valloric/python-indent', { 'for': 'python' }
 Plug 'airblade/vim-gitgutter'
-Plug 'amirh/HTML-AutoCloseTag', { 'for': 'html' }
 Plug 'bronson/vim-trailing-whitespace', { 'on': 'FixWhitespace' }
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'dkns/vim-distinguished'
@@ -48,6 +47,7 @@ Plug 'mbbill/undotree', { 'on': 'UndotreeToggle' }
 Plug 'Shougo/unite.vim'
 Plug 'Shougo/neomru.vim'
 Plug 'thinca/vim-quickrun'
+Plug 'docunext/closetag.vim', { 'for': 'html' }
 
 call plug#end()
 
