@@ -15,12 +15,9 @@ endif
 
 call plug#begin()
 
-Plug 'airblade/vim-rooter'
-Plug 'Konfekt/FastFold'
 Plug 'Valloric/MatchTagAlways', { 'for': 'html' }
 Plug 'Valloric/YouCompleteMe'
 Plug 'Valloric/python-indent', { 'for': 'python' }
-Plug 'airblade/vim-gitgutter'
 Plug 'bronson/vim-trailing-whitespace', { 'on': 'FixWhitespace' }
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'dkns/vim-distinguished'
@@ -29,15 +26,12 @@ Plug 'haya14busa/incsearch.vim'
 Plug 'jaxbot/browserlink.vim', { 'for': [ 'html', 'css', 'javascript', 'php' ] }
 Plug 'jiangmiao/auto-pairs'
 Plug 'junegunn/vim-plug'
-Plug 'justinmk/vim-matchparenalways'
 Plug 'mattn/emmet-vim', { 'for': 'html' }
 Plug 'othree/html5.vim', { 'for': 'html' }
 Plug 'othree/javascript-libraries-syntax.vim', { 'for' : [ 'javascript' ] }
-Plug 'pelodelfuego/vim-swoop'
 Plug 'scrooloose/syntastic'
 Plug 'sickill/vim-pasta'
 Plug 'tpope/vim-commentary'
-Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-sleuth'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-repeat'
@@ -46,7 +40,6 @@ Plug 'vimwiki/vimwiki'
 Plug 'mbbill/undotree', { 'on': 'UndotreeToggle' }
 Plug 'Shougo/unite.vim'
 Plug 'Shougo/neomru.vim'
-Plug 'thinca/vim-quickrun'
 Plug 'docunext/closetag.vim', { 'for': 'html' }
 
 call plug#end()
