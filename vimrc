@@ -54,6 +54,8 @@ set rnu
 
 " don't highlight current line as it is really slow
 set nocursorline
+set nocursorcolumn
+set scrolljump=5
 
 " hide buffers instead of closing them
 set hidden
