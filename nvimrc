@@ -15,15 +15,33 @@ endif
 
 call plug#begin()
 
+Plug 'Valloric/MatchTagAlways', { 'for': 'html' }
 Plug 'Valloric/YouCompleteMe'
+Plug 'Valloric/python-indent', { 'for': 'python' }
 Plug 'bronson/vim-trailing-whitespace', { 'on': 'FixWhitespace' }
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'dkns/vim-distinguished'
+Plug 'gorodinskiy/vim-coloresque', { 'for': ['css', 'sass', 'scss', 'less'] }
 Plug 'haya14busa/incsearch.vim'
 Plug 'haya14busa/incsearch-fuzzy.vim'
+Plug 'jaxbot/browserlink.vim', { 'for': [ 'html', 'css', 'javascript', 'php' ] }
+Plug 'jiangmiao/auto-pairs'
 Plug 'junegunn/vim-plug'
+Plug 'mattn/emmet-vim', { 'for': 'html' }
+Plug 'othree/html5.vim', { 'for': 'html' }
+Plug 'othree/javascript-libraries-syntax.vim', { 'for' : [ 'javascript' ] }
+Plug 'scrooloose/syntastic'
+Plug 'sickill/vim-pasta'
+Plug 'tpope/vim-commentary'
+Plug 'tpope/vim-sleuth'
+Plug 'tpope/vim-surround'
+Plug 'tpope/vim-repeat'
+Plug 'tpope/vim-rsi'
 Plug 'vimwiki/vimwiki'
 Plug 'mbbill/undotree', { 'on': 'UndotreeToggle' }
+Plug 'Shougo/unite.vim'
+Plug 'Shougo/neomru.vim'
+Plug 'docunext/closetag.vim', { 'for': 'html' }
 
 call plug#end()
 
@@ -43,11 +61,6 @@ set scrolljump=5
 " hide buffers instead of closing them
 set hidden
 
-" Load matchit.vim, but only if the user hasn't installed a newer version.
-if !exists('g:loaded_matchit') && findfile('plugin/matchit.vim', &rtp) ==# ''
-  runtime! macros/matchit.vim
-endif
-
 " syntax highlighting
 syntax enable
 
@@ -56,11 +69,6 @@ set background=dark
 colorscheme distinguished
 set t_ut=
 
-" When opening a new line and no filetype-specific indenting is enabled, keep
-" the same indent as the line you're currently on. Useful for READMEs, etc.
-set autoindent
-" smart tab handling for indenting
-set smarttab
 " smart auto indent
 set smartindent
 " copy the previous indentation on autoindenting
@@ -102,20 +110,12 @@ let g:is_posix = 1
 " press <Enter> to continue
 set cmdheight=2
 
-" Better command-line completion
-set wildmenu
-
 " open new splits to the right and below
 set splitright
 set splitbelow
 
 "Don't display warning about found swap file
 set shortmess+=A
-
-" Look for tags in directory above
-set tags=./tags;/
-" enable mouse in all modes
-set mouse=a
 
 "Default indenting
 set expandtab
@@ -127,6 +127,7 @@ set tabstop=4
 set noswapfile
 
 " Create backup/undo dirs
+" FIXME
 let backupdir = expand('~/.vim/backup')
 if !isdirectory(backupdir)
   call mkdir(backupdir)
@@ -161,12 +162,6 @@ set lazyredraw
 set showmatch " show matching brackets
 set matchtime=2 " reduce blinking time
 set list listchars=tab:»•,trail:•,extends:>,precedes:<
-
-" Allow backspacing over lines and stuff
-set backspace=indent,eol,start
-
-" Automatically reload file in vim if it was changed outside of vim
-set autoread
 
 " Yank to clipboard
 set clipboard+=unnamedplus
@@ -229,6 +224,14 @@ cnoremap w!! w !sudo tee % >/dev/null
 " I've had enough
 :command W w
 :command Q q
+" FZF
+nnoremap <silent> <c-p> :FZF<cr>
+nnoremap <silent> g/. :FZF <c-r>=fnameescape(expand("%:p:h"))<cr><cr>
+" Terminal binds (neovim only)
+if has('nvim')
+  tnoremap <ESC><ESC> <C-\><C-n>
+  nnoremap <leader>t <c-w><c-w>i<UP><c-\><c-n>:sleep 100m<CR>i<CR><c-\><c-n><c-w><c-w>
+endif
 
 iabbrev date- <c-r>=strftime("%Y-%m-%d")<cr>
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -338,3 +341,16 @@ let g:incsearch#consistent_n_direction = 1
 " %#HighlightGroup#
 
 set statusline=%<[%n]\ %F\ %m%r%y\ %{exists('g:loaded_fugitive')?fugitive#head(7):''}\ %=%-14.(%l,%c%V%)\ %P
+
+" syntastic
+let g:syntastic_check_on_open = 1
+let g:syntastic_javascript_checkers = ['jshint']
+
+" Unite
+call unite#filters#matcher_default#use(['matcher_fuzzy'])
+call unite#filters#sorter_default#use(['sorter_rank'])
+let g:unite_split_rule = 'botright'
+let g:unite_enable_start_insert=1
+nnoremap <leader>fw :UniteWithCursorWord file_rec -default-action=split<CR>
+nnoremap <leader>lf :Unite file_mru<CR>
+nnoremap <silent><leader>b :Unite -auto-resize file file_mru file_rec<cr>
