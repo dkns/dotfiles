@@ -23,7 +23,6 @@ re-downloaded in order to locate PACKAGE."
 (setq
  wanted-packages
  '(
-   anzu
    aggressive-indent
    company
    darktooth-theme
@@ -152,9 +151,6 @@ re-downloaded in order to locate PACKAGE."
 
 (global-set-key (kbd "RET") 'newline-and-indent)
 
-;; smartparens
-(smartparens-global-mode t)
-
 ;; flycheck
 (add-hook 'after-init-hook #'global-flycheck-mode)
 
@@ -191,7 +187,7 @@ re-downloaded in order to locate PACKAGE."
 (global-linum-mode 1)
 
 ;; Theme
-(load-theme 'darktooth t)
+;;(load-theme 'darktooth t)
 
 ;; Editing html/css/js/php files
 (add-to-list 'auto-mode-alist '("\\.phtml\\'" . web-mode))
@@ -349,6 +345,7 @@ re-downloaded in order to locate PACKAGE."
 			       "~/Dropbox/org/todo.org"
 			       "~/Dropbox/org/work.org")))
 (setq org-default-notes-file "~/Dropbox/org/refile.org")
+(add-to-list 'org-modules "org-habit")
 (setq org-todo-keywords
       '((sequence "TODO" "IN-PROGRESS" "DONE")))
 (evil-leader/set-key "oa" 'org-agenda)
@@ -365,7 +362,6 @@ re-downloaded in order to locate PACKAGE."
 	    ))
 ;; display tooltips in echo area
 (tooltip-mode -1)
-(require 'js2-mode)
 
 ;; exec path from shell
 (exec-path-from-shell-initialize)
@@ -401,9 +397,6 @@ re-downloaded in order to locate PACKAGE."
 (dolist (hook '(sgml-mode-hook html-mode-hook css-mode-hook web-mode-hook))
   (add-hook 'hook 'emmet-mode))
 
-;; anzu-mode
-(global-anzu-mode +1)
-
 ;; html
 (defun dkns/web-mode ()
   (setq web-mode-markup-indent-offset 4)
@@ -433,14 +426,11 @@ re-downloaded in order to locate PACKAGE."
 
 (use-package rainbow-delimiters
   :ensure t
-  :defer t
-  :diminish rainbow-delimiters
-  :init (add-hook 'prog-mode-hook #'rainbow-delimiters-mode))
+  :config
+  (add-hook 'prog-mode-hook #'rainbow-delimiters-mode))
 
 (use-package quickrun
-  :ensure t
-  :defer t
-  :diminish quickrun)
+  :ensure t)
 
 (use-package evil-commentary
   :ensure t
@@ -467,3 +457,22 @@ re-downloaded in order to locate PACKAGE."
 
 (add-hook 'python-mode-hook 'dkns/python-mode-hook)
 (add-hook 'python-mode-hook 'run-python-once)
+
+(use-package zerodark-theme
+  :ensure t)
+
+;; smartparens
+(use-package smartparens
+  :ensure t
+  :config
+  (smartparens-global-mode t))
+
+(use-package anzu
+  :ensure t
+  :config
+  (global-anzu-mode +1))
+
+(use-package js2-mode
+  :ensure t)
+
+(define-key global-map (kbd "RET") 'newline-and-indent)
