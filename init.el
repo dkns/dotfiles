@@ -187,7 +187,7 @@ re-downloaded in order to locate PACKAGE."
 (global-linum-mode 1)
 
 ;; Theme
-;;(load-theme 'darktooth t)
+(load-theme 'darktooth t)
 
 ;; Editing html/css/js/php files
 (add-to-list 'auto-mode-alist '("\\.phtml\\'" . web-mode))
@@ -457,9 +457,6 @@ re-downloaded in order to locate PACKAGE."
 
 (add-hook 'python-mode-hook 'dkns/python-mode-hook)
 (add-hook 'python-mode-hook 'run-python-once)
-
-(use-package zerodark-theme
-  :ensure t)
 
 ;; smartparens
 (use-package smartparens
