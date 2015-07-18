@@ -71,13 +71,13 @@ re-downloaded in order to locate PACKAGE."
     (package-initialize)
     (let ((need-refresh nil))
       (mapc (lambda (package-name)
-	      (unless (package-installed-p package-name)
-		(set 'need-refresh t))) wanted-packages)
+          (unless (package-installed-p package-name)
+        (set 'need-refresh t))) wanted-packages)
       (if need-refresh
-	  (package-refresh-contents)))
+      (package-refresh-contents)))
     (mapc (lambda (package-name)
-	    (unless (package-installed-p package-name)
-	      (package-install package-name))) wanted-packages)
+        (unless (package-installed-p package-name)
+          (package-install package-name))) wanted-packages)
     )
    ;; fallback
    (t (error "Unsupported package manager")))
@@ -313,18 +313,18 @@ re-downloaded in order to locate PACKAGE."
 (global-set-key (kbd "M-x") 'helm-M-x)
 (define-key helm-map (kbd "<tab>") 'helm-execute-persistent-action) ; rebind tab to do persistent action
 (setq helm-for-files-preferred-list '(
-				      helm-source-projectile-files-list
-				      helm-source-projectile-recentf-list
-				      helm-source-buffers-list
-				      helm-source-recentf
-				      helm-source-projectile-directories-list
-				      helm-source-projectile-projects
-				      helm-source-bookmarks
-				      helm-source-file-cache
-				      helm-source-files-in-current-dir
-				      helm-source-moccur
-				      helm-source-locate
-				      ))
+                      helm-source-projectile-files-list
+                      helm-source-projectile-recentf-list
+                      helm-source-buffers-list
+                      helm-source-recentf
+                      helm-source-projectile-directories-list
+                      helm-source-projectile-projects
+                      helm-source-bookmarks
+                      helm-source-file-cache
+                      helm-source-files-in-current-dir
+                      helm-source-moccur
+                      helm-source-locate
+                      ))
 
 ;; remove gui and stuff
 (tool-bar-mode 0)
@@ -342,8 +342,8 @@ re-downloaded in order to locate PACKAGE."
 (setq org-default-priority ?E)
 (setq org-lowest-priority ?E)
 (setq org-agenda-files (quote (
-			       "~/Dropbox/org/todo.org"
-			       "~/Dropbox/org/work.org")))
+                   "~/Dropbox/org/todo.org"
+                   "~/Dropbox/org/work.org")))
 (setq org-default-notes-file "~/Dropbox/org/refile.org")
 (add-to-list 'org-modules "org-habit")
 (setq org-todo-keywords
@@ -356,10 +356,10 @@ re-downloaded in order to locate PACKAGE."
   "a" 'org-agenda)
 
 (add-hook 'org-mode-hook
-	  (lambda ()
-	    (evil-define-key 'normal org-mode-map (kbd "TAB") 'org-cycle)
-	    ;;(evil-define-key 'insert org-mode-map (kbd "C-\\") 'org-insert-heading)
-	    ))
+      (lambda ()
+        (evil-define-key 'normal org-mode-map (kbd "TAB") 'org-cycle)
+        ;;(evil-define-key 'insert org-mode-map (kbd "C-\\") 'org-insert-heading)
+        ))
 ;; display tooltips in echo area
 (tooltip-mode -1)
 
