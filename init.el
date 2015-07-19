@@ -167,7 +167,7 @@ re-downloaded in order to locate PACKAGE."
 (scroll-bar-mode 0)
 
 ;; word wrapping
-(visual-line-mode 1)
+(global-visual-line-mode t)
 ;; ===== Set the highlight current line minor mode =====
 
 ;; In every buffer, the line which contains the cursor will be fully
@@ -201,6 +201,7 @@ re-downloaded in order to locate PACKAGE."
 
 ;; Highlight corresponding parentheses when cursor is on one
 (show-paren-mode t)
+(setq-default show-paren-delay 0)
 
 ;; Highlight tabulations
 (setq-default highlight-tabs t)
@@ -225,11 +226,15 @@ re-downloaded in order to locate PACKAGE."
     '(flycheck-display-errors-function #'flycheck-pos-tip-error-messages)))
 
 ;; smooth scrolling
-(require 'smooth-scrolling)
-(setq smooth-scroll-margin 5)
-(setq scroll-conservatively 101
-      scroll-preserve-screen-position t
-      auto-window-vscroll nil)
+(setq mouse-wheel-scroll-amount '(5 ((shift) . 5))) ;; one line at a time
+(setq mouse-wheel-progressive-speed nil) ;; don't accelerate scrolling
+(setq mouse-wheel-follow-mouse 't) ;; scroll window under mouse
+(setq scroll-step 2) ;; keyboard scroll one line at a time
+(setq redisplay-dont-pause t
+      scroll-margin 1
+      scroll-step 1
+      scroll-conservatively 10000
+      scroll-preserve-screen-position 1)
 
 (defvar my-linum-format-string "%5d")
 (add-hook 'linum-before-numbering-hook 'my-linum-get-format-string)
@@ -439,18 +444,6 @@ re-downloaded in order to locate PACKAGE."
   :init
   (evil-commentary-mode))
 
-(use-package jedi
-  :ensure t)
-(autoload 'jedi:setup "jedi" nil t)
-(add-hook 'python-mode-hook 'jedi:setup)
-(setq jedi:complete-on-dot t)
-
-(use-package company-jedi
-  :ensure t)
-
-(defun dkns/python-mode-hook()
-  (add-to-list 'company-backends 'company-jedi))
-
 (defun run-python-once ()
   (remove-hook 'python-mode-hook 'run-python-once)
   (run-python))
@@ -473,3 +466,51 @@ re-downloaded in order to locate PACKAGE."
   :ensure t)
 
 (define-key global-map (kbd "RET") 'newline-and-indent)
+
+(use-package highlight-indentation
+  :ensure t
+  :config
+  (add-hook 'prog-mode-hook #'highlight-indentation-mode))
+
+(use-package company
+  :ensure t
+  :config
+  (add-hook 'after-init-hook 'global-company-mode))
+(setq company-idle-delay 0.1)
+(setq company-minimum-prefix-length 3)
+
+(use-package powerline
+  :ensure t
+  :config
+  (powerline-center-theme)
+  (setq-default powerline-default-separator 'curve))
+;; python-mode
+;; ============
+;; pre-requisites on ubuntu
+;; sudo pip install --upgrade pip
+;; sudo pip install jedi json-rpc --upgrade
+
+(add-hook 'python-mode-hook
+          (lambda ()
+            (setq indent-tabs-mode nil)
+            (setq tab-width 4)
+            (setq python-indent-offset 4)))
+
+;; anaconda
+(use-package anaconda-mode
+  :ensure t
+  :config
+  (add-hook 'python-mode-hook 'anaconda-mode)
+  (add-hook 'python-mode-hook 'eldoc-mode))
+(use-package company-anaconda
+  :ensure t
+  :config
+  (add-to-list 'company-backends 'company-anaconda))
+
+;; virtualenv
+(use-package virtualenvwrapper
+  :ensure t
+  :config
+  (venv-initialize-interactive-shells) ;; if you want interactive shell support
+  (venv-initialize-eshell) ;; if you want eshell support
+  (setq venv-location "~/.virtualenvs/"))
