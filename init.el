@@ -514,3 +514,11 @@ re-downloaded in order to locate PACKAGE."
   (venv-initialize-interactive-shells) ;; if you want interactive shell support
   (venv-initialize-eshell) ;; if you want eshell support
   (setq venv-location "~/.virtualenvs/"))
+
+(use-package volatile-highlights
+  :ensure t
+  :config
+  (volatile-highlights-mode t))
+
+(vhl/define-extension 'my-evil-highlights 'evil-yank 'evil-delete 'evil-paste-after)
+(vhl/install-extension 'my-evil-highlights)
