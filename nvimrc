@@ -42,6 +42,7 @@ Plug 'mbbill/undotree', { 'on': 'UndotreeToggle' }
 Plug 'Shougo/unite.vim'
 Plug 'Shougo/neomru.vim'
 Plug 'docunext/closetag.vim', { 'for': 'html' }
+Plug 'romainl/Apprentice'
 
 call plug#end()
 
@@ -66,7 +67,7 @@ syntax enable
 
 " colorscheme
 set background=dark
-colorscheme distinguished
+colorscheme apprentice
 set t_ut=
 
 " smart auto indent

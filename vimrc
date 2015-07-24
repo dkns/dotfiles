@@ -24,6 +24,7 @@ Plug 'haya14busa/incsearch-fuzzy.vim'
 Plug 'junegunn/vim-plug'
 Plug 'vimwiki/vimwiki'
 Plug 'mbbill/undotree', { 'on': 'UndotreeToggle' }
+Plug 'romainl/Apprentice'
 
 call plug#end()
 
@@ -53,7 +54,7 @@ syntax enable
 
 " colorscheme
 set background=dark
-colorscheme distinguished
+colorscheme apprentice
 set t_ut=
 
 " When opening a new line and no filetype-specific indenting is enabled, keep
