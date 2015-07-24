@@ -160,12 +160,8 @@ bar {
         #status_command i3status -c ~/dotfiles/i3status.conf
 
         colors {
-            background #073642
-            statusline #839496
-            #yellow focused_workspace #b58900 #b58900 #eee8d5
-            focused_workspace #2aa198 #2aa198 #eee8d5
-            active_workspace #cb4b16 #cb4b16 #93a1a1
-            inactive_workspace #586e75 #586e75 #93a1a1}
+            background #2b303b
+            focused_workspace #4c7899 #8fa1b3 #ffffff
         }
 }
 
@@ -214,9 +210,8 @@ exec --no-startup-id dropbox start
 exec --no-startup-id redshift -l 53.4:14.6
 exec --no-startup-id emacs --daemon
 
-#Colours for windows
 # class                 border  backgr. text    indicator
-client.focused          #268bd2 #268bd2 #fdf6e3 #2e9ef4
-client.focused_inactive #93a1a1 #93a1a1 #fdf6e3 #2e9ef4
-client.unfocused        #073642 #073642 #657b83 #657b83
-client.urgent           #dc322f #dc322f #fdf6e3 #2e9ef4
+client.focused          #4c7899 #8fa1b3 #ffffff #bf616a
+client.focused_inactive #333333 #5f676a #ffffff #484e50
+client.unfocused        #333333 #222222 #888888 #292d2e
+client.urgent           #2f343a #900000 #ffffff #900000
