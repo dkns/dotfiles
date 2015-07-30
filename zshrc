@@ -110,7 +110,7 @@ v() {
   local file
   file=$(sed '1d' $HOME/.cache/neomru/file |
           fzf --query="$1" --select-1 --exit-0)
-  [ -n "$file" ] && vim $file
+  [ -n "$file" ] && nvi $file
 }
 
 # vd - cd to most recent used directory by vim
