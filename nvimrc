@@ -26,6 +26,7 @@ Plug 'haya14busa/incsearch-fuzzy.vim'
 Plug 'jaxbot/browserlink.vim', { 'for': [ 'html', 'css', 'javascript', 'php' ] }
 Plug 'jiangmiao/auto-pairs'
 Plug 'junegunn/vim-plug'
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': 'yes \| ./install' }
 Plug 'mattn/emmet-vim', { 'for': 'html' }
 Plug 'othree/html5.vim', { 'for': 'html' }
 Plug 'othree/javascript-libraries-syntax.vim', { 'for' : [ 'javascript' ] }
