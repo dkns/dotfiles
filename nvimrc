@@ -43,6 +43,7 @@ Plug 'mbbill/undotree', { 'on': 'UndotreeToggle' }
 Plug 'Shougo/neomru.vim'
 Plug 'docunext/closetag.vim', { 'for': 'html' }
 Plug 'romainl/Apprentice'
+Plug 'airblade/vim-rooter'
 
 call plug#end()
 
