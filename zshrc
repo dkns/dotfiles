@@ -103,3 +103,18 @@ source $HOME/dotfiles/pure_prompt/async.zsh
 source $HOME/dotfiles/pure_prompt/pure.zsh
 autoload -Uz async && async
 autoload -Uz pure
+
+# FZF
+v() {
+  local file
+  file=$(sed '1d' $HOME/.cache/neomru/file |
+          fzf --query="$1" --select-1 --exit-0)
+  [ -n "$file" ] && vim $file
+}
+
+# vd - cd to most recent used directory by vim
+vd() {
+  local dir
+  dir=$(sed '1d' $HOME/.cache/neomru/directory |
+        fzf --query="$1" --select-1 --exit-0) && cd "$dir"
+}
