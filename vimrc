@@ -18,7 +18,6 @@ call plug#begin()
 Plug 'Valloric/YouCompleteMe'
 Plug 'bronson/vim-trailing-whitespace', { 'on': 'FixWhitespace' }
 Plug 'christoomey/vim-tmux-navigator'
-Plug 'dkns/vim-distinguished'
 Plug 'haya14busa/incsearch.vim'
 Plug 'haya14busa/incsearch-fuzzy.vim'
 Plug 'junegunn/vim-plug'
