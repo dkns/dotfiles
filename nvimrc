@@ -219,7 +219,7 @@ noremap <right> 3<C-W>>
 " Easier pasting from clipboard
 nnoremap <leader>p "+p
 " (c)opy (e)verything to clipboard
-nnoremap <leader>ce ggVG"+y
+nnoremap <leader>ce mmggVG"+y`m
 " save read only file
 cnoremap w!! w !sudo tee % >/dev/null
 " I've had enough
