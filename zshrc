@@ -105,6 +105,7 @@ autoload -Uz async && async
 autoload -Uz pure
 
 # FZF
+export FZF_DEFAULT_OPTS='--extended'
 v() {
   local file
   file=$(sed '1d' $HOME/.cache/neomru/file |
