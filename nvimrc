@@ -39,7 +39,6 @@ Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-rsi'
 Plug 'vimwiki/vimwiki'
 Plug 'mbbill/undotree', { 'on': 'UndotreeToggle' }
-Plug 'Shougo/unite.vim'
 Plug 'Shougo/neomru.vim'
 Plug 'docunext/closetag.vim', { 'for': 'html' }
 Plug 'romainl/Apprentice'
@@ -352,12 +351,3 @@ set statusline=%<[%n]\ %F\ %m%r%y\ %{exists('g:loaded_fugitive')?fugitive#head(7
 " syntastic
 let g:syntastic_check_on_open = 1
 let g:syntastic_javascript_checkers = ['jshint']
-
-" Unite
-call unite#filters#matcher_default#use(['matcher_fuzzy'])
-call unite#filters#sorter_default#use(['sorter_rank'])
-let g:unite_split_rule = 'botright'
-let g:unite_enable_start_insert=1
-nnoremap <leader>fw :UniteWithCursorWord file_rec -default-action=split<CR>
-nnoremap <leader>lf :Unite file_mru<CR>
-nnoremap <silent><leader>b :Unite -auto-resize file file_mru file_rec<cr>
