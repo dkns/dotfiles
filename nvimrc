@@ -44,6 +44,7 @@ Plug 'Shougo/neomru.vim'
 Plug 'docunext/closetag.vim', { 'for': 'html' }
 Plug 'romainl/Apprentice'
 Plug 'airblade/vim-rooter'
+Plug 'Glench/Vim-Jinja2-Syntax'
 
 call plug#end()
 
