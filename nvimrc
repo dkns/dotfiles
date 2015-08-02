@@ -23,7 +23,6 @@ Plug 'christoomey/vim-tmux-navigator'
 Plug 'gorodinskiy/vim-coloresque', { 'for': ['css', 'sass', 'scss', 'less'] }
 Plug 'haya14busa/incsearch.vim'
 Plug 'haya14busa/incsearch-fuzzy.vim'
-Plug 'jaxbot/browserlink.vim', { 'for': [ 'html', 'css', 'javascript', 'php' ] }
 Plug 'jiangmiao/auto-pairs'
 Plug 'junegunn/vim-plug'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': 'yes \| ./install' }
