@@ -1,0 +1,17 @@
+#!/bin/bash
+
+if [[ -z $1 ]]; then
+    echo "No dir specified"
+    exit 1
+fi
+
+exclude_dir="$1/.git"
+if [ "$2" == 'golive' ]; then
+    echo "Deploying"
+    echo
+    rsync -ruv --delete --progress --exclude=$exclude_dir -e 'ssh -p22' "$1" root@saltmine:/opt/vhosts
+elif  [[ -z $2 ]]; then
+    echo "Dry run"
+    echo
+    rsync --dry-run -ruv --delete --progress --exclude=$exclude_dir -e 'ssh -p22' "$1" root@saltmine:/opt/vhosts
+fi
