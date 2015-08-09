@@ -16,7 +16,7 @@ endif
 call plug#begin()
 
 Plug 'Valloric/MatchTagAlways', { 'for': 'html' }
-Plug 'Valloric/YouCompleteMe'
+Plug 'Valloric/YouCompleteMe', { 'do': './install.sh' }
 Plug 'Valloric/python-indent', { 'for': 'python' }
 Plug 'bronson/vim-trailing-whitespace', { 'on': 'FixWhitespace' }
 Plug 'christoomey/vim-tmux-navigator'
