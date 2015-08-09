@@ -44,7 +44,7 @@ Plug 'docunext/closetag.vim', { 'for': 'html' }
 Plug 'romainl/Apprentice'
 Plug 'airblade/vim-rooter'
 Plug 'Glench/Vim-Jinja2-Syntax'
-Plug 'pangloss/vim-javascript'
+Plug 'pangloss/vim-javascript', { 'for': 'javascript' }
 
 call plug#end()
 
