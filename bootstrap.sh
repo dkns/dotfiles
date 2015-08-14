@@ -70,7 +70,7 @@ function install_programs {
     echo "Installing required programs..."
     for program in ${install_programs[@]}; do
         echo "Installing $program"
-        apt-get install $program
+        apt-get install -y --force-yes $program
     done
 }
 
