@@ -173,7 +173,7 @@ re-downloaded in order to locate PACKAGE."
 ;; In every buffer, the line which contains the cursor will be fully
 ;; highlighted
 
-(global-hl-line-mode 1)
+(global-hl-line-mode -1)
 
 ;; ========== Enable Line and Column Numbering ==========
 
