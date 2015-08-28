@@ -467,11 +467,6 @@ re-downloaded in order to locate PACKAGE."
 
 (define-key global-map (kbd "RET") 'newline-and-indent)
 
-(use-package highlight-indentation
-  :ensure t
-  :config
-  (add-hook 'prog-mode-hook #'highlight-indentation-mode))
-
 (use-package company
   :ensure t
   :config
