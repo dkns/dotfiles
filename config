@@ -208,7 +208,6 @@ exec --no-startup-id export $(gnome-keyring-daemon)
 exec --no-startup-id feh --bg-scale ~/Dropbox/wallpapers/Whe65.jpg
 exec --no-startup-id dropbox start
 exec --no-startup-id redshift -l 53.4:14.6
-exec --no-startup-id emacs --daemon
 
 # class                 border  backgr. text    indicator
 client.focused          #4c7899 #8fa1b3 #ffffff #bf616a
