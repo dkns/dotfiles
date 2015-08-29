@@ -71,7 +71,6 @@ syntax enable
 " colorscheme
 set background=dark
 colorscheme apprentice
-set t_ut=
 
 " smart auto indent
 set smartindent
