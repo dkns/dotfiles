@@ -16,7 +16,6 @@ endif
 call plug#begin()
 
 Plug 'Valloric/MatchTagAlways', { 'for': 'html' }
-Plug 'Valloric/YouCompleteMe', { 'do': './install.sh' }
 Plug 'Valloric/python-indent', { 'for': 'python' }
 Plug 'bronson/vim-trailing-whitespace', { 'on': 'FixWhitespace' }
 Plug 'christoomey/vim-tmux-navigator'
@@ -45,6 +44,9 @@ Plug 'airblade/vim-rooter'
 Plug 'Glench/Vim-Jinja2-Syntax'
 Plug 'pangloss/vim-javascript', { 'for': 'javascript' }
 Plug 'unblevable/quick-scope'
+Plug 'Shougo/Deoplete.nvim'
+Plug 'Shougo/neco-syntax'
+Plug 'Shougo/neoinclude.vim'
 
 call plug#end()
 
@@ -287,11 +289,6 @@ augroup END
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Plugins
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" YouCompleteMe
-let g:ycm_collect_identifiers_from_tags_files = 1
-let g:ycm_collect_identifiers_from_comments_and_strings = 1
-let g:ycm_seed_identifiers_with_syntax = 1
-let g:ycm_autoclose_preview_window_after_completion = 1
 
 " vimwiki
 let vimwikidir = expand('~/Dropbox/vimwiki')
@@ -377,3 +374,6 @@ let g:qs_enable = 0
 for i in  [ 'f', 'F', 't', 'T' ]
     execute 'noremap <expr> <silent>' . i . " Quick_scope_selective('". i . "')"
 endfor
+
+" deoplete
+let g:deoplete#enable_at_startup = 1
