@@ -173,15 +173,6 @@ set clipboard+=unnamedplus
 " Better handling of large files (no idea why this works though)
 set synmaxcol=180
 
-if has('gui_running')
-    set guifont=Inconsolata\ 11
-    set guioptions-=m " remove menu bar
-    set guioptions-=T " remove toolbar
-    set guioptions-=r " remove right-hand scroll bar
-    set guioptions-=L " remove left-hand scroll bar
-    set guicursor=a:blinkon0
-endif
-
 " ignore files
 set wildignore+=*.zip,*.tar.gz,*.tar.bz2,*.rar,*.tar.xz,*.py[co],*.pyc,*.jpg,*.mp3,*.wav,*.pdf
 
