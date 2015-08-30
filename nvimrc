@@ -42,7 +42,8 @@ Plug 'docunext/closetag.vim', { 'for': 'html' }
 Plug 'romainl/Apprentice'
 Plug 'airblade/vim-rooter'
 Plug 'Glench/Vim-Jinja2-Syntax'
-Plug 'pangloss/vim-javascript', { 'for': 'javascript' }
+Plug 'othree/yajs.vim', { 'for': 'javascript' }
+Plug 'gavocanov/vim-js-indent', { 'for': 'javascript' }
 Plug 'unblevable/quick-scope'
 Plug 'Shougo/Deoplete.nvim'
 Plug 'Shougo/neco-syntax'
