@@ -14,4 +14,6 @@ elif  [[ -z $2 ]]; then
     echo "Dry run"
     echo
     rsync --dry-run -ruv --delete --progress --exclude=$1/.gitignore --exclude=$exclude_dir -e 'ssh -p22' "$1" root@saltmine:/opt/vhosts
+    echo
+    echo "If you're happy with the output run this command again with golive e.g. deploy golive <website>"
 fi
