@@ -272,11 +272,6 @@ augroup bufread
   autocmd BufReadPost * call s:JumpToLastKnownCursorPosition()
 augroup END
 
-augroup tmux
-  autocmd!
-  autocmd BufReadPost,FileReadPost,BufNewFile,BufEnter * call system("tmux rename-window 'nvim | " . expand("%:t") . "'")
-  autocmd VimLeave * call system("tmux rename-window 'tmux'")
-augroup END
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Plugins
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
