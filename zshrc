@@ -28,11 +28,6 @@ source /usr/local/bin/virtualenvwrapper_lazy.sh
 LC_CTYPE=en_US.UTF-8
 LC_ALL=en_US.UTF-8
 
-alias gd='git diff'
-alias gst='git status'
-alias ls='ls --color=auto --human-readable --classify'
-alias gptar='gitptar.sh'
-
 man() {
   env \
     LESS_TERMCAP_mb=$(printf "\e[1;31m") \
@@ -48,11 +43,6 @@ man() {
 bk() {
   cp -a "$1" "${1}_$(date --iso-8601=seconds)"
 }
-
-alias nvi="/usr/local/bin/nvim"
-alias slp="sudo sh -c \"echo mem > /sys/power/state\""
-alias fullup="sudo apt-get update && sudo apt-get upgrade"
-alias tv="terminal_velocity ~/Dropbox/notes"
 
 ##
 # Completion system
@@ -157,3 +147,17 @@ fkill() {
     kill -${1:-9} $pid
   fi
 }
+
+################################################################################
+# aliases
+################################################################################
+
+alias ll='ls -lah'
+alias gd='git diff'
+alias gst='git status'
+alias ls='ls --color=auto --human-readable --classify'
+alias gptar='gitptar.sh'
+alias nvi="/usr/local/bin/nvim"
+alias slp="sudo sh -c \"echo mem > /sys/power/state\""
+alias fullup="sudo apt-get update && sudo apt-get upgrade"
+alias tv="terminal_velocity ~/Dropbox/notes"
