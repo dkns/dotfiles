@@ -62,7 +62,9 @@ autoload -Uz compinit
 compinit
 
 zstyle ":completion:*" auto-description "specify: %d"
-zstyle ":completion:*" completer _expand _complete _correct _approximate
+zstyle ":completion:*" completer _expand _complete _correct _approximate _match
+zstyle ':completion:*:match:*' original only
+zstyle ':completion:*:approximate:*' max-errors 1 numeric
 zstyle ":completion:*" format "Completing %d"
 zstyle ":completion:*" group-name ""
 zstyle ":completion:*" menu select=2
@@ -74,9 +76,14 @@ zstyle ":completion:*" menu select=long
 zstyle ":completion:*" select-prompt %SScrolling active: current selection at %p%s
 zstyle ":completion:*" verbose true
 zstyle ':completion::complete:*' use-cache 1
-
+zstyle ':completion:*:(all-|)files' ignored-patterns '(|*/)CVS'
+zstyle ':completion:*:cd:*' ignored-patterns '(*/)#CVS'
+zstyle ':completion:*:functions' ignored-patterns '_*'
+zstyle ':completion:*' squeeze-slashes true
 zstyle ":completion:*:*:kill:*:processes" list-colors "=(#b) #([0-9]#)*=0=01;31"
 zstyle ":completion:*:kill:*" command "ps -u $USER -o pid,%cpu,tty,cputime,cmd"
+zstyle -e ':completion:*:approximate:*' \
+        max-errors 'reply=($((($#PREFIX+$#SUFFIX)/3))numeric)'
 
 # version control info
 autoload -Uz vcs_info
