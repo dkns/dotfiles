@@ -40,8 +40,6 @@ re-downloaded in order to locate PACKAGE."
    exec-path-from-shell
    flycheck
    flycheck-pos-tip
-   git-gutter+
-   git-gutter-fringe+
    guide-key
    helm
    helm-projectile
@@ -386,10 +384,6 @@ re-downloaded in order to locate PACKAGE."
 ;; start emacs server
 (load "server")
 (unless (server-running-p) (server-start))
-
-;; git-gutter
-(global-git-gutter+-mode t)
-(require 'git-gutter-fringe+)
 
 ;; magit
 (require 'magit)
