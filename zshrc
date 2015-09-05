@@ -7,6 +7,8 @@ bindkey -e
 HISTFILE=~/.histfile
 HISTSIZE=10000
 SAVEHIST=10000
+setopt inc_append_history
+setopt share_history
 setopt histignorealldups
 setopt promptsubst
 
@@ -28,11 +30,6 @@ source /usr/local/bin/virtualenvwrapper_lazy.sh
 LC_CTYPE=en_US.UTF-8
 LC_ALL=en_US.UTF-8
 
-alias gd='git diff'
-alias gst='git status'
-alias ls='ls --color=auto --human-readable --classify'
-alias gptar='gitptar.sh'
-
 man() {
   env \
     LESS_TERMCAP_mb=$(printf "\e[1;31m") \
@@ -49,11 +46,6 @@ bk() {
   cp -a "$1" "${1}_$(date --iso-8601=seconds)"
 }
 
-alias nvi="/usr/local/bin/nvim"
-alias slp="sudo sh -c \"echo mem > /sys/power/state\""
-alias fullup="sudo apt-get update && sudo apt-get upgrade"
-alias tv="terminal_velocity ~/Dropbox/notes"
-
 ##
 # Completion system
 #
@@ -62,7 +54,9 @@ autoload -Uz compinit
 compinit
 
 zstyle ":completion:*" auto-description "specify: %d"
-zstyle ":completion:*" completer _expand _complete _correct _approximate
+zstyle ":completion:*" completer _expand _complete _correct _approximate _match
+zstyle ':completion:*:match:*' original only
+zstyle ':completion:*:approximate:*' max-errors 1 numeric
 zstyle ":completion:*" format "Completing %d"
 zstyle ":completion:*" group-name ""
 zstyle ":completion:*" menu select=2
@@ -74,9 +68,14 @@ zstyle ":completion:*" menu select=long
 zstyle ":completion:*" select-prompt %SScrolling active: current selection at %p%s
 zstyle ":completion:*" verbose true
 zstyle ':completion::complete:*' use-cache 1
-
+zstyle ':completion:*:(all-|)files' ignored-patterns '(|*/)CVS'
+zstyle ':completion:*:cd:*' ignored-patterns '(*/)#CVS'
+zstyle ':completion:*:functions' ignored-patterns '_*'
+zstyle ':completion:*' squeeze-slashes true
 zstyle ":completion:*:*:kill:*:processes" list-colors "=(#b) #([0-9]#)*=0=01;31"
 zstyle ":completion:*:kill:*" command "ps -u $USER -o pid,%cpu,tty,cputime,cmd"
+zstyle -e ':completion:*:approximate:*' \
+        max-errors 'reply=($((($#PREFIX+$#SUFFIX)/3))numeric)'
 
 # version control info
 autoload -Uz vcs_info
@@ -150,3 +149,17 @@ fkill() {
     kill -${1:-9} $pid
   fi
 }
+
+################################################################################
+# aliases
+################################################################################
+
+alias ll='ls -lah'
+alias gd='git diff'
+alias gst='git status'
+alias ls='ls --color=auto --human-readable --classify'
+alias gptar='gitptar.sh'
+alias nvi="/usr/local/bin/nvim"
+alias slp="sudo sh -c \"echo mem > /sys/power/state\""
+alias fullup="sudo apt-get update && sudo apt-get upgrade"
+alias tv="terminal_velocity ~/Dropbox/notes"
