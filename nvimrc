@@ -27,7 +27,7 @@ Plug 'junegunn/vim-plug'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': 'yes \| ./install' }
 Plug 'mattn/emmet-vim', { 'for': 'html' }
 Plug 'othree/html5.vim', { 'for': 'html' }
-Plug 'othree/javascript-libraries-syntax.vim', { 'for' : [ 'javascript' ] }
+Plug 'othree/javascript-libraries-syntax.vim', { 'for' : 'javascript' }
 Plug 'scrooloose/syntastic'
 Plug 'sickill/vim-pasta'
 Plug 'tpope/vim-commentary'
