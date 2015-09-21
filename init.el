@@ -44,7 +44,6 @@ re-downloaded in order to locate PACKAGE."
    helm
    helm-projectile
    js2-mode
-   magit
    php-mode
    popup
    projectile
@@ -384,10 +383,6 @@ re-downloaded in order to locate PACKAGE."
 ;; start emacs server
 (load "server")
 (unless (server-running-p) (server-start))
-
-;; magit
-(require 'magit)
-(setq magit-last-seen-setup-instructions "1.4.0")
 
 ;; emmet
 (require 'emmet-mode)
