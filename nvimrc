@@ -46,6 +46,7 @@ Plug 'Glench/Vim-Jinja2-Syntax'
 Plug 'othree/yajs.vim', { 'for': 'javascript' }
 Plug 'gavocanov/vim-js-indent', { 'for': 'javascript' }
 Plug 'unblevable/quick-scope'
+Plug 'junegunn/fzf.vim'
 
 call plug#end()
 
@@ -225,6 +226,9 @@ if has('nvim')
   tnoremap <ESC><ESC> <C-\><C-n>
   nnoremap <leader>t <c-w><c-w>i<UP><c-\><c-n>:sleep 100m<CR>i<CR><c-\><c-n><c-w><c-w>
 endif
+
+nnoremap <leader>r :History<CR>
+nnoremap <leader>b :Buffers<CR>
 
 iabbrev date- <c-r>=strftime("%Y-%m-%d")<cr>
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
