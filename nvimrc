@@ -47,6 +47,7 @@ Plug 'othree/yajs.vim', { 'for': 'javascript' }
 Plug 'gavocanov/vim-js-indent', { 'for': 'javascript' }
 Plug 'unblevable/quick-scope'
 Plug 'junegunn/fzf.vim'
+Plug 'marijnh/tern_for_vim'
 
 call plug#end()
 
