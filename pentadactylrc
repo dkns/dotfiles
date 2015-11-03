@@ -7,6 +7,7 @@ set hintkeys=asdfhlkj
 set showtabline=multitab
 set incfind
 set hlfind
+set go+=nT
 
 map , <Leader>
 map -b j 8j
