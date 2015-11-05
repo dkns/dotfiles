@@ -4,7 +4,7 @@ set ignorecase
 set smartcase
 set focuscontent
 
-set gui=none,tabs
+set gui=none,tabs,navigation
 
 noremap j :noh<cr>8j
 noremap k :noh<cr>8k
