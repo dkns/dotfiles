@@ -31,7 +31,6 @@ floating_modifier $mod
 
 # start a terminal
 bindsym $mod+Return exec sakura
-bindsym $mod+Shift+w exec emacsclient -c -a emacs
 
 # kill focused window
 bindsym $mod+Shift+q kill
