@@ -67,7 +67,8 @@ zstyle ":completion:*" matcher-list "" "m:{a-z}={A-Z}" "m:{a-zA-Z}={A-Za-z}" "r:
 zstyle ":completion:*" menu select=long
 zstyle ":completion:*" select-prompt %SScrolling active: current selection at %p%s
 zstyle ":completion:*" verbose true
-zstyle ':completion::complete:*' use-cache 1
+zstyle ':completion:*' use-cache 1
+zstyle ':completion:*' cache-path ~/.zsh/cache
 zstyle ':completion:*:(all-|)files' ignored-patterns '(|*/)CVS'
 zstyle ':completion:*:cd:*' ignored-patterns '(*/)#CVS'
 zstyle ':completion:*:functions' ignored-patterns '_*'
