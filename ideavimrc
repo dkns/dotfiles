@@ -1,0 +1,14 @@
+let mapleader = ' '
+
+set hlsearch
+set ignorecase smartcase
+set clipboard=unnamed
+set scrolloff=5
+set showmode
+
+inoremap jk <Esc>
+vnoremap jk <Esc>
+
+nnoremap Y y$
+
+nnoremap <leader>fu :action FindUsages<cr>
