@@ -233,6 +233,9 @@ endif
 nnoremap <leader>r :History<CR>
 nnoremap <leader>b :Buffers<CR>
 
+" Don't move on * From sjl dotfiles
+nnoremap <silent> * :let stay_star_view = winsaveview()<cr>*:call winrestview(stay_star_view)<cr>
+
 iabbrev date- <c-r>=strftime("%Y-%m-%d")<cr>
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Custom functions
@@ -254,9 +257,6 @@ function! Tab_Or_Complete()
 endfunction
 :inoremap <Tab> <C-R>=Tab_Or_Complete()<CR>
 :set dictionary="/usr/dict/words"
-
-" Don't move on * From sjl dotfiles
-nnoremap <silent> * :let stay_star_view = winsaveview()<cr>*:call winrestview(stay_star_view)<cr>
 
 " sudo apt-get install wmctrl for this to work
 " function Maximize_Window()
