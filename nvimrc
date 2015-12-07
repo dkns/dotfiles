@@ -190,6 +190,8 @@ let mapleader=" "
 " opening new splits
 nnoremap <leader>v :split<CR>
 nnoremap <leader>h :vsplit<CR>
+nnoremap <leader>tv :sp +te<CR>
+nnoremap <leader>th :vs +te<CR>
 " navigating splits
 nnoremap <C-J> <C-W><C-J>
 nnoremap <C-K> <C-W><C-K>
