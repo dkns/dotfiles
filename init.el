@@ -23,8 +23,6 @@ re-downloaded in order to locate PACKAGE."
 (setq
  wanted-packages
  '(
-   aggressive-indent
-   company
    darktooth-theme
    dash
    emmet-mode
@@ -40,7 +38,6 @@ re-downloaded in order to locate PACKAGE."
    exec-path-from-shell
    flycheck
    flycheck-pos-tip
-   guide-key
    helm
    helm-projectile
    js2-mode
@@ -48,7 +45,6 @@ re-downloaded in order to locate PACKAGE."
    popup
    projectile
    python-mode
-   smartparens
    smooth-scrolling
    web-mode
    virtualenvwrapper
@@ -261,13 +257,6 @@ re-downloaded in order to locate PACKAGE."
 
 (blink-cursor-mode (- (*) (*) (*)))
 
-;; company mode
-(add-hook 'after-init-hook 'global-company-mode)
-
-;; aggresive indent
-(global-aggressive-indent-mode 1)
-(add-to-list 'aggressive-indent-excluded-modes 'html-mode 'python-mode)
-
 ;; projectile mode
 (projectile-global-mode)
 (setq projectile-completion-system 'helm)
@@ -375,15 +364,6 @@ re-downloaded in order to locate PACKAGE."
 (venv-initialize-eshell)
 (setq venv-location "~/.virtualenvs")
 
-;; guide key
-(guide-key-mode 1)
-(setq guide-key/guide-key-sequence t)
-(setq guide-key/idle-delay 0.5)
-
-;; start emacs server
-(load "server")
-(unless (server-running-p) (server-start))
-
 ;; emmet
 (require 'emmet-mode)
 (setq emmet-move-cursor-between-quotes t)
@@ -407,7 +387,7 @@ re-downloaded in order to locate PACKAGE."
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(ansi-color-names-vector ["color-237" "#D75F5F" "#AFAF00" "#FFAF00" "#87AFAF" "#D787AF" "#87AF87" "color-223"])
- '(custom-safe-themes (quote ("8db4b03b9ae654d4a57804286eb3e332725c84d7cdab38463cb6b97d5762ad26" "13590cc9554286c8e893463fd8e0dad7134d6b7db10060afbb6850db3e395f17" default)))
+ '(custom-safe-themes (quote ("8855d6dbd8b4ea5d87146dc77ba1b8b7f06142ee8107429f0520c38777d9b39e" "8db4b03b9ae654d4a57804286eb3e332725c84d7cdab38463cb6b97d5762ad26" "13590cc9554286c8e893463fd8e0dad7134d6b7db10060afbb6850db3e395f17" default)))
  '(flycheck-display-errors-function (function flycheck-pos-tip-error-messages))
  '(pos-tip-background-color "color-23")
  '(pos-tip-foreground-color "color-230"))
@@ -486,6 +466,7 @@ re-downloaded in order to locate PACKAGE."
   :config
   (add-hook 'python-mode-hook 'anaconda-mode)
   (add-hook 'python-mode-hook 'eldoc-mode))
+
 (use-package company-anaconda
   :ensure t
   :config
@@ -506,3 +487,15 @@ re-downloaded in order to locate PACKAGE."
 
 (vhl/define-extension 'my-evil-highlights 'evil-yank 'evil-delete 'evil-paste-after)
 (vhl/install-extension 'my-evil-highlights)
+
+(use-package which-key
+  :ensure t
+  :config
+  (which-key-mode))
+
+;; aggresive indent
+(use-package aggressive-indent
+  :ensure t
+  :config
+  (global-aggressive-indent-mode 1)
+  (add-to-list 'aggressive-indent-excluded-modes 'html-mode 'python-mode))
