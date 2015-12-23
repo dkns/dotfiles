@@ -41,7 +41,6 @@ Plug 'mbbill/undotree', { 'on': 'UndotreeToggle' }
 Plug 'Shougo/neomru.vim'
 Plug 'alvan/vim-closetag'
 Plug 'romainl/Apprentice'
-Plug 'airblade/vim-rooter'
 Plug 'Glench/Vim-Jinja2-Syntax'
 Plug 'othree/yajs.vim', { 'for': 'javascript' }
 Plug 'gavocanov/vim-js-indent', { 'for': 'javascript' }
