@@ -14,6 +14,7 @@ URxvt*secondaryScroll: True
 URxvt*saveLines: 8000
 URxvt.intensityStyles: false
 URxvt*loginShell: true
+URxvt.letterSpace: -1
 
 *.foreground: #BCBCBC
 *.background: #262626
