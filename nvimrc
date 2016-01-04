@@ -2,17 +2,9 @@
 " Plugin manager
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
-let s:prefix = has('nvim') ? 'nvim' : 'vim'
-let g:vim_dir = printf('$HOME/.%s', s:prefix)
-
-let vim_plug_file=expand(g:vim_dir . "/autoload/plug.vim")
-if !filereadable(vim_plug_file)
-    echo "Installing vim-plug"
-    echo ""
-    silent exec "!mkdir -p " . g:vim_dir . "/autoload"
-    silent exec "!curl -fLo " . vim_plug_file . " https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim"
+if empty(glob('~/.config/nvim/autoload/plug.vim'))
+  silent !curl -fLo ~/.config/nvim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 endif
-
 call plug#begin()
 
 Plug 'Valloric/MatchTagAlways', { 'for': 'html' }
