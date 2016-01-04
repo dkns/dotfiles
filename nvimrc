@@ -31,7 +31,6 @@ Plug 'othree/javascript-libraries-syntax.vim', { 'for' : 'javascript' }
 Plug 'scrooloose/syntastic'
 Plug 'sickill/vim-pasta'
 Plug 'tpope/vim-commentary'
-Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-sleuth'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-repeat'
@@ -47,6 +46,7 @@ Plug 'gavocanov/vim-js-indent', { 'for': 'javascript' }
 Plug 'unblevable/quick-scope'
 Plug 'junegunn/fzf.vim'
 Plug 'marijnh/tern_for_vim'
+Plug 'jreybert/vimagit'
 
 call plug#end()
 
