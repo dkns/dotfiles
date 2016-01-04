@@ -102,6 +102,7 @@ zstyle ':vcs_info:git*' actionformats "%s %b (%a) %m %u %c"
 
 source $HOME/dotfiles/pure_prompt/async.zsh
 source $HOME/dotfiles/pure_prompt/pure.zsh
+source /usr/share/autojump/autojump.sh
 autoload -Uz async && async
 autoload -Uz pure
 
