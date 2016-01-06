@@ -228,6 +228,8 @@ nnoremap <leader>b :Buffers<CR>
 nnoremap <silent> * :let stay_star_view = winsaveview()<cr>*:call winrestview(stay_star_view)<cr>
 
 iabbrev date- <c-r>=strftime("%Y-%m-%d")<cr>
+
+nnoremap <leader>me  :<c-u><c-r>='let @'. v:register .' = '. string(getreg(v:register))<cr><c-f><left>
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Custom functions
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
