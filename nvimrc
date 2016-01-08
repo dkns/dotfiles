@@ -39,6 +39,7 @@ Plug 'unblevable/quick-scope'
 Plug 'junegunn/fzf.vim'
 Plug 'marijnh/tern_for_vim'
 Plug 'jreybert/vimagit'
+Plug 'mhinz/vim-startify'
 
 call plug#end()
 
