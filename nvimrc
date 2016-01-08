@@ -39,6 +39,7 @@ Plug 'unblevable/quick-scope'
 Plug 'junegunn/fzf.vim'
 Plug 'marijnh/tern_for_vim'
 Plug 'jreybert/vimagit'
+Plug 'othree/csscomplete.vim'
 Plug 'mhinz/vim-startify'
 
 call plug#end()
@@ -354,3 +355,6 @@ let g:ycm_autoclose_preview_window_after_completion = 1
 
 " closetag
 let g:closetag_filenames = "*.html,*.xhtml,*.phtml"
+
+" css complete
+autocmd FileType css set omnifunc=csscomplete#CompleteCSS noci
