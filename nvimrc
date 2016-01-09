@@ -217,11 +217,9 @@ cnoremap w!! w !sudo tee % >/dev/null
 " FZF
 nnoremap <silent> <c-p> :FZF<cr>
 nnoremap <silent> g/. :FZF <c-r>=fnameescape(expand("%:p:h"))<cr><cr>
-" Terminal binds (neovim only)
-if has('nvim')
-  tnoremap <ESC><ESC> <C-\><C-n>
-  nnoremap <leader>t <c-w><c-w>i<UP><c-\><c-n>:sleep 100m<CR>i<CR><c-\><c-n><c-w><c-w>
-endif
+
+tnoremap <ESC><ESC> <C-\><C-n>
+nnoremap <leader>t <c-w><c-w>i<UP><c-\><c-n>:sleep 100m<CR>i<CR><c-\><c-n><c-w><c-w>
 
 nnoremap <leader>r :History<CR>
 nnoremap <leader>b :Buffers<CR>
