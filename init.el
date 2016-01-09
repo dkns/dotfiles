@@ -27,7 +27,6 @@ re-downloaded in order to locate PACKAGE."
    dash
    emmet-mode
    evil
-   evil-commentary
    evil-jumper
    evil-leader
    evil-matchit
@@ -40,14 +39,11 @@ re-downloaded in order to locate PACKAGE."
    flycheck-pos-tip
    helm
    helm-projectile
-   js2-mode
    php-mode
    popup
    projectile
    python-mode
-   smooth-scrolling
    web-mode
-   virtualenvwrapper
    undo-tree
    use-package
    ))
@@ -499,3 +495,9 @@ re-downloaded in order to locate PACKAGE."
   :config
   (global-aggressive-indent-mode 1)
   (add-to-list 'aggressive-indent-excluded-modes 'html-mode 'python-mode))
+
+(use-package smooth-scroll
+  :ensure t)
+
+(use-package magit
+  :ensure t)
