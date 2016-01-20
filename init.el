@@ -501,3 +501,7 @@ re-downloaded in order to locate PACKAGE."
 
 (use-package magit
   :ensure t)
+
+(use-package tldr
+  :ensure t
+  :defer)
