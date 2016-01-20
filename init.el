@@ -500,7 +500,9 @@ re-downloaded in order to locate PACKAGE."
   :ensure t)
 
 (use-package magit
-  :ensure t)
+  :ensure t
+  :config
+  (setq magit-last-seen-setup-instructions "1.4.0"))
 
 (use-package tldr
   :ensure t
