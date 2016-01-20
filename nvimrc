@@ -40,7 +40,7 @@ Plug 'junegunn/fzf.vim'
 Plug 'marijnh/tern_for_vim', { 'for': 'javascript' }
 Plug 'jreybert/vimagit'
 Plug 'othree/csscomplete.vim'
-Plug 'mhinz/vim-startify'
+Plug 'elzr/vim-json'
 
 call plug#end()
 
