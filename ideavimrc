@@ -2,7 +2,7 @@ let mapleader = ' '
 
 set hlsearch
 set ignorecase smartcase
-set clipboard=unnamed
+set clipboard=unnamed,unnamedplus
 set scrolloff=5
 set showmode
 set number
