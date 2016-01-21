@@ -9,7 +9,6 @@ call plug#begin()
 
 Plug 'Valloric/MatchTagAlways', { 'for': 'html' }
 Plug 'Valloric/python-indent', { 'for': 'python' }
-Plug 'Valloric/YouCompleteMe', { 'do': './install.sh' }
 Plug 'bronson/vim-trailing-whitespace', { 'on': 'FixWhitespace' }
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'gorodinskiy/vim-coloresque', { 'for': ['css', 'sass', 'scss', 'less'] }
