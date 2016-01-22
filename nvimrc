@@ -344,12 +344,6 @@ let g:syntastic_javascript_checkers = ['jshint']
 
 let g:qs_highlight_on_keys = ['f', 'F', 't', 'T']
 
-" YCM
-let g:ycm_collect_identifiers_from_tags_files = 1
-let g:ycm_collect_identifiers_from_comments_and_strings = 1
-let g:ycm_seed_identifiers_with_syntax = 1
-let g:ycm_autoclose_preview_window_after_completion = 1
-
 " closetag
 let g:closetag_filenames = "*.html,*.xhtml,*.phtml"
 
