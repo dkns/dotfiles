@@ -228,6 +228,9 @@ nnoremap <silent> * :let stay_star_view = winsaveview()<cr>*:call winrestview(st
 
 iabbrev date- <c-r>=strftime("%Y-%m-%d")<cr>
 
+" Don't overwrite register when deleting single letters
+noremap <silent> x "_d<Right>
+
 nnoremap <leader>me  :<c-u><c-r>='let @'. v:register .' = '. string(getreg(v:register))<cr><c-f><left>
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Custom functions
