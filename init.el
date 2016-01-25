@@ -143,15 +143,6 @@ re-downloaded in order to locate PACKAGE."
 ;; flycheck
 (add-hook 'after-init-hook #'global-flycheck-mode)
 
-;; ========== Line by line scrolling ==========
-
-;; This makes the buffer scroll by only a single line when the up or
-;; down cursor keys push the cursor (tool-bar-mode) outside the
-;; buffer. The standard emacs behaviour is to reposition the cursor in
-;; the center of the screen, but this can make the scrolling confusing
-
-(setq scroll-step 1)
-
 ;; Who use the bar to scroll?
 (scroll-bar-mode 0)
 
@@ -213,17 +204,6 @@ re-downloaded in order to locate PACKAGE."
 (eval-after-load 'flycheck
   '(custom-set-variables
     '(flycheck-display-errors-function #'flycheck-pos-tip-error-messages)))
-
-;; smooth scrolling
-(setq mouse-wheel-scroll-amount '(5 ((shift) . 5))) ;; one line at a time
-(setq mouse-wheel-progressive-speed nil) ;; don't accelerate scrolling
-(setq mouse-wheel-follow-mouse 't) ;; scroll window under mouse
-(setq scroll-step 2) ;; keyboard scroll one line at a time
-(setq redisplay-dont-pause t
-      scroll-margin 1
-      scroll-step 1
-      scroll-conservatively 10000
-      scroll-preserve-screen-position 1)
 
 (defvar my-linum-format-string "%5d")
 (add-hook 'linum-before-numbering-hook 'my-linum-get-format-string)
@@ -497,7 +477,11 @@ re-downloaded in order to locate PACKAGE."
   (add-to-list 'aggressive-indent-excluded-modes 'html-mode 'python-mode))
 
 (use-package smooth-scroll
-  :ensure t)
+  :ensure t
+  :config
+  (smooth-scroll-mode 1)
+  (setq smooth-scroll/vscroll-step-size 5)
+  )
 
 (use-package magit
   :ensure t
