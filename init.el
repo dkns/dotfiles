@@ -261,11 +261,6 @@ re-downloaded in order to locate PACKAGE."
 ;; set font
 (set-frame-font "Inconsolata-11")
 
-;; enable ido mode
-(setq ido-enable-flex-matching t)
-(setq ido-everywhere t)
-(ido-mode 1)
-
 ;; helm
 (require 'helm)
 (require 'helm-config)
@@ -323,31 +318,27 @@ re-downloaded in order to locate PACKAGE."
   "a" 'org-agenda)
 
 (add-hook 'org-mode-hook
-      (lambda ()
-        (evil-define-key 'normal org-mode-map (kbd "TAB") 'org-cycle)
-        ;;(evil-define-key 'insert org-mode-map (kbd "C-\\") 'org-insert-heading)
-        ))
+	  (lambda ()
+	    (evil-define-key 'normal org-mode-map (kbd "TAB") 'org-cycle)
+	    ))
+
 ;; display tooltips in echo area
 (tooltip-mode -1)
 
-;; exec path from shell
 (exec-path-from-shell-initialize)
 
-;; python stuff
 (add-hook 'python-mode 'run-python)
 (require 'virtualenvwrapper)
 (venv-initialize-interactive-shells)
 (venv-initialize-eshell)
 (setq venv-location "~/.virtualenvs")
 
-;; emmet
 (require 'emmet-mode)
 (setq emmet-move-cursor-between-quotes t)
 (evil-leader/set-key "em" 'emmet-expand-line)
 (dolist (hook '(sgml-mode-hook html-mode-hook css-mode-hook web-mode-hook))
   (add-hook 'hook 'emmet-mode))
 
-;; html
 (defun dkns/web-mode ()
   (setq web-mode-markup-indent-offset 4)
   (setq web-mode-code-indent-offset 4)
@@ -415,15 +406,16 @@ re-downloaded in order to locate PACKAGE."
 (use-package company
   :ensure t
   :config
-  (add-hook 'after-init-hook 'global-company-mode))
-(setq company-idle-delay 0.1)
-(setq company-minimum-prefix-length 3)
+  (add-hook 'after-init-hook 'global-company-mode)
+  (setq company-idle-delay 0.1)
+  (setq company-minimum-prefix-length 2))
 
 (use-package powerline
   :ensure t
   :config
   (powerline-center-theme)
   (setq-default powerline-default-separator 'curve))
+
 ;; python-mode
 ;; ============
 ;; pre-requisites on ubuntu
@@ -436,7 +428,6 @@ re-downloaded in order to locate PACKAGE."
             (setq tab-width 4)
             (setq python-indent-offset 4)))
 
-;; anaconda
 (use-package anaconda-mode
   :ensure t
   :config
@@ -448,7 +439,6 @@ re-downloaded in order to locate PACKAGE."
   :config
   (add-to-list 'company-backends 'company-anaconda))
 
-;; virtualenv
 (use-package virtualenvwrapper
   :ensure t
   :config
@@ -459,17 +449,15 @@ re-downloaded in order to locate PACKAGE."
 (use-package volatile-highlights
   :ensure t
   :config
-  (volatile-highlights-mode t))
-
-(vhl/define-extension 'my-evil-highlights 'evil-yank 'evil-delete 'evil-paste-after)
-(vhl/install-extension 'my-evil-highlights)
+  (volatile-highlights-mode t)
+  (vhl/define-extension 'my-evil-highlights 'evil-yank 'evil-delete 'evil-paste-after)
+  (vhl/install-extension 'my-evil-highlights))
 
 (use-package which-key
   :ensure t
   :config
   (which-key-mode))
 
-;; aggresive indent
 (use-package aggressive-indent
   :ensure t
   :config
@@ -489,5 +477,19 @@ re-downloaded in order to locate PACKAGE."
   (setq magit-last-seen-setup-instructions "1.4.0"))
 
 (use-package tldr
+  :ensure t)
+
+(use-package multi-web-mode
   :ensure t
-  :defer)
+  :config
+  (setq mweb-default-major-mode 'html-mode)
+  (setq mweb-tags '((php-mode "<\\?php\\|<\\? \\|<\\?=" "\\?>")
+		    (js-mode "<script +\\(type=\"text/javascript\"\\|language=\"javascript\"\\)[^>]*>" "</script>")
+		    (css-mode "<style +type=\"text/css\"[^>]*>" "</style>")))
+  (setq mweb-filename-extensions '("php" "htm" "html" "ctp" "phtml" "php4" "php5"))
+  (multi-web-global-mode 1))
+
+(use-package evil-escape
+  :ensure t
+  :config
+  (setq-default evil-escape-key-sequence "jk"))
