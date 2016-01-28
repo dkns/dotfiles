@@ -40,6 +40,10 @@ Plug 'marijnh/tern_for_vim', { 'for': 'javascript' }
 Plug 'jreybert/vimagit'
 Plug 'othree/csscomplete.vim'
 Plug 'elzr/vim-json'
+Plug 'Shougo/deoplete.nvim'
+Plug 'Shougo/neco-syntax'
+Plug 'Shougo/neoinclude.vim'
+Plug 'Shougo/neco-vim'
 
 call plug#end()
 
@@ -353,3 +357,6 @@ let g:closetag_filenames = "*.html,*.xhtml,*.phtml"
 
 " css complete
 autocmd FileType css set omnifunc=csscomplete#CompleteCSS noci
+
+" deoplete
+let g:deoplete#enable_at_startup = 1
