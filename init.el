@@ -499,3 +499,7 @@ re-downloaded in order to locate PACKAGE."
 
 (use-package cider
   :ensure t)
+
+(use-package alert
+  :ensure t)
+
