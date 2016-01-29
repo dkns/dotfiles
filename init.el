@@ -328,10 +328,6 @@ re-downloaded in order to locate PACKAGE."
 (exec-path-from-shell-initialize)
 
 (add-hook 'python-mode 'run-python)
-(require 'virtualenvwrapper)
-(venv-initialize-interactive-shells)
-(venv-initialize-eshell)
-(setq venv-location "~/.virtualenvs")
 
 (require 'emmet-mode)
 (setq emmet-move-cursor-between-quotes t)
@@ -409,12 +405,6 @@ re-downloaded in order to locate PACKAGE."
   (add-hook 'after-init-hook 'global-company-mode)
   (setq company-idle-delay 0.1)
   (setq company-minimum-prefix-length 2))
-
-(use-package powerline
-  :ensure t
-  :config
-  (powerline-center-theme)
-  (setq-default powerline-default-separator 'curve))
 
 ;; python-mode
 ;; ============
