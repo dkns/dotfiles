@@ -496,3 +496,6 @@ re-downloaded in order to locate PACKAGE."
 
 (use-package edbi
   :ensure t)
+
+(use-package cider
+  :ensure t)
