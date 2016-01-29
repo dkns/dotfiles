@@ -493,3 +493,7 @@ re-downloaded in order to locate PACKAGE."
   :ensure t
   :config
   (setq-default evil-escape-key-sequence "jk"))
+  :defer)
+
+(use-package edbi
+  :ensure t)
