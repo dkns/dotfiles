@@ -503,3 +503,8 @@ re-downloaded in order to locate PACKAGE."
 (use-package alert
   :ensure t)
 
+(use-package beacon
+  :ensure t
+  :defer 2
+  :config
+  (beacon-mode 1))
