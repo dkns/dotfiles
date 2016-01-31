@@ -349,9 +349,15 @@ re-downloaded in order to locate PACKAGE."
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(ansi-color-names-vector ["color-237" "#D75F5F" "#AFAF00" "#FFAF00" "#87AFAF" "#D787AF" "#87AF87" "color-223"])
- '(custom-safe-themes (quote ("8855d6dbd8b4ea5d87146dc77ba1b8b7f06142ee8107429f0520c38777d9b39e" "8db4b03b9ae654d4a57804286eb3e332725c84d7cdab38463cb6b97d5762ad26" "13590cc9554286c8e893463fd8e0dad7134d6b7db10060afbb6850db3e395f17" default)))
+ '(ansi-color-names-vector
+   ["color-237" "#D75F5F" "#AFAF00" "#FFAF00" "#87AFAF" "#D787AF" "#87AF87" "color-223"])
+ '(custom-safe-themes
+   (quote
+    ("8855d6dbd8b4ea5d87146dc77ba1b8b7f06142ee8107429f0520c38777d9b39e" "8db4b03b9ae654d4a57804286eb3e332725c84d7cdab38463cb6b97d5762ad26" "13590cc9554286c8e893463fd8e0dad7134d6b7db10060afbb6850db3e395f17" default)))
  '(flycheck-display-errors-function (function flycheck-pos-tip-error-messages))
+ '(package-selected-packages
+   (quote
+    (beacon alert cider edbi evil-escape multi-web-mode tldr magit smooth-scroll aggressive-indent which-key volatile-highlights virtualenvwrapper company-anaconda anaconda-mode powerline company js2-mode anzu smartparens evil-commentary quickrun rainbow-delimiters use-package web-mode python-mode php-mode helm-projectile helm flycheck-pos-tip flycheck exec-path-from-shell evil-visualstar evil-surround evil-org evil-numbers evil-matchit evil-leader evil-jumper evil emmet-mode dash darktooth-theme)))
  '(pos-tip-background-color "color-23")
  '(pos-tip-foreground-color "color-230"))
 (custom-set-faces
