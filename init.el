@@ -461,11 +461,6 @@ re-downloaded in order to locate PACKAGE."
   (setq smooth-scroll/vscroll-step-size 5)
   )
 
-(use-package magit
-  :ensure t
-  :config
-  (setq magit-last-seen-setup-instructions "1.4.0"))
-
 (use-package tldr
   :ensure t)
 
