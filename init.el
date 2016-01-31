@@ -164,7 +164,7 @@ re-downloaded in order to locate PACKAGE."
 (column-number-mode 1)
 
 ;; Line number displayed on left hand side
-(global-linum-mode 1)
+(add-hook 'prog-mode-hook 'linum-mode)
 
 ;; Theme
 (load-theme 'darktooth t)
