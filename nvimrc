@@ -44,6 +44,12 @@ Plug 'Shougo/deoplete.nvim'
 Plug 'Shougo/neco-syntax'
 Plug 'Shougo/neoinclude.vim'
 Plug 'Shougo/neco-vim'
+Plug 'tpope/vim-fireplace', { 'for': 'clojure' }
+Plug 'tpope/vim-salve', { 'for': 'clojure' }
+Plug 'guns/vim-clojure-static', { 'for': 'clojure' }
+Plug 'guns/vim-clojure-highlight', { 'for': 'clojure' }
+Plug 'guns/vim-sexp', { 'for': 'clojure' }
+Plug 'tpope/vim-sexp-mappings-for-regular-people', { 'for': 'clojure' }
 
 call plug#end()
 
