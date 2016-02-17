@@ -34,3 +34,9 @@
   (progn
     (evil-mode 1)
     (setq evil-want-fine-undo t)))
+
+(use-package php-mode
+  :ensure t
+  :config
+  (progn
+    (add-to-list 'auto-mode-alist '("\\.php$" . php-mode))))
