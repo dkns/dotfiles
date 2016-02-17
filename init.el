@@ -10,7 +10,6 @@
   (package-refresh-contents)
   (package-install 'use-package))
 
-
 ;; open splits
 (defun my-open-window-vertically ()
   (interactive)
@@ -20,3 +19,18 @@
   (interactive)
   (split-window-horizontally)
   (windmove-right))
+
+(use-package evil-leader
+  :commands (evil-leader-mode global-evil-leader-mode)
+  :ensure evil-leader
+  :config
+  (progn
+    (evil-leader/set-leader "<SPC>")
+    (global-evil-leader-mode t)))
+
+(use-package evil
+  :ensure t
+  :config
+  (progn
+    (evil-mode 1)
+    (setq evil-want-fine-undo t)))
