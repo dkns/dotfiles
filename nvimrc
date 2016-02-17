@@ -301,6 +301,10 @@ let g:loaded_vimballPlugin     = 1
 let g:loaded_getscript         = 1
 let g:loaded_getscriptPlugin   = 1
 
+" Visually indicate when we're in insert mode.
+autocmd InsertEnter * set cursorline
+autocmd InsertLeave * set nocursorline
+
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Plugins
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
