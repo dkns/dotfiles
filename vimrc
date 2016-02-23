@@ -57,8 +57,6 @@ set t_ut=
 set autoindent
 " smart tab handling for indenting
 set smarttab
-" smart auto indent
-set smartindent
 " copy the previous indentation on autoindenting
 set copyindent
 if v:version >= 704 && has('patch338')
