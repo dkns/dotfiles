@@ -29,7 +29,7 @@ Plug 'tpope/vim-rsi'
 Plug 'vimwiki/vimwiki'
 Plug 'mbbill/undotree', { 'on': 'UndotreeToggle' }
 Plug 'Shougo/neomru.vim'
-Plug 'alvan/vim-closetag'
+Plug 'alvan/vim-closetag', { 'for': 'html' }
 Plug 'romainl/Apprentice'
 Plug 'Glench/Vim-Jinja2-Syntax'
 Plug 'othree/yajs.vim', { 'for': 'javascript' }
