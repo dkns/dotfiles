@@ -75,8 +75,6 @@ syntax enable
 set background=dark
 colorscheme apprentice
 
-" smart auto indent
-set smartindent
 " copy the previous indentation on autoindenting
 set copyindent
 if v:version >= 704 && has('patch338')
