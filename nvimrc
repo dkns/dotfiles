@@ -39,7 +39,6 @@ Plug 'junegunn/fzf.vim'
 Plug 'marijnh/tern_for_vim', { 'for': 'javascript' }
 Plug 'jreybert/vimagit'
 Plug 'othree/csscomplete.vim', { 'for': 'css' }
-Plug 'elzr/vim-json', { 'for': 'json' }
 Plug 'Shougo/deoplete.nvim'
 Plug 'Shougo/neco-syntax'
 Plug 'Shougo/neoinclude.vim'
