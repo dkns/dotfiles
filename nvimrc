@@ -28,21 +28,20 @@ Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-rsi'
 Plug 'vimwiki/vimwiki'
 Plug 'mbbill/undotree', { 'on': 'UndotreeToggle' }
-Plug 'Shougo/neomru.vim'
 Plug 'alvan/vim-closetag', { 'for': 'html' }
 Plug 'romainl/Apprentice'
 Plug 'Glench/Vim-Jinja2-Syntax'
 Plug 'othree/yajs.vim', { 'for': 'javascript' }
 Plug 'gavocanov/vim-js-indent', { 'for': 'javascript' }
-Plug 'unblevable/quick-scope'
+"Plug 'unblevable/quick-scope'
 Plug 'junegunn/fzf.vim'
 Plug 'marijnh/tern_for_vim', { 'for': 'javascript' }
 Plug 'jreybert/vimagit'
 Plug 'othree/csscomplete.vim', { 'for': 'css' }
-Plug 'Shougo/deoplete.nvim'
-Plug 'Shougo/neco-syntax'
-Plug 'Shougo/neoinclude.vim'
-Plug 'Shougo/neco-vim'
+" Plug 'Shougo/deoplete.nvim'
+" Plug 'Shougo/neco-syntax'
+" Plug 'Shougo/neoinclude.vim'
+" Plug 'Shougo/neco-vim'
 Plug 'tpope/vim-fireplace', { 'for': 'clojure' }
 Plug 'tpope/vim-salve', { 'for': 'clojure' }
 Plug 'guns/vim-clojure-static', { 'for': 'clojure' }
