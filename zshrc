@@ -153,6 +153,13 @@ fkill() {
   fi
 }
 
+wgetnc() {
+  wget --no-check-certificate "$1"
+  tar_name=$(echo $1 | grep -P "(?<=downloads\/).*")
+  echo $tar_name
+  tar -xvf $tar_name
+}
+
 ################################################################################
 # aliases
 ################################################################################
@@ -167,7 +174,6 @@ alias slp="sudo sh -c \"echo mem > /sys/power/state\""
 alias fullup="sudo apt-get update && sudo apt-get upgrade"
 alias tv="terminal_velocity ~/Dropbox/notes"
 alias tl="todo ls"
-alias wgetnc="wget --no-check-certificate "
 alias -g G="| grep"
 alias ehosts="sudo -e /etc/hosts"
 alias moodlectags="ctags -R --languages=php --exclude="CVS" --php-kinds=f \
