@@ -155,7 +155,7 @@ fkill() {
 
 wgetnc() {
   wget --no-check-certificate "$1"
-  tar_name=$(echo $1 | grep -P "(?<=downloads\/).*")
+  tar_name=$(echo $1 | grep -aP "(?<=downloads\/).*")
   echo $tar_name
   tar -xvf $tar_name
 }
