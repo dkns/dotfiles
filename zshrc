@@ -181,3 +181,4 @@ alias moodlectags="ctags -R --languages=php --exclude="CVS" --php-kinds=f \
 --regex-PHP='/interface ([^ ]*)/\1/c/' \
 --regex-PHP='/(public |static |abstract |protected |private )+function ([^ (]*)/\2/f/'"
 alias svnall="svn add --force ./*"
+alias bye="sudo shutdown -hP now"
