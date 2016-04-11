@@ -99,18 +99,6 @@
   (which-function-mode)
   )
 
-(use-package powerline
-  :ensure t
-  :config
-  (require 'powerline)
-  (powerline-vim-theme)
-  )
-
-(use-package kpm-list
-  :ensure t
-  :defer t
-  )
-
 (use-package which-key
   :ensure t
   :config
