@@ -168,7 +168,7 @@ fkill() {
 
 wgetnc() {
   cd /tmp/
-  dir=$(echo $1 | cut -c35- | sed -n 's/\..*//p')
+  dir=$(basename $1 | cut -d. -f1)
   mkdir "moodle_$dir"
   cd "moodle_$dir"
   wget --no-check-certificate "$1"
