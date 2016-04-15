@@ -167,10 +167,12 @@ fkill() {
 }
 
 wgetnc() {
+  cd /tmp/
+  dir=$(echo $1 | cut -c35- | sed -n 's/\..*//p')
+  mkdir "moodle_$dir"
+  cd "moodle_$dir"
   wget --no-check-certificate "$1"
-  tar_name=$(echo $1 | grep -aP "(?<=downloads\/).*")
-  echo $tar_name
-  tar -xvf $tar_name
+  tar -xvf $(ls)
 }
 
 ################################################################################
