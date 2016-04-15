@@ -3,6 +3,10 @@ autoload -U colors && colors
 compinit
 promptinit
 
+if [ -f ~/.zsh.local ]; then
+  source ~/.zsh.local
+fi
+
 bindkey -e
 HISTFILE=~/.histfile
 HISTSIZE=10000
@@ -100,9 +104,18 @@ zstyle ':vcs_info:git*' actionformats "%s %b (%a) %m %u %c"
 # setopt prompt_subst
 # PROMPT='%F{blue}${PR_BLUE}%~${vcs_info_msg_0_}%F{blue} %(?/%F{blue}/%F{red})%% %{$reset_color%}'
 
-source $HOME/dotfiles/pure_prompt/async.zsh
-source $HOME/dotfiles/pure_prompt/pure.zsh
-source /usr/share/autojump/autojump.sh
+if [ -f $HOME/dotfiles/pure_prompt/async.zsh ]; then
+  source $HOME/dotfiles/pure_prompt/async.zsh
+fi
+
+if [ -f $HOME/dotfiles/pure_prompt/pure.zsh ]; then
+  source $HOME/dotfiles/pure_prompt/pure.zsh
+fi
+
+if [ -f /usr/share/autojump/autojump.sh ]; then
+  source /usr/share/autojump/autojump.sh
+fi
+
 autoload -Uz async && async
 autoload -Uz pure
 
