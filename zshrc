@@ -101,23 +101,12 @@ zstyle ':vcs_info:git*' actionformats "%s %b (%a) %m %u %c"
 
 #     vcs_info
 # }
-# setopt prompt_subst
-# PROMPT='%F{blue}${PR_BLUE}%~${vcs_info_msg_0_}%F{blue} %(?/%F{blue}/%F{red})%% %{$reset_color%}'
 
-if [ -f $HOME/dotfiles/pure_prompt/async.zsh ]; then
-  source $HOME/dotfiles/pure_prompt/async.zsh
-fi
-
-if [ -f $HOME/dotfiles/pure_prompt/pure.zsh ]; then
-  source $HOME/dotfiles/pure_prompt/pure.zsh
-fi
+PROMPT='%F{blue}${PR_BLUE}%~${vcs_info_msg_0_}%F{blue} %(?/%F{blue}/%F{red})%% %{$reset_color%}'
 
 if [ -f /usr/share/autojump/autojump.sh ]; then
   source /usr/share/autojump/autojump.sh
 fi
-
-autoload -Uz async && async
-autoload -Uz pure
 
 # FZF
 export FZF_DEFAULT_OPTS='--extended'
