@@ -164,7 +164,7 @@ set list listchars=tab:»•,trail:•,extends:>,precedes:<
 set clipboard+=unnamedplus
 
 " Better handling of large files (no idea why this works though)
-set synmaxcol=180
+set synmaxcol=500
 
 " ignore files
 set wildignore+=*.zip,*.tar.gz,*.tar.bz2,*.rar,*.tar.xz,*.py[co],*.pyc,*.jpg,*.mp3,*.wav,*.pdf
