@@ -365,8 +365,6 @@ endif
 let g:syntastic_check_on_open = 1
 let g:syntastic_javascript_checkers = ['jshint']
 
-let g:qs_highlight_on_keys = ['f', 'F', 't', 'T']
-
 " closetag
 let g:closetag_filenames = "*.html,*.xhtml,*.phtml"
 
