@@ -27,10 +27,16 @@ export LS_COLORS
 
 # fixes tmux/vim issues
 
-source ~/.fzf.zsh
+if [ -f ~/.fzf.zsh ]; then
+  source ~/.fzf.zsh
+fi
+
 export PROJECT_HOME=$HOME/projects
 export VIRTUALENVWRAPPER_SCRIPT=/usr/local/bin/virtualenvwrapper.sh
-source /usr/local/bin/virtualenvwrapper_lazy.sh
+
+if [ -f /usr/local/bin/virtualenvwrapper_lazy.sh ]; then
+  source /usr/local/bin/virtualenvwrapper_lazy.sh
+fi
 
 LC_CTYPE=en_US.UTF-8
 LC_ALL=en_US.UTF-8
