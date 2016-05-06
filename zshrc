@@ -33,6 +33,7 @@ fi
 
 export PROJECT_HOME=$HOME/projects
 export VIRTUALENVWRAPPER_SCRIPT=/usr/local/bin/virtualenvwrapper.sh
+export GREP_OPTIONS='--color=auto'
 
 if [ -f /usr/local/bin/virtualenvwrapper_lazy.sh ]; then
   source /usr/local/bin/virtualenvwrapper_lazy.sh
