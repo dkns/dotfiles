@@ -186,6 +186,7 @@ alias fullup="sudo apt-get update && sudo apt-get upgrade"
 alias tv="terminal_velocity ~/Dropbox/notes"
 alias tl="todo ls"
 alias -g G="| grep"
+alias -g L="| less"
 alias ehosts="sudo -e /etc/hosts"
 alias moodlectags="ctags -R --languages=php --exclude="CVS" --php-kinds=f \
 --regex-PHP='/abstract class ([^ ]*)/\1/c/' \
