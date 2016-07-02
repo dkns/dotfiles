@@ -99,6 +99,11 @@ zstyle ':vcs_info:*' stagedstr '%F{28}●'
 zstyle ':vcs_info:*' unstagedstr '%F{11}●'
 zstyle ':vcs_info:git*' actionformats "%s %b (%a) %m %u %c"
 
+# allow editing commands in vim
+autoload -z edit-command-line
+zle -N edit-command-line
+bindkey "^X^E" edit-command-line
+
 # precmd() {
 #     if [[ -z $(git ls-files --other --exclude-standard 2> /dev/null) ]] {
 #         zstyle ':vcs_info:*' formats ' [%F{green}%b%c%u%F{blue}]'
