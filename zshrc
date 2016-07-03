@@ -31,6 +31,10 @@ if [ -f ~/.fzf.zsh ]; then
   source ~/.fzf.zsh
 fi
 
+if [ -f ~/bin/tmux-gitbar.sh ]; then
+  source ~/bin/tmux-gitbar.sh
+fi
+
 export PROJECT_HOME=$HOME/projects
 export VIRTUALENVWRAPPER_SCRIPT=/usr/local/bin/virtualenvwrapper.sh
 export GREP_OPTIONS='--color=auto'

@@ -7,7 +7,7 @@ if empty(glob('~/.config/nvim/autoload/plug.vim'))
 endif
 call plug#begin()
 
-Plug 'Valloric/MatchTagAlways', { 'for': 'html' }
+"Plug 'Valloric/MatchTagAlways', { 'for': 'html' }
 Plug 'Valloric/python-indent', { 'for': 'python' }
 Plug 'bronson/vim-trailing-whitespace', { 'on': 'FixWhitespace' }
 Plug 'christoomey/vim-tmux-navigator'
