@@ -291,6 +291,8 @@ let g:loaded_getscriptPlugin   = 1
 autocmd InsertEnter * set cursorline
 autocmd InsertLeave * set nocursorline
 
+nmap <Leader>vd yiwovar_dump('<c-r>"');<Esc>^
+
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Plugins
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
