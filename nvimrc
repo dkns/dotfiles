@@ -36,6 +36,8 @@ Plug 'junegunn/fzf.vim'
 Plug 'marijnh/tern_for_vim', { 'for': 'javascript' }
 Plug 'jreybert/vimagit'
 Plug 'othree/csscomplete.vim', { 'for': 'css' }
+Plug '2072/vim-syntax-for-PHP', { 'for': 'php' }
+Plug '2072/PHP-Indenting-for-VIm', { 'for': 'php' }
 
 call plug#end()
 
