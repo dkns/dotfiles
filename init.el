@@ -122,6 +122,12 @@
   (auto-compile-on-load-mode)
   (auto-compile-on-save-mode))
 
+(use-package spaceline
+  :ensure t
+  :config
+  (require 'spaceline-config)
+  (spaceline-emacs-theme))
+
 (provide 'init)
 ;;; init.el ends here
 
