@@ -296,6 +296,8 @@ nmap <Leader>vd yiwovar_dump('<c-r>"');<Esc>^
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Plugins
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" netrw
+let g:netrw_liststyle=3
 
 " vimwiki
 let vimwikidir = expand('~/Dropbox/vimwiki')
