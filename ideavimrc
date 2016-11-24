@@ -6,6 +6,7 @@ set clipboard=unnamed,unnamedplus
 set scrolloff=5
 set showmode
 set number
+set surround
 "set relativenumber
 
 inoremap jk <Esc>
