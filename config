@@ -157,6 +157,7 @@ bar {
         position top
         status_command $HOME/bin/i3conky
         #status_command i3status -c ~/dotfiles/i3status.conf
+        #status_command i3blocks
 
         colors {
             background #2b303b
@@ -167,6 +168,7 @@ bar {
 # remove title bar for chromium
 for_window [class="^Chromium-browser$"] border none
 for_window [class="Thunderbird" title="Write: *"] floating enable
+for_window [class="eu4"] floating enable
 
 # menu for managing audio and system stuff. source: http://www.reddit.com/r/i3wm/comments/2a1zru/some_useful_i3_mode_menus/
 set $audiomenu "volume:  [+]5%  [-]5%  [m]ute  [r]eset"
