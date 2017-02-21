@@ -120,12 +120,12 @@ set noswapfile
 
 " Create backup/undo dirs
 " FIXME
-let backupdir = expand('~/.nvim/backup')
+let backupdir = expand('~/.config/nvim/backup')
 if !isdirectory(backupdir)
   call mkdir(backupdir)
 endif
 
-let undodir = expand('~/.nvim/undo')
+let undodir = expand('~/.config/nvim/undo')
 if !isdirectory(undodir)
   call mkdir(undodir)
 endif
