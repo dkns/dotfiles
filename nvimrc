@@ -18,7 +18,6 @@ Plug 'junegunn/vim-plug'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': 'yes \| ./install' }
 Plug 'othree/html5.vim', { 'for': 'html' }
 Plug 'othree/javascript-libraries-syntax.vim', { 'for' : 'javascript' }
-Plug 'scrooloose/syntastic'
 Plug 'sickill/vim-pasta'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-sleuth'
@@ -38,6 +37,7 @@ Plug 'jreybert/vimagit'
 Plug 'othree/csscomplete.vim', { 'for': 'css' }
 Plug '2072/vim-syntax-for-PHP', { 'for': 'php' }
 Plug '2072/PHP-Indenting-for-VIm', { 'for': 'php' }
+Plug 'w0rp/ale'
 
 call plug#end()
 
