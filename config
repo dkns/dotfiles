@@ -173,14 +173,15 @@ for_window [class="eu4"] floating enable
 # menu for managing audio and system stuff. source: http://www.reddit.com/r/i3wm/comments/2a1zru/some_useful_i3_mode_menus/
 set $audiomenu "volume:  [+]5%  [-]5%  [m]ute  [r]eset"
 bindsym $mod+F12         mode $audiomenu
+set $sink `pactl list short sinks | grep RUNNING | cut -f1`
 
 mode $audiomenu {
-    bindsym r             exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -- 50%
-    bindsym plus          exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -- +5%
-    bindsym KP_Add        exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -- +5%
-    bindsym minus         exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -- -5%
-    bindsym KP_Subtract   exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -- -5%
-    bindsym m             exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle
+    bindsym r             exec --no-startup-id pactl set-sink-volume $sink 50%
+    bindsym plus          exec --no-startup-id pactl set-sink-volume $sink +5%
+    bindsym KP_Add        exec --no-startup-id pactl set-sink-volume $sink +5%
+    bindsym minus         exec --no-startup-id pactl set-sink-volume $sink -5%
+    bindsym KP_Subtract   exec --no-startup-id pactl set-sink-volume $sink -5%
+    bindsym m             exec --no-startup-id pactl set-sink-mute $sink toggle
     bindsym Return        mode "default"
     bindsym Escape        mode "default"
 }
