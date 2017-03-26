@@ -118,11 +118,22 @@ bindkey "^X^E" edit-command-line
 #     vcs_info
 # }
 
-PROMPT='%F{blue}${PR_BLUE}%~${vcs_info_msg_0_}%F{blue} %(?/%F{blue}/%F{red})%% %{$reset_color%}'
 
 if [ -f /usr/share/autojump/autojump.sh ]; then
   source /usr/share/autojump/autojump.sh
 fi
+
+# pure prompt
+if [ -f $HOME/dotfiles/pure/async.zsh ]; then
+  source $HOME/dotfiles/pure/async.zsh
+fi
+
+if [ -f $HOME/dotfiles/pure/pure.zsh ]; then
+  source $HOME/dotfiles/pure/pure.zsh
+fi
+
+autoload -Uz async && async
+autoload -Uz pure
 
 # FZF
 export FZF_DEFAULT_OPTS='--extended'
