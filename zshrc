@@ -108,17 +108,6 @@ autoload -z edit-command-line
 zle -N edit-command-line
 bindkey "^X^E" edit-command-line
 
-# precmd() {
-#     if [[ -z $(git ls-files --other --exclude-standard 2> /dev/null) ]] {
-#         zstyle ':vcs_info:*' formats ' [%F{green}%b%c%u%F{blue}]'
-#     } else {
-#         zstyle ':vcs_info:*' formats ' [%F{green}%b%c%u%F{red}●%F{blue}]'
-#     }
-
-#     vcs_info
-# }
-
-
 if [ -f /usr/share/autojump/autojump.sh ]; then
   source /usr/share/autojump/autojump.sh
 fi
