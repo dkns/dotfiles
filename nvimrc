@@ -38,6 +38,7 @@ Plug 'othree/csscomplete.vim', { 'for': 'css' }
 Plug '2072/vim-syntax-for-PHP', { 'for': 'php' }
 Plug '2072/PHP-Indenting-for-VIm', { 'for': 'php' }
 Plug 'w0rp/ale'
+Plug 'unblevable/quick-scope'
 
 call plug#end()
 
@@ -369,3 +370,6 @@ let g:closetag_filenames = "*.html,*.xhtml,*.phtml"
 
 " css complete
 autocmd FileType css set omnifunc=csscomplete#CompleteCSS noci
+
+" quick-scope
+let g:qs_highlight_on_keys = ['f', 'F', 't', 'T']
