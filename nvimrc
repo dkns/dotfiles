@@ -361,10 +361,6 @@ if version >= 700
     au InsertLeave * highlight StatusLine ctermfg=118 ctermbg=236
 endif
 
-" syntastic
-let g:syntastic_check_on_open = 1
-let g:syntastic_javascript_checkers = ['jshint']
-
 " closetag
 let g:closetag_filenames = "*.html,*.xhtml,*.phtml"
 
