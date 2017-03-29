@@ -82,6 +82,7 @@ set hlsearch
 set incsearch
 set ignorecase
 set smartcase
+set inccommand=split
 
 " Display the cursor position on the last line of the screen or in the status
 " line of a window
