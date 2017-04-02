@@ -9,3 +9,5 @@
     co = checkout
 [color]
     ui = true
+[core]
+    excludesfile = ~/dotfiles/gitignore
