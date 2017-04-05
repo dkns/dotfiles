@@ -38,6 +38,7 @@ Plug '2072/vim-syntax-for-PHP', { 'for': 'php' }
 Plug '2072/PHP-Indenting-for-VIm', { 'for': 'php' }
 Plug 'w0rp/ale'
 Plug 'unblevable/quick-scope'
+Plug 'mattn/emmet-vim'
 
 call plug#end()
 
