@@ -62,6 +62,7 @@ syntax enable
 
 " colorscheme
 set background=dark
+set termguicolors
 colorscheme apprentice
 
 " copy the previous indentation on autoindenting
