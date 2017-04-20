@@ -39,6 +39,7 @@ Plug '2072/PHP-Indenting-for-VIm', { 'for': 'php' }
 Plug 'w0rp/ale'
 Plug 'unblevable/quick-scope'
 Plug 'mattn/emmet-vim'
+Plug 'sheerun/vim-polyglot'
 
 call plug#end()
 
@@ -48,6 +49,7 @@ call plug#end()
 filetype plugin indent on
 " show numberlines
 set rnu
+set nu
 
 " don't highlight current line as it is really slow
 set nocursorline
