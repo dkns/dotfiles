@@ -47,7 +47,7 @@ call plug#end()
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 filetype plugin indent on
 " show numberlines
-set nu
+set rnu
 
 " don't highlight current line as it is really slow
 set nocursorline
