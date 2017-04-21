@@ -9,7 +9,6 @@ call plug#begin()
 
 "Plug 'Valloric/MatchTagAlways', { 'for': 'html' }
 Plug 'Valloric/python-indent', { 'for': 'python' }
-Plug 'bronson/vim-trailing-whitespace', { 'on': 'FixWhitespace' }
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'gorodinskiy/vim-coloresque', { 'for': ['css', 'sass', 'scss', 'less'] }
 Plug 'jiangmiao/auto-pairs'
@@ -229,6 +228,8 @@ noremap <silent> x "_d<Right>
 noremap <silent> X "_d<Left>
 
 nnoremap <leader>me  :<c-u><c-r>='let @'. v:register .' = '. string(getreg(v:register))<cr><c-f><left>
+
+nnoremap <silent> <F5> :let _s=@/<Bar>:%s/\s\+$//e<Bar>:let @/=_s<Bar>:nohl<CR> " Trim trailing spaces
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Custom functions
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
