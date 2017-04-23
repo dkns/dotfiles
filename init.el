@@ -28,13 +28,18 @@
 
 ;; open splits
 (defun dkns/open-window-vertically ()
+  "Open window to the bottom."
   (interactive)
   (split-window-vertically)
   (windmove-down))
 (defun dkns/open-window-horizontally ()
+  "Open window to the right."
   (interactive)
   (split-window-horizontally)
   (windmove-right))
+
+(evil-leader/set-key "v" 'dkns/open-window-vertically)
+(evil-leader/set-key "h" 'dkns/open-window-horizontally)
 
 ;; settings
 (show-paren-mode 1)
@@ -44,7 +49,7 @@
 (remove-hook 'find-file-hooks 'vc-find-file-hook)
 
 ;;; backups and all that stuff
-;; Save all tempfiles in $TMPDIR/emacs$UID/                                                        
+;; Save all tempfiles in $TMPDIR/emacs$UID/
 (defconst emacs-tmp-dir (format "%s%s%s/" temporary-file-directory "emacs" (user-uid)))
 (setq backup-directory-alist
     `((".*" . ,emacs-tmp-dir)))
@@ -122,11 +127,54 @@
   (auto-compile-on-load-mode)
   (auto-compile-on-save-mode))
 
-(use-package spaceline
+(use-package nlinum-relative
   :ensure t
   :config
-  (require 'spaceline-config)
-  (spaceline-emacs-theme))
+  (nlinum-relative-setup-evil)
+  (add-hook 'prog-mode-hook 'nlinum-relative-mode)
+  (setq nlinum-relative-redisplay-delay 0)
+  )
+
+(use-package evil-escape
+  :ensure t
+  :config
+  (setq-default evil-escape-key-sequence "ESCESC")
+  )
+
+(use-package magit
+  :ensure t
+  :defer t
+  )
+
+(use-package evil-commentary
+  :ensure t
+  :config
+  (evil-commentary-mode)
+  )
+
+(use-package evil-surround
+  :ensure t
+  :config
+  (global-evil-surround-mode 1)
+  )
+
+(use-package volatile-highlights
+  :ensure t
+  :config
+  (volatile-highlights-mode t)
+  (vhl/define-extension 'evil 'evil-paste-after 'evil-paste-before
+                        'evil-paste-pop 'evil-move)
+  (vhl/install-extension 'evil)
+  )
+
+(use-package git-gutter-fringe
+  :ensure t
+  :config
+  (add-hook 'prog-mode-hook 'git-gutter)
+  (setq-default fringes-outside-margins t)
+  ;; thin fringe bitmaps
+  ;; stolen from https://github.com/hlissner/.emacs.d
+  )
 
 (provide 'init)
 ;;; init.el ends here
