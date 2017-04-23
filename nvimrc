@@ -39,6 +39,7 @@ Plug 'w0rp/ale'
 Plug 'unblevable/quick-scope'
 Plug 'mattn/emmet-vim'
 Plug 'sheerun/vim-polyglot'
+Plug 'dominikduda/vim_current_word'
 
 call plug#end()
 
@@ -360,3 +361,6 @@ autocmd FileType css set omnifunc=csscomplete#CompleteCSS noci
 
 " quick-scope
 let g:qs_highlight_on_keys = ['f', 'F', 't', 'T']
+
+" vim current word
+let g:vim_current_word#highlight_current_word = 0
