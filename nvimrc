@@ -40,6 +40,7 @@ Plug 'unblevable/quick-scope'
 Plug 'mattn/emmet-vim'
 Plug 'sheerun/vim-polyglot'
 Plug 'dominikduda/vim_current_word'
+Plug 'cocopon/iceberg.vim'
 
 call plug#end()
 
@@ -65,7 +66,7 @@ syntax enable
 " colorscheme
 set background=dark
 set termguicolors
-colorscheme apprentice
+colorscheme iceberg
 
 " copy the previous indentation on autoindenting
 set copyindent
