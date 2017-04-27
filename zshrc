@@ -214,4 +214,4 @@ alias rsync="rsync -v"
 alias td="nvi ~/Dropbox/todo.md"
 alias grep="grep --color=auto"
 alias chmod='chmod --preserve-root -v'
-alias chown='chmod --preserve-root -v'
+alias chown='chown --preserve-root -v'
