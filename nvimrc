@@ -348,11 +348,6 @@ let g:vimwiki_list = [{'path': '~/Dropbox/vimwiki'}]
 
 set statusline=%<[%n]\ %F\ %m%r%y\ %{exists('g:loaded_fugitive')?fugitive#head(7):''}\ %=%-14.(%l,%c%V%)\ %P
 
-if version >= 700
-    au InsertEnter * highlight StatusLine ctermfg=203 ctermbg=236
-    au InsertLeave * highlight StatusLine ctermfg=118 ctermbg=236
-endif
-
 " closetag
 let g:closetag_filenames = "*.html,*.xhtml,*.phtml"
 
