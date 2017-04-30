@@ -40,6 +40,7 @@ Plug 'unblevable/quick-scope'
 Plug 'mattn/emmet-vim'
 Plug 'sheerun/vim-polyglot'
 Plug 'dominikduda/vim_current_word'
+Plug 'mhinz/vim-signify'
 
 call plug#end()
 
@@ -364,3 +365,6 @@ let g:qs_highlight_on_keys = ['f', 'F', 't', 'T']
 
 " vim current word
 let g:vim_current_word#highlight_current_word = 0
+
+" signify
+let g:signify_vcs_list = ['git', 'svn']
