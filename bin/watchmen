@@ -1,0 +1,26 @@
+#!/bin/sh
+
+# TODO: add timeout option; make it configurable
+# TODO: make it work on whole dir eg. run command if any file in dir changes
+
+file=$1
+shift
+run_command="$*"
+inithash="$(md5sum "$file")"
+work_dir=$(pwd)
+
+while :; do
+  currhash="$(md5sum "$file")"
+
+  if [ "$currhash" != "$inithash" ]; then
+    inithash="$currhash"
+    clear
+    echo "Clearing old output"
+    echo
+    echo "Running command: $run_command"
+    echo
+    cd "$work_dir"
+    timeout 50.0 $run_command
+  fi
+  sleep 1
+done

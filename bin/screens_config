@@ -1,0 +1,5 @@
+#!/bin/zsh
+
+if [ $(hostname) = 'serenity' ]; then
+    xrandr --output VGA1 --right-of HDMI2
+fi

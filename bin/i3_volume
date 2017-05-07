@@ -1,0 +1,13 @@
+#!/bin/bash
+set -euo pipefail
+
+pactl_version=$(pactl --version | grep pactl | awk -F ' ' '{print $2}' | awk -F '.' '{print $1}')
+sink=$(pactl list short sinks | grep RUNNING | cut -f1)
+
+if [ $pactl_version=8 ]; then
+    pactl set-sink-volume $sink $0
+fi
+
+if [ $pactl_version=4 ]; then
+    pactl set-sink-volume $sink -- $0
+fi
