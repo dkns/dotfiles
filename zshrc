@@ -210,7 +210,7 @@ alias moodlectags="ctags -R --languages=php --exclude="CVS" --php-kinds=f \
 --regex-PHP='/(public |static |abstract |protected |private )+function ([^ (]*)/\2/f/'"
 alias svnall="svn add --force ./*"
 alias bye="sudo shutdown -hP now"
-alias rsync="rsync -v"
+alias rsync="rsync -v --info=progress2"
 alias td="nvi ~/Dropbox/todo.md"
 alias grep="grep --color=auto"
 alias chmod='chmod --preserve-root -v'
