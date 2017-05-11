@@ -30,7 +30,6 @@ Plug 'Glench/Vim-Jinja2-Syntax'
 Plug 'othree/yajs.vim', { 'for': 'javascript' }
 Plug 'gavocanov/vim-js-indent', { 'for': 'javascript' }
 Plug 'junegunn/fzf.vim'
-Plug 'marijnh/tern_for_vim', { 'for': 'javascript' }
 Plug 'jreybert/vimagit'
 Plug 'othree/csscomplete.vim', { 'for': 'css' }
 Plug '2072/vim-syntax-for-PHP', { 'for': 'php' }
