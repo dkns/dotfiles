@@ -39,6 +39,7 @@ Plug 'w0rp/ale'
 Plug 'mattn/emmet-vim'
 Plug 'sheerun/vim-polyglot'
 Plug 'dominikduda/vim_current_word'
+Plug 'morhetz/gruvbox'
 Plug 'mhinz/vim-signify'
 
 call plug#end()
@@ -65,7 +66,7 @@ syntax enable
 " colorscheme
 set background=dark
 set termguicolors
-colorscheme apprentice
+colorscheme gruvbox
 
 " copy the previous indentation on autoindenting
 set copyindent
