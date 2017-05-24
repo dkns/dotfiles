@@ -1,20 +1,21 @@
 let mapleader = ' '
 
 set hlsearch
+set incsearch
 set ignorecase smartcase
 set clipboard=unnamed,unnamedplus
 set scrolloff=5
 set showmode
 set number
 set surround
-"set relativenumber
+set relativenumber
 
 inoremap jk <Esc>
 vnoremap jk <Esc>
 
 nnoremap Y y$
 
-nnoremap <leader>fu :action FindUsages<cr>
+"nnoremap <leader>fu :action FindUsages<cr>
 
 nnoremap <c-l> <c-w>l
 nnoremap <c-j> <c-w>j
@@ -23,3 +24,45 @@ nnoremap <c-k> <c-w>k
 
 nnoremap <leader>v :split<CR>
 nnoremap <leader>h :vsplit<CR>
+
+" Comments
+nnoremap <Space>c<Space> :action CommentByLineComment<CR>
+
+" Refactoring commands
+nnoremap <Space>rm :action Refactorings.QuickListPopupAction<CR>
+nnoremap <Space>rr :action RenameElement<CR>
+
+" Search
+nnoremap <Space>se :action SearchEverywhere<CR>
+nnoremap <Space>ss :action GotoSymbol<CR>
+nnoremap <Space>su :action FindUsages<CR>
+
+" Jumping
+nnoremap <Space>j<Space> :action AceAction<CR>
+nnoremap <Space>jd :action GotoDeclaration<CR>
+nnoremap <Space>jt :action FileStructurePopup<CR>
+
+" Help
+nnoremap <Space>hj :action QuickJavadoc<CR>
+
+" Files
+nnoremap <Space>ff :action GotoFile<CR>
+nnoremap <Space>fr :action RecentFiles<CR>
+nnoremap <Space>fI :source ~/.ideavimrc<CR>
+
+" Git
+nnoremap <Space>gm :action Vcs.QuickListPopupAction<CR>
+
+" Window actions
+nnoremap <Space>w/ :action SplitVertically<CR>
+nnoremap <Space>w- :action SplitHorizontally<CR>
+nnoremap <Space>wm :action UnsplitAll<CR>
+
+" Run commands (eXecute)
+nnoremap <Space>x<Space> :action Run<cr>
+nnoremap <Space>xr :action Run<cr>
+nnoremap <Space>xc :action RunClass<cr>
+nnoremap <Space>xm :action ChooseRunConfiguration<cr>
+nnoremap <Space>x. :action Rerun<cr>
+nnoremap <Space>xt :action RerunTests<cr>
+nnoremap <Space>xf :action RerunFailedTests<cr>
