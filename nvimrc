@@ -40,6 +40,7 @@ Plug 'sheerun/vim-polyglot'
 Plug 'dominikduda/vim_current_word'
 Plug 'morhetz/gruvbox'
 Plug 'mhinz/vim-signify'
+Plug 'romainl/vim-cool'
 
 call plug#end()
 
