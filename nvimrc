@@ -239,10 +239,10 @@ nnoremap <silent> <F5> :let _s=@/<Bar>:%s/\s\+$//e<Bar>:let @/=_s<Bar>:nohl<CR> 
 nnoremap Q <nop>
 
 " move lines up and down!
-nnoremap <silent> <leader>k :<C-u>move-2<CR>==
-nnoremap <silent> <leader>j :<C-u>move+<CR>==
-xnoremap <silent> <leader>k :move-2<CR>gv=gv
-xnoremap <silent> <leader>j :move'>+<CR>gv=gv
+nnoremap <silent> <M-k> :<C-u>move-2<CR>==
+nnoremap <silent> <M-j> :<C-u>move+<CR>==
+xnoremap <silent> <M-j> :move'>+<CR>gv=gv
+xnoremap <silent> <M-k> :move-2<CR>gv=gv
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Custom functions
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
