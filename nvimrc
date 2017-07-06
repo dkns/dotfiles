@@ -222,9 +222,6 @@ nnoremap <leader>t <c-w><c-w>i<UP><c-\><c-n>:sleep 100m<CR>i<CR><c-\><c-n><c-w><
 nnoremap <leader>r :History<CR>
 nnoremap <leader>b :Buffers<CR>
 
-" Don't move on * From sjl dotfiles
-nnoremap <silent> * :let stay_star_view = winsaveview()<cr>*:call winrestview(stay_star_view)<cr>
-
 iabbrev date- <c-r>=strftime("%Y-%m-%d")<cr>
 
 " Don't overwrite register when deleting single letters

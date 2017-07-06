@@ -38,15 +38,19 @@
   (split-window-horizontally)
   (windmove-right))
 
-(evil-leader/set-key "v" 'dkns/open-window-vertically)
-(evil-leader/set-key "h" 'dkns/open-window-horizontally)
-
 ;; settings
 (show-paren-mode 1)
 (tool-bar-mode -1)
 (menu-bar-mode -1)
 (toggle-scroll-bar -1)
 (remove-hook 'find-file-hooks 'vc-find-file-hook)
+
+;; Set default font
+(set-face-attribute 'default nil
+                    :family "Source Code Pro"
+                    :height 110
+                    :weight 'normal
+                    :width 'normal)
 
 ;;; backups and all that stuff
 ;; Save all tempfiles in $TMPDIR/emacs$UID/
@@ -65,6 +69,9 @@
   (use-package evil-leader
     :ensure
     :config
+    (evil-leader/set-key "v" 'dkns/open-window-vertically)
+    (evil-leader/set-key "h" 'dkns/open-window-horizontally)
+
     (progn
         (evil-leader/set-leader "<SPC>")
         (global-evil-leader-mode t))
@@ -83,10 +90,6 @@
   :config
   (progn
     (add-to-list 'auto-mode-alist '("\\.php$" . php-mode)))
-  )
-
-(use-package darktooth-theme
-  :ensure t
   )
 
 (use-package js2-mode
@@ -127,14 +130,6 @@
   (auto-compile-on-load-mode)
   (auto-compile-on-save-mode))
 
-(use-package nlinum-relative
-  :ensure t
-  :config
-  (nlinum-relative-setup-evil)
-  (add-hook 'prog-mode-hook 'nlinum-relative-mode)
-  (setq nlinum-relative-redisplay-delay 0)
-  )
-
 (use-package evil-escape
   :ensure t
   :config
@@ -160,8 +155,9 @@
 
 (use-package volatile-highlights
   :ensure t
-  :config
+  :init
   (volatile-highlights-mode t)
+  :config
   (vhl/define-extension 'evil 'evil-paste-after 'evil-paste-before
                         'evil-paste-pop 'evil-move)
   (vhl/install-extension 'evil)
@@ -176,6 +172,11 @@
   ;; stolen from https://github.com/hlissner/.emacs.d
   )
 
+(use-package gruvbox-theme
+  :ensure t
+  :config
+  (load-theme 'gruvbox-dark-hard t)
+  )
+
 (provide 'init)
 ;;; init.el ends here
-
