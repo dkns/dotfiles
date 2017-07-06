@@ -372,3 +372,13 @@ let g:signify_vcs_list = ['git', 'svn']
 
 " colorizer
 let g:colorizer_auto_color = 1
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Languages
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"
+" PHP
+let php_sql_query = 1
+let php_htmlInStrings = 1
+
+" python
+let python_highlight_all = 1
