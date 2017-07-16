@@ -11,3 +11,5 @@
     ui = true
 [core]
     excludesfile = ~/dotfiles/gitignore
+[commit]
+    verbose = true
