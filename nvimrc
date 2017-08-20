@@ -305,6 +305,9 @@ let g:loaded_getscriptPlugin   = 1
 autocmd InsertEnter * set cursorline
 autocmd InsertLeave * set nocursorline
 
+" Auto insert mode when entering terminal window
+autocmd BufEnter term://* startinsert
+
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Plugins
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
