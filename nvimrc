@@ -34,7 +34,11 @@ Plug 'jreybert/vimagit'
 Plug 'othree/csscomplete.vim', { 'for': 'css' }
 Plug '2072/vim-syntax-for-PHP', { 'for': 'php' }
 Plug '2072/PHP-Indenting-for-VIm', { 'for': 'php' }
-Plug 'w0rp/ale'
+if has('nvim') || v:version > 800
+  Plug 'w0rp/ale'
+  Plug 'Shougo/neco-syntax'
+  Plug 'roxma/nvim-completion-manager'
+endif
 Plug 'mattn/emmet-vim'
 Plug 'sheerun/vim-polyglot'
 Plug 'dominikduda/vim_current_word'
@@ -66,8 +70,11 @@ syntax enable
 
 " colorscheme
 set background=dark
-set termguicolors
+if has('nvim')
+  set termguicolors
+endif
 colorscheme gruvbox
+set t_co=
 
 " copy the previous indentation on autoindenting
 set copyindent
@@ -88,7 +95,9 @@ set hlsearch
 set incsearch
 set ignorecase
 set smartcase
-set inccommand=split
+if has('nvim')
+  set inccommand=split
+endif
 
 " Display the cursor position on the last line of the screen or in the status
 " line of a window
@@ -217,8 +226,10 @@ cnoremap w!! w !sudo tee % >/dev/null
 nnoremap <silent> <c-p> :FZF<cr>
 nnoremap <silent> g/. :FZF <c-r>=fnameescape(expand("%:p:h"))<cr><cr>
 
-tnoremap <ESC> <C-\><C-n>
-nnoremap <leader>t <c-w><c-w>i<UP><c-\><c-n>:sleep 100m<CR>i<CR><c-\><c-n><c-w><c-w>
+if has('nvim')
+  tnoremap <ESC> <C-\><C-n>
+  nnoremap <leader>t <c-w><c-w>i<UP><c-\><c-n>:sleep 100m<CR>i<CR><c-\><c-n><c-w><c-w>
+endif
 
 nnoremap <leader>r :History<CR>
 nnoremap <leader>b :Buffers<CR>
