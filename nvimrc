@@ -9,7 +9,9 @@ call plug#begin()
 
 "Plug 'Valloric/MatchTagAlways', { 'for': 'html' }
 Plug 'Valloric/python-indent', { 'for': 'python' }
-Plug 'christoomey/vim-tmux-navigator'
+if !empty($TMUX)
+  Plug 'christoomey/vim-tmux-navigator'
+endif
 Plug 'chrisbra/Colorizer', { 'for': ['css', 'sass', 'scss', 'less'] }
 Plug 'jiangmiao/auto-pairs'
 Plug 'junegunn/vim-plug'
