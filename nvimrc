@@ -1,3 +1,4 @@
+" vim:foldmethod=marker
 " Check what OS we're using first
 
 if !exists("g:os")
@@ -8,15 +9,12 @@ if !exists("g:os")
     endif
 endif
 
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Plugin manager
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-
 if empty(glob('~/.config/nvim/autoload/plug.vim'))
   silent !curl -fLo ~/.config/nvim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 endif
 call plug#begin()
 
+" Plugins {{{
 "Plug 'Valloric/MatchTagAlways', { 'for': 'html' }
 Plug 'Valloric/python-indent', { 'for': 'python' }
 if !empty($TMUX)
@@ -61,6 +59,7 @@ Plug 'inside/vim-search-pulse'
 Plug 'mhinz/vim-startify'
 
 call plug#end()
+" }}}
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " General
