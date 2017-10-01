@@ -172,10 +172,53 @@
   ;; stolen from https://github.com/hlissner/.emacs.d
   )
 
-(use-package gruvbox-theme
+(use-package darktooth-theme
   :ensure t
   :config
-  (load-theme 'gruvbox-dark-hard t)
+  (load-theme 'darktooth-theme t)
+  )
+
+(use-package web-mode
+  :ensure t
+  :config
+    (add-to-list 'auto-mode-alist '("\\.phtml\\'" . web-mode))
+    (add-to-list 'auto-mode-alist '("\\.tpl\\.php\\'" . web-mode))
+    (add-to-list 'auto-mode-alist '("\\.[agj]sp\\'" . web-mode))
+    (add-to-list 'auto-mode-alist '("\\.as[cp]x\\'" . web-mode))
+    (add-to-list 'auto-mode-alist '("\\.erb\\'" . web-mode))
+    (add-to-list 'auto-mode-alist '("\\.mustache\\'" . web-mode))
+    (add-to-list 'auto-mode-alist '("\\.djhtml\\'" . web-mode))
+    (add-to-list 'auto-mode-alist '("\\.html?\\'" . web-mode))
+  )
+
+(use-package adaptive-wrap
+  :ensure t
+  :config
+  (with-eval-after-load 'adaptive-wrap
+  (setq-default adaptive-wrap-extra-indent 2))
+
+  (add-hook 'visual-line-mode-hook
+    (lambda ()
+      (adaptive-wrap-prefix-mode +1)
+      (diminish 'visual-line-mode)))
+
+  (global-visual-line-mode +1)
+  )
+
+(use-package jinja2-mode
+  :ensure t
+  )
+
+(use-package fzf
+  :ensure t
+  )
+
+(use-package indium
+  :ensure t
+  )
+
+(use-package helm
+  :ensure t
   )
 
 (provide 'init)
