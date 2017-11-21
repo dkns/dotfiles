@@ -175,7 +175,7 @@
 (use-package darktooth-theme
   :ensure t
   :config
-  (load-theme 'darktooth-theme t)
+  (load-theme 'darktooth t)
   )
 
 (use-package web-mode
