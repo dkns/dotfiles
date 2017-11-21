@@ -9,13 +9,19 @@ if !exists("g:os")
     endif
 endif
 
+if has("nvim")
+  let g:version = "nvim"
+else
+  let g:version = "vim"
+endif
+
 if empty(glob('~/.config/nvim/autoload/plug.vim'))
   silent !curl -fLo ~/.config/nvim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 endif
 call plug#begin()
 
 " Plugins {{{
-"Plug 'Valloric/MatchTagAlways', { 'for': 'html' }
+Plug 'Valloric/MatchTagAlways', { 'for': 'html' }
 Plug 'Valloric/python-indent', { 'for': 'python' }
 if !empty($TMUX)
   Plug 'christoomey/vim-tmux-navigator'
@@ -46,8 +52,6 @@ Plug '2072/vim-syntax-for-PHP', { 'for': 'php' }
 Plug '2072/PHP-Indenting-for-VIm', { 'for': 'php' }
 if has('nvim') || v:version > 800
   Plug 'w0rp/ale'
-  Plug 'Shougo/neco-syntax'
-  Plug 'roxma/nvim-completion-manager'
 endif
 Plug 'mattn/emmet-vim'
 Plug 'sheerun/vim-polyglot'
@@ -57,6 +61,13 @@ Plug 'mhinz/vim-signify'
 Plug 'romainl/vim-cool'
 Plug 'inside/vim-search-pulse'
 Plug 'mhinz/vim-startify'
+Plug 'luochen1990/rainbow'
+Plug 'prabirshrestha/async.vim'
+Plug 'prabirshrestha/vim-lsp'
+Plug 'prabirshrestha/asyncomplete.vim'
+Plug 'prabirshrestha/asyncomplete-lsp.vim'
+Plug 'prabirshrestha/asyncomplete-flow.vim'
+Plug 'prabirshrestha/asyncomplete-buffer.vim'
 
 call plug#end()
 " }}}
@@ -396,10 +407,41 @@ let g:signify_vcs_list = ['git', 'svn']
 
 " colorizer
 let g:colorizer_auto_color = 1
+" rainbow parentheses
+let g:rainbow_active = 1
+
+" ALE
+let g:ale_fixers = {
+      \ 'javascript': ['eslint'],
+      \}
+
+let g:lsp_auto_enable = 1
+let g:lsp_log_verbose = 1
+let g:lsp_log_file = expand('~/dotfiles/lsp-log.vim')
+let g:lsp_debug_servers = ['javascript-language-server']
+
+if executable('javascript-typescript-stdio')
+    au User lsp_setup call lsp#register_server({
+        \ 'name': 'javascript-language-server',
+        \ 'cmd': {server_info->['javascript-typescript-stdio']},
+        \ 'whitelist': ['javascript', 'javascript.jsx'],
+        \ })
+endif
+
+let g:asyncomplete_auto_popup = 1
+let g:asyncomplete_remove_duplicates = 1
+set completeopt+=preview
+
+autocmd! CompleteDone * if pumvisible() == 0 | pclose | endif
+
+au User asyncomplete_setup call asyncomplete#register_source(asyncomplete#sources#flow#get_source_options({
+    \ 'name': 'flow',
+    \ 'whitelist': ['javascript', 'javascript.jsx'],
+    \ 'completor': function('asyncomplete#sources#flow#completor'),
+    \ }))
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Languages
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-"
 " PHP
 let php_sql_query = 1
 let php_htmlInStrings = 1
