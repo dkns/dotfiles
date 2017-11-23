@@ -416,9 +416,6 @@ let g:ale_fixers = {
       \}
 
 let g:lsp_auto_enable = 1
-let g:lsp_log_verbose = 1
-let g:lsp_log_file = expand('~/dotfiles/lsp-log.vim')
-let g:lsp_debug_servers = ['javascript-language-server']
 
 if executable('javascript-typescript-stdio')
     au User lsp_setup call lsp#register_server({
