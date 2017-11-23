@@ -397,6 +397,10 @@ set statusline=%<[%n]\ %F\ %m%r%y\ %{exists('g:loaded_fugitive')?fugitive#head(7
 " closetag
 let g:closetag_filenames = "*.html,*.xhtml,*.phtml"
 
+" indentline
+let g:indentline_ignored_buftypes = ['terminal']
+let g:indentline_ignored_filetypes = ['help', 'man', 'vimwiki', 'startify']
+
 " css complete
 autocmd FileType css set omnifunc=csscomplete#CompleteCSS noci
 
