@@ -92,6 +92,14 @@ set hidden
 " syntax highlighting
 syntax enable
 
+" remove gui
+if has('gui')
+  set guioptions-=m
+  set guioptions-=T
+  set guioptions-=r
+  set guioptions-=L
+endif
+
 " colorscheme
 set background=dark
 if has('nvim')
