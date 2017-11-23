@@ -247,7 +247,7 @@ cnoremap w!! w !sudo tee % >/dev/null
 :command W w
 :command Q q
 " FZF
-nnoremap <silent> <c-p> :FZF<cr>
+nnoremap <silent> <c-p> :Files<cr>
 nnoremap <silent> g/. :FZF <c-r>=fnameescape(expand("%:p:h"))<cr><cr>
 
 if has('nvim')
@@ -437,6 +437,14 @@ au User asyncomplete_setup call asyncomplete#register_source(asyncomplete#source
     \ 'whitelist': ['javascript', 'javascript.jsx'],
     \ 'completor': function('asyncomplete#sources#flow#completor'),
     \ }))
+" fzf
+command! -bang -nargs=* Ag
+  \ call fzf#vim#ag(<q-args>, fzf#vim#with_preview(), <bang>0)
+
+command! -bang -nargs=? -complete=dir Files
+  \ call fzf#vim#files(<q-args>, fzf#vim#with_preview(), <bang>0)
+
+command! -bang Commits call fzf#vim#commits({'options': '--preview'}, <bang>0)
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Languages
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
