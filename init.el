@@ -19,6 +19,7 @@
 ;; basic config stuff
 (setq-default indent-tabs-mode nil) ;; don't use spaces
 (global-auto-revert-mode t) ;; automatically refresh buffers when file changes
+(setq linum-format "%d ")
 
 (eval-when-compile
   (require 'use-package))
@@ -43,7 +44,9 @@
 (tool-bar-mode -1)
 (menu-bar-mode -1)
 (toggle-scroll-bar -1)
+;; global hooks
 (remove-hook 'find-file-hooks 'vc-find-file-hook)
+(add-hook 'prog-mode-hook 'linum-mode)
 
 ;; Set default font
 (set-face-attribute 'default nil
@@ -66,22 +69,27 @@
 (use-package evil
   :ensure t
   :init
-  (use-package evil-leader
-    :ensure
-    :config
-    (evil-leader/set-key "v" 'dkns/open-window-vertically)
-    (evil-leader/set-key "h" 'dkns/open-window-horizontally)
-
-    (progn
-        (evil-leader/set-leader "<SPC>")
-        (global-evil-leader-mode t))
-    )
   (with-eval-after-load 'evil
     (defalias #'forward-evil-word #'forward-evil-symbol)) ;; treat _ and - as part of words
   :config
+  (define-key evil-normal-state-map (kbd "C-h") 'evil-window-left)
+  (define-key evil-normal-state-map (kbd "C-j") 'evil-window-down)
+  (define-key evil-normal-state-map (kbd "C-k") 'evil-window-up)
+  (define-key evil-normal-state-map (kbd "C-l") 'evil-window-right)
   (progn
     (evil-mode 1)
     (setq evil-want-fine-undo t))
+  )
+
+(use-package evil-leader
+  :ensure
+  :config
+  (evil-leader/set-key "v" 'dkns/open-window-vertically)
+  (evil-leader/set-key "h" 'dkns/open-window-horizontally)
+
+  (progn
+      (evil-leader/set-leader "<SPC>")
+      (global-evil-leader-mode t))
   )
 
 (use-package php-mode
