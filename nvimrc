@@ -61,7 +61,6 @@ Plug 'mhinz/vim-signify'
 Plug 'romainl/vim-cool'
 Plug 'inside/vim-search-pulse'
 Plug 'mhinz/vim-startify'
-Plug 'luochen1990/rainbow'
 Plug 'prabirshrestha/async.vim'
 Plug 'prabirshrestha/vim-lsp'
 Plug 'prabirshrestha/asyncomplete.vim'
@@ -420,8 +419,6 @@ let g:signify_vcs_list = ['git', 'svn']
 
 " colorizer
 let g:colorizer_auto_color = 1
-" rainbow parentheses
-let g:rainbow_active = 1
 
 " ALE
 let g:ale_fixers = {
@@ -469,3 +466,4 @@ let php_htmlInStrings = 1
 
 " python
 let python_highlight_all = 1
+syntax on
