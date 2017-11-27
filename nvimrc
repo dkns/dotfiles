@@ -304,11 +304,6 @@ endfunction
 :inoremap <Tab> <C-R>=Tab_Or_Complete()<CR>
 :set dictionary="/usr/dict/words"
 
-" sudo apt-get install wmctrl for this to work
-" function Maximize_Window()
-"   silent !wmctrl -r :ACTIVE: -b add,maximized_vert,maximized_horz
-" endfunction
-" au GUIEnter * call Maximize_Window()
 " jump to last known cursos position when reopening a buffer
 function! s:JumpToLastKnownCursorPosition()
     if line("'\"") <= 1 | return | endif
