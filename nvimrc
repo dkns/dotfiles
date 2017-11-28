@@ -26,7 +26,7 @@ Plug 'Valloric/python-indent', { 'for': 'python' }
 if !empty($TMUX)
   Plug 'christoomey/vim-tmux-navigator'
 endif
-Plug 'chrisbra/Colorizer', { 'for': ['css', 'sass', 'scss', 'less'] }
+Plug 'ap/vim-css-color'
 Plug 'jiangmiao/auto-pairs'
 Plug 'junegunn/vim-plug'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': 'yes \| ./install' }
@@ -415,9 +415,6 @@ let g:vim_current_word#highlight_current_word = 0
 
 " signify
 let g:signify_vcs_list = ['git', 'svn']
-
-" colorizer
-let g:colorizer_auto_color = 1
 
 " ALE
 let g:ale_fixers = {
