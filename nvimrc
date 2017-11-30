@@ -70,6 +70,7 @@ Plug 'prabirshrestha/asyncomplete-buffer.vim'
 Plug 'xtal8/traces.vim'
 Plug 'sbdchd/indentline.vim'
 Plug 'ntpeters/vim-better-whitespace'
+Plug 'fatih/vim-go'
 call plug#end()
 " }}}
 
@@ -432,6 +433,14 @@ if executable('javascript-typescript-stdio')
         \ })
 endif
 
+if executable('go-langserver')
+    au User lsp_setup call lsp#register_server({
+        \ 'name': 'go-langserver',
+        \ 'cmd': {server_info->['go-langserver', '-mode', 'stdio']},
+        \ 'whitelist': ['go'],
+        \ })
+endif
+
 let g:asyncomplete_auto_popup = 1
 let g:asyncomplete_remove_duplicates = 1
 set completeopt+=preview
@@ -464,3 +473,11 @@ let php_htmlInStrings = 1
 " python
 let python_highlight_all = 1
 syntax on
+" Go
+let g:go_highlight_functions = 1
+let g:go_highlight_methods = 1
+let g:go_highlight_structs = 1
+let g:go_highlight_interfaces = 1
+let g:go_highlight_operators = 1
+let g:go_highlight_build_constraints = 1
+nnoremap <leader>gr :GoRun<cr><esc>
