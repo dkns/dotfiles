@@ -351,6 +351,10 @@ autocmd InsertLeave * set nocursorline
 
 " Auto insert mode when entering terminal window
 autocmd BufEnter term://* startinsert
+" No line numbers in terminal
+if has('nvim')
+  au TermOpen * setlocal nonumber norelativenumber
+endif
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Plugins
