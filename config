@@ -209,9 +209,10 @@ exec --no-startup-id nm-applet
 #exec --no-startup-id udisks-glue
 exec --no-startup-id export $(gnome-keyring-daemon)
 exec --no-startup-id dropbox start
-exec --no-startup-id redshift -t 5500K:2700K -l 53.4:14.6
+exec --no-startup-id redshift -t 5500K:1900K -l 53.4:14.6
 exec --no-startup-id caffeine-indicator
 exec --no-startup-id ~/dotfiles/bin/screens_config
+exec --no-startup-id feh --bg-fill ~/Dropbox/wallpapers/conquer.jpg
 
 # class                 border  backgr. text    indicator
 client.focused          #4c7899 #8fa1b3 #ffffff #bf616a

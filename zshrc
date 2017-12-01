@@ -216,3 +216,8 @@ alias grep="grep --color=auto"
 alias chmod='chmod --preserve-root -v'
 alias chown='chown --preserve-root -v'
 alias v="$HOME/dotfiles/bin/nvim-client"
+alias pogoda='curl -s wttr.in/Szczecin'
+
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion

@@ -9,18 +9,24 @@ if !exists("g:os")
     endif
 endif
 
+if has("nvim")
+  let g:version = "nvim"
+else
+  let g:version = "vim"
+endif
+
 if empty(glob('~/.config/nvim/autoload/plug.vim'))
   silent !curl -fLo ~/.config/nvim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 endif
 call plug#begin()
 
 " Plugins {{{
-"Plug 'Valloric/MatchTagAlways', { 'for': 'html' }
+Plug 'Valloric/MatchTagAlways', { 'for': 'html' }
 Plug 'Valloric/python-indent', { 'for': 'python' }
 if !empty($TMUX)
   Plug 'christoomey/vim-tmux-navigator'
 endif
-Plug 'chrisbra/Colorizer', { 'for': ['css', 'sass', 'scss', 'less'] }
+Plug 'ap/vim-css-color'
 Plug 'jiangmiao/auto-pairs'
 Plug 'junegunn/vim-plug'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': 'yes \| ./install' }
@@ -35,7 +41,6 @@ Plug 'tpope/vim-rsi'
 Plug 'vimwiki/vimwiki'
 Plug 'mbbill/undotree', { 'on': 'UndotreeToggle' }
 Plug 'alvan/vim-closetag', { 'for': 'html' }
-Plug 'romainl/Apprentice'
 Plug 'Glench/Vim-Jinja2-Syntax'
 Plug 'othree/yajs.vim', { 'for': 'javascript' }
 Plug 'gavocanov/vim-js-indent', { 'for': 'javascript' }
@@ -46,8 +51,6 @@ Plug '2072/vim-syntax-for-PHP', { 'for': 'php' }
 Plug '2072/PHP-Indenting-for-VIm', { 'for': 'php' }
 if has('nvim') || v:version > 800
   Plug 'w0rp/ale'
-  Plug 'Shougo/neco-syntax'
-  Plug 'roxma/nvim-completion-manager'
 endif
 Plug 'mattn/emmet-vim'
 Plug 'sheerun/vim-polyglot'
@@ -57,7 +60,17 @@ Plug 'mhinz/vim-signify'
 Plug 'romainl/vim-cool'
 Plug 'inside/vim-search-pulse'
 Plug 'mhinz/vim-startify'
-
+Plug 'prabirshrestha/async.vim'
+Plug 'prabirshrestha/vim-lsp'
+Plug 'prabirshrestha/asyncomplete.vim'
+Plug 'prabirshrestha/asyncomplete-lsp.vim'
+Plug 'prabirshrestha/asyncomplete-flow.vim'
+Plug 'prabirshrestha/asyncomplete-buffer.vim'
+Plug 'xtal8/traces.vim'
+Plug 'sbdchd/indentline.vim'
+Plug 'ntpeters/vim-better-whitespace'
+Plug 'tacahiroy/vim-vb'
+Plug 'fatih/vim-go'
 call plug#end()
 " }}}
 
@@ -79,6 +92,18 @@ set hidden
 
 " syntax highlighting
 syntax enable
+
+" remove gui
+if has('gui')
+  set guioptions-=m
+  set guioptions-=T
+  set guioptions-=r
+  set guioptions-=L
+  " also set font on windows
+  if has("gui_win32")
+    set guifont=Source\ Code\ Pro:h11
+  endif
+endif
 
 " colorscheme
 set background=dark
@@ -235,7 +260,7 @@ cnoremap w!! w !sudo tee % >/dev/null
 :command W w
 :command Q q
 " FZF
-nnoremap <silent> <c-p> :FZF<cr>
+nnoremap <silent> <c-p> :Files<cr>
 nnoremap <silent> g/. :FZF <c-r>=fnameescape(expand("%:p:h"))<cr><cr>
 
 if has('nvim')
@@ -285,11 +310,6 @@ endfunction
 :inoremap <Tab> <C-R>=Tab_Or_Complete()<CR>
 :set dictionary="/usr/dict/words"
 
-" sudo apt-get install wmctrl for this to work
-" function Maximize_Window()
-"   silent !wmctrl -r :ACTIVE: -b add,maximized_vert,maximized_horz
-" endfunction
-" au GUIEnter * call Maximize_Window()
 " jump to last known cursos position when reopening a buffer
 function! s:JumpToLastKnownCursorPosition()
     if line("'\"") <= 1 | return | endif
@@ -385,6 +405,10 @@ set statusline=%<[%n]\ %F\ %m%r%y\ %{exists('g:loaded_fugitive')?fugitive#head(7
 " closetag
 let g:closetag_filenames = "*.html,*.xhtml,*.phtml"
 
+" indentline
+let g:indentline_ignored_buftypes = ['terminal']
+let g:indentline_ignored_filetypes = ['help', 'man', 'vimwiki', 'startify']
+
 " css complete
 autocmd FileType css set omnifunc=csscomplete#CompleteCSS noci
 
@@ -394,15 +418,66 @@ let g:vim_current_word#highlight_current_word = 0
 " signify
 let g:signify_vcs_list = ['git', 'svn']
 
-" colorizer
-let g:colorizer_auto_color = 1
+" ALE
+let g:ale_fixers = {
+      \ 'javascript': ['eslint'],
+      \}
+
+let g:lsp_auto_enable = 1
+
+if executable('javascript-typescript-stdio')
+    au User lsp_setup call lsp#register_server({
+        \ 'name': 'javascript-language-server',
+        \ 'cmd': {server_info->['javascript-typescript-stdio']},
+        \ 'whitelist': ['javascript', 'javascript.jsx'],
+        \ })
+endif
+
+if executable('go-langserver')
+    au User lsp_setup call lsp#register_server({
+        \ 'name': 'go-langserver',
+        \ 'cmd': {server_info->['go-langserver', '-mode', 'stdio']},
+        \ 'whitelist': ['go'],
+        \ })
+endif
+
+let g:asyncomplete_auto_popup = 1
+let g:asyncomplete_remove_duplicates = 1
+set completeopt+=preview
+
+autocmd! CompleteDone * if pumvisible() == 0 | pclose | endif
+
+au User asyncomplete_setup call asyncomplete#register_source(asyncomplete#sources#flow#get_source_options({
+    \ 'name': 'flow',
+    \ 'whitelist': ['javascript', 'javascript.jsx'],
+    \ 'completor': function('asyncomplete#sources#flow#completor'),
+    \ }))
+" fzf
+command! -bang -nargs=* Ag
+\ call fzf#vim#ag(<q-args>,
+\                 <bang>0 ? fzf#vim#with_preview('up:60%')
+\                         : fzf#vim#with_preview('right:50%:hidden', '?'),
+\                 <bang>0)
+
+command! -bang -nargs=? -complete=dir Files
+  \ call fzf#vim#files(<q-args>, fzf#vim#with_preview(), <bang>0)
+
+command! -bang Commits call fzf#vim#commits({'options': '--preview'}, <bang>0)
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Languages
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-"
 " PHP
 let php_sql_query = 1
 let php_htmlInStrings = 1
 
 " python
 let python_highlight_all = 1
+syntax on
+" Go
+let g:go_highlight_functions = 1
+let g:go_highlight_methods = 1
+let g:go_highlight_structs = 1
+let g:go_highlight_interfaces = 1
+let g:go_highlight_operators = 1
+let g:go_highlight_build_constraints = 1
+nnoremap <leader>gr :GoRun<cr><esc>
