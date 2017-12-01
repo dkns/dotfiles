@@ -220,15 +220,20 @@
 (use-package helm
   :ensure t
   :config
+  
   (helm-mode 1)
   (setq helm-autoresize-mode t)
   (setq helm-buffer-max-length 40)
-  (global-set-key (kbd "M-x") #'helm-M-x)
+  (setq helm-M-x-fuzzy-match t)
+  (setq helm-buffers-fuzzy-matching t)
+  (setq helm-fuzzy-match-fn t)
+  (global-set-key (kbd "M-x") 'helm-M-x)
   )
 
 (use-package company
   :ensure t
   :config
+
   (global-company-mode)
   (setq company-idle-delay 0.2)
   (setq company-selection-wrap-around t)
@@ -237,11 +242,31 @@
   (define-key company-active-map (kbd "C-p") 'company-select-previous)
   )
 
+(use-package company-term
+  :ensure t
+  :config
+  (add-to-list 'company-backends 'company-tern)
+  )
+
+(use-package helm-flx
+  :ensure t
+  :config
+  (helm-flx-mode +1)
+  (setq helm-flx-for-helm-find-files t)
+  (setq helm-flx-for-helm-locate t)
+  )
+
+(use-package helm-fuzzier
+  :ensure t
+  :config
+  (helm-fuzzier-mode 1)
+  )
+
 (use-package projectile
   :ensure t
   :defer t
   :config
-  (projectile-global-mode)
+  (projectile-mode)
   )
 
 (use-package helm-projectile
