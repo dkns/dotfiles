@@ -69,6 +69,7 @@ Plug 'prabirshrestha/asyncomplete-buffer.vim'
 Plug 'xtal8/traces.vim'
 Plug 'sbdchd/indentline.vim'
 Plug 'ntpeters/vim-better-whitespace'
+Plug 'tacahiroy/vim-vb'
 call plug#end()
 " }}}
 
