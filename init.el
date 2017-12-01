@@ -250,7 +250,7 @@
   (define-key company-active-map (kbd "C-p") 'company-select-previous)
   )
 
-(use-package company-term
+(use-package company-tern
   :ensure t
   :config
   (add-to-list 'company-backends 'company-tern)
