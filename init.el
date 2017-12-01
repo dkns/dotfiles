@@ -25,7 +25,6 @@
   (require 'use-package))
 
 (require 'bind-key)
-(require 'diminish)
 
 ;; open splits
 (defun dkns/open-window-vertically ()
@@ -208,7 +207,7 @@
   (add-hook 'visual-line-mode-hook
     (lambda ()
       (adaptive-wrap-prefix-mode +1)
-      (diminish 'visual-line-mode)))
+      ))
 
   (global-visual-line-mode +1)
   )
