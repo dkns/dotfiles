@@ -69,11 +69,8 @@ Plug 'prabirshrestha/asyncomplete-buffer.vim'
 Plug 'xtal8/traces.vim'
 Plug 'sbdchd/indentline.vim'
 Plug 'ntpeters/vim-better-whitespace'
-<<<<<<< HEAD
 Plug 'tacahiroy/vim-vb'
-=======
 Plug 'fatih/vim-go'
->>>>>>> 304e9611b8fdb01625e4253e3f3326c3e4658ce5
 call plug#end()
 " }}}
 
