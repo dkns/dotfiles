@@ -41,7 +41,6 @@ Plug 'tpope/vim-rsi'
 Plug 'vimwiki/vimwiki'
 Plug 'mbbill/undotree', { 'on': 'UndotreeToggle' }
 Plug 'alvan/vim-closetag', { 'for': 'html' }
-Plug 'romainl/Apprentice'
 Plug 'Glench/Vim-Jinja2-Syntax'
 Plug 'othree/yajs.vim', { 'for': 'javascript' }
 Plug 'gavocanov/vim-js-indent', { 'for': 'javascript' }
