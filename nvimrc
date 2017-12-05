@@ -71,6 +71,7 @@ Plug 'sbdchd/indentline.vim'
 Plug 'ntpeters/vim-better-whitespace'
 Plug 'tacahiroy/vim-vb'
 Plug 'fatih/vim-go'
+Plug 'jceb/vim-orgmode'
 call plug#end()
 " }}}
 
