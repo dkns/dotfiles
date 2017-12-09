@@ -69,8 +69,9 @@ Plug 'prabirshrestha/asyncomplete-buffer.vim'
 Plug 'xtal8/traces.vim'
 Plug 'sbdchd/indentline.vim'
 Plug 'ntpeters/vim-better-whitespace'
-Plug 'tacahiroy/vim-vb'
-Plug 'fatih/vim-go'
+Plug 'tacahiroy/vim-vb', { 'for': 'vb' }
+Plug 'fatih/vim-go', { 'for': 'go' }
+Plug 'jceb/vim-orgmode'
 call plug#end()
 " }}}
 
