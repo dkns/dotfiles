@@ -430,20 +430,22 @@ let g:ale_fixers = {
 
 let g:lsp_auto_enable = 1
 
-if executable('javascript-typescript-stdio')
-    au User lsp_setup call lsp#register_server({
-        \ 'name': 'javascript-language-server',
-        \ 'cmd': {server_info->['javascript-typescript-stdio']},
-        \ 'whitelist': ['javascript', 'javascript.jsx'],
-        \ })
-endif
+if has('nvim')
+  if executable('javascript-typescript-stdio')
+      au User lsp_setup call lsp#register_server({
+          \ 'name': 'javascript-language-server',
+          \ 'cmd': {server_info->['javascript-typescript-stdio']},
+          \ 'whitelist': ['javascript', 'javascript.jsx'],
+          \ })
+  endif
 
-if executable('go-langserver')
-    au User lsp_setup call lsp#register_server({
-        \ 'name': 'go-langserver',
-        \ 'cmd': {server_info->['go-langserver', '-mode', 'stdio']},
-        \ 'whitelist': ['go'],
-        \ })
+  if executable('go-langserver')
+      au User lsp_setup call lsp#register_server({
+          \ 'name': 'go-langserver',
+          \ 'cmd': {server_info->['go-langserver', '-mode', 'stdio']},
+          \ 'whitelist': ['go'],
+          \ })
+  endif
 endif
 
 let g:asyncomplete_auto_popup = 1
