@@ -72,6 +72,7 @@ Plug 'ntpeters/vim-better-whitespace'
 Plug 'tacahiroy/vim-vb', { 'for': 'vb' }
 Plug 'fatih/vim-go', { 'for': 'go' }
 Plug 'dhruvasagar/vim-dotoo'
+Plug 'fcpg/vim-showmap'
 call plug#end()
 " }}}
 
