@@ -73,6 +73,7 @@ Plug 'tacahiroy/vim-vb', { 'for': 'vb' }
 Plug 'fatih/vim-go', { 'for': 'go' }
 Plug 'dhruvasagar/vim-dotoo'
 Plug 'fcpg/vim-showmap'
+Plug 'airblade/vim-rooter'
 call plug#end()
 " }}}
 
@@ -471,6 +472,8 @@ command! -bang -nargs=? -complete=dir Files
   \ call fzf#vim#files(<q-args>, fzf#vim#with_preview(), <bang>0)
 
 command! -bang Commits call fzf#vim#commits({'options': '--preview'}, <bang>0)
+" rooter
+let g:rooter_patterns = ['.git/']
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Languages
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
