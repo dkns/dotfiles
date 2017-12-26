@@ -188,15 +188,15 @@ p() {
 }
 
 fga() {
-  git add $(git status | modified | awk -F ' ' '{print $2}' | fzf)
+  git add $(git status | grep modified | awk -F ' ' '{print $2}' | fzf)
 }
 
 fgap() {
-  git add -p $(git status | modified | awk -F ' ' '{print $2}' | fzf)
+  git add -p $(git status | grep modified | awk -F ' ' '{print $2}' | fzf)
 }
 
 fgd() {
-  git diff $(git status | modified | awk -F ' ' '{print $2}' | fzf)
+  git diff $(git status | grep modified | awk -F ' ' '{print $2}' | fzf)
 }
 
 ################################################################################
