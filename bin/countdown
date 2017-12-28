@@ -1,0 +1,34 @@
+#!/usr/bin/python3
+'''
+Counts down time.
+'''
+
+import argparse
+import datetime
+import os
+import sys
+import time
+from subprocess import call
+
+sound_path = '/usr/share/sounds/freedesktop/stereo/complete.oga'
+
+parser = argparse.ArgumentParser(description="Process time")
+parser.add_argument("-minutes", type=str, required=True)
+parser.add_argument("-sound", action="store_true")
+args = parser.parse_args()
+
+minutes, seconds = args.minutes.split(':')
+
+countdown_time = (int(minutes) * 60) + int(seconds)
+
+for i in range(countdown_time):
+    print(str(datetime.timedelta(seconds=(countdown_time - i))))
+    time.sleep(1)
+    os.system('clear')
+
+if args.sound and not os.path.exists(sound_path):
+    print('No alarm file found')
+    sys.exit(1)
+
+if args.sound:
+    call(['paplay', '/usr/share/sounds/freedesktop/stereo/complete.oga'])
