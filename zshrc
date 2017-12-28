@@ -36,13 +36,6 @@ if [ -f ~/bin/tmux-gitbar.sh ]; then
   source ~/bin/tmux-gitbar.sh
 fi
 
-export PROJECT_HOME=$HOME/projects
-export VIRTUALENVWRAPPER_SCRIPT=/usr/local/bin/virtualenvwrapper.sh
-
-if [ -f /usr/local/bin/virtualenvwrapper_lazy.sh ]; then
-  source /usr/local/bin/virtualenvwrapper_lazy.sh
-fi
-
 LC_CTYPE=en_US.UTF-8
 LC_ALL=en_US.UTF-8
 
