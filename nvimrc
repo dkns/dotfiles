@@ -374,42 +374,26 @@ if !isdirectory(vimwikidir)
 endif
 let g:vimwiki_list = [{'path': '~/Dropbox/vimwiki'}]
 
-" augroup statusline
-"   autocmd!
-"   autocmd BufWinEnter,WinEnter,VimEnter * let w:getcwd = getcwd()
-" augroup END
+augroup statusline
+  autocmd!
+  autocmd BufWinEnter,WinEnter,VimEnter * let w:getcwd = getcwd()
+augroup END
 
-" function! StatuslineTag()
-"   if exists('b:git_dir')
-"     let dir = fnamemodify(b:git_dir[:-6], ':t')
-"     return dir." branch:".fugitive#head(7)
-"   else
-"     return fnamemodify(getwinvar(0, 'getcwd', getcwd()), ':t')
-"   endif
-" endfunction
+function! StatuslineTag()
+  if exists('b:git_dir')
+    let dir = fnamemodify(b:git_dir[:-6], ':t')
+    return dir." branch:".fugitive#head(7)
+  else
+    return fnamemodify(getwinvar(0, 'getcwd', getcwd()), ':t')
+  endif
+endfunction
 
-" let &statusline = " %{StatuslineTag()} "
-" let &statusline .= "\ue0b1 %<%f "
-" let &statusline .= "%{&readonly ? \"\ue0a2 \" : &modified ? '+ ' : ''}"
-" let &statusline .= "%=\u2571 %{&filetype == '' ? 'unknown' : &filetype} "
-" let &statusline .= "\u2571 %l:%2c \u2571 %p%% "
-
-" %< Where to truncate
-" %n buffer number
-" %F Full path
-" %m Modified flag: [+], [-]
-" %r Readonly flag: [RO]
-" %y Type:          [vim]
-" fugitive#statusline()
-" %= Separator
-" %-14.(...)
-" %l Line
-" %c Column
-" %V Virtual column
-" %P Percentage
-" %#HighlightGroup#
-
-set statusline=%<[%n]\ %F\ %m%r%y\ %{exists('g:loaded_fugitive')?fugitive#head(7):''}\ %=%-14.(%l,%c%V%)\ %P
+let &statusline = " %{StatuslineTag()} "
+let &statusline .= "\u2572 %<%f"
+let &statusline .= " \u2572 "
+let &statusline .= "%{&readonly ? \"\ue0a2 \" : &modified ? '+ ' : ''}"
+let &statusline .= "%=\u2571 %{&filetype == '' ? 'unknown' : &filetype} "
+let &statusline .= "\u2571 %l:%2c \u2571 %p%% "
 
 " closetag
 let g:closetag_filenames = "*.html,*.xhtml,*.phtml"
