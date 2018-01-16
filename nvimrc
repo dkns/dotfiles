@@ -76,6 +76,8 @@ if has('nvim') || v:version > 800
 endif
 Plug 'airblade/vim-rooter'
 Plug 'rlue/vim-getting-things-down'
+Plug 'machakann/vim-highlightedyank'
+
 call plug#end()
 " }}}
 
