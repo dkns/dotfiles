@@ -31,4 +31,4 @@ if args.sound and not os.path.exists(sound_path):
     sys.exit(1)
 
 if args.sound:
-    call(['paplay', '/usr/share/sounds/freedesktop/stereo/complete.oga'])
+    call(['paplay', sound_path])
