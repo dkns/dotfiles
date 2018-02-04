@@ -21,7 +21,9 @@ endif
 call plug#begin()
 
 " Plugins {{{
-Plug 'Valloric/MatchTagAlways', { 'for': 'html' }
+if has('python')
+  Plug 'Valloric/MatchTagAlways', { 'for': 'html' }
+endif
 Plug 'Valloric/python-indent', { 'for': 'python' }
 if !empty($TMUX)
   Plug 'christoomey/vim-tmux-navigator'
