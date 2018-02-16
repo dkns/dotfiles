@@ -462,6 +462,10 @@ command! -bang -nargs=? -complete=dir Files
   \ call fzf#vim#files(<q-args>, fzf#vim#with_preview(), <bang>0)
 
 command! -bang Commits call fzf#vim#commits({'options': '--preview'}, <bang>0)
+
+if executable('rg')
+    command! -bang -nargs=* Rg call fzf#vim#grep('rg --line-number --ignore-case --fixed-strings --glob "!.git/*" --color "always" '.shellescape(<q-args>), 1, <bang>0)
+endif
 " rooter
 let g:rooter_patterns = ['.git/']
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
