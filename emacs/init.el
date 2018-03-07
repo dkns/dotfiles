@@ -203,15 +203,6 @@ Use this for files that change often, like cache files.")
   (vhl/install-extension 'evil)
   )
 
-(use-package git-gutter-fringe
-  :ensure t
-  :config
-  (add-hook 'prog-mode-hook 'git-gutter)
-  (setq-default fringes-outside-margins t)
-  ;; thin fringe bitmaps
-  ;; stolen from https://github.com/hlissner/.emacs.d
-  )
-
 (use-package darktooth-theme
   :ensure t
   :config
@@ -280,6 +271,15 @@ Use this for files that change often, like cache files.")
   :defer t
   :config
   (projectile-mode)
+  )
+
+(use-package diff-hl
+  :ensure t
+  :config
+  (global-diff-hl-mode)
+  (diff-hl-margin-mode t)
+  (diff-hl-flydiff-mode t)
+  (add-hook 'magit-post-refresh-hook 'diff-hl-magit-post-refresh)
   )
 
 (provide 'init)
