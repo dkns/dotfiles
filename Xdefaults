@@ -5,7 +5,7 @@ URxvt.matcher.button  : 1
 ! fonts
 ! run "fc-list" for a list of available fonts
 ! URxvt*font: xft:Monospace:pixelsize=12
-URxvt*font:  xft:inconsolata:size=10:antialias=true
+URxvt*font:  xft:Iosevka:size=10:antialias=true
 URxvt.depth: 8
 
 URxvt*scrollBar: False
