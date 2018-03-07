@@ -1,5 +1,4 @@
-;;; -*- lexical-binding: t; -*-
-;;; package --- Summary
+;;; package --- Summary -*- lexical-binding: t; -*-
 ;;; Code:
 ;;; Commentary:
 
@@ -8,9 +7,21 @@
 (require 'package)
 (setq package-enable-at-startup nil)
 (add-to-list 'package-archives
-             '("melpa" . "https://melpa.org/packages/"))
+             '(("melpa" . "https://melpa.org/packages/")
+               ("gnu" . "https://elpa.gnu.org/packages/")
+               ("org" . "https://orgmode.org/elpa/"))
+             )
 
 (package-initialize)
+
+(defvar dkns/emacs-dir (eval-when-compile (file-truename user-emacs-directory))
+  "Path to this emacs.d directory.")
+
+(defvar dkns/cache-dir (concat dkns/emacs-dir "cache/")
+  "Directory for volatile storage.
+Use this for files that change often, like cache files.")
+
+(setq custom-file (concat dkns/cache-dir "/custom.el"))
 
 ;; Bootstrap `use-package'
 (unless (package-installed-p 'use-package)
@@ -252,17 +263,3 @@
 
 (provide 'init)
 ;;; init.el ends here
-(custom-set-variables
- ;; custom-set-variables was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- '(package-selected-packages
-   (quote
-    (projectile company-tern indium fzf jinja2-mode adaptive-wrap web-mode darktooth-theme git-gutter-fringe volatile-highlights evil-surround evil-commentary magit evil-escape auto-compile which-key flycheck js2-mode php-mode evil-leader evil use-package))))
-(custom-set-faces
- ;; custom-set-faces was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- )
