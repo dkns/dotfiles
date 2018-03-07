@@ -76,6 +76,24 @@ Use this for files that change often, like cache files.")
 (setq auto-save-list-file-prefix
     emacs-tmp-dir)
 
+;; modeline
+
+(setq-default mode-line-format
+              '(
+                "%e"
+                mode-line-front-space
+                mode-line-client
+                mode-line-modified
+                " | "
+                mode-line-buffer-identification
+                " | "
+                (flycheck-mode flycheck-mode-line)
+                " | "
+                mode-line-modes
+                mode-line-end-spaces
+                )
+              )
+
 ;; packages
 (use-package evil
   :ensure t
@@ -97,6 +115,8 @@ Use this for files that change often, like cache files.")
   :config
   (evil-leader/set-key "v" 'dkns/open-window-vertically)
   (evil-leader/set-key "h" 'dkns/open-window-horizontally)
+  (evil-leader/set-key "d v" 'describe-variable)
+  (evil-leader/set-key "d f" 'describe-function)
 
   (progn
       (evil-leader/set-leader "<SPC>")
@@ -133,7 +153,7 @@ Use this for files that change often, like cache files.")
 (use-package which-func
   :ensure t
   :config
-  (which-function-mode)
+  (add-hook 'prog-mode-hook 'which-function-mode)
   )
 
 (use-package which-key
@@ -174,6 +194,7 @@ Use this for files that change often, like cache files.")
 
 (use-package volatile-highlights
   :ensure t
+  :after 'evil
   :init
   (volatile-highlights-mode t)
   :config
