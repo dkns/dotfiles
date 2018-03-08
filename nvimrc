@@ -279,6 +279,7 @@ endif
 
 nnoremap <leader>r :History<CR>
 nnoremap <leader>b :Buffers<CR>
+nnoremap <leader>tn :tabnew<CR>
 
 iabbrev date- <c-r>=strftime("%Y-%m-%d")<cr>
 

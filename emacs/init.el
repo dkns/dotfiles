@@ -224,19 +224,6 @@
   :ensure t
   )
 
-(use-package helm
-  :ensure t
-  :config
-  
-  (helm-mode 1)
-  (setq helm-autoresize-mode t)
-  (setq helm-buffer-max-length 40)
-  (setq helm-M-x-fuzzy-match t)
-  (setq helm-buffers-fuzzy-matching t)
-  (setq helm-fuzzy-match-fn t)
-  (global-set-key (kbd "M-x") 'helm-M-x)
-  )
-
 (use-package company
   :ensure t
   :config
@@ -255,20 +242,6 @@
   (add-to-list 'company-backends 'company-tern)
   )
 
-(use-package helm-flx
-  :ensure t
-  :config
-  (helm-flx-mode +1)
-  (setq helm-flx-for-helm-find-files t)
-  (setq helm-flx-for-helm-locate t)
-  )
-
-(use-package helm-fuzzier
-  :ensure t
-  :config
-  (helm-fuzzier-mode 1)
-  )
-
 (use-package projectile
   :ensure t
   :defer t
@@ -276,18 +249,19 @@
   (projectile-mode)
   )
 
-(use-package helm-projectile
-  :bind (("C-S-P" . helm-projectile-switch-project)
-         :map evil-normal-state-map
-         ("C-p" . helm-projectile))
-  :ensure t
-  :config
-  (evil-leader/set-key
-    "ps" 'helm-projectile-ag
-    "pa" 'helm-projectile-find-file-in-known-projects
-  )
-  )
-
-
 (provide 'init)
 ;;; init.el ends here
+(custom-set-variables
+ ;; custom-set-variables was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(package-selected-packages
+   (quote
+    (projectile company-tern indium fzf jinja2-mode adaptive-wrap web-mode darktooth-theme git-gutter-fringe volatile-highlights evil-surround evil-commentary magit evil-escape auto-compile which-key flycheck js2-mode php-mode evil-leader evil use-package))))
+(custom-set-faces
+ ;; custom-set-faces was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ )
