@@ -94,6 +94,13 @@ Use this for files that change often, like cache files.")
                 )
               )
 
+;; custom keybinds
+(defun dkns/edit-init ()
+  "Automatically find and edit init file."
+  (interactive)
+  (find-file user-init-file)
+  )
+
 ;; packages
 (use-package evil
   :ensure t
@@ -117,6 +124,9 @@ Use this for files that change often, like cache files.")
   (evil-leader/set-key "h" 'dkns/open-window-horizontally)
   (evil-leader/set-key "d v" 'describe-variable)
   (evil-leader/set-key "d f" 'describe-function)
+  (evil-leader/set-key "d k" 'describe-key)
+  (evil-leader/set-key "e i" 'dkns/edit-init)
+  (evil-leader/set-key "b" 'buffer-list)
 
   (progn
       (evil-leader/set-leader "<SPC>")
