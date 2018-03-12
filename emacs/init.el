@@ -1,4 +1,4 @@
-;;; package --- Summary
+;;; package --- Summary -*- lexical-binding: t; -*-
 ;;; Code:
 ;;; Commentary:
 
@@ -7,9 +7,21 @@
 (require 'package)
 (setq package-enable-at-startup nil)
 (add-to-list 'package-archives
-             '("melpa" . "https://melpa.org/packages/"))
+             '(("melpa" . "https://melpa.org/packages/")
+               ("gnu" . "https://elpa.gnu.org/packages/")
+               ("org" . "https://orgmode.org/elpa/"))
+             )
 
 (package-initialize)
+
+(defvar dkns/emacs-dir (eval-when-compile (file-truename user-emacs-directory))
+  "Path to this emacs.d directory.")
+
+(defvar dkns/cache-dir (concat dkns/emacs-dir "cache/")
+  "Directory for volatile storage.
+Use this for files that change often, like cache files.")
+
+(setq custom-file (concat dkns/cache-dir "/custom.el"))
 
 ;; Bootstrap `use-package'
 (unless (package-installed-p 'use-package)
@@ -64,6 +76,24 @@
 (setq auto-save-list-file-prefix
     emacs-tmp-dir)
 
+;; modeline
+
+(setq-default mode-line-format
+              '(
+                "%e"
+                mode-line-front-space
+                mode-line-client
+                mode-line-modified
+                " | "
+                mode-line-buffer-identification
+                " | "
+                (flycheck-mode flycheck-mode-line)
+                " | "
+                mode-line-modes
+                mode-line-end-spaces
+                )
+              )
+
 ;; packages
 (use-package evil
   :ensure t
@@ -85,6 +115,8 @@
   :config
   (evil-leader/set-key "v" 'dkns/open-window-vertically)
   (evil-leader/set-key "h" 'dkns/open-window-horizontally)
+  (evil-leader/set-key "d v" 'describe-variable)
+  (evil-leader/set-key "d f" 'describe-function)
 
   (progn
       (evil-leader/set-leader "<SPC>")
@@ -121,7 +153,7 @@
 (use-package which-func
   :ensure t
   :config
-  (which-function-mode)
+  (add-hook 'prog-mode-hook 'which-function-mode)
   )
 
 (use-package which-key
@@ -162,21 +194,13 @@
 
 (use-package volatile-highlights
   :ensure t
+  :after 'evil
   :init
   (volatile-highlights-mode t)
   :config
   (vhl/define-extension 'evil 'evil-paste-after 'evil-paste-before
                         'evil-paste-pop 'evil-move)
   (vhl/install-extension 'evil)
-  )
-
-(use-package git-gutter-fringe
-  :ensure t
-  :config
-  (add-hook 'prog-mode-hook 'git-gutter)
-  (setq-default fringes-outside-margins t)
-  ;; thin fringe bitmaps
-  ;; stolen from https://github.com/hlissner/.emacs.d
   )
 
 (use-package darktooth-theme
@@ -249,19 +273,14 @@
   (projectile-mode)
   )
 
+(use-package diff-hl
+  :ensure t
+  :config
+  (global-diff-hl-mode)
+  (diff-hl-margin-mode t)
+  (diff-hl-flydiff-mode t)
+  (add-hook 'magit-post-refresh-hook 'diff-hl-magit-post-refresh)
+  )
+
 (provide 'init)
 ;;; init.el ends here
-(custom-set-variables
- ;; custom-set-variables was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- '(package-selected-packages
-   (quote
-    (projectile company-tern indium fzf jinja2-mode adaptive-wrap web-mode darktooth-theme git-gutter-fringe volatile-highlights evil-surround evil-commentary magit evil-escape auto-compile which-key flycheck js2-mode php-mode evil-leader evil use-package))))
-(custom-set-faces
- ;; custom-set-faces was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- )
