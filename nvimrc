@@ -91,6 +91,8 @@ filetype plugin indent on
 set rnu
 set nu
 
+set encoding=utf-8
+
 " don't highlight current line as it is really slow
 set nocursorline
 set nocursorcolumn
