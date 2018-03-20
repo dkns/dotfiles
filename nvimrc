@@ -220,7 +220,7 @@ set matchtime=2 " reduce blinking time
 set list listchars=tab:»•,trail:•,extends:>,precedes:<
 
 " Yank to clipboard
-set clipboard+=unnamedplus
+set clipboard+=unnamedplus,unnamed
 
 " Better handling of large files (no idea why this works though)
 set synmaxcol=500
