@@ -112,7 +112,7 @@ if has('gui')
   set guioptions-=L
   " also set font on windows
   if has("gui_win32")
-    set guifont=Source\ Code\ Pro:h11
+    set guifont=Consolas
   endif
 endif
 
