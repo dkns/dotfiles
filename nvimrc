@@ -53,13 +53,13 @@ Plug '2072/vim-syntax-for-PHP', { 'for': 'php' }
 Plug '2072/PHP-Indenting-for-VIm', { 'for': 'php' }
 if has('nvim') || v:version > 800
   Plug 'w0rp/ale'
+  Plug 'romainl/vim-cool'
 endif
 Plug 'mattn/emmet-vim'
 Plug 'sheerun/vim-polyglot'
 Plug 'dominikduda/vim_current_word'
 Plug 'morhetz/gruvbox'
 Plug 'mhinz/vim-signify'
-Plug 'romainl/vim-cool'
 Plug 'inside/vim-search-pulse'
 Plug 'mhinz/vim-startify'
 Plug 'prabirshrestha/async.vim'
