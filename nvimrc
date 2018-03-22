@@ -394,7 +394,9 @@ function! StatuslineTag()
   endif
 endfunction
 
-let &statusline = " %{StatuslineTag()} "
+if exists('g:loaded_fugitive')
+    let &statusline = " %{StatuslineTag()} "
+endif
 let &statusline .= "\u2572 %<%f"
 let &statusline .= " \u2572 "
 let &statusline .= "%{&readonly ? \"\ue0a2 \" : &modified ? '+ ' : ''}"
