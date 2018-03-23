@@ -68,7 +68,9 @@ Plug 'prabirshrestha/asyncomplete.vim'
 Plug 'prabirshrestha/asyncomplete-lsp.vim'
 Plug 'prabirshrestha/asyncomplete-flow.vim'
 Plug 'prabirshrestha/asyncomplete-buffer.vim'
-Plug 'xtal8/traces.vim'
+if !has('nvim')
+    Plug 'xtal8/traces.vim'
+endif
 Plug 'ntpeters/vim-better-whitespace'
 Plug 'tacahiroy/vim-vb', { 'for': ['vb', 'cls'] }
 Plug 'fatih/vim-go', { 'for': 'go' }
