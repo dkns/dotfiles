@@ -5,11 +5,20 @@
     helper = cache --timeout=3600
 [alias]
     pom = push origin master
-    lg = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr)%C(bold blue)<%an>%Creset' --abbrev-commit
+    lg = log --stat --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr)%C(bold blue)<%an>%Creset' --abbrev-commit
     co = checkout
+    slg = stash list --pretty=reflg
+    st = status
+    lgf = log --oneline --decorate --all --graph --stat
+    df = diff
+    cms = commit -m
 [color]
     ui = true
 [core]
     excludesfile = ~/dotfiles/gitignore
 [commit]
     verbose = true
+[pretty]
+    lg = %C(red)%h%C(reset) %C(green)%ci%C(reset) %s %C(bold blue)-- %an%C(reset)%C(yellow)%d%C(reset)
+    lge = %C(red)%h%C(reset) %C(green)%ci%C(reset) %s %C(bold blue)-- %an <%ae>%C(reset)%C(yellow)%d%C(reset)
+    reflg = %C(red)%h%C(reset) %C(green)%ci%C(reset) %s %C(bold blue)-- %an%C(reset) %C(yellow)(%gd)%C(reset)
