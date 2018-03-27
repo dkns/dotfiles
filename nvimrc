@@ -122,7 +122,9 @@ set background=dark
 if has('nvim')
   set termguicolors
 endif
-colorscheme gruvbox
+if !exists("g:gui_oni")
+  colorscheme gruvbox
+endif
 set t_co=
 
 " copy the previous indentation on autoindenting
