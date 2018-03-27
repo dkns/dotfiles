@@ -5,7 +5,7 @@
     helper = cache --timeout=3600
 [alias]
     pom = push origin master
-    lg = log --stat --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr)%C(bold blue)<%an>%Creset' --abbrev-commit
+    lg = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr)%C(bold blue)<%an>%Creset' --abbrev-commit
     co = checkout
     slg = stash list --pretty=reflg
     st = status
