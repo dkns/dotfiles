@@ -52,7 +52,9 @@ Plug 'othree/csscomplete.vim', { 'for': 'css' }
 Plug '2072/vim-syntax-for-PHP', { 'for': 'php' }
 Plug '2072/PHP-Indenting-for-VIm', { 'for': 'php' }
 if has('nvim') || v:version > 800
-  Plug 'w0rp/ale'
+  if !exists("g:gui_oni")
+    Plug 'w0rp/ale'
+  endif
   Plug 'romainl/vim-cool'
 endif
 Plug 'mattn/emmet-vim'
@@ -426,9 +428,11 @@ let g:signify_sign_add = '█'
 let g:signify_sign_delete = '█'
 let g:signify_sign_change = '█'
 " ALE
-let g:ale_fixers = {
-      \ 'javascript': ['eslint'],
-      \}
+if !exists("g:gui_oni")
+  let g:ale_fixers = {
+        \ 'javascript': ['eslint'],
+        \}
+endif
 
 let g:lsp_auto_enable = 1
 
