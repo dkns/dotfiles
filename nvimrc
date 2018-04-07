@@ -403,11 +403,11 @@ endfunction
 if exists('g:loaded_fugitive')
     let &statusline = " %{StatuslineTag()} "
 endif
-let &statusline .= "\u2572 %<%f"
-let &statusline .= " \u2572 "
-let &statusline .= "%{&readonly ? \"\ue0a2 \" : &modified ? '+ ' : ''}"
-let &statusline .= "%=\u2571 %{&filetype == '' ? 'unknown' : &filetype} "
-let &statusline .= "\u2571 %l:%2c \u2571 %p%% "
+let &statusline .= "| %<%f"
+let &statusline .= " | "
+let &statusline .= "%{&readonly ? \"| \" : &modified ? '+ ' : ''}"
+let &statusline .= "%=| %{&filetype == '' ? 'unknown' : &filetype} "
+let &statusline .= "| %l:%2c | %p%% "
 
 " closetag
 let g:closetag_filenames = "*.html,*.xhtml,*.phtml"
