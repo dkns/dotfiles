@@ -412,10 +412,6 @@ let &statusline .= "| %l:%2c | %p%% "
 " closetag
 let g:closetag_filenames = "*.html,*.xhtml,*.phtml"
 
-" indentline
-let g:indentline_ignored_buftypes = ['terminal']
-let g:indentline_ignored_filetypes = ['help', 'man', 'vimwiki', 'startify']
-
 " css complete
 autocmd FileType css set omnifunc=csscomplete#CompleteCSS noci
 
