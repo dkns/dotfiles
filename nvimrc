@@ -419,10 +419,10 @@ autocmd FileType css set omnifunc=csscomplete#CompleteCSS noci
 let g:vim_current_word#highlight_current_word = 0
 
 " signify
-let g:signify_vcs_list = ['git', 'svn']
-let g:signify_sign_add = '█'
-let g:signify_sign_delete = '█'
-let g:signify_sign_change = '█'
+let g:signify_vcs_list = ['git']
+let g:signify_sign_add = '┃'
+let g:signify_sign_delete = '┃'
+let g:signify_sign_change = '┃'
 " ALE
 if !exists("g:gui_oni")
   let g:ale_fixers = {
