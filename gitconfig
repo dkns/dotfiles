@@ -12,6 +12,8 @@
     lgf = log --decorate --all --graph --stat --pretty=lg
     df = diff
     cms = commit -m
+    aa = add --all
+    dc = diff --cached
 [color]
     ui = true
 [core]
