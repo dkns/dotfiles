@@ -279,7 +279,7 @@ cnoremap w!! w !sudo tee % >/dev/null
 nnoremap <silent> <c-p> :Files<cr>
 nnoremap <silent> g/. :FZF <c-r>=fnameescape(expand("%:p:h"))<cr><cr>
 
-if has('nvim')
+if has('nvim') || has('terminal')
   tnoremap <ESC> <C-\><C-n>
   nnoremap <leader>t <c-w><c-w>i<UP><c-\><c-n>:sleep 100m<CR>i<CR><c-\><c-n><c-w><c-w>
 endif
