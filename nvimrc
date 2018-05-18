@@ -33,7 +33,9 @@ Plug 'jiangmiao/auto-pairs'
 Plug 'junegunn/vim-plug'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': 'yes \| ./install' }
 Plug 'othree/html5.vim', { 'for': 'html' }
-Plug 'othree/javascript-libraries-syntax.vim', { 'for' : 'javascript' }
+if !exists('g:gui_oni')
+    Plug 'othree/javascript-libraries-syntax.vim', { 'for' : 'javascript' }
+endif
 Plug 'sickill/vim-pasta'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-sleuth'
@@ -44,7 +46,9 @@ Plug 'vimwiki/vimwiki'
 Plug 'mbbill/undotree', { 'on': 'UndotreeToggle' }
 Plug 'alvan/vim-closetag', { 'for': 'html' }
 Plug 'Glench/Vim-Jinja2-Syntax'
-Plug 'othree/yajs.vim', { 'for': 'javascript' }
+if !exists('g:gui_oni')
+    Plug 'othree/yajs.vim', { 'for': 'javascript' }
+endif
 Plug 'gavocanov/vim-js-indent', { 'for': 'javascript' }
 Plug 'junegunn/fzf.vim'
 Plug 'jreybert/vimagit'
@@ -58,7 +62,9 @@ if has('nvim') || v:version > 800
   Plug 'romainl/vim-cool'
 endif
 Plug 'mattn/emmet-vim'
-Plug 'sheerun/vim-polyglot'
+if !exists('g:gui_oni')
+    Plug 'sheerun/vim-polyglot'
+endif
 Plug 'dominikduda/vim_current_word'
 Plug 'morhetz/gruvbox'
 Plug 'mhinz/vim-signify'
