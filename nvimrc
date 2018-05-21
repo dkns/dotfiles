@@ -80,7 +80,6 @@ if !has('nvim')
     Plug 'xtal8/traces.vim'
 endif
 Plug 'ntpeters/vim-better-whitespace'
-Plug 'tacahiroy/vim-vb', { 'for': ['vb', 'cls'] }
 Plug 'fatih/vim-go', { 'for': 'go' }
 if has('nvim') || v:version > 800
   Plug 'fcpg/vim-showmap'
