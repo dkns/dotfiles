@@ -489,6 +489,11 @@ command! -bang Commits call fzf#vim#commits({'options': '--preview'}, <bang>0)
 if executable('rg')
     command! -bang -nargs=* Rg call fzf#vim#grep('rg --line-number --ignore-case --fixed-strings --glob "!.git/*" --color "always" '.shellescape(<q-args>), 1, <bang>0)
 endif
+
+command! -bang -nargs=* Gg
+  \ call fzf#vim#grep(
+  \   'git grep --line-number '.shellescape(<q-args>), 0,
+  \   { 'dir': systemlist('git rev-parse --show-toplevel')[0] }, <bang>0)
 " rooter
 let g:rooter_patterns = ['.git/']
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
