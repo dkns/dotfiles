@@ -414,7 +414,7 @@ endfunction
 if exists('g:loaded_fugitive')
     let &statusline = " %{StatuslineTag()} "
 endif
-let &statusline .= "| %<%f"
+let &statusline .= "%<%f"
 let &statusline .= " | "
 let &statusline .= "%{&readonly ? \"| \" : &modified ? '+ ' : ''}"
 let &statusline .= "%=| %{&filetype == '' ? 'unknown' : &filetype} "
