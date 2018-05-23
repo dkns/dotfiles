@@ -238,6 +238,7 @@ set synmaxcol=500
 
 " ignore files
 set wildignore+=*.zip,*.tar.gz,*.tar.bz2,*.rar,*.tar.xz,*.py[co],*.pyc,*.jpg,*.mp3,*.wav,*.pdf
+set wildignorecase
 
 augroup resize
   autocmd!
