@@ -30,7 +30,7 @@ exports.deactivate = function (oni) {
 };
 exports.configuration = {
     //add custom config here, such as
-    "ui.colorscheme": "onedark",
+    "ui.colorscheme": "gruvbox",
     //"oni.useDefaultConfig": true,
     //"oni.bookmarks": ["~/Documents"],
     "oni.loadInitVim": true,
@@ -40,5 +40,10 @@ exports.configuration = {
     "ui.animations.enabled": true,
     "ui.fontSmoothing": "auto",
     "experimental.preview.enabled": true,
-    "tabs.mode": "tabs"
+    "tabs.mode": "native",
+    "oni.enhancedSyntaxHighlighting": true,
+    "editor.textMateHighlighting.enabled": true,
+    "editor.renderer": "webgl",
+    "learning.enabled": false,
+    "achievements.enabled": false
 };
