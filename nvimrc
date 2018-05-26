@@ -32,10 +32,6 @@ Plug 'ap/vim-css-color'
 Plug 'jiangmiao/auto-pairs'
 Plug 'junegunn/vim-plug'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': 'yes \| ./install' }
-Plug 'othree/html5.vim', { 'for': 'html' }
-if !exists('g:gui_oni')
-    Plug 'othree/javascript-libraries-syntax.vim', { 'for' : 'javascript' }
-endif
 Plug 'sickill/vim-pasta'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-sleuth'
@@ -45,15 +41,9 @@ Plug 'tpope/vim-rsi'
 Plug 'vimwiki/vimwiki'
 Plug 'mbbill/undotree', { 'on': 'UndotreeToggle' }
 Plug 'alvan/vim-closetag', { 'for': 'html' }
-Plug 'Glench/Vim-Jinja2-Syntax'
-if !exists('g:gui_oni')
-    Plug 'othree/yajs.vim', { 'for': 'javascript' }
-endif
 Plug 'gavocanov/vim-js-indent', { 'for': 'javascript' }
 Plug 'junegunn/fzf.vim'
 Plug 'jreybert/vimagit'
-Plug 'othree/csscomplete.vim', { 'for': 'css' }
-Plug '2072/vim-syntax-for-PHP', { 'for': 'php' }
 Plug '2072/PHP-Indenting-for-VIm', { 'for': 'php' }
 if has('nvim') || v:version > 800
   if !exists("g:gui_oni")
@@ -64,18 +54,24 @@ endif
 Plug 'mattn/emmet-vim'
 if !exists('g:gui_oni')
     Plug 'sheerun/vim-polyglot'
+    Plug 'othree/javascript-libraries-syntax.vim', { 'for' : 'javascript' }
+    Plug 'othree/yajs.vim', { 'for': 'javascript' }
+    Plug 'othree/html5.vim', { 'for': 'html' }
+    Plug 'Glench/Vim-Jinja2-Syntax'
+    Plug '2072/vim-syntax-for-PHP', { 'for': 'php' }
+    Plug 'othree/csscomplete.vim', { 'for': 'css' }
+    Plug 'prabirshrestha/async.vim'
+    Plug 'prabirshrestha/vim-lsp'
+    Plug 'prabirshrestha/asyncomplete.vim'
+    Plug 'prabirshrestha/asyncomplete-lsp.vim'
+    Plug 'prabirshrestha/asyncomplete-flow.vim'
+    Plug 'prabirshrestha/asyncomplete-buffer.vim'
 endif
 Plug 'dominikduda/vim_current_word'
 Plug 'morhetz/gruvbox'
 Plug 'mhinz/vim-signify'
 Plug 'inside/vim-search-pulse'
 Plug 'mhinz/vim-startify'
-Plug 'prabirshrestha/async.vim'
-Plug 'prabirshrestha/vim-lsp'
-Plug 'prabirshrestha/asyncomplete.vim'
-Plug 'prabirshrestha/asyncomplete-lsp.vim'
-Plug 'prabirshrestha/asyncomplete-flow.vim'
-Plug 'prabirshrestha/asyncomplete-buffer.vim'
 if !has('nvim')
     Plug 'xtal8/traces.vim'
 endif
