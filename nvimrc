@@ -83,6 +83,7 @@ endif
 Plug 'airblade/vim-rooter'
 Plug 'rlue/vim-getting-things-down'
 Plug 'machakann/vim-highlightedyank'
+Plug 'bendavis78/vim-polymer'
 
 call plug#end()
 " }}}
