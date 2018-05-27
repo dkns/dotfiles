@@ -57,6 +57,7 @@ if !exists('g:gui_oni')
     Plug 'othree/javascript-libraries-syntax.vim', { 'for' : 'javascript' }
     Plug 'othree/yajs.vim', { 'for': 'javascript' }
     Plug 'othree/html5.vim', { 'for': 'html' }
+    Plug 'othree/es.next.syntax.vim', { 'for': 'javascript' }
     Plug 'Glench/Vim-Jinja2-Syntax'
     Plug '2072/vim-syntax-for-PHP', { 'for': 'php' }
     Plug 'othree/csscomplete.vim', { 'for': 'css' }
