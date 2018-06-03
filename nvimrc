@@ -20,7 +20,7 @@ if empty(glob('~/.config/nvim/autoload/plug.vim'))
 endif
 call plug#begin()
 
-" Plugins {{{
+" vim plug {{{
 if has('python')
   Plug 'Valloric/MatchTagAlways', { 'for': 'html' }
 endif
@@ -50,6 +50,8 @@ if has('nvim') || v:version > 800
     Plug 'w0rp/ale'
   endif
   Plug 'romainl/vim-cool'
+  Plug 'machakann/vim-highlightedyank'
+  Plug 'fcpg/vim-showmap'
 endif
 Plug 'mattn/emmet-vim'
 if !exists('g:gui_oni')
@@ -78,12 +80,8 @@ if !has('nvim')
 endif
 Plug 'ntpeters/vim-better-whitespace'
 Plug 'fatih/vim-go', { 'for': 'go' }
-if has('nvim') || v:version > 800
-  Plug 'fcpg/vim-showmap'
-endif
 Plug 'airblade/vim-rooter'
 Plug 'rlue/vim-getting-things-down'
-Plug 'machakann/vim-highlightedyank'
 Plug 'bendavis78/vim-polymer'
 
 call plug#end()
@@ -247,9 +245,7 @@ set autoread
 au CursorHold,CursorHoldI * checktime
 au FocusGained,BufEnter * :checktime
 
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Keybinds
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Keybinds {{{
 " set leader key
 let mapleader=" "
 " opening new splits
@@ -314,6 +310,7 @@ nnoremap <silent> <M-k> :<C-u>move-2<CR>==
 nnoremap <silent> <M-j> :<C-u>move+<CR>==
 xnoremap <silent> <M-j> :move'>+<CR>gv=gv
 xnoremap <silent> <M-k> :move-2<CR>gv=gv
+" }}}
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Custom functions
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -381,19 +378,18 @@ if has('nvim')
   au TermOpen * setlocal nonumber norelativenumber
 endif
 
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Plugins
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" netrw
+" Plugins {{{
+" netrw {{{
 let g:netrw_liststyle=3
-
-" vimwiki
+" }}}
+" vimwiki {{{
 let vimwikidir = expand('~/Dropbox/vimwiki')
 if !isdirectory(vimwikidir)
   call mkdir(vimwikidir)
 endif
 let g:vimwiki_list = [{'path': '~/Dropbox/vimwiki'}]
-
+" }}}
+" statusline {{{
 augroup statusline
   autocmd!
   autocmd BufWinEnter,WinEnter,VimEnter * let w:getcwd = getcwd()
@@ -416,27 +412,29 @@ let &statusline .= " | "
 let &statusline .= "%{&readonly ? \"| \" : &modified ? '+ ' : ''}"
 let &statusline .= "%=| %{&filetype == '' ? 'unknown' : &filetype} "
 let &statusline .= "| %l:%2c | %p%% "
-
-" closetag
+" }}}
+" closetag {{{
 let g:closetag_filenames = "*.html,*.xhtml,*.phtml"
-
-" css complete
+" }}}
+" css complete {{{
 autocmd FileType css set omnifunc=csscomplete#CompleteCSS noci
-
-" vim current word
+" }}}
+" vim current word {{{
 let g:vim_current_word#highlight_current_word = 0
-
-" signify
+" }}}
+" signify {{{
 let g:signify_vcs_list = ['git']
 let g:signify_sign_add = '┃'
 let g:signify_sign_delete = '┃'
 let g:signify_sign_change = '┃'
-" ALE
+" }}}
+" ALE {{{
 if !exists("g:gui_oni")
   let g:ale_fixers = {
         \ 'javascript': ['eslint'],
         \}
 endif
+" }}}
 
 let g:lsp_auto_enable = 1
 
@@ -491,19 +489,19 @@ command! -bang -nargs=* Gg
   \ call fzf#vim#grep(
   \   'git grep --line-number '.shellescape(<q-args>), 0,
   \   { 'dir': systemlist('git rev-parse --show-toplevel')[0] }, <bang>0)
-" rooter
+" rooter {{{
 let g:rooter_patterns = ['.git/']
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Languages
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" PHP
+" }}}
+" }}}
+" Languages {{{
+" PHP {{{
 let php_sql_query = 1
 let php_htmlInStrings = 1
-
-" python
+" }}}
+" Python {{{
 let python_highlight_all = 1
-syntax on
-" Go
+" }}}
+" Go {{{
 let g:go_highlight_functions = 1
 let g:go_highlight_methods = 1
 let g:go_highlight_structs = 1
@@ -511,3 +509,5 @@ let g:go_highlight_interfaces = 1
 let g:go_highlight_operators = 1
 let g:go_highlight_build_constraints = 1
 nnoremap <leader>gr :GoRun<cr><esc>
+" }}}
+" }}}
