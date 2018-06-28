@@ -290,5 +290,19 @@ Use this for files that change often, like cache files.")
   (add-hook 'magit-post-refresh-hook 'diff-hl-magit-post-refresh)
   )
 
+(use-package ivy
+  :ensure t
+  :config
+  (ivy-mode 1)
+  (setq ivy-use-virtual-buffers t
+        enable-recursive-minibuffers t
+        ivy-count-format "%d/%d/ "
+        )
+  )
+
+(use-package counsel
+  :ensure t
+  )
+
 (provide 'init)
 ;;; init.el ends here
