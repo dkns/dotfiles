@@ -59,7 +59,7 @@ Use this for files that change often, like cache files.")
 
 ;; Set default font
 (set-face-attribute 'default nil
-                    :family "Source Code Pro"
+                    :family "Consolas"
                     :height 110
                     :weight 'normal
                     :width 'normal)
