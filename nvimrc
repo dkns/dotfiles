@@ -477,7 +477,8 @@ au User asyncomplete_setup call asyncomplete#register_source(asyncomplete#source
     \ 'whitelist': ['javascript', 'javascript.jsx'],
     \ 'completor': function('asyncomplete#sources#flow#completor'),
     \ }))
-" fzf
+" }}}
+" fzf {{{
 if executable('ag')
   command! -bang -nargs=* Ag
   \ call fzf#vim#ag(<q-args>,
@@ -499,6 +500,7 @@ command! -bang -nargs=* Gg
   \ call fzf#vim#grep(
   \   'git grep --line-number '.shellescape(<q-args>), 0,
   \   { 'dir': systemlist('git rev-parse --show-toplevel')[0] }, <bang>0)
+" }}}
 " rooter {{{
 let g:rooter_patterns = ['.git/']
 " }}}
