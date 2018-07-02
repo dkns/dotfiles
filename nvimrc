@@ -246,6 +246,12 @@ set autoread
 au CursorHold,CursorHoldI * checktime
 au FocusGained,BufEnter * :checktime
 
+" backspace
+if !has('nvim')
+  set backspace=2
+  set backspace=indent,eol,start
+endif
+
 " Keybinds {{{
 " set leader key
 let mapleader=" "
