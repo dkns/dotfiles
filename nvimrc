@@ -83,6 +83,7 @@ Plug 'fatih/vim-go', { 'for': 'go' }
 Plug 'airblade/vim-rooter'
 Plug 'rlue/vim-getting-things-down'
 Plug 'bendavis78/vim-polymer'
+Plug 'cdata/vim-tagged-template'
 
 call plug#end()
 " }}}
@@ -435,7 +436,16 @@ if !exists("g:gui_oni")
         \}
 endif
 " }}}
+" tagged template {{{
+let g:taggedtemplate#tagSyntaxMap = {
+\ "html": "html",
+\ "md":   "markdown",
+\ "css":  "css" }
 
+autocmd FileType javascript,typescript : call taggedtemplate#applySyntaxMap()
+autocmd FileType html : call taggedtemplate#applySyntaxMap()
+" }}}
+" lsp {{{
 let g:lsp_auto_enable = 1
 
 if has('nvim')
