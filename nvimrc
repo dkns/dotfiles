@@ -252,6 +252,12 @@ if !has('nvim')
   set backspace=indent,eol,start
 endif
 
+" remove numbers from preview window
+augroup PreviewAutocmds
+  autocmd!
+  autocmd WinEnter * if &previewwindow | setlocal nonumber nornu | endif
+augroup END
+
 " Keybinds {{{
 " set leader key
 let mapleader=" "
