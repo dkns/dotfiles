@@ -82,6 +82,7 @@ Plug 'fatih/vim-go', { 'for': 'go' }
 Plug 'airblade/vim-rooter'
 Plug 'rlue/vim-getting-things-down'
 Plug 'bendavis78/vim-polymer'
+Plug 'cdata/vim-tagged-template'
 
 call plug#end()
 " }}}
@@ -243,6 +244,18 @@ augroup END
 set autoread
 au CursorHold,CursorHoldI * checktime
 au FocusGained,BufEnter * :checktime
+
+" backspace
+if !has('nvim')
+  set backspace=2
+  set backspace=indent,eol,start
+endif
+
+" remove numbers from preview window
+augroup PreviewAutocmds
+  autocmd!
+  autocmd WinEnter * if &previewwindow | setlocal nonumber nornu | endif
+augroup END
 
 " Keybinds {{{
 " set leader key
@@ -437,7 +450,16 @@ if !exists("g:gui_oni")
         \}
 endif
 " }}}
+" tagged template {{{
+let g:taggedtemplate#tagSyntaxMap = {
+\ "html": "html",
+\ "md":   "markdown",
+\ "css":  "css" }
 
+autocmd FileType javascript,typescript : call taggedtemplate#applySyntaxMap()
+autocmd FileType html : call taggedtemplate#applySyntaxMap()
+" }}}
+" lsp {{{
 let g:lsp_auto_enable = 1
 
 if has('nvim')
@@ -469,6 +491,7 @@ au User asyncomplete_setup call asyncomplete#register_source(asyncomplete#source
     \ 'whitelist': ['javascript', 'javascript.jsx'],
     \ 'completor': function('asyncomplete#sources#flow#completor'),
     \ }))
+" }}}
 " fzf {{{
 if executable('ag')
   command! -bang -nargs=* Ag
