@@ -390,28 +390,31 @@ endif
 let g:vimwiki_list = [{'path': '~/Dropbox/vimwiki'}]
 " }}}
 " statusline {{{
-augroup statusline
-  autocmd!
-  autocmd BufWinEnter,WinEnter,VimEnter * let w:getcwd = getcwd()
-augroup END
-
-function! StatuslineTag()
-  if exists('b:git_dir')
-    let dir = fnamemodify(b:git_dir[:-6], ':t')
-    return dir." branch:".fugitive#head(7)
-  else
-    return fnamemodify(getwinvar(0, 'getcwd', getcwd()), ':t')
-  endif
+function! LinterStatus() abort
+  let l:counts = ale#statusline#Count(bufnr(''))
+  let l:all_errors = l:counts.error + l:counts.style_error
+  let l:all_non_errors = l:counts.total - l:all_errors
+  return l:counts.total == 0 ? '' : printf(
+        \ 'W:%d E:%d',
+        \ l:all_non_errors,
+        \ l:all_errors
+        \)
 endfunction
 
-if exists('g:loaded_fugitive')
-    let &statusline = " %{StatuslineTag()} "
-endif
-let &statusline .= "%<%f"
-let &statusline .= " | "
-let &statusline .= "%{&readonly ? \"| \" : &modified ? '+ ' : ''}"
-let &statusline .= "%=| %{&filetype == '' ? 'unknown' : &filetype} "
-let &statusline .= "| %l:%2c | %p%% "
+set statusline=
+set statusline+=\ %l
+set statusline+=\ %*
+set statusline+=\ ››
+set statusline+=\ %f\ %*
+set statusline+=\ ››
+set statusline+=\ %m
+set statusline+=\ %F
+set statusline+=%=
+set statusline+=\ ››
+set statusline+=\ %{LinterStatus()}
+set statusline+=\ ::
+set statusline+=\ %p
+set statusline+=\ ››\ %*
 " }}}
 " closetag {{{
 let g:closetag_filenames = "*.html,*.xhtml,*.phtml"
