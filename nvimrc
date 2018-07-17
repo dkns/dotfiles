@@ -211,9 +211,6 @@ set undodir=~/.config/nvim/undo     " where to save undo histories
 set undolevels=1000         " How many undos
 set undoreload=10000        " number of lines to save for undo
 
-" use fzf as fuzzy search
-set rtp+=~/.fzf
-
 " String to put at the start of lines that have been wrapped "
 set linebreak
 let &showbreak='↪ '
@@ -291,10 +288,6 @@ cnoremap w!! w !sudo tee % >/dev/null
 " I've had enough
 :command W w
 :command Q q
-" FZF
-nnoremap <silent> <c-p> :Files<cr>
-nnoremap <silent> g/. :FZF <c-r>=fnameescape(expand("%:p:h"))<cr><cr>
-
 if has('nvim') || has('terminal')
   tnoremap <ESC> <C-\><C-n>
   nnoremap <leader>t <c-w><c-w>i<UP><c-\><c-n>:sleep 100m<CR>i<CR><c-\><c-n><c-w><c-w>
@@ -493,13 +486,11 @@ au User asyncomplete_setup call asyncomplete#register_source(asyncomplete#source
     \ }))
 " }}}
 " fzf {{{
-if executable('ag')
-  command! -bang -nargs=* Ag
-  \ call fzf#vim#ag(<q-args>,
-  \                 <bang>0 ? fzf#vim#with_preview('up:60%')
-  \                         : fzf#vim#with_preview('right:50%:hidden', '?'),
-  \                 <bang>0)
-endif
+" use fzf as fuzzy search
+set rtp+=~/.fzf
+" FZF
+nnoremap <silent> <c-p> :Files<cr>
+nnoremap <silent> g/. :FZF <c-r>=fnameescape(expand("%:p:h"))<cr><cr>
 
 command! -bang -nargs=? -complete=dir Files
   \ call fzf#vim#files(<q-args>, fzf#vim#with_preview(), <bang>0)
@@ -507,7 +498,14 @@ command! -bang -nargs=? -complete=dir Files
 command! -bang Commits call fzf#vim#commits({'options': '--preview'}, <bang>0)
 
 if executable('rg')
-    command! -bang -nargs=* Rg call fzf#vim#grep('rg --line-number --ignore-case --fixed-strings --glob "!.git/*" --color "always" '.shellescape(<q-args>), 1, <bang>0)
+  nnoremap <leader>fw :Rg <C-R><C-W><CR>
+  command! -bang -nargs=* Rg
+        \ call fzf#vim#grep('rg --line-number --ignore-case --fixed-strings --glob "!.git/*" --color "always"
+        \ '.shellescape(<q-args>), 1, <bang>0)
+endif
+
+if !executable('rg')
+  nnoremap <leader>fw :Gg <C-R><C-W><CR>
 endif
 
 command! -bang -nargs=* Gg
