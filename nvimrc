@@ -55,7 +55,6 @@ if has('nvim') || v:version > 800
 endif
 Plug 'mattn/emmet-vim'
 if !exists('g:gui_oni')
-    Plug 'sheerun/vim-polyglot'
     Plug 'othree/javascript-libraries-syntax.vim', { 'for' : 'javascript' }
     Plug 'othree/yajs.vim', { 'for': 'javascript' }
     Plug 'othree/html5.vim', { 'for': 'html' }
