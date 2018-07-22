@@ -9,12 +9,6 @@ if !exists("g:os")
     endif
 endif
 
-if has("nvim")
-  let g:version = "nvim"
-else
-  let g:version = "vim"
-endif
-
 if empty(glob('~/.config/nvim/autoload/plug.vim'))
   silent !curl -fLo ~/.config/nvim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 endif
