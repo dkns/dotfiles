@@ -86,7 +86,6 @@ call plug#end()
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 filetype plugin indent on
 " show numberlines
-set rnu
 set nu
 
 set encoding=utf-8
