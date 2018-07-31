@@ -77,6 +77,7 @@ Plug 'airblade/vim-rooter'
 Plug 'rlue/vim-getting-things-down'
 Plug 'bendavis78/vim-polymer'
 Plug 'cdata/vim-tagged-template'
+Plug 'metakirby5/codi.vim'
 
 call plug#end()
 " }}}
