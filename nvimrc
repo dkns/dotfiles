@@ -479,8 +479,8 @@ au User asyncomplete_setup call asyncomplete#register_source(asyncomplete#source
 " fzf {{{
 " use fzf as fuzzy search
 set rtp+=~/.fzf
-" FZF
-nnoremap <silent> <c-p> :Files<cr>
+
+nnoremap <silent> <c-p> :GFiles<cr>
 nnoremap <silent> g/. :FZF <c-r>=fnameescape(expand("%:p:h"))<cr><cr>
 
 command! -bang -nargs=? -complete=dir Files
