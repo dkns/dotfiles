@@ -383,9 +383,6 @@ let g:netrw_liststyle=3
 " }}}
 " vimwiki {{{
 let vimwikidir = expand('~/Dropbox/vimwiki')
-if !isdirectory(vimwikidir)
-  call mkdir(vimwikidir)
-endif
 let g:vimwiki_list = [{'path': '~/Dropbox/vimwiki'}]
 " }}}
 " statusline {{{
