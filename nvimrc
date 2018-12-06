@@ -383,7 +383,8 @@ let g:netrw_liststyle=3
 " }}}
 " vimwiki {{{
 let vimwikidir = expand('~/Dropbox/vimwiki')
-let g:vimwiki_list = [{'path': '~/Dropbox/vimwiki'}]
+let g:vimwiki_list = [{'path': '~/Dropbox/vimwiki', 'syntax': 'markdown', 'ext': '.wiki'}]
+let g:vimwiki_hl_headers = 1
 " }}}
 " statusline {{{
 function! LinterStatus() abort
