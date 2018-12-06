@@ -3,3 +3,7 @@
 if [ $(hostname) = 'serenity' ]; then
     xrandr --output DVI-D-0 --left-of HDMI-0 --output DP-0 --right-of HDMI-0
 fi
+
+if [ $(hostname) = 'rp' ]; then
+    xrandr --output DVI-D-0 --rotate left --left-of HDMI-0 --output VGA-0 --rotate left --right-of HDMI-0
+fi

@@ -68,6 +68,7 @@ Plug 'morhetz/gruvbox'
 Plug 'mhinz/vim-signify'
 Plug 'inside/vim-search-pulse'
 Plug 'mhinz/vim-startify'
+Plug 'ekalinin/Dockerfile.vim'
 if !has('nvim')
     Plug 'xtal8/traces.vim'
 endif
