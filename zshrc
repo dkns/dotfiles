@@ -218,23 +218,15 @@ function g {
 ################################################################################
 
 alias ll='ls -lah'
-alias gd='git diff'
-alias gst='git status'
 alias ls='ls --color=auto --human-readable --classify'
 alias gptar='gitptar.sh'
 alias nvi="/usr/local/bin/nvim"
 alias slp="sudo sh -c \"echo mem > /sys/power/state\""
 alias fullup="sudo apt-get -y update && sudo apt-get -y upgrade"
-alias tv="terminal_velocity ~/Dropbox/notes"
 alias tl="todo ls"
 alias -g G="| grep"
 alias -g L="| less"
 alias ehosts="sudo -e /etc/hosts"
-alias moodlectags="ctags -R --languages=php --exclude="CVS" --php-kinds=f \
---regex-PHP='/abstract class ([^ ]*)/\1/c/' \
---regex-PHP='/interface ([^ ]*)/\1/c/' \
---regex-PHP='/(public |static |abstract |protected |private )+function ([^ (]*)/\2/f/'"
-alias svnall="svn add --force ./*"
 alias bye="sudo shutdown -hP now"
 alias rsync="rsync -v --info=progress2"
 alias td="nvi ~/Dropbox/todo.md"
