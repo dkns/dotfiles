@@ -23,6 +23,14 @@ setopt HIST_FIND_NO_DUPS
 setopt HIST_SAVE_NO_DUPS
 setopt HIST_BEEP
 setopt promptsubst
+setopt AUTO_PARAM_SLASH
+setopt AUTO_CD
+setopt CORRECT
+setopt CORRECT_ALL
+setopt LIST_PACKED
+setopt MENU_COMPLETE
+setopt PRINT_EXIT_VALUE
+setopt SHARE_HISTORY
 
 export BROWSER="firefox"
 export EDITOR="vim"
