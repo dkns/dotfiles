@@ -242,6 +242,7 @@ alias grep="grep --color=auto"
 alias chmod='chmod --preserve-root -v'
 alias chown='chown --preserve-root -v'
 alias v="$HOME/dotfiles/bin/nvim-client"
+alias screenshot="scrot -s '/tmp/%F_%T_$wx$h.png' -e 'xclip -selection clipboard -target image/png -i $f'"
 alias pogoda='curl -s wttr.in/Szczecin'
 
 export NVM_DIR="$HOME/.nvm"
