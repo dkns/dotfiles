@@ -223,13 +223,11 @@ alias gptar='gitptar.sh'
 alias nvi="/usr/local/bin/nvim"
 alias slp="sudo sh -c \"echo mem > /sys/power/state\""
 alias fullup="sudo apt-get -y update && sudo apt-get -y upgrade"
-alias tl="todo ls"
 alias -g G="| grep"
 alias -g L="| less"
 alias ehosts="sudo -e /etc/hosts"
 alias bye="sudo shutdown -hP now"
 alias rsync="rsync -v --info=progress2"
-alias td="nvi ~/Dropbox/todo.md"
 alias grep="grep --color=auto"
 alias chmod='chmod --preserve-root -v'
 alias chown='chown --preserve-root -v'
