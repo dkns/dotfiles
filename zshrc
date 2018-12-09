@@ -179,15 +179,6 @@ fkill() {
   fi
 }
 
-wgetnc() {
-  cd /tmp/
-  dir=$(basename $1 | cut -d. -f1)
-  mkdir "moodle_$dir"
-  cd "moodle_$dir"
-  wget --no-check-certificate "$1"
-  tar -xvf $(ls)
-}
-
 p() {
   project=$(ls ~/projects | fzf)
   if [[ -n "$project" ]]; then
