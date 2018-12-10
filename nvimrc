@@ -14,7 +14,7 @@ if empty(glob('~/.config/nvim/autoload/plug.vim'))
 endif
 call plug#begin()
 
-" vim plug {{{
+" Vim plug {{{
 if has('python')
   Plug 'Valloric/MatchTagAlways', { 'for': 'html' }
 endif
@@ -82,10 +82,7 @@ Plug 'metakirby5/codi.vim'
 
 call plug#end()
 " }}}
-
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" General
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" General settings {{{
 filetype plugin indent on
 " show numberlines
 set nu
@@ -249,6 +246,44 @@ augroup PreviewAutocmds
   autocmd WinEnter * if &previewwindow | setlocal nonumber nornu | endif
 augroup END
 
+augroup bufread
+  autocmd!
+  autocmd BufReadPost * call s:JumpToLastKnownCursorPosition()
+augroup END
+
+if has('vim_starting') && has('reltime')
+  let g:startuptime = reltime()
+  augroup vimrc-startuptime
+    autocmd! VimEnter * let g:startuptime = reltime(g:startuptime) | redraw
+      \ | echomsg 'startuptime: ' . reltimestr(g:startuptime)
+  augroup END
+endif
+
+" disable unnecessary default plugins
+let g:loaded_gzip              = 1
+let g:loaded_tar               = 1
+let g:loaded_tarPlugin         = 1
+let g:loaded_zip               = 1
+let g:loaded_zipPlugin         = 1
+let g:loaded_rrhelper          = 1
+let g:loaded_2html_plugin      = 1
+let g:loaded_vimball           = 1
+let g:loaded_vimballPlugin     = 1
+let g:loaded_getscript         = 1
+let g:loaded_getscriptPlugin   = 1
+
+" Visually indicate when we're in insert mode.
+autocmd InsertEnter * set cursorline
+autocmd InsertLeave * set nocursorline
+
+" Auto insert mode when entering terminal window
+autocmd BufEnter term://* startinsert
+" No line numbers in terminal
+if has('nvim')
+  au TermOpen * setlocal nonumber norelativenumber
+endif
+
+" }}}
 " Keybinds {{{
 " set leader key
 let mapleader=" "
@@ -311,17 +346,7 @@ nnoremap <silent> <M-j> :<C-u>move+<CR>==
 xnoremap <silent> <M-j> :move'>+<CR>gv=gv
 xnoremap <silent> <M-k> :move-2<CR>gv=gv
 " }}}
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Custom functions
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-"Use TAB to complete when typing words, else inserts TABs as usual.
-"Uses dictionary and source files to find matching words to complete.
-
-"See help completion for source,
-"Note: usual completion is on <C-n> but more trouble to press all the time.
-"Never type the same word twice and maybe learn a new spellings!
-"Use the Linux dictionary when spelling is in doubt.
-"Window users can copy the file to their machine.
+" Custom functions {{{
 function! Tab_Or_Complete()
   if col('.')>1 && strpart( getline('.'), col('.')-2, 3 ) =~ '^\w'
     return "\<C-N>"
@@ -329,8 +354,8 @@ function! Tab_Or_Complete()
     return "\<Tab>"
   endif
 endfunction
-:inoremap <Tab> <C-R>=Tab_Or_Complete()<CR>
-:set dictionary="/usr/dict/words"
+inoremap <Tab> <C-R>=Tab_Or_Complete()<CR>
+set dictionary="/usr/dict/words"
 
 " jump to last known cursos position when reopening a buffer
 function! s:JumpToLastKnownCursorPosition()
@@ -340,44 +365,7 @@ function! s:JumpToLastKnownCursorPosition()
     if expand("%") =~# '\(^\|/\)\.git/' | return | endif
     execute "normal! g`\"" |
 endfunction
-
-augroup bufread
-  autocmd!
-  autocmd BufReadPost * call s:JumpToLastKnownCursorPosition()
-augroup END
-
-if has('vim_starting') && has('reltime')
-  let g:startuptime = reltime()
-  augroup vimrc-startuptime
-    autocmd! VimEnter * let g:startuptime = reltime(g:startuptime) | redraw
-      \ | echomsg 'startuptime: ' . reltimestr(g:startuptime)
-  augroup END
-endif
-
-" disable unnecessary default plugins
-let g:loaded_gzip              = 1
-let g:loaded_tar               = 1
-let g:loaded_tarPlugin         = 1
-let g:loaded_zip               = 1
-let g:loaded_zipPlugin         = 1
-let g:loaded_rrhelper          = 1
-let g:loaded_2html_plugin      = 1
-let g:loaded_vimball           = 1
-let g:loaded_vimballPlugin     = 1
-let g:loaded_getscript         = 1
-let g:loaded_getscriptPlugin   = 1
-
-" Visually indicate when we're in insert mode.
-autocmd InsertEnter * set cursorline
-autocmd InsertLeave * set nocursorline
-
-" Auto insert mode when entering terminal window
-autocmd BufEnter term://* startinsert
-" No line numbers in terminal
-if has('nvim')
-  au TermOpen * setlocal nonumber norelativenumber
-endif
-
+" }}}
 " Plugins {{{
 " netrw {{{
 let g:netrw_liststyle=3
@@ -509,7 +497,6 @@ command! -bang -nargs=* Gg
 " rooter {{{
 let g:rooter_patterns = ['.git/']
 " }}}
-" }}}
 " Languages {{{
 " PHP {{{
 let php_sql_query = 1
@@ -526,5 +513,6 @@ let g:go_highlight_interfaces = 1
 let g:go_highlight_operators = 1
 let g:go_highlight_build_constraints = 1
 nnoremap <leader>gr :GoRun<cr><esc>
+" }}}
 " }}}
 " }}}
