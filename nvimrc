@@ -32,6 +32,7 @@ Plug 'tpope/vim-sleuth'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-rsi'
+Plug 'sheerun/vim-polyglot'
 Plug 'vimwiki/vimwiki'
 Plug 'mbbill/undotree', { 'on': 'UndotreeToggle' }
 Plug 'alvan/vim-closetag', { 'for': 'html' }
@@ -49,12 +50,6 @@ if has('nvim') || v:version > 800
 endif
 Plug 'mattn/emmet-vim'
 if !exists('g:gui_oni')
-    Plug 'othree/javascript-libraries-syntax.vim', { 'for' : 'javascript' }
-    Plug 'othree/yajs.vim', { 'for': 'javascript' }
-    Plug 'othree/html5.vim', { 'for': 'html' }
-    Plug 'othree/es.next.syntax.vim', { 'for': 'javascript' }
-    Plug 'Glench/Vim-Jinja2-Syntax'
-    Plug '2072/vim-syntax-for-PHP', { 'for': 'php' }
     Plug 'othree/csscomplete.vim', { 'for': 'css' }
     Plug 'prabirshrestha/async.vim'
     Plug 'prabirshrestha/vim-lsp'
@@ -68,7 +63,6 @@ Plug 'morhetz/gruvbox'
 Plug 'mhinz/vim-signify'
 Plug 'inside/vim-search-pulse'
 Plug 'mhinz/vim-startify'
-Plug 'ekalinin/Dockerfile.vim'
 if !has('nvim')
     Plug 'xtal8/traces.vim'
 endif
@@ -76,7 +70,6 @@ Plug 'ntpeters/vim-better-whitespace'
 Plug 'fatih/vim-go', { 'for': 'go' }
 Plug 'airblade/vim-rooter'
 Plug 'rlue/vim-getting-things-down'
-Plug 'bendavis78/vim-polymer'
 Plug 'cdata/vim-tagged-template'
 Plug 'metakirby5/codi.vim'
 
