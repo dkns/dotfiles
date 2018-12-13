@@ -34,7 +34,6 @@ setopt SHARE_HISTORY
 
 export BROWSER="firefox"
 export EDITOR="vim"
-export TERM="xterm-256color"
 export GOPATH=$HOME/go
 export PATH="$HOME/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:$HOME/.local/bin:$HOME/dotfiles/bin:$HOME/dotfiles/bin/dasht"
 
