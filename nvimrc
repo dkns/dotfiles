@@ -38,7 +38,7 @@ Plug 'mbbill/undotree', { 'on': 'UndotreeToggle' }
 Plug 'alvan/vim-closetag', { 'for': 'html' }
 Plug 'gavocanov/vim-js-indent', { 'for': 'javascript' }
 Plug 'junegunn/fzf.vim'
-Plug 'jreybert/vimagit'
+Plug 'tpope/vim-fugitive'
 Plug '2072/PHP-Indenting-for-VIm', { 'for': 'php' }
 if has('nvim') || v:version > 800
   if !exists("g:gui_oni")
