@@ -380,20 +380,28 @@ function! LinterStatus() abort
         \)
 endfunction
 
-set statusline=
-set statusline+=\ %l
-set statusline+=\ %*
-set statusline+=\ ››
-set statusline+=\ %f\ %*
-set statusline+=\ ››
-set statusline+=\ %m
-set statusline+=\ %F
+function! GitInfo()
+  let git = fugitive#head()
+  if git != ''
+    return '  '.fugitive#head()
+  else
+    return ''
+endfunction
+
+set statusline=\ 
+set statusline+=%#PmenuSel#
+set statusline+=%{GitInfo()}
+set statusline+=%#LineNr#
+set statusline+=\ %f
+set statusline+=%m
 set statusline+=%=
-set statusline+=\ ››
-set statusline+=\ %{LinterStatus()}
-set statusline+=\ ::
-set statusline+=\ %p
-set statusline+=\ ››\ %*
+set statusline+=%#CursorColumn#
+set statusline+=\ %y
+set statusline+=\ %{&fileencoding?&fileencoding:&encoding}
+set statusline+=\[%{&fileformat}]
+set statusline+=\ %p%%
+set statusline+=\ %l:%c
+set statusline+=
 " }}}
 " closetag {{{
 let g:closetag_filenames = "*.html,*.xhtml,*.phtml"
