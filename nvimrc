@@ -505,6 +505,8 @@ let php_htmlInStrings = 1
 " }}}
 " Python {{{
 let python_highlight_all = 1
+let g:python_host_prog = 'python'
+let g:python3_host_prog = 'python3'
 " }}}
 " Go {{{
 let g:go_highlight_functions = 1
