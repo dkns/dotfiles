@@ -60,6 +60,7 @@ if !exists('g:gui_oni')
 endif
 Plug 'dominikduda/vim_current_word'
 Plug 'morhetz/gruvbox'
+Plug 'mhartington/oceanic-next'
 Plug 'mhinz/vim-signify'
 Plug 'inside/vim-search-pulse'
 Plug 'mhinz/vim-startify'
@@ -111,7 +112,7 @@ if has('nvim')
   set termguicolors
 endif
 if !exists("g:gui_oni")
-  colorscheme gruvbox
+  colorscheme OceanicNext
 endif
 set t_co=
 
