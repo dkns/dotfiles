@@ -9,6 +9,13 @@ run_command="$*"
 inithash="$(md5sum "$file")"
 work_dir=$(pwd)
 
+# TODO: put this into function
+
+echo "Running command: $run_command"
+echo
+cd "$work_dir"
+timeout 50.0 $run_command
+
 while :; do
   currhash="$(md5sum "$file")"
 
