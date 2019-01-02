@@ -18,6 +18,7 @@ Plug 'jiangmiao/auto-pairs'
 Plug 'junegunn/vim-plug'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': 'yes \| ./install' }
 Plug 'sickill/vim-pasta'
+Plug 'neoclide/coc.nvim', {'tag': '*', 'do': { -> coc#util#install()}}
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-sleuth'
 Plug 'tpope/vim-surround'
@@ -42,12 +43,6 @@ endif
 Plug 'mattn/emmet-vim'
 if !exists('g:gui_oni')
     Plug 'othree/csscomplete.vim', { 'for': 'css' }
-    Plug 'prabirshrestha/async.vim'
-    Plug 'prabirshrestha/vim-lsp'
-    Plug 'prabirshrestha/asyncomplete.vim'
-    Plug 'prabirshrestha/asyncomplete-lsp.vim'
-    Plug 'prabirshrestha/asyncomplete-flow.vim'
-    Plug 'prabirshrestha/asyncomplete-buffer.vim'
 endif
 Plug 'dominikduda/vim_current_word'
 Plug 'morhetz/gruvbox'
@@ -425,39 +420,6 @@ let g:taggedtemplate#tagSyntaxMap = {
 
 autocmd FileType javascript,typescript : call taggedtemplate#applySyntaxMap()
 autocmd FileType html : call taggedtemplate#applySyntaxMap()
-" }}}
-" lsp {{{
-let g:lsp_auto_enable = 1
-
-if has('nvim')
-  if executable('javascript-typescript-stdio')
-      au User lsp_setup call lsp#register_server({
-          \ 'name': 'javascript-language-server',
-          \ 'cmd': {server_info->['javascript-typescript-stdio']},
-          \ 'whitelist': ['javascript', 'javascript.jsx'],
-          \ })
-  endif
-
-  if executable('go-langserver')
-      au User lsp_setup call lsp#register_server({
-          \ 'name': 'go-langserver',
-          \ 'cmd': {server_info->['go-langserver', '-mode', 'stdio']},
-          \ 'whitelist': ['go'],
-          \ })
-  endif
-endif
-
-let g:asyncomplete_auto_popup = 1
-let g:asyncomplete_remove_duplicates = 1
-set completeopt+=preview
-
-autocmd! CompleteDone * if pumvisible() == 0 | pclose | endif
-
-au User asyncomplete_setup call asyncomplete#register_source(asyncomplete#sources#flow#get_source_options({
-    \ 'name': 'flow',
-    \ 'whitelist': ['javascript', 'javascript.jsx'],
-    \ 'completor': function('asyncomplete#sources#flow#completor'),
-    \ }))
 " }}}
 " fzf {{{
 " use fzf as fuzzy search
