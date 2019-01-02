@@ -211,6 +211,17 @@ function g {
   fi
 }
 
+function _tmux() {
+  current_dir=$(basename $(pwd))
+  active_session=$(tmux ls | grep $current_dir)
+
+  if [ -z "${active_session// }" ]; then
+    tmux new -s $current_dir
+  else
+    tmux attach -t $current_dir
+  fi
+}
+
 ################################################################################
 # aliases
 ################################################################################
@@ -232,6 +243,7 @@ alias chown='chown --preserve-root -v'
 alias v="$HOME/dotfiles/bin/nvim-client"
 alias screenshot="scrot -s '/tmp/%F_%T_$wx$h.png' -e 'xclip -selection clipboard -target image/png -i $f'"
 alias pogoda='curl -s wttr.in/Szczecin'
+alias tmx='_tmux'
 
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
