@@ -327,15 +327,16 @@ xnoremap <silent> <M-j> :move'>+<CR>gv=gv
 xnoremap <silent> <M-k> :move-2<CR>gv=gv
 " }}}
 " Custom functions {{{
-function! Tab_Or_Complete()
-  if col('.')>1 && strpart( getline('.'), col('.')-2, 3 ) =~ '^\w'
-    return "\<C-N>"
-  else
-    return "\<Tab>"
-  endif
+inoremap <silent><expr> <TAB>
+\ pumvisible() ? "\<C-n>" :
+\ <SID>check_back_space() ? "\<TAB>" :
+\ coc#refresh()
+inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
+
+function! s:check_back_space() abort
+let col = col('.') - 1
+return !col || getline('.')[col - 1]  =~# '\s'
 endfunction
-inoremap <Tab> <C-R>=Tab_Or_Complete()<CR>
-set dictionary="/usr/dict/words"
 
 " jump to last known cursos position when reopening a buffer
 function! s:JumpToLastKnownCursorPosition()
