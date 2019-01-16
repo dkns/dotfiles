@@ -347,6 +347,9 @@ function! s:JumpToLastKnownCursorPosition()
 endfunction
 " }}}
 " Plugins {{{
+" coc.nvim {{{
+autocmd! CompleteDone * if pumvisible() == 0 | pclose | endif
+" }}}
 " netrw {{{
 let g:netrw_liststyle=3
 " }}}
