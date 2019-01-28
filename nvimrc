@@ -31,7 +31,6 @@ Plug 'mbbill/undotree', { 'on': 'UndotreeToggle' }
 Plug 'alvan/vim-closetag', { 'for': 'html' }
 Plug 'gavocanov/vim-js-indent', { 'for': 'javascript' }
 Plug 'junegunn/fzf.vim'
-Plug 'TaDaa/vimade'
 Plug 'tpope/vim-fugitive'
 Plug '2072/PHP-Indenting-for-VIm', { 'for': 'php' }
 if has('nvim') || v:version > 800
@@ -50,8 +49,6 @@ Plug 'dominikduda/vim_current_word'
 Plug 'morhetz/gruvbox'
 Plug 'mhartington/oceanic-next'
 Plug 'mhinz/vim-signify'
-Plug 'inside/vim-search-pulse'
-Plug 'mhinz/vim-startify'
 if !has('nvim')
     Plug 'xtal8/traces.vim'
 endif
