@@ -240,10 +240,16 @@ alias rsync="rsync -v --info=progress2"
 alias grep="grep --color=auto"
 alias chmod='chmod --preserve-root -v'
 alias chown='chown --preserve-root -v'
-alias v="$HOME/dotfiles/bin/nvim-client"
 alias screenshot="scrot -s '/tmp/%F_%T_$wx$h.png' -e 'xclip -selection clipboard -target image/png -i $f'"
 alias pogoda='curl -s wttr.in/Szczecin'
 alias tmx='_tmux'
+
+if [ -n "$NVIM_LISTEN_ADDRESS" ]; then
+  export VISUAL="nvr -cc tabedit --remote-wait +'set bufhidden=wipe'"
+else
+  export VISUAL="nvi"
+fi
+alias v="$VISUAL"
 
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
