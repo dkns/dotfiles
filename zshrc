@@ -133,19 +133,6 @@ autoload -Uz pure
 
 # FZF
 export FZF_DEFAULT_OPTS='--extended'
-v() {
-  local file
-  file=$(sed '1d' $HOME/.cache/neomru/file |
-          fzf --query="$1" --select-1 --exit-0)
-  [ -n "$file" ] && nvim $file
-}
-
-# vd - cd to most recent used directory by vim
-vd() {
-  local dir
-  dir=$(sed '1d' $HOME/.cache/neomru/directory |
-        fzf --query="$1" --select-1 --exit-0) && cd "$dir"
-}
 
 fgs() {
   local out shas sha q k
