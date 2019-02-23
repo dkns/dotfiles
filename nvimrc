@@ -350,6 +350,11 @@ endfunction
 " Plugins {{{
 " coc.nvim {{{
 autocmd! CompleteDone * if pumvisible() == 0 | pclose | endif
+" coc-prettier {{{
+command! -nargs=0 Prettier :CocCommand prettier.formatFile
+vmap <leader>pr  <Plug>(coc-format-selected)
+nmap <leader>pr  <Plug>(coc-format-selected)
+" }}}
 " }}}
 " netrw {{{
 let g:netrw_liststyle=3
