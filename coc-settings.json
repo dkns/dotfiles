@@ -1,0 +1,6 @@
+{
+  "coc.preferences.acceptSuggestionOnCommitCharacter": true,
+  "coc.preferences.formatOnType": true,
+  "coc.preferences.snippets.loadFromExtensions": false,
+  "coc.preferences.formatOnSaveFiletypes": ["css", "Markdown", "javascript", "jsx"]
+}
