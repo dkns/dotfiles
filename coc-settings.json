@@ -1,6 +1,31 @@
 {
-  "coc.preferences.acceptSuggestionOnCommitCharacter": true,
   "coc.preferences.formatOnType": true,
-  "coc.preferences.snippets.loadFromExtensions": false,
-  "coc.preferences.formatOnSaveFiletypes": ["css", "Markdown", "javascript", "jsx"]
+  "coc.preferences.hoverTarget": "preview",
+  "coc.preferences.formatOnSaveFiletypes": [
+    "css",
+    "javascript",
+    "jsx",
+    "javascript.jsx"
+  ],
+  "prettier.eslintIntegration": true,
+  "diagnostic.virtualText": true,
+  "diagnostic.virtualTextPrefix": "> ",
+  "diagnostic.displayByAle": true,
+  "codeLens.enable": true,
+  "languageserver": {
+    "sh": {
+      "command": "bash-language-server",
+      "args": ["start", "--stdio"],
+      "filetypes": ["sh"],
+      "cwd": "./",
+      "initializationOptions": {},
+      "ignoredRootPaths": ["~"],
+      "settings": {}
+    },
+    "dockerfile": {
+      "command": "docker-langserver",
+      "filetypes": ["dockerfile"],
+      "args": ["--stdio"]
+    }
+  }
 }
