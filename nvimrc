@@ -443,6 +443,7 @@ if !exists("g:gui_oni")
         \ 'javascript': ['eslint'],
         \}
 endif
+let g:ale_virtualtext_cursor = 1
 " }}}
 " tagged template {{{
 let g:taggedtemplate#tagSyntaxMap = {
