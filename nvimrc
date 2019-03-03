@@ -437,7 +437,6 @@ autocmd FileType html : call taggedtemplate#applySyntaxMap()
 set rtp+=~/.fzf
 
 nnoremap <silent> <c-p> :GFiles<cr>
-nnoremap <silent> g/. :FZF <c-r>=fnameescape(expand("%:p:h"))<cr><cr>
 
 command! -bang -nargs=? -complete=dir Files
   \ call fzf#vim#files(<q-args>, fzf#vim#with_preview(), <bang>0)
