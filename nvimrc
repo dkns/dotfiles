@@ -21,6 +21,7 @@ Plug 'sickill/vim-pasta'
 Plug 'neoclide/coc.nvim', {'tag': '*', 'do': { -> coc#util#install()}}
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-sleuth'
+Plug 'tpope/vim-projectionist'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-rsi'
@@ -483,6 +484,61 @@ command! -bang -nargs=* Gg
 " }}}
 " rooter {{{
 let g:rooter_patterns = ['.git/']
+" }}}
+" projectionist {{{
+let g:projectionist_heuristics = {
+\   '*': {
+\     '*.c': {
+\       'alternate': '{}.h',
+\       'type': 'source'
+\     },
+\     '*.h': {
+\       'alternate': '{}.c',
+\       'type': 'header'
+\     },
+\     '*.js': {
+\       'alternate': [
+\         '{dirname}/{basename}.test.js',
+\         '{dirname}/__tests__/{basename}-test.js',
+\         '{dirname}/__tests__/{basename}-mocha.js'
+\       ],
+\       'type': 'source'
+\     },
+\     '*.test.js': {
+\       'alternate': '{basename}.js',
+\       'type': 'test',
+\     },
+\     '**/__tests__/*-mocha.js': {
+\       'alternate': '{dirname}/{basename}.js',
+\       'type': 'test'
+\     },
+\     '**/__tests__/*-test.js': {
+\       'alternate': '{dirname}/{basename}.js',
+\       'type': 'test'
+\     },
+\     '*.jsx': {
+\       'alternate': [
+\         '{dirname}/{basename}.test.jsx',
+\         '{dirname}/__tests__/{basename}-test.jsx',
+\         '{dirname}/__tests__/{basename}-mocha.jsx',
+\         'components/__tests__/{basename}.test.jsx'
+\       ],
+\       'type': 'source'
+\     },
+\     '*.test.jsx': {
+\       'alternate': '{basename}.jsx',
+\       'type': 'test',
+\     },
+\     '**/__tests__/*-mocha.jsx': {
+\       'alternate': '{dirname}/{basename}.jsx',
+\       'type': 'test'
+\     },
+\     '**/__tests__/*-test.jsx': {
+\       'alternate': '{dirname}/{basename}.jsx',
+\       'type': 'test'
+\     }
+\   }
+\ }
 " }}}
 " Languages {{{
 " PHP {{{
