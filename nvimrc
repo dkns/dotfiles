@@ -25,6 +25,7 @@ Plug 'tpope/vim-projectionist'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-rsi'
+Plug 'thaerkh/vim-workspace'
 Plug 'wakatime/vim-wakatime'
 Plug 'sheerun/vim-polyglot'
 Plug 'mg979/vim-visual-multi'
@@ -484,6 +485,9 @@ command! -bang -nargs=* Gg
 " }}}
 " rooter {{{
 let g:rooter_patterns = ['.git/']
+" }}}
+" vim-workspace {{{
+let g:workspace_session_directory = $HOME . '/.config/nvim/sessions/'
 " }}}
 " projectionist {{{
 let g:projectionist_heuristics = {
