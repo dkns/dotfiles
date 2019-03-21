@@ -540,7 +540,15 @@ let g:projectionist_heuristics = {
 \     '**/__tests__/*-test.jsx': {
 \       'alternate': '{dirname}/{basename}.jsx',
 \       'type': 'test'
-\     }
+\     },
+\     '*.lua': {
+\       'alternate': 'spec/{basename}_spec.lua',
+\       'type': 'source',
+\     },
+\     '*_spec.lua': {
+\       'alternate': 'src/{basename}.lua',
+\       'type': 'test',
+\     },
 \   }
 \ }
 " }}}
