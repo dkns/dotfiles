@@ -29,6 +29,7 @@ Plug 'tpope/vim-rsi'
 Plug 'thaerkh/vim-workspace'
 Plug 'wakatime/vim-wakatime'
 Plug 'sheerun/vim-polyglot'
+Plug 'liuchengxu/vista.vim'
 Plug 'mg979/vim-visual-multi'
 Plug 'vimwiki/vimwiki'
 Plug 'scrooloose/nerdtree'
@@ -381,6 +382,9 @@ command! -nargs=0 Prettier :CocCommand prettier.formatFile
 vmap <leader>pr  <Plug>(coc-format-selected)
 nmap <leader>pr  <Plug>(coc-format-selected)
 " }}}
+" }}}
+" {{{ vista
+let g:vista_default_executive = 'coc'
 " }}}
 " netrw {{{
 let g:netrw_liststyle=3
