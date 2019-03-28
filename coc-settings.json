@@ -8,6 +8,14 @@
     "javascript.jsx"
   ],
   "prettier.eslintIntegration": true,
+  "prettier.tslintIntegration": true,
+  "eslint.filetypes": [
+    "javascript",
+    "javascriptreact",
+    "javascript.jsx"
+  ],
+  "eslint.autoFix": true,
+  "eslint.autoFixOnSave": true,
   "diagnostic.virtualText": true,
   "diagnostic.virtualTextPrefix": "> ",
   "diagnostic.displayByAle": true,
