@@ -230,6 +230,8 @@ alias chown='chown --preserve-root -v'
 alias screenshot="scrot -s '/tmp/%F_%T_$wx$h.png' -e 'xclip -selection clipboard -target image/png -i $f'"
 alias pogoda='curl -s wttr.in/Szczecin'
 alias tmx='_tmux'
+# From Gary Bernhardt's dofiles
+alias churn="git log --all -M -C --name-only --format='format:' "$@" | sort | grep -v '^$' | uniq -c | sort -n"
 
 if [ -n "$NVIM_LISTEN_ADDRESS" ]; then
   export VISUAL="nvr -cc tabedit --remote-wait +'set bufhidden=wipe'"
