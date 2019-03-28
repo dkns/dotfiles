@@ -199,8 +199,8 @@ function g {
 }
 
 function _tmux() {
-  current_dir=$(basename $(pwd))
-  active_session=$(tmux ls | grep $current_dir)
+  local current_dir=$(basename $(pwd))
+  local active_session=$(tmux ls | grep $current_dir)
 
   if [ -z "${active_session// }" ]; then
     tmux new -s $current_dir
