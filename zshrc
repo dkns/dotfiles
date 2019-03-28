@@ -209,6 +209,14 @@ function _tmux() {
   fi
 }
 
+function _get_changelog() {
+  local format='short'
+  if [ ! -z "$3" ]; then
+    format="$3"
+  fi
+  git log "$1"..."$2" --format="$format" --no-merges --reverse
+}
+
 ################################################################################
 # aliases
 ################################################################################
@@ -232,6 +240,7 @@ alias pogoda='curl -s wttr.in/Szczecin'
 alias tmx='_tmux'
 # From Gary Bernhardt's dofiles
 alias churn="git log --all -M -C --name-only --format='format:' "$@" | sort | grep -v '^$' | uniq -c | sort -n"
+alias changelog='_get_changelog'
 
 if [ -n "$NVIM_LISTEN_ADDRESS" ]; then
   export VISUAL="nvr -cc tabedit --remote-wait +'set bufhidden=wipe'"
