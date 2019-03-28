@@ -20,6 +20,13 @@
   "diagnostic.virtualTextPrefix": "> ",
   "diagnostic.displayByAle": true,
   "codeLens.enable": true,
+  "yaml.format.enable": true,
+  "yaml.validate": true,
+  "yaml.hover": true,
+  "yaml.completion": true,
+  "yaml.schemas": {
+    "http://json.schemastore.org/gitlab-ci": ".gitlab-ci.yml"
+  },
   "languageserver": {
     "sh": {
       "command": "bash-language-server",
