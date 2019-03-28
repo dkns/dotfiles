@@ -209,6 +209,10 @@ function _tmux() {
   fi
 }
 
+function _dcssh() {
+  docker exec $(docker-compose ps | grep Up | awk '{ print $1 }' | fzf) /bin/bash
+}
+
 function _get_changelog() {
   local format='short'
   if [ ! -z "$3" ]; then
@@ -238,6 +242,7 @@ alias chown='chown --preserve-root -v'
 alias screenshot="scrot -s '/tmp/%F_%T_$wx$h.png' -e 'xclip -selection clipboard -target image/png -i $f'"
 alias pogoda='curl -s wttr.in/Szczecin'
 alias tmx='_tmux'
+alias dcssh='_dcssh'
 # From Gary Bernhardt's dofiles
 alias churn="git log --all -M -C --name-only --format='format:' "$@" | sort | grep -v '^$' | uniq -c | sort -n"
 alias changelog='_get_changelog'
