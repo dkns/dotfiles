@@ -210,7 +210,9 @@ set synmaxcol=500
 " ignore files
 set wildignore+=*.zip,*.tar.gz,*.tar.bz2,*.rar,*.tar.xz,*.py[co],*.pyc,*.jpg,*.mp3,*.wav,*.pdf
 set wildignorecase
-set wildoptions=pum
+if has('nvim')
+  set wildoptions=pum
+endif
 
 augroup resize
   autocmd!
