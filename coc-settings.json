@@ -25,7 +25,10 @@
   "yaml.hover": true,
   "yaml.completion": true,
   "yaml.schemas": {
-    "http://json.schemastore.org/gitlab-ci": ".gitlab-ci.yml"
+    "http://json.schemastore.org/gitlab-ci": ".gitlab-ci.yml",
+    "http://json.schemastore.org/package": "package.json",
+    "http://json.schemastore.org/eslintrc": ".eslintrc",
+    "http://json.schemastore.org/prettierrc": ".prettierrc.json"
   },
   "languageserver": {
     "sh": {
