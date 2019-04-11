@@ -19,6 +19,7 @@
   "diagnostic.virtualText": true,
   "diagnostic.virtualTextPrefix": "> ",
   "diagnostic.displayByAle": true,
+  "python.jediEnabled": false,
   "codeLens.enable": true,
   "yaml.format.enable": true,
   "yaml.validate": true,
