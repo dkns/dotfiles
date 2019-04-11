@@ -374,6 +374,23 @@ nnoremap <silent> K :call <SID>show_documentation()<CR>
 " Remap for rename current word
 nmap <leader>rn <Plug>(coc-rename)
 
+let g:coc_global_extensions = [
+  \ 'coc-css',
+  \ 'coc-eslint',
+  \ 'coc-prettier',
+  \ 'coc-emmet',
+  \ 'coc-html',
+  \ 'coc-json',
+  \ 'coc-jest',
+  \ 'coc-snippets',
+  \ 'coc-tag',
+  \ 'coc-python',
+  \ 'coc-yaml',
+  \ 'coc-tsserver',
+  \ 'coc-phpls',
+  \ 'coc-stylelint'
+\ ]
+
 function! s:show_documentation()
   if &filetype == 'vim'
     execute 'h '.expand('<cword>')
