@@ -1,12 +1,6 @@
 {
   "coc.preferences.formatOnType": true,
   "coc.preferences.hoverTarget": "preview",
-  "coc.preferences.formatOnSaveFiletypes": [
-    "css",
-    "javascript",
-    "jsx",
-    "javascript.jsx"
-  ],
   "prettier.eslintIntegration": true,
   "prettier.tslintIntegration": true,
   "eslint.filetypes": [
@@ -14,8 +8,8 @@
     "javascriptreact",
     "javascript.jsx"
   ],
-  "eslint.autoFix": true,
-  "eslint.autoFixOnSave": true,
+  "eslint.autoFix": false,
+  "eslint.autoFixOnSave": false,
   "diagnostic.virtualText": true,
   "diagnostic.virtualTextPrefix": "> ",
   "diagnostic.displayByAle": true,
