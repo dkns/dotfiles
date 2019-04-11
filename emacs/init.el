@@ -59,7 +59,7 @@ Use this for files that change often, like cache files.")
 
 ;; Set default font
 (set-face-attribute 'default nil
-                    :family "Consolas"
+                    :family "DejaVu Sans Mono"
                     :height 110
                     :weight 'normal
                     :width 'normal)
@@ -105,6 +105,8 @@ Use this for files that change often, like cache files.")
   :init
   (with-eval-after-load 'evil
     (defalias #'forward-evil-word #'forward-evil-symbol)) ;; treat _ and - as part of words
+  (setq evil-want-integration t) ;; This is optional since it's already set to t by default.
+  (setq evil-want-keybinding nil)
   :config
   (define-key evil-normal-state-map (kbd "C-h") 'evil-window-left)
   (define-key evil-normal-state-map (kbd "C-j") 'evil-window-down)
@@ -116,7 +118,8 @@ Use this for files that change often, like cache files.")
   )
 
 (use-package evil-leader
-  :ensure
+  :ensure t
+  :after evil
   :config
   (evil-leader/set-key "v" 'dkns/open-window-vertically)
   (evil-leader/set-key "h" 'dkns/open-window-horizontally)
@@ -129,6 +132,17 @@ Use this for files that change often, like cache files.")
   (progn
       (evil-leader/set-leader "<SPC>")
       (global-evil-leader-mode t))
+  )
+
+(use-package evil-collection
+  :after evil
+  :ensure t
+  :config
+  (evil-collection-init))
+
+(use-package evil-magit
+  :ensure t
+  :after evil
   )
 
 (use-package php-mode
@@ -185,8 +199,12 @@ Use this for files that change often, like cache files.")
 
 (use-package magit
   :ensure t
-  :defer t
+  :bind
+  (:map evil-normal-state-map ("<SPC> m s" . magit-status))
   )
+
+(use-package forge
+  :after magit)
 
 (use-package evil-commentary
   :ensure t
@@ -228,6 +246,8 @@ Use this for files that change often, like cache files.")
     (add-to-list 'auto-mode-alist '("\\.mustache\\'" . web-mode))
     (add-to-list 'auto-mode-alist '("\\.djhtml\\'" . web-mode))
     (add-to-list 'auto-mode-alist '("\\.html?\\'" . web-mode))
+    (add-to-list 'auto-mode-alist '("\\.jsx?$" . web-mode))
+    (setq web-mode-content-types-alist '(("jsx" . "\\.js[x]?\\'")))
   )
 
 (use-package adaptive-wrap
@@ -277,17 +297,10 @@ Use this for files that change often, like cache files.")
 (use-package projectile
   :ensure t
   :defer t
+  :after (evil)
   :config
   (projectile-mode)
-  )
-
-(use-package diff-hl
-  :ensure t
-  :config
-  (global-diff-hl-mode)
-  (diff-hl-margin-mode t)
-  (diff-hl-flydiff-mode t)
-  (add-hook 'magit-post-refresh-hook 'diff-hl-magit-post-refresh)
+  :bind (:map evil-normal-state-map ("<SPC> l" . projectile-switch-project))
   )
 
 (use-package ivy
@@ -302,6 +315,44 @@ Use this for files that change often, like cache files.")
 
 (use-package counsel
   :ensure t
+  )
+
+(use-package git-gutter
+  :ensure t
+  :init
+  (global-git-gutter-mode)
+
+  :config
+  (use-package git-gutter-fringe
+    :ensure t))
+
+(use-package lsp-mode
+  :commands lsp
+  :ensure t
+  )
+
+(use-package lsp-ui
+  :ensure t
+  :custom
+  (lsp-ui-doc-position 'bottom)
+  (lsp-ui-sideline-enable nil)
+  (lsp-ui-peek-peek-height 5))
+
+(use-package company-lsp
+    :ensure t
+    :commands company-lsp
+    :config
+    (push 'company-lsp company-backends))
+
+(use-package yaml-mode
+  :ensure t
+  )
+
+(use-package exec-path-from-shell
+  :ensure t
+  :config
+  (when (memq window-system '(mac ns x))
+  (exec-path-from-shell-initialize))
   )
 
 (provide 'init)
