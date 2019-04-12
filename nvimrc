@@ -50,7 +50,6 @@ if has('nvim') || v:version > 800
   Plug 'machakann/vim-highlightedyank'
   Plug 'fcpg/vim-showmap'
 endif
-Plug 'mattn/emmet-vim'
 if !exists('g:gui_oni')
     Plug 'othree/csscomplete.vim', { 'for': 'css' }
 endif
