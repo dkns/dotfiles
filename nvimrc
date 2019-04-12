@@ -26,6 +26,7 @@ Plug 'tpope/vim-surround'
 Plug 'tpope/vim-endwise'
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-rsi'
+Plug 'heavenshell/vim-jsdoc', { 'for': ['javascript', 'javascript.jsx'] }
 Plug 'rhysd/git-messenger.vim'
 Plug 'thaerkh/vim-workspace'
 Plug 'wakatime/vim-wakatime'
