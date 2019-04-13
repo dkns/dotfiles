@@ -356,6 +356,14 @@ function! s:JumpToLastKnownCursorPosition()
     if expand("%") =~# '\(^\|/\)\.git/' | return | endif
     execute "normal! g`\"" |
 endfunction
+
+" send yank to TMUX
+if exists('$TMUX')
+    augroup TmuxYank
+        autocmd!
+        autocmd TextYankPost * if v:event.operator ==# 'y' | call system('tmux set-buffer ' . shellescape(@0)) | endif
+    augroup END
+endif
 " }}}
 " Plugins {{{
 " coc.nvim {{{
