@@ -438,16 +438,15 @@ endfunction
 function! GitInfo()
   let git = fugitive#head()
   if git != ''
-    return '  '.fugitive#head()
+    return ' '.fugitive#head()
   else
     return ''
 endfunction
 
 set statusline=\ 
-set statusline+=%#PmenuSel#
 set statusline+=%{GitInfo()}
-set statusline+=%#LineNr#
-set statusline+=\ %f
+set statusline+=\ %f 
+set statusline+=%{LinterStatus()}
 set statusline+=%m
 set statusline+=%=
 set statusline+=%#CursorColumn#
