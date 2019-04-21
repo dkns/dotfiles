@@ -15,6 +15,7 @@
   "diagnostic.displayByAle": true,
   "python.jediEnabled": false,
   "codeLens.enable": true,
+  "suggest.noselect": false,
   "yaml.format.enable": true,
   "yaml.validate": true,
   "yaml.hover": true,
