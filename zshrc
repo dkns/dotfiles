@@ -248,13 +248,6 @@ alias dcssh='_dcssh'
 alias churn="git log --all -M -C --name-only --format='format:' "$@" | sort | grep -v '^$' | uniq -c | sort -n"
 alias changelog='_get_changelog'
 
-if [ -n "$NVIM_LISTEN_ADDRESS" ]; then
-  export VISUAL="nvr -cc tabedit --remote-wait +'set bufhidden=wipe'"
-else
-  export VISUAL="nvi"
-fi
-alias v="$VISUAL"
-
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
