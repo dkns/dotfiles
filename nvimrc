@@ -471,7 +471,7 @@ let g:signify_sign_change = '┃'
 " ALE {{{
 if !exists("g:gui_oni")
   let g:ale_fixers = {
-        \ 'javascript': ['eslint'],
+        \ 'javascript': ['eslint', 'prettier'],
         \}
 endif
 let g:ale_virtualtext_cursor = 1
