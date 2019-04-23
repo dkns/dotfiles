@@ -467,6 +467,26 @@ let g:signify_vcs_list = ['git']
 let g:signify_sign_add = '┃'
 let g:signify_sign_delete = '┃'
 let g:signify_sign_change = '┃'
+let g:signfiy_realtime = 1
+
+function! SignifyDiffCount()
+  let symbols = ['+', '-', '~']
+  let [added, modified, removed] = sy#repo#get_stats()
+  let stats = [added, removed, modified]  " reorder
+  let hunkline = ''
+
+  for i in range(3)
+    if stats[i] > 0
+      let hunkline .= printf('%s%s ', symbols[i], stats[i])
+    endif
+  endfor
+
+  if !empty(hunkline)
+    let hunkline = printf('[%s]', hunkline[:-2])
+  endif
+
+  return hunkline
+endfunction
 " }}}
 " ALE {{{
 if !exists("g:gui_oni")
