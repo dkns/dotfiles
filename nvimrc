@@ -263,7 +263,9 @@ let g:loaded_getscript         = 1
 let g:loaded_getscriptPlugin   = 1
 
 " Auto insert mode when entering terminal window
-autocmd BufEnter term://* startinsert
+augroup TermSetup
+  autocmd BufEnter term://* startinsert
+augroup END
 " No line numbers in terminal
 if has('nvim')
   au TermOpen * setlocal nonumber norelativenumber
@@ -363,8 +365,10 @@ endif
 " }}}
 " Plugins {{{
 " coc.nvim {{{
-autocmd! CompleteDone * if pumvisible() == 0 | pclose | endif
-autocmd CursorHoldI,CursorMovedI * silent! call CocAction('showSignatureHelp')
+augroup CocSetup
+  autocmd! CompleteDone * if pumvisible() == 0 | pclose | endif
+  autocmd CursorHoldI,CursorMovedI * silent! call CocActionAsync('showSignatureHelp')
+augroup END
 
 nmap <silent> [c <Plug>(coc-diagnostic-prev)
 nmap <silent> ]c <Plug>(coc-diagnostic-next)
@@ -457,7 +461,9 @@ set statusline+=
 let g:closetag_filenames = "*.html,*.xhtml,*.phtml"
 " }}}
 " css complete {{{
-autocmd FileType css set omnifunc=csscomplete#CompleteCSS noci
+augroup CssSetup
+  autocmd FileType css set omnifunc=csscomplete#CompleteCSS noci
+augroup END
 " }}}
 " vim current word {{{
 let g:vim_current_word#highlight_current_word = 0
