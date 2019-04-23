@@ -494,16 +494,7 @@ if !exists("g:gui_oni")
         \ 'javascript': ['eslint', 'prettier'],
         \}
 endif
-let g:ale_virtualtext_cursor = 1
-" }}}
-" tagged template {{{
-let g:taggedtemplate#tagSyntaxMap = {
-\ "html": "html",
-\ "md":   "markdown",
-\ "css":  "css" }
-
-autocmd FileType javascript,typescript : call taggedtemplate#applySyntaxMap()
-autocmd FileType html : call taggedtemplate#applySyntaxMap()
+" let g:ale_virtualtext_cursor = 1
 " }}}
 " fzf {{{
 " use fzf as fuzzy search
