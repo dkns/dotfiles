@@ -348,19 +348,19 @@ endfunction
 
 " jump to last known cursos position when reopening a buffer
 function! s:JumpToLastKnownCursorPosition()
-    if line("'\"") <= 1 | return | endif
-    if line("'\"") > line("$") | return | endif
-    " Ignore git commit messages and git rebase scripts
-    if expand("%") =~# '\(^\|/\)\.git/' | return | endif
-    execute "normal! g`\"" |
+  if line("'\"") <= 1 | return | endif
+  if line("'\"") > line("$") | return | endif
+  " Ignore git commit messages and git rebase scripts
+  if expand("%") =~# '\(^\|/\)\.git/' | return | endif
+  execute "normal! g`\"" |
 endfunction
 
 " send yank to TMUX
 if exists('$TMUX')
-    augroup TmuxYank
-        autocmd!
-        autocmd TextYankPost * if v:event.operator ==# 'y' | call system('tmux set-buffer ' . shellescape(@0)) | endif
-    augroup END
+  augroup TmuxYank
+    autocmd!
+    autocmd TextYankPost * if v:event.operator ==# 'y' | call system('tmux set-buffer ' . shellescape(@0)) | endif
+  augroup END
 endif
 " }}}
 " Plugins {{{
