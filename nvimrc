@@ -472,6 +472,7 @@ function! StatuslineGitBranch()
       let b:gitbranch="".substitute(l:gitrevparse, '\n', '', 'g').""
     endif
   endif
+  return b:gitbranch
 endfunction
 
 augroup GetGitBranch
@@ -491,7 +492,7 @@ set statusline+=%{StatuslineMode()}
 set statusline+=\ 
 set statusline+=%1*
 set statusline+=\ 
-set statusline+=%{b:gitbranch}
+set statusline+=%{StatuslineGitBranch()}
 set statusline+=\ 
 set statusline+=%{SignifyDiffCount()}
 set statusline+=\ 
