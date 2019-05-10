@@ -396,6 +396,8 @@ let g:coc_global_extensions = [
   \ 'coc-yaml',
   \ 'coc-tsserver',
   \ 'coc-phpls',
+  \ 'coc-lua',
+  \ 'coc-vimlsp',
   \ 'coc-stylelint'
 \ ]
 
