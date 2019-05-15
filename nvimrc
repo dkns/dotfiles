@@ -365,11 +365,6 @@ endif
 " }}}
 " Plugins {{{
 " coc.nvim {{{
-augroup CocSetup
-  autocmd! CompleteDone * if pumvisible() == 0 | pclose | endif
-  autocmd CursorHoldI,CursorMovedI * silent! call CocActionAsync('showSignatureHelp')
-augroup END
-
 nmap <silent> [c <Plug>(coc-diagnostic-prev)
 nmap <silent> ]c <Plug>(coc-diagnostic-next)
 " Remap keys for gotos
