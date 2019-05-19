@@ -395,7 +395,8 @@ let g:coc_global_extensions = [
   \ 'coc-phpls',
   \ 'coc-lua',
   \ 'coc-vimlsp',
-  \ 'coc-stylelint'
+  \ 'coc-stylelint',
+  \ 'coc-tslint-plugin'
 \ ]
 
 function! s:show_documentation()
@@ -558,6 +559,7 @@ endfunction
 if !exists("g:gui_oni")
   let g:ale_fixers = {
         \ 'javascript': ['eslint', 'prettier'],
+        \ 'typescript': ['tslint']
         \}
 endif
 " let g:ale_virtualtext_cursor = 1
@@ -656,6 +658,14 @@ let g:projectionist_heuristics = {
 \     '*_spec.lua': {
 \       'alternate': 'src/{basename}.lua',
 \       'type': 'test',
+\     },
+\     '*.ts': {
+\       'alternate': '{basename}.test.ts',
+\       'type': 'soruce'
+\     },
+\     '*.test.ts': {
+\       'alternate': '{basename}.ts',
+\       'type': 'test'
 \     },
 \   }
 \ }
