@@ -1,13 +1,9 @@
 {
   "coc.preferences.formatOnType": true,
-  "coc.preferences.hoverTarget": "preview",
+  "coc.preferences.hoverTarget": "float",
   "prettier.eslintIntegration": true,
   "prettier.tslintIntegration": true,
-  "eslint.filetypes": [
-    "javascript",
-    "javascriptreact",
-    "javascript.jsx"
-  ],
+  "eslint.filetypes": ["javascript", "javascriptreact", "javascript.jsx"],
   "eslint.autoFix": false,
   "eslint.autoFixOnSave": false,
   "diagnostic.virtualText": true,
@@ -15,7 +11,7 @@
   "diagnostic.displayByAle": true,
   "python.jediEnabled": false,
   "codeLens.enable": true,
-  "suggest.noselect": false,
+  "suggest.noselect": true,
   "yaml.format.enable": true,
   "yaml.validate": true,
   "yaml.hover": true,
