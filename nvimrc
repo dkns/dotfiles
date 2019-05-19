@@ -66,6 +66,7 @@ Plug 'airblade/vim-rooter'
 Plug 'rlue/vim-getting-things-down'
 Plug 'cdata/vim-tagged-template'
 Plug 'metakirby5/codi.vim'
+Plug 'janko/vim-test'
 
 call plug#end()
 " }}}
