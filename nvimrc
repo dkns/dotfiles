@@ -556,13 +556,7 @@ function! SignifyDiffCount()
 endfunction
 " }}}
 " ALE {{{
-if !exists("g:gui_oni")
-  let g:ale_fixers = {
-        \ 'javascript': ['eslint', 'prettier'],
-        \ 'typescript': ['tslint']
-        \}
-endif
-" let g:ale_virtualtext_cursor = 1
+"let g:ale_virtualtext_cursor = 1
 " }}}
 " fzf {{{
 " use fzf as fuzzy search
