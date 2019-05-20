@@ -389,6 +389,8 @@ let g:coc_global_extensions = [
   \ 'coc-jest',
   \ 'coc-snippets',
   \ 'coc-tag',
+  \ 'coc-lists',
+  \ 'coc-yank',
   \ 'coc-python',
   \ 'coc-yaml',
   \ 'coc-tsserver',
