@@ -121,16 +121,16 @@ if [ -f /usr/share/autojump/autojump.sh ]; then
 fi
 
 # pure prompt
-if [ -f $HOME/dotfiles/pure/async.zsh ]; then
-  source $HOME/dotfiles/pure/async.zsh
-fi
+# if [ -f $HOME/dotfiles/pure/async.zsh ]; then
+#   source $HOME/dotfiles/pure/async.zsh
+# fi
 
-if [ -f $HOME/dotfiles/pure/pure.zsh ]; then
-  source $HOME/dotfiles/pure/pure.zsh
-fi
+# if [ -f $HOME/dotfiles/pure/pure.zsh ]; then
+#   source $HOME/dotfiles/pure/pure.zsh
+# fi
 
-autoload -Uz async && async
-autoload -Uz pure
+# autoload -Uz async && async
+# autoload -Uz pure
 
 # FZF
 export FZF_DEFAULT_OPTS='--extended'
@@ -251,3 +251,10 @@ alias changelog='_get_changelog'
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
+
+# my prompt
+if [ -f "$HOME/dotfiles/serenity_prompt/serenity.zsh" ]; then
+  source "$HOME/dotfiles/serenity_prompt/serenity.zsh"
+fi
+
