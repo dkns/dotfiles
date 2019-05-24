@@ -31,6 +31,7 @@ setopt LIST_PACKED
 setopt MENU_COMPLETE
 setopt PRINT_EXIT_VALUE
 setopt SHARE_HISTORY
+setopt PROMPT_SUBST
 
 export BROWSER="firefox"
 export EDITOR="vim"
