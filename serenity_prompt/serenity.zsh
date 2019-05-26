@@ -23,7 +23,20 @@ function get_git_diff() {
 
   INDEX=$(command git diff --shortstat | grep -oP "[0-9]." | tr '\n' ' ')
   IFS=' ' read var1 var2 var3 <<< $INDEX
-  echo "m: $var1, +$var2, -$var3"
+
+  if [ ! -z "$var1" ]; then
+    git_status="m: $var1"
+  fi
+
+  if [ ! -z "$var2" ]; then
+    git_status="$git_status, +$var2"
+  fi
+
+  if [ ! -z "$var3" ]; then
+    git_status="$git_status, -$var3"
+  fi
+
+  echo "$git_status"
 }
 
 function get_git_status() {
