@@ -30,7 +30,6 @@ Plug 'tpope/vim-rsi'
 Plug 'tpope/vim-dispatch'
 Plug 'heavenshell/vim-jsdoc', { 'for': ['typescript', 'javascript', 'javascript.jsx'] }
 Plug 'rhysd/git-messenger.vim'
-Plug 'thaerkh/vim-workspace'
 Plug 'wakatime/vim-wakatime'
 Plug 'sheerun/vim-polyglot'
 Plug 'liuchengxu/vista.vim'
