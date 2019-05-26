@@ -18,6 +18,7 @@ function git_info() {
 }
 
 function get_git_diff() {
+  ! git rev-parse --is-inside-work-tree > /dev/null 2>&1 && return
   local INDEX
   local git_status=''
 
