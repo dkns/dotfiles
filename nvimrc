@@ -423,6 +423,9 @@ let g:netrw_liststyle=3
 let vimwikidir = expand('~/Dropbox/vimwiki')
 let g:vimwiki_list = [{'path': '~/Dropbox/vimwiki', 'syntax': 'markdown', 'ext': '.wiki'}]
 let g:vimwiki_hl_headers = 1
+let wiki = {}
+let wiki.path = '~/Dropbox/vimwiki'
+let wiki.nested_syntaxes = {'javascript': 'javascript', 'sh': 'sh', 'python': 'python'}
 " }}}
 " statusline {{{
 function! LinterStatus() abort
