@@ -1,5 +1,6 @@
 autoload -Uz compinit promptinit
 autoload -U colors && colors
+autoload -Uz add-zsh-hook
 compinit
 promptinit
 
@@ -75,9 +76,6 @@ bk() {
 # Completion system
 #
 
-autoload -Uz compinit
-compinit
-
 zstyle ":completion:*" auto-description "specify: %d"
 zstyle ":completion:*" completer _expand _complete _correct _approximate _match
 zstyle ':completion:*:match:*' original only
@@ -105,12 +103,7 @@ zstyle -e ':completion:*:approximate:*' \
 
 # version control info
 autoload -Uz vcs_info
-zstyle ":vcs_info:*" enable git svn
-zstyle ":vcs_info:*" get-revision true
-zstyle ":vcs_info:*" check-for-changes true
-zstyle ':vcs_info:*' stagedstr '%F{28}●'
-zstyle ':vcs_info:*' unstagedstr '%F{11}●'
-zstyle ':vcs_info:git*' actionformats "%s %b (%a) %m %u %c"
+zstyle ':vcs_info:*' formats " %b"
 
 # allow editing commands in vim
 autoload -z edit-command-line
@@ -254,8 +247,11 @@ export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
 
+precmd() {
+  vcs_info
+}
+
 # my prompt
 if [ -f "$HOME/dotfiles/serenity_prompt/serenity.zsh" ]; then
   source "$HOME/dotfiles/serenity_prompt/serenity.zsh"
 fi
-

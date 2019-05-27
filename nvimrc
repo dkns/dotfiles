@@ -30,7 +30,6 @@ Plug 'tpope/vim-rsi'
 Plug 'tpope/vim-dispatch'
 Plug 'heavenshell/vim-jsdoc', { 'for': ['typescript', 'javascript', 'javascript.jsx'] }
 Plug 'rhysd/git-messenger.vim'
-Plug 'thaerkh/vim-workspace'
 Plug 'wakatime/vim-wakatime'
 Plug 'sheerun/vim-polyglot'
 Plug 'liuchengxu/vista.vim'
@@ -424,6 +423,9 @@ let g:netrw_liststyle=3
 let vimwikidir = expand('~/Dropbox/vimwiki')
 let g:vimwiki_list = [{'path': '~/Dropbox/vimwiki', 'syntax': 'markdown', 'ext': '.wiki'}]
 let g:vimwiki_hl_headers = 1
+let wiki = {}
+let wiki.path = '~/Dropbox/vimwiki'
+let wiki.nested_syntaxes = {'javascript': 'javascript', 'sh': 'sh', 'python': 'python'}
 " }}}
 " statusline {{{
 function! LinterStatus() abort
