@@ -35,6 +35,7 @@ Plug 'wakatime/vim-wakatime'
 Plug 'sheerun/vim-polyglot'
 Plug 'liuchengxu/vista.vim'
 Plug 'mg979/vim-visual-multi'
+Plug 'wellle/tmux-complete.vim'
 Plug 'vimwiki/vimwiki'
 Plug 'scrooloose/nerdtree'
 Plug 'mbbill/undotree', { 'on': 'UndotreeToggle' }
