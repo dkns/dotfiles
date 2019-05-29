@@ -12,6 +12,13 @@
   "python.jediEnabled": false,
   "codeLens.enable": true,
   "suggest.noselect": true,
+  "coc.preferences.rootPatterns": [
+    ".vim",
+    ".git",
+    ".hg",
+    ".projections.json",
+    ".env"
+  ],
   "yaml.format.enable": true,
   "yaml.validate": true,
   "yaml.hover": true,
