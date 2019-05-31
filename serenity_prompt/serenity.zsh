@@ -22,19 +22,19 @@ function get_git_diff() {
   local INDEX
   local git_status=''
 
-  INDEX=$(command git diff --shortstat | grep -oP "[0-9]." | tr '\n' ' ')
-  IFS=' ' read var1 var2 var3 <<< $INDEX
+  INDEX=$(command git diff --shortstat | grep -oP "[0-9]+" | tr '\n' ' ')
+  IFS=' ' read modified added deleted <<< $INDEX
 
-  if [ ! -z "$var1" ]; then
-    git_status="m: $var1"
+  if [ ! -z "$modified" ]; then
+    git_status="[~$modified"
   fi
 
-  if [ ! -z "$var2" ]; then
-    git_status="$git_status, +$var2"
+  if [ ! -z "$added" ]; then
+    git_status="$git_status +$added"
   fi
 
-  if [ ! -z "$var3" ]; then
-    git_status="$git_status, -$var3"
+  if [ ! -z "$deleted" ]; then
+    git_status="$git_status -$deleted]"
   fi
 
   echo "$git_status"
