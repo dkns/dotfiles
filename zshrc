@@ -241,6 +241,7 @@ alias dcssh='_dcssh'
 # From Gary Bernhardt's dofiles
 alias churn="git log --all -M -C --name-only --format='format:' "$@" | sort | grep -v '^$' | uniq -c | sort -n"
 alias changelog='_get_changelog'
+alias ww="nvim -c ':NV'"
 
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm

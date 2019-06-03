@@ -29,6 +29,7 @@ Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-rsi'
 Plug 'tpope/vim-eunuch'
 Plug 'tpope/vim-dispatch'
+Plug 'alok/notational-fzf-vim'
 Plug 'heavenshell/vim-jsdoc', { 'for': ['typescript', 'javascript', 'javascript.jsx'] }
 Plug 'rhysd/git-messenger.vim'
 Plug 'wakatime/vim-wakatime'
@@ -597,6 +598,9 @@ command! -bang -nargs=* Gg
 " }}}
 " rooter {{{
 let g:rooter_patterns = ['.git/']
+" }}}
+" notational-fzf-vim {{{
+let g:nv_search_paths = ['~/Dropbox/vimwiki']
 " }}}
 " vim-workspace {{{
 let g:workspace_session_directory = $HOME . '/.config/nvim/sessions/'
