@@ -19,6 +19,14 @@
     ".projections.json",
     ".env"
   ],
+  "docker.enable": true,
+  "importCost.debug": true,
+  "importCost.bundleSizeDecoration": "both",
+  "importCost.showCalculatingDecoration": true,
+  "importCost.javascriptExtensions": [
+    "\\.js?$",
+    "\\.jsx?$"
+  ],
   "yaml.format.enable": true,
   "yaml.validate": true,
   "yaml.hover": true,
@@ -38,11 +46,6 @@
       "initializationOptions": {},
       "ignoredRootPaths": ["~"],
       "settings": {}
-    },
-    "dockerfile": {
-      "command": "docker-langserver",
-      "filetypes": ["Dockerfile"],
-      "args": ["--stdio"]
     }
   }
 }

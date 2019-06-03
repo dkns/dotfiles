@@ -69,6 +69,7 @@ Plug 'rlue/vim-getting-things-down'
 Plug 'cdata/vim-tagged-template'
 Plug 'metakirby5/codi.vim'
 Plug 'janko/vim-test'
+Plug 'josa42/coc-docker', { 'do': 'yarn install --frozen-lockfile' }
 
 call plug#end()
 " }}}
@@ -399,7 +400,8 @@ let g:coc_global_extensions = [
   \ 'coc-lua',
   \ 'coc-vimlsp',
   \ 'coc-stylelint',
-  \ 'coc-tslint-plugin'
+  \ 'coc-tslint-plugin',
+  \ 'coc-import-cost',
 \ ]
 
 function! s:show_documentation()
