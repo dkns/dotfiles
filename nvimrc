@@ -81,6 +81,8 @@ set nu
 
 set encoding=utf-8
 
+set updatetime=400
+
 " don't highlight current line as it is really slow
 set cursorline
 set nocursorcolumn
