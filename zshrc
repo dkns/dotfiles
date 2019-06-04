@@ -126,7 +126,7 @@ fi
 # autoload -Uz pure
 
 # FZF
-export FZF_DEFAULT_OPTS='--extended'
+export FZF_DEFAULT_OPTS="--extended --border"
 
 fgs() {
   local out shas sha q k
