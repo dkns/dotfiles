@@ -12,7 +12,6 @@ bindkey -e
 HISTFILE=~/.histfile
 HISTSIZE=10000
 SAVEHIST=10000
-HISTTIMEFORMAT="%h/%d/%y - %H:%M:%S "
 setopt inc_append_history
 setopt share_history
 setopt EXTENDED_HISTORY
@@ -242,6 +241,7 @@ alias dcssh='_dcssh'
 alias churn="git log --all -M -C --name-only --format='format:' "$@" | sort | grep -v '^$' | uniq -c | sort -n"
 alias changelog='_get_changelog'
 alias ww="nvim -c ':NV'"
+alias history="history -i"
 
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
