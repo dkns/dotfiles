@@ -158,11 +158,12 @@ bindsym $mod+r mode "resize"
 bar {
         position top
         #status_command $HOME/bin/i3conky
-        status_command i3status -c ~/dotfiles/i3status.conf
+        #status_command i3status -c ~/dotfiles/i3status.conf
+        status_command ~/bin/i3status-rs ~/dotfiles/i3/status.toml
         #status_command i3blocks
 
         colors {
-            background #2b303b
+            background #000000
             focused_workspace #4c7899 #8fa1b3 #ffffff
         }
 
