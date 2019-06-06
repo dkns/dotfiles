@@ -20,7 +20,7 @@ Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': 'yes \| ./install' }
 Plug 'sickill/vim-pasta'
 Plug 'neoclide/coc.nvim', {'tag': '*', 'do': { -> coc#util#install()}}
 Plug 'meain/vim-package-info', { 'do': 'npm install' }
-Plug 'ErichDonGubler/vim-sublime-monokai'
+Plug 'crusoexia/vim-monokai'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-sleuth'
 Plug 'tpope/vim-projectionist'
@@ -113,7 +113,8 @@ if has('nvim')
   set termguicolors
 endif
 if !exists("g:gui_oni")
-  colorscheme sublimemonokai
+  colorscheme monokai
+  let g:monokai_term_italic = 1
 endif
 set t_co=
 
