@@ -26,7 +26,7 @@ function get_git_diff() {
   IFS=' ' read modified added deleted <<< $INDEX
 
   if [ ! -z "$modified" ]; then
-    git_status="[~$modified"
+    git_status="~$modified"
   fi
 
   if [ ! -z "$added" ]; then
@@ -34,10 +34,13 @@ function get_git_diff() {
   fi
 
   if [ ! -z "$deleted" ]; then
-    git_status="$git_status -$deleted]"
+    git_status="$git_status -$deleted"
   fi
 
-  echo "$git_status"
+  if [ -n "git_status" ]; then
+    echo "[$git_status]"
+  fi
+
 }
 
 function get_git_status() {
