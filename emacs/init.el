@@ -348,6 +348,12 @@ Use this for files that change often, like cache files.")
   :ensure t
   )
 
+(use-package dtrt-indent
+  :ensure t
+  :config
+  (dtrt-indent-global-mode)
+  )
+
 (use-package exec-path-from-shell
   :ensure t
   :config

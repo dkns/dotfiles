@@ -37,6 +37,7 @@ Plug 'wakatime/vim-wakatime'
 Plug 'sheerun/vim-polyglot'
 Plug 'liuchengxu/vista.vim'
 Plug 'mg979/vim-visual-multi'
+Plug 'Yggdroot/indentLine'
 Plug 'wellle/tmux-complete.vim'
 Plug 'vimwiki/vimwiki'
 Plug 'scrooloose/nerdtree'
@@ -45,8 +46,10 @@ Plug 'alvan/vim-closetag', { 'for': 'html' }
 Plug 'gavocanov/vim-js-indent', { 'for': 'javascript' }
 Plug 'junegunn/fzf.vim'
 Plug 'junegunn/goyo.vim'
+Plug 'editorconfig/editorconfig-vim'
 Plug 'tpope/vim-fugitive'
 Plug '2072/PHP-Indenting-for-VIm', { 'for': 'php' }
+Plug 'romainl/vim-devdocs'
 if has('nvim') || v:version > 800
   if !exists("g:gui_oni")
     Plug 'w0rp/ale'
@@ -230,8 +233,10 @@ augroup resize
 augroup END
 
 set autoread
-au CursorHold,CursorHoldI * checktime
-au FocusGained,BufEnter * :checktime
+augroup TimerUpdates
+  au CursorHold,CursorHoldI * checktime
+  au FocusGained,BufEnter * :checktime
+augroup END
 
 " backspace
 if !has('nvim')
@@ -575,6 +580,30 @@ endfunction
 " use fzf as fuzzy search
 set rtp+=~/.fzf
 
+let g:fzf_layout = { 'window': 'call FloatingFZF()' }
+
+function! FloatingFZF()
+  let buf = nvim_create_buf(v:false, v:true)
+  call setbufvar(buf, 'number', 'no')
+
+  let height = float2nr(&lines/2)
+  let width = float2nr(&columns - (&columns * 2 / 10))
+  "let width = &columns
+  let row = float2nr(&lines / 3)
+  let col = float2nr((&columns - width) / 3)
+
+  let opts = {
+        \ 'relative': 'editor',
+        \ 'row': row,
+        \ 'col': col,
+        \ 'width': width,
+        \ 'height':height,
+        \ }
+  let win =  nvim_open_win(buf, v:true, opts)
+  call setwinvar(win, '&number', 0)
+  call setwinvar(win, '&relativenumber', 0)
+endfunction
+
 if executable('bat')
   let g:fzf_file_options = "--preview 'bat --color \"always\" {}'"
 endif
@@ -616,6 +645,12 @@ let g:nv_search_paths = ['~/Dropbox/vimwiki']
 " }}}
 " vim-workspace {{{
 let g:workspace_session_directory = $HOME . '/.config/nvim/sessions/'
+" }}}
+" editorconfig-vim {{{
+let g:EditorConfig_exclude_patterns = ['fugitive://.\*', 'scp://.\*']
+" }}}
+" goyo.vim {{{
+au BufReadPost,BufNewFile *.md,*.txt,*.wiki :Goyo
 " }}}
 " projectionist {{{
 let g:projectionist_heuristics = {
