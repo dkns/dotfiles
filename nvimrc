@@ -649,6 +649,9 @@ let g:workspace_session_directory = $HOME . '/.config/nvim/sessions/'
 " editorconfig-vim {{{
 let g:EditorConfig_exclude_patterns = ['fugitive://.\*', 'scp://.\*']
 " }}}
+" goyo.vim {{{
+au BufReadPost,BufNewFile *.md,*.txt,*.wiki :Goyo
+" }}}
 " projectionist {{{
 let g:projectionist_heuristics = {
 \   '*': {
