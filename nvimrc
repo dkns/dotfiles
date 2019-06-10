@@ -46,6 +46,7 @@ Plug 'alvan/vim-closetag', { 'for': 'html' }
 Plug 'gavocanov/vim-js-indent', { 'for': 'javascript' }
 Plug 'junegunn/fzf.vim'
 Plug 'junegunn/goyo.vim'
+Plug 'editorconfig/editorconfig-vim'
 Plug 'tpope/vim-fugitive'
 Plug '2072/PHP-Indenting-for-VIm', { 'for': 'php' }
 Plug 'romainl/vim-devdocs'
@@ -618,6 +619,9 @@ let g:nv_search_paths = ['~/Dropbox/vimwiki']
 " }}}
 " vim-workspace {{{
 let g:workspace_session_directory = $HOME . '/.config/nvim/sessions/'
+" }}}
+" editorconfig-vim {{{
+let g:EditorConfig_exclude_patterns = ['fugitive://.\*', 'scp://.\*']
 " }}}
 " projectionist {{{
 let g:projectionist_heuristics = {
