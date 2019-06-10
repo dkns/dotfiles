@@ -48,6 +48,7 @@ Plug 'junegunn/fzf.vim'
 Plug 'junegunn/goyo.vim'
 Plug 'tpope/vim-fugitive'
 Plug '2072/PHP-Indenting-for-VIm', { 'for': 'php' }
+Plug 'romainl/vim-devdocs'
 if has('nvim') || v:version > 800
   if !exists("g:gui_oni")
     Plug 'w0rp/ale'
