@@ -233,8 +233,10 @@ augroup resize
 augroup END
 
 set autoread
-au CursorHold,CursorHoldI * checktime
-au FocusGained,BufEnter * :checktime
+augroup TimerUpdates
+  au CursorHold,CursorHoldI * checktime
+  au FocusGained,BufEnter * :checktime
+augroup END
 
 " backspace
 if !has('nvim')
