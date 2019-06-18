@@ -37,7 +37,7 @@ function get_git_diff() {
     git_status="$git_status -$deleted"
   fi
 
-  if [ -n "git_status" ]; then
+  if [ -n "$git_status" ]; then
     echo "[$git_status]"
   fi
 
