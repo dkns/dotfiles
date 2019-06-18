@@ -413,6 +413,8 @@ let g:coc_global_extensions = [
   \ 'coc-stylelint',
   \ 'coc-tslint-plugin',
   \ 'coc-import-cost',
+  \ 'coc-git',
+  \ 'coc-diagnostic'
 \ ]
 
 function! s:show_documentation()
