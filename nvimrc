@@ -285,6 +285,11 @@ if has('nvim')
   au TermOpen * setlocal nonumber norelativenumber
 endif
 
+augroup PlaintextFiles
+  autocmd!
+  autocmd FileType vim-plug set nonumber norelativenumber
+augroup END
+
 " }}}
 " Keybinds {{{
 " set leader key
