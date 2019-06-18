@@ -83,6 +83,7 @@ call plug#end()
 filetype plugin indent on
 " show numberlines
 set nu
+set rnu
 
 set encoding=utf-8
 
@@ -417,6 +418,8 @@ let g:coc_global_extensions = [
   \ 'coc-stylelint',
   \ 'coc-tslint-plugin',
   \ 'coc-import-cost',
+  \ 'coc-git',
+  \ 'coc-diagnostic'
 \ ]
 
 function! s:show_documentation()
