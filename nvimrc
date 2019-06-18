@@ -83,6 +83,7 @@ call plug#end()
 filetype plugin indent on
 " show numberlines
 set nu
+set rnu
 
 set encoding=utf-8
 
