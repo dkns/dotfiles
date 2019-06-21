@@ -721,7 +721,7 @@ let g:projectionist_heuristics = {
 \     },
 \     '*.ts': {
 \       'alternate': '{basename}.test.ts',
-\       'type': 'soruce'
+\       'type': 'source'
 \     },
 \     '*.test.ts': {
 \       'alternate': '{basename}.ts',
