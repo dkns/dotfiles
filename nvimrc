@@ -14,6 +14,7 @@ if !empty($TMUX)
   Plug 'christoomey/vim-tmux-navigator'
 endif
 Plug 'ap/vim-css-color'
+Plug 'diepm/vim-rest-console'
 Plug 'jiangmiao/auto-pairs'
 Plug 'junegunn/vim-plug'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': 'yes \| ./install' }
@@ -657,8 +658,9 @@ let g:workspace_session_directory = $HOME . '/.config/nvim/sessions/'
 " editorconfig-vim {{{
 let g:EditorConfig_exclude_patterns = ['fugitive://.\*', 'scp://.\*']
 " }}}
-" goyo.vim {{{
-au BufReadPost,BufNewFile *.md,*.txt,*.wiki :Goyo
+" vim-rest-console {{
+let g:vrc_set_default_mapping = 0
+nnoremap <leader>re :call VrcQuery()<CR>
 " }}}
 " projectionist {{{
 let g:projectionist_heuristics = {
