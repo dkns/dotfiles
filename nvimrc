@@ -117,10 +117,7 @@ endif
 if has('nvim')
   set termguicolors
 endif
-if !exists("g:gui_oni")
-  colorscheme monokai
-  let g:monokai_term_italic = 1
-endif
+colorscheme OceanicNext
 set t_co=
 
 " copy the previous indentation on autoindenting
