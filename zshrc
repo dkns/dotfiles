@@ -259,6 +259,10 @@ if [ -d /usr/local/go ]; then
   export PATH=$PATH:/usr/local/go/bin
 fi
 
+if [ -f /usr/bin/neomutt ]; then
+  alias mail="neomutt"
+fi
+
 # my prompt
 if [ -f "$HOME/dotfiles/serenity_prompt/serenity.zsh" ]; then
   source "$HOME/dotfiles/serenity_prompt/serenity.zsh"

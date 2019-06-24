@@ -329,7 +329,11 @@ Use this for files that change often, like cache files.")
 (use-package lsp-mode
   :commands lsp
   :ensure t
+  :config
+  (add-hook 'prog-mode-hook #'lsp)
   )
+
+(use-package typescript-mode)
 
 (use-package lsp-ui
   :ensure t
@@ -359,6 +363,10 @@ Use this for files that change often, like cache files.")
   :config
   (when (memq window-system '(mac ns x))
   (exec-path-from-shell-initialize))
+  )
+
+(use-package treemacs
+  :ensure t
   )
 
 (provide 'init)

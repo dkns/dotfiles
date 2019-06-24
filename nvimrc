@@ -22,6 +22,7 @@ Plug 'sickill/vim-pasta'
 Plug 'neoclide/coc.nvim', {'tag': '*', 'do': { -> coc#util#install()}}
 Plug 'meain/vim-package-info', { 'do': 'npm install' }
 Plug 'crusoexia/vim-monokai'
+Plug 'diepm/vim-rest-console'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-sleuth'
 Plug 'tpope/vim-projectionist'
@@ -585,30 +586,6 @@ endfunction
 " fzf {{{
 " use fzf as fuzzy search
 set rtp+=~/.fzf
-
-let g:fzf_layout = { 'window': 'call FloatingFZF()' }
-
-function! FloatingFZF()
-  let buf = nvim_create_buf(v:false, v:true)
-  call setbufvar(buf, 'number', 'no')
-
-  let height = float2nr(&lines/2)
-  let width = float2nr(&columns - (&columns * 2 / 10))
-  "let width = &columns
-  let row = float2nr(&lines / 3)
-  let col = float2nr((&columns - width) / 3)
-
-  let opts = {
-        \ 'relative': 'editor',
-        \ 'row': row,
-        \ 'col': col,
-        \ 'width': width,
-        \ 'height':height,
-        \ }
-  let win =  nvim_open_win(buf, v:true, opts)
-  call setwinvar(win, '&number', 0)
-  call setwinvar(win, '&relativenumber', 0)
-endfunction
 
 if executable('bat')
   let g:fzf_file_options = "--preview 'bat --color \"always\" {}'"
