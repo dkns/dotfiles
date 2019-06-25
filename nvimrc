@@ -464,10 +464,10 @@ function! LinterStatus() abort
 endfunction
 
 hi User2 ctermbg=lightgreen ctermfg=black guibg=lightgreen guifg=black
-hi User1 ctermbg=black ctermfg=white guibg=black guifg=white
-hi User3 ctermbg=black ctermfg=lightblue guibg=black guifg=lightblue
-hi User4 ctermbg=black ctermfg=lightgreen guibg=black guifg=lightgreen
-hi User5 ctermbg=black ctermfg=magenta guibg=black guifg=magenta
+hi User1 ctermbg=black ctermfg=white guibg=#17252c guifg=white
+hi User3 ctermbg=black ctermfg=lightblue guibg=#17252c guifg=lightblue
+hi User4 ctermbg=black ctermfg=lightgreen guibg=#17252c guifg=lightgreen
+hi User5 ctermbg=black ctermfg=magenta guibg=#17252c guifg=magenta
 
 function! StatuslineMode()
   let l:mode=mode()
@@ -639,6 +639,14 @@ let g:EditorConfig_exclude_patterns = ['fugitive://.\*', 'scp://.\*']
 let g:vrc_set_default_mapping = 0
 nnoremap <leader>re :call VrcQuery()<CR>
 " }}}
+" Make background transparent for many things
+hi! StatusLine ctermbg=NONE guifg=NONE guibg=NONE
+hi! StatusLineNC ctermbg=NONE guifg=NONE guibg=NONE
+
+" Try to hide vertical spit and end of buffer symbol
+hi! VertSplit gui=NONE guifg=NONE guibg=NONE
+hi! EndOfBuffer ctermbg=NONE ctermfg=NONE guibg=NONE guifg=NONE
+hi! MoreMsg ctermbg=NONE ctermfg=NONE guibg=NONE guifg=NONE
 " projectionist {{{
 let g:projectionist_heuristics = {
 \   '*': {
