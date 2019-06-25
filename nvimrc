@@ -464,10 +464,10 @@ function! LinterStatus() abort
 endfunction
 
 hi User2 ctermbg=lightgreen ctermfg=black guibg=lightgreen guifg=black
-hi User1 ctermbg=black ctermfg=white guibg=#17252c guifg=white
-hi User3 ctermbg=black ctermfg=lightblue guibg=#17252c guifg=lightblue
-hi User4 ctermbg=black ctermfg=lightgreen guibg=#17252c guifg=lightgreen
-hi User5 ctermbg=black ctermfg=magenta guibg=#17252c guifg=magenta
+hi User1 ctermbg=NONE ctermfg=white guibg=NONE guifg=white
+hi User3 ctermbg=NONE ctermfg=lightblue guibg=NONE guifg=lightblue
+hi User4 ctermbg=NONE ctermfg=lightgreen guibg=NONE guifg=lightgreen
+hi User5 ctermbg=NONE ctermfg=magenta guibg=NONE guifg=magenta
 
 function! StatuslineMode()
   let l:mode=mode()
