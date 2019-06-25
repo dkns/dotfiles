@@ -22,6 +22,7 @@ Plug 'sickill/vim-pasta'
 Plug 'neoclide/coc.nvim', {'tag': '*', 'do': { -> coc#util#install()}}
 Plug 'meain/vim-package-info', { 'do': 'npm install' }
 Plug 'crusoexia/vim-monokai'
+Plug 'blueyed/vim-diminactive'
 Plug 'diepm/vim-rest-console'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-sleuth'
@@ -626,8 +627,8 @@ let g:rooter_patterns = ['.git/']
 " notational-fzf-vim {{{
 let g:nv_search_paths = ['~/Dropbox/vimwiki']
 " }}}
-" vim-workspace {{{
-let g:workspace_session_directory = $HOME . '/.config/nvim/sessions/'
+" vim-diminactive {{{
+hi ColorColumn guibg=#111c22
 " }}}
 " editorconfig-vim {{{
 let g:EditorConfig_exclude_patterns = ['fugitive://.\*', 'scp://.\*']
