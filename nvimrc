@@ -345,6 +345,8 @@ nnoremap <leader>me  :<c-u><c-r>='let @'. v:register .' = '. string(getreg(v:reg
 
 nnoremap <silent> <F5> :let _s=@/<Bar>:%s/\s\+$//e<Bar>:let @/=_s<Bar>:nohl<CR> " Trim trailing spaces
 
+nnoremap <leader>ev :e $HOME/dotfiles/nvimrc<CR>
+
 " No ex mode
 nnoremap Q <nop>
 
@@ -462,10 +464,10 @@ function! LinterStatus() abort
 endfunction
 
 hi User2 ctermbg=lightgreen ctermfg=black guibg=lightgreen guifg=black
-hi User1 ctermbg=black ctermfg=white guibg=black guifg=white
-hi User3 ctermbg=black ctermfg=lightblue guibg=black guifg=lightblue
-hi User4 ctermbg=black ctermfg=lightgreen guibg=black guifg=lightgreen
-hi User5 ctermbg=black ctermfg=magenta guibg=black guifg=magenta
+hi User1 ctermbg=NONE ctermfg=white guibg=NONE guifg=white
+hi User3 ctermbg=NONE ctermfg=lightblue guibg=NONE guifg=lightblue
+hi User4 ctermbg=NONE ctermfg=lightgreen guibg=NONE guifg=lightgreen
+hi User5 ctermbg=NONE ctermfg=magenta guibg=NONE guifg=magenta
 
 function! StatuslineMode()
   let l:mode=mode()
@@ -637,6 +639,14 @@ let g:EditorConfig_exclude_patterns = ['fugitive://.\*', 'scp://.\*']
 let g:vrc_set_default_mapping = 0
 nnoremap <leader>re :call VrcQuery()<CR>
 " }}}
+" Make background transparent for many things
+hi! StatusLine ctermbg=NONE guifg=NONE guibg=NONE
+hi! StatusLineNC ctermbg=NONE guifg=NONE guibg=NONE
+
+" Try to hide vertical spit and end of buffer symbol
+hi! VertSplit gui=NONE guifg=NONE guibg=NONE
+hi! EndOfBuffer ctermbg=NONE ctermfg=NONE guibg=NONE guifg=NONE
+hi! MoreMsg ctermbg=NONE ctermfg=NONE guibg=NONE guifg=NONE
 " projectionist {{{
 let g:projectionist_heuristics = {
 \   '*': {
