@@ -229,12 +229,6 @@ Use this for files that change often, like cache files.")
   (vhl/install-extension 'evil)
   )
 
-(use-package darktooth-theme
-  :ensure t
-  :config
-  (load-theme 'darktooth t)
-  )
-
 (use-package web-mode
   :ensure t
   :config
@@ -333,7 +327,8 @@ Use this for files that change often, like cache files.")
   (add-hook 'prog-mode-hook #'lsp)
   )
 
-(use-package typescript-mode)
+(use-package typescript-mode
+  :ensure t)
 
 (use-package lsp-ui
   :ensure t
@@ -365,9 +360,31 @@ Use this for files that change often, like cache files.")
   (exec-path-from-shell-initialize))
   )
 
-(use-package treemacs
+(use-package dockerfile-mode
   :ensure t
   )
+
+(use-package docker-compose-mode
+  :ensure t)
+(use-package docker-tramp
+  :ensure t)
+
+(use-package oceanic-theme
+  :config
+  (load-theme 'oceanic t)
+  :ensure t)
+
+(when (not (version< emacs-version "25.2"))
+  (use-package treemacs
+    :ensure t
+    )
+  )
+
+(use-package highlight-indentation
+  :ensure t
+  :hook
+  ((prog-mode . highlight-indentation-mode)
+   (prog-mode . highlight-indentation-current-column-mode)))
 
 (provide 'init)
 ;;; init.el ends here
