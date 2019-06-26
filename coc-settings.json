@@ -24,7 +24,9 @@
   "importCost.showCalculatingDecoration": true,
   "importCost.javascriptExtensions": [
     "\\.js?$",
-    "\\.jsx?$"
+    "\\.jsx?$",
+    "\\.ts?$",
+    "\\.tsx?$"
   ],
   "git.enableGutters": true,
   "git.addGlameToVirtualText": true,
