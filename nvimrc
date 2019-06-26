@@ -347,6 +347,7 @@ nnoremap <leader>me  :<c-u><c-r>='let @'. v:register .' = '. string(getreg(v:reg
 nnoremap <silent> <F5> :let _s=@/<Bar>:%s/\s\+$//e<Bar>:let @/=_s<Bar>:nohl<CR> " Trim trailing spaces
 
 nnoremap <leader>ev :e $HOME/dotfiles/nvimrc<CR>
+nnoremap <leader>nt :NERDTreeToggle<CR>
 
 " No ex mode
 nnoremap Q <nop>
