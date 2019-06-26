@@ -14,6 +14,7 @@ if !empty($TMUX)
   Plug 'christoomey/vim-tmux-navigator'
 endif
 Plug 'kkvh/vim-docker-tools'
+Plug 'itchyny/lightline.vim'
 Plug 'ap/vim-css-color'
 Plug 'diepm/vim-rest-console'
 Plug 'jiangmiao/auto-pairs'
@@ -465,12 +466,6 @@ function! LinterStatus() abort
         \)
 endfunction
 
-hi User2 ctermbg=lightgreen ctermfg=black guibg=lightgreen guifg=black
-hi User1 ctermbg=NONE ctermfg=white guibg=NONE guifg=white
-hi User3 ctermbg=NONE ctermfg=lightblue guibg=NONE guifg=lightblue
-hi User4 ctermbg=NONE ctermfg=lightgreen guibg=NONE guifg=lightgreen
-hi User5 ctermbg=NONE ctermfg=magenta guibg=NONE guifg=magenta
-
 function! StatuslineMode()
   let l:mode=mode()
   if l:mode==#"n"
@@ -637,18 +632,11 @@ hi ColorColumn guibg=#111c22
 " editorconfig-vim {{{
 let g:EditorConfig_exclude_patterns = ['fugitive://.\*', 'scp://.\*']
 " }}}
-" vim-rest-console {{
+" }}}
+" vim-rest-console {{{
 let g:vrc_set_default_mapping = 0
 nnoremap <leader>re :call VrcQuery()<CR>
 " }}}
-" Make background transparent for many things
-hi! StatusLine ctermbg=NONE guifg=NONE guibg=NONE
-hi! StatusLineNC ctermbg=NONE guifg=NONE guibg=NONE
-
-" Try to hide vertical spit and end of buffer symbol
-hi! VertSplit gui=NONE guifg=NONE guibg=NONE
-hi! EndOfBuffer ctermbg=NONE ctermfg=NONE guibg=NONE guifg=NONE
-hi! MoreMsg ctermbg=NONE ctermfg=NONE guibg=NONE guifg=NONE
 " projectionist {{{
 let g:projectionist_heuristics = {
 \   '*': {
