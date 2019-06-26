@@ -13,6 +13,7 @@ Plug 'Valloric/python-indent', { 'for': 'python' }
 if !empty($TMUX)
   Plug 'christoomey/vim-tmux-navigator'
 endif
+Plug 'kkvh/vim-docker-tools'
 Plug 'ap/vim-css-color'
 Plug 'diepm/vim-rest-console'
 Plug 'jiangmiao/auto-pairs'
@@ -288,7 +289,7 @@ endif
 
 augroup PlaintextFiles
   autocmd!
-  autocmd FileType vim-plug set nonumber norelativenumber
+  autocmd FileType vim-plug,docker-tools set nonumber norelativenumber
 augroup END
 
 " }}}
