@@ -708,6 +708,7 @@ let g:projectionist_heuristics = {
 \   }
 \ }
 " }}}
+" }}}
 " Languages {{{
 " PHP {{{
 let php_sql_query = 1
@@ -726,6 +727,5 @@ let g:go_highlight_interfaces = 1
 let g:go_highlight_operators = 1
 let g:go_highlight_build_constraints = 1
 nnoremap <leader>gr :GoRun<cr><esc>
-" }}}
 " }}}
 " }}}
