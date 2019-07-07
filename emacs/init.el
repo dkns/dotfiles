@@ -20,6 +20,7 @@
 Use this for files that change often, like cache files.")
 
 (setq custom-file (concat dkns/cache-dir "/custom.el"))
+(setq vc-follow-symlinks nil)
 
 ;; Bootstrap `use-package'
 (unless (package-installed-p 'use-package)
@@ -59,7 +60,7 @@ Use this for files that change often, like cache files.")
 
 ;; Set default font
 (set-face-attribute 'default nil
-                    :family "DejaVu Sans Mono"
+                    :family "Source Code Pro"
                     :height 110
                     :weight 'normal
                     :width 'normal)
@@ -96,7 +97,7 @@ Use this for files that change often, like cache files.")
 (defun dkns/edit-init ()
   "Automatically find and edit init file."
   (interactive)
-  (find-file user-init-file)
+  (find-file "/home/daniel/dotfiles/emacs/init.el")
   )
 
 ;; packages
@@ -201,10 +202,10 @@ Use this for files that change often, like cache files.")
   :ensure t
   :bind
   (:map evil-normal-state-map ("<SPC> m s" . magit-status))
+  :config
+  (with-eval-after-load 'magit
+    (require 'forge))
   )
-
-(use-package forge
-  :after magit)
 
 (use-package evil-commentary
   :ensure t
@@ -282,11 +283,9 @@ Use this for files that change often, like cache files.")
   (define-key company-active-map (kbd "C-p") 'company-select-previous)
   )
 
-(use-package company-tern
+(use-package company-box
   :ensure t
-  :config
-  (add-to-list 'company-backends 'company-tern)
-  )
+  :hook (company-mode . company-box-mode))
 
 (use-package projectile
   :ensure t
@@ -295,20 +294,6 @@ Use this for files that change often, like cache files.")
   :config
   (projectile-mode)
   :bind (:map evil-normal-state-map ("<SPC> l" . projectile-switch-project))
-  )
-
-(use-package ivy
-  :ensure t
-  :config
-  (ivy-mode 1)
-  (setq ivy-use-virtual-buffers t
-        enable-recursive-minibuffers t
-        ivy-count-format "%d/%d/ "
-        )
-  )
-
-(use-package counsel
-  :ensure t
   )
 
 (use-package git-gutter
@@ -334,7 +319,7 @@ Use this for files that change often, like cache files.")
   :ensure t
   :custom
   (lsp-ui-doc-position 'bottom)
-  (lsp-ui-sideline-enable nil)
+  (lsp-ui-sideline-enable t)
   (lsp-ui-peek-peek-height 5))
 
 (use-package company-lsp
@@ -366,6 +351,7 @@ Use this for files that change often, like cache files.")
 
 (use-package docker-compose-mode
   :ensure t)
+
 (use-package docker-tramp
   :ensure t)
 
@@ -374,17 +360,36 @@ Use this for files that change often, like cache files.")
   (load-theme 'oceanic t)
   :ensure t)
 
+(use-package dap-mode
+  :ensure t
+  :config
+  (dap-mode 1)
+  (dap-ui-mode 1)
+  (require 'dap-chrome)
+  (require 'dap-firefox)
+  (require 'dap-node)
+  )
+
+(use-package helm
+  :ensure t
+  :bind
+  (:map evil-normal-state-map ("<SPC> b" . 'helm-buffer-list))
+  :config
+  (helm-mode 1)
+  (global-set-key (kbd "M-x") 'helm-M-x)
+  (setq helm-mode-fuzzy-match t
+        helm-completion-in-region-fuzzy-match t)
+  )
+
+(use-package helm-dash
+  :ensure t
+  :after helm)
+
 (when (not (version< emacs-version "25.2"))
   (use-package treemacs
     :ensure t
     )
   )
-
-(use-package highlight-indentation
-  :ensure t
-  :hook
-  ((prog-mode . highlight-indentation-mode)
-   (prog-mode . highlight-indentation-current-column-mode)))
 
 (provide 'init)
 ;;; init.el ends here
