@@ -59,8 +59,14 @@ Use this for files that change often, like cache files.")
 (add-hook 'prog-mode-hook 'linum-mode)
 
 ;; Set default font
+(cond
+ ((find-font (font-spec :name "DejaVu Sans Mono"))
+  (defvar dkns/default-font "DejaVu Sans Mono"))
+ ((find-font (font-spec :name "Iosevka Regular"))
+  (defvar dkns/default-font "Iosevka Regular")))
+
 (set-face-attribute 'default nil
-                    :family "Source Code Pro"
+                    :family dkns/default-font
                     :height 110
                     :weight 'normal
                     :width 'normal)
@@ -100,7 +106,15 @@ Use this for files that change often, like cache files.")
   (find-file "/home/daniel/dotfiles/emacs/init.el")
   )
 
-;; packages
+; ;; packages
+; (use-package use-package
+;  :custom
+;  (use-package-verbose t)
+;  (use-package-always-ensure t)
+;  (use-package-always-defer t))
+
+(setq exec-path (append exec-path '("~/.nvm/versions/node/v10.14.2/bin")))
+
 (use-package evil
   :ensure t
   :init
@@ -128,7 +142,6 @@ Use this for files that change often, like cache files.")
   (evil-leader/set-key "d f" 'describe-function)
   (evil-leader/set-key "d k" 'describe-key)
   (evil-leader/set-key "e i" 'dkns/edit-init)
-  (evil-leader/set-key "b" 'buffer-list)
 
   (progn
       (evil-leader/set-leader "<SPC>")
@@ -201,10 +214,7 @@ Use this for files that change often, like cache files.")
 (use-package magit
   :ensure t
   :bind
-  (:map evil-normal-state-map ("<SPC> m s" . magit-status))
-  :config
-  (with-eval-after-load 'magit
-    (require 'forge))
+  (:map evil-normal-state-map ("<SPC> g s" . magit-status))
   )
 
 (use-package evil-commentary
@@ -273,19 +283,28 @@ Use this for files that change often, like cache files.")
 
 (use-package company
   :ensure t
-  :config
-
-  (global-company-mode)
-  (setq company-idle-delay 0.2)
+  :diminish company-mode
+  :init
+  (setq company-idle-delay 0.1)
+  (setq company-minimum-prefix-length 2)
+  (setq company-require-match nil)
+  (setq company-dabbrev-downcase nil)
   (setq company-selection-wrap-around t)
-  (define-key company-active-map [tab] 'company-complete)
-  (define-key company-active-map (kbd "C-n") 'company-select-next)
-  (define-key company-active-map (kbd "C-p") 'company-select-previous)
+  (setq company-tooltip-flip-when-above t)
+  (setq company-tooltip-align-annotations t)
+  :bind
+  (:map company-active-map
+   ("TAB"      . company-complete-common-or-cycle)
+   ([tab]      . company-complete-common-or-cycle)
+   ("S-TAB"    . company-select-previous-or-abort)
+   ([backtab]  . company-select-previous-or-abort)
+   ([S-tab]    . company-select-previous-or-abort)
+   ("C-p"      . company-select-previous-or-abort)
+   ("C-n"      . company-select-next-or-abort)
+   ("C-l"      . company-complete-selection))
+  :config
+  (global-company-mode)
   )
-
-(use-package company-box
-  :ensure t
-  :hook (company-mode . company-box-mode))
 
 (use-package projectile
   :ensure t
@@ -298,6 +317,7 @@ Use this for files that change often, like cache files.")
 
 (use-package git-gutter
   :ensure t
+  :diminish git-gutter-mode
   :init
   (global-git-gutter-mode)
 
@@ -309,6 +329,8 @@ Use this for files that change often, like cache files.")
   :commands lsp
   :ensure t
   :config
+  (require 'lsp-clients)
+  (setq lsp-prefer-flymake nil)
   (add-hook 'prog-mode-hook #'lsp)
   )
 
@@ -334,6 +356,7 @@ Use this for files that change often, like cache files.")
 
 (use-package dtrt-indent
   :ensure t
+  :diminish dtrt-indent-mode
   :config
   (dtrt-indent-global-mode)
   )
@@ -372,6 +395,7 @@ Use this for files that change often, like cache files.")
 
 (use-package helm
   :ensure t
+  :diminish helm-mode
   :bind
   (:map evil-normal-state-map ("<SPC> b" . 'helm-buffer-list))
   :config
@@ -381,9 +405,19 @@ Use this for files that change often, like cache files.")
         helm-completion-in-region-fuzzy-match t)
   )
 
+(use-package helm-projectile
+  :ensure t
+  :config
+  (global-set-key (kbd "C-S-p") 'helm-projectile-switch-project)
+  (global-set-key (kbd "C-p") 'helm-projectil-find-file)
+  )
+
 (use-package helm-dash
   :ensure t
   :after helm)
+
+(use-package diminish
+  :ensure t)
 
 (when (not (version< emacs-version "25.2"))
   (use-package treemacs
