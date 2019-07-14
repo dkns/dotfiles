@@ -14,6 +14,9 @@
   "python.jediEnabled": false,
   "codeLens.enable": true,
   "suggest.noselect": true,
+  "list.nextKeymap": "<C-n>",
+  "list.previousKeymap": "<C-p>",
+  "list.previewSplitRight": true,
   "coc.preferences.rootPatterns": [
     ".vim",
     ".git",
