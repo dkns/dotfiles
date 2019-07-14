@@ -320,8 +320,6 @@ noremap <up>    <C-W>+
 noremap <down>  <C-W>-
 noremap <left>  3<C-W><
 noremap <right> 3<C-W>>
-" Easier pasting from clipboard
-nnoremap <leader>p "+p
 " (c)opy (e)verything to clipboard
 nnoremap <leader>ce mmgg"+yG`m
 " save read only file
