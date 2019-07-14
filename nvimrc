@@ -400,6 +400,7 @@ nmap <silent> <leader>cr <Plug>(coc-references)
 nnoremap <silent> <leader>K :call <SID>show_documentation()<CR>
 " Remap for rename current word
 nmap <leader>rn <Plug>(coc-rename)
+nmap <leader>pl :CocList project<CR>
 
 let g:coc_global_extensions = [
   \ 'coc-css',
