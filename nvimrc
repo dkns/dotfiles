@@ -709,7 +709,6 @@ let g:projectionist_heuristics = {
 \   }
 \ }
 " }}}
-" }}}
 " Languages {{{
 " PHP {{{
 let php_sql_query = 1
