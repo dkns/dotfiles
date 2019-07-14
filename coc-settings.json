@@ -1,6 +1,7 @@
 {
   "coc.preferences.formatOnType": true,
   "coc.preferences.hoverTarget": "float",
+  "coc.preferences.previewAutoClose": true,
   "prettier.eslintIntegration": true,
   "prettier.tslintIntegration": true,
   "eslint.filetypes": ["javascript", "javascriptreact", "javascript.jsx"],
