@@ -15,16 +15,12 @@ if !empty($TMUX)
 endif
 Plug 'kkvh/vim-docker-tools'
 Plug 'itchyny/lightline.vim'
-Plug 'ap/vim-css-color'
-Plug 'diepm/vim-rest-console'
-Plug 'jiangmiao/auto-pairs'
+Plug 'cohama/lexima.vim'
 Plug 'junegunn/vim-plug'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': 'yes \| ./install' }
 Plug 'sickill/vim-pasta'
 Plug 'neoclide/coc.nvim', {'tag': '*', 'do': { -> coc#util#install()}}
 Plug 'meain/vim-package-info', { 'do': 'npm install' }
-Plug 'crusoexia/vim-monokai'
-Plug 'blueyed/vim-diminactive'
 Plug 'diepm/vim-rest-console'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-sleuth'
@@ -43,18 +39,16 @@ Plug 'wakatime/vim-wakatime'
 Plug 'sheerun/vim-polyglot'
 Plug 'liuchengxu/vista.vim'
 Plug 'mg979/vim-visual-multi'
-Plug 'Yggdroot/indentLine'
+Plug 'nathanaelkane/vim-indent-guides'
 Plug 'wellle/tmux-complete.vim'
 Plug 'vimwiki/vimwiki'
 Plug 'scrooloose/nerdtree'
 Plug 'mbbill/undotree', { 'on': 'UndotreeToggle' }
 Plug 'alvan/vim-closetag', { 'for': 'html' }
-Plug 'gavocanov/vim-js-indent', { 'for': 'javascript' }
 Plug 'junegunn/fzf.vim'
-Plug 'junegunn/goyo.vim'
+Plug 'TaDaa/vimade'
 Plug 'editorconfig/editorconfig-vim'
 Plug 'tpope/vim-fugitive'
-Plug '2072/PHP-Indenting-for-VIm', { 'for': 'php' }
 Plug 'romainl/vim-devdocs'
 if has('nvim') || v:version > 800
   if !exists("g:gui_oni")
@@ -68,20 +62,16 @@ if !exists('g:gui_oni')
     Plug 'othree/csscomplete.vim', { 'for': 'css' }
 endif
 Plug 'dominikduda/vim_current_word'
-Plug 'morhetz/gruvbox'
 Plug 'mhartington/oceanic-next'
-Plug 'mhinz/vim-signify'
 if !has('nvim')
     Plug 'xtal8/traces.vim'
 endif
 Plug 'ntpeters/vim-better-whitespace'
 Plug 'fatih/vim-go', { 'for': 'go' }
 Plug 'airblade/vim-rooter'
-Plug 'rlue/vim-getting-things-down'
 Plug 'cdata/vim-tagged-template'
 Plug 'metakirby5/codi.vim'
 Plug 'janko/vim-test'
-Plug 'josa42/coc-docker', { 'do': 'yarn install --frozen-lockfile' }
 
 call plug#end()
 " }}}
@@ -421,10 +411,11 @@ let g:coc_global_extensions = [
   \ 'coc-lua',
   \ 'coc-vimlsp',
   \ 'coc-stylelint',
-  \ 'coc-tslint-plugin',
   \ 'coc-import-cost',
   \ 'coc-git',
-  \ 'coc-diagnostic'
+  \ 'coc-diagnostic',
+  \ 'coc-docker',
+  \ 'coc-marketplace'
 \ ]
 
 function! s:show_documentation()
@@ -456,11 +447,6 @@ let wiki.nested_syntaxes = {'javascript': 'javascript', 'sh': 'sh', 'python': 'p
 " }}}
 " closetag {{{
 let g:closetag_filenames = "*.html,*.xhtml,*.phtml"
-" }}}
-" css complete {{{
-augroup CssSetup
-  autocmd FileType css set omnifunc=csscomplete#CompleteCSS noci
-augroup END
 " }}}
 " vim current word {{{
 let g:vim_current_word#highlight_current_word = 0
@@ -537,16 +523,19 @@ let g:rooter_patterns = ['.git/']
 " notational-fzf-vim {{{
 let g:nv_search_paths = ['~/Dropbox/vimwiki']
 " }}}
-" vim-diminactive {{{
-hi ColorColumn guibg=#111c22
+" vim-indent-guides {{{
+let g:indent_guides_enable_on_vim_startup=1
+let g:indent_guides_guide_size=1
+let g:indent_guides_start_level=3
 " }}}
 " editorconfig-vim {{{
 let g:EditorConfig_exclude_patterns = ['fugitive://.\*', 'scp://.\*']
 " }}}
-" }}}
 " vim-rest-console {{{
 let g:vrc_set_default_mapping = 0
+let g:vrc_horizontal_split = 1
 nnoremap <leader>re :call VrcQuery()<CR>
+" }}}
 " }}}
 " projectionist {{{
 let g:projectionist_heuristics = {
