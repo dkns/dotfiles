@@ -10,6 +10,7 @@
   "diagnostic.virtualText": true,
   "diagnostic.virtualTextPrefix": ">> ",
   "diagnostic.displayByAle": false,
+  "diagnostic.virtualTextLineSeparator": " \\ ",
   "python.jediEnabled": false,
   "codeLens.enable": true,
   "suggest.noselect": true,
