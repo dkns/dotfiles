@@ -415,7 +415,8 @@ let g:coc_global_extensions = [
   \ 'coc-git',
   \ 'coc-diagnostic',
   \ 'coc-docker',
-  \ 'coc-marketplace'
+  \ 'coc-marketplace',
+  \ 'coc-project'
 \ ]
 
 function! s:show_documentation()
