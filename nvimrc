@@ -32,6 +32,8 @@ Plug 'tpope/vim-rsi'
 Plug 'tpope/vim-eunuch'
 Plug 'tpope/vim-dispatch'
 Plug 'inside/vim-search-pulse'
+Plug 'kizza/ask-vscode.nvim'
+Plug 'kizza/actionmenu.nvim'
 Plug 'alok/notational-fzf-vim'
 Plug 'heavenshell/vim-jsdoc', { 'for': ['typescript', 'javascript', 'javascript.jsx'] }
 Plug 'rhysd/git-messenger.vim'
@@ -390,7 +392,17 @@ nmap <silent> <leader>cr <Plug>(coc-references)
 nnoremap <silent> <leader>K :call <SID>show_documentation()<CR>
 " Remap for rename current word
 nmap <leader>rn <Plug>(coc-rename)
-nmap <leader>pl :CocList project<CR>
+nmap <leader>cpl :CocList project<CR>
+" Show all diagnostics
+nnoremap <silent> <space>cld  :<C-u>CocList diagnostics<cr>
+" Manage extensions
+nnoremap <silent> <space>cle  :<C-u>CocList extensions<cr>
+" Show commands
+nnoremap <silent> <space>clc  :<C-u>CocList commands<cr>
+" Find symbol of current document
+nnoremap <silent> <space>clo  :<C-u>CocList outline<cr>
+" Search workspace symbols
+nnoremap <silent> <space>cls  :<C-u>CocList -I symbols<cr>
 
 let g:coc_global_extensions = [
   \ 'coc-css',
@@ -524,6 +536,24 @@ let g:indent_guides_start_level=3
 " }}}
 " editorconfig-vim {{{
 let g:EditorConfig_exclude_patterns = ['fugitive://.\*', 'scp://.\*']
+" }}}
+" actionmenu.nvim {{{
+let s:code_actions = []
+
+func! ActionMenuCodeActions() abort
+  let s:code_actions = CocAction('codeActions')
+  let l:menu_items = map(copy(s:code_actions), { index, item -> item['title'] })
+  call actionmenu#open(l:menu_items, 'ActionMenuCodeActionsCallback')
+endfunc
+
+func! ActionMenuCodeActionsCallback(index, item) abort
+  if a:index >= 0
+    let l:selected_code_action = s:code_actions[a:index]
+    let l:response = CocAction('doCodeAction', l:selected_code_action)
+  endif
+endfunc
+
+nnoremap <silent> <Leader>ac :call ActionMenuCodeActions()<CR>
 " }}}
 " vim-rest-console {{{
 let g:vrc_set_default_mapping = 0
