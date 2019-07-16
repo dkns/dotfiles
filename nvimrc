@@ -537,6 +537,30 @@ let g:indent_guides_start_level=3
 " editorconfig-vim {{{
 let g:EditorConfig_exclude_patterns = ['fugitive://.\*', 'scp://.\*']
 " }}}
+" lightline {{{
+let g:lightline = {
+      \ 'active': {
+      \   'left': [
+      \     [ 'mode', 'paste' ],
+      \     [ 'git', 'cocstatus', 'readonly', 'filename', 'modified' ]
+      \   ],
+      \   'right':[
+      \     [ 'filetype', 'fileencoding', 'lineinfo', 'percent' ],
+      \     [ 'blame' ]
+      \   ],
+      \ },
+      \ 'component_function': {
+      \   'blame': 'LightlineGitBlame',
+      \   'cocstatus': 'coc#status'
+      \ }
+      \ }
+
+function! LightlineGitBlame() abort
+  let blame = get(b:, 'coc_git_blame', '')
+  " return blame
+  return winwidth(0) > 120 ? blame : ''
+endfunction
+" }}}
 " actionmenu.nvim {{{
 let s:code_actions = []
 
