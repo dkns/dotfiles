@@ -502,13 +502,6 @@ autocmd  FileType fzf set laststatus=0 noshowmode noruler
 
 command! -bang Commits call fzf#vim#commits({'options': '--preview'}, <bang>0)
 
-if executable('rg')
-  nnoremap <leader>fw :Rg <C-R><C-W><CR>
-  command! -bang -nargs=* Rg
-        \ call fzf#vim#grep('rg --line-number --ignore-case --fixed-strings --glob "!.git/*" --color "always"
-        \ '.shellescape(<q-args>), 1, <bang>0)
-endif
-
 if !executable('rg')
   nnoremap <leader>fw :Gg <C-R><C-W><CR>
 endif
