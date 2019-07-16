@@ -603,6 +603,9 @@ let g:projectionist_heuristics = {
 \ }
 " }}}
 " Languages {{{
+augroup customfiletypes
+  au BufRead,BufNewFile .env set filetype=conf
+augroup END
 " PHP {{{
 let php_sql_query = 1
 let php_htmlInStrings = 1
