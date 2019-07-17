@@ -41,7 +41,6 @@ Plug 'wakatime/vim-wakatime'
 Plug 'sheerun/vim-polyglot'
 Plug 'liuchengxu/vista.vim'
 Plug 'mg979/vim-visual-multi'
-Plug 'nathanaelkane/vim-indent-guides'
 Plug 'wellle/tmux-complete.vim'
 Plug 'vimwiki/vimwiki'
 Plug 'scrooloose/nerdtree'
@@ -461,6 +460,9 @@ let wiki.nested_syntaxes = {'javascript': 'javascript', 'sh': 'sh', 'python': 'p
 " closetag {{{
 let g:closetag_filenames = "*.html,*.xhtml,*.phtml"
 " }}}
+" ALE {{{
+let g:ale_set_signs = 0
+" }}}
 " vim current word {{{
 let g:vim_current_word#highlight_current_word = 0
 " }}}
@@ -528,11 +530,6 @@ let g:rooter_patterns = ['.git/']
 " }}}
 " notational-fzf-vim {{{
 let g:nv_search_paths = ['~/Dropbox/vimwiki']
-" }}}
-" vim-indent-guides {{{
-let g:indent_guides_enable_on_vim_startup=1
-let g:indent_guides_guide_size=1
-let g:indent_guides_start_level=3
 " }}}
 " editorconfig-vim {{{
 let g:EditorConfig_exclude_patterns = ['fugitive://.\*', 'scp://.\*']
