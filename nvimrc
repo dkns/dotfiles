@@ -467,35 +467,6 @@ let g:ale_set_signs = 0
 " vim current word {{{
 let g:vim_current_word#highlight_current_word = 0
 " }}}
-" signify {{{
-let g:signify_vcs_list = ['git']
-let g:signify_sign_add = '┃'
-let g:signify_sign_delete = '┃'
-let g:signify_sign_change = '┃'
-let g:signfiy_realtime = 1
-
-function! SignifyDiffCount()
-  let symbols = ['+', '-', '~']
-  let [added, modified, removed] = sy#repo#get_stats()
-  let stats = [added, removed, modified]  " reorder
-  let hunkline = ''
-
-  for i in range(3)
-    if stats[i] > 0
-      let hunkline .= printf('%s%s ', symbols[i], stats[i])
-    endif
-  endfor
-
-  if !empty(hunkline)
-    let hunkline = printf('[%s]', hunkline[:-2])
-  endif
-
-  return hunkline
-endfunction
-" }}}
-" ALE {{{
-"let g:ale_virtualtext_cursor = 1
-" }}}
 " fzf {{{
 " use fzf as fuzzy search
 set rtp+=~/.fzf
