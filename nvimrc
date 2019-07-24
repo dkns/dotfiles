@@ -22,6 +22,7 @@ Plug 'sickill/vim-pasta'
 Plug 'neoclide/coc.nvim', {'tag': '*'}
 Plug 'meain/vim-package-info', { 'do': 'npm install' }
 Plug 'diepm/vim-rest-console'
+Plug 'junegunn/goyo.vim'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-sleuth'
 Plug 'tpope/vim-projectionist'
