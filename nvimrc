@@ -164,6 +164,9 @@ set cmdheight=2
 set splitright
 set splitbelow
 
+set fillchars=vert:┃ " for vsplits
+set fillchars+=fold:· " for folds
+
 "Don't display warning about found swap file
 set shortmess+=A
 
@@ -286,6 +289,11 @@ augroup PlaintextFiles
   autocmd!
   autocmd FileType vim-plug,docker-tools set nonumber norelativenumber
 augroup END
+
+if has('nvim-0.3.2') || has("patch-8.1.0360")
+  " better diff algorithm
+  set diffopt=filler,internal,algorithm:histogram,indent-heuristic
+endif
 
 " }}}
 " Keybinds {{{
