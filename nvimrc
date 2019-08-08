@@ -165,6 +165,8 @@ set splitright
 set splitbelow
 
 set fillchars=vert:┃ " for vsplits
+set fillchars+=fold:· " for folds
+
 "Don't display warning about found swap file
 set shortmess+=A
 
