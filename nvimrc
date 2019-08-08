@@ -164,6 +164,7 @@ set cmdheight=2
 set splitright
 set splitbelow
 
+set fillchars=vert:┃ " for vsplits
 "Don't display warning about found swap file
 set shortmess+=A
 
