@@ -474,6 +474,15 @@ let g:closetag_filenames = "*.html,*.xhtml,*.phtml"
 " ALE {{{
 let g:ale_set_signs = 0
 " }}}
+" vim-test {{{
+if has('nvim')
+  let test#strategy = "neovim"
+endif
+nnoremap <leader>ts :TestSuite<CR>
+nnoremap <leader>tf :TestFile<CR>
+nnoremap <leader>tn :TestNearest<CR>
+nnoremap <leader>tl :TestLast<CR>
+" }}}
 " vim current word {{{
 let g:vim_current_word#highlight_current_word = 0
 " }}}
