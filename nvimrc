@@ -438,7 +438,8 @@ let g:coc_global_extensions = [
   \ 'coc-docker',
   \ 'coc-marketplace',
   \ 'coc-project',
-  \ 'coc-sh'
+  \ 'coc-sh',
+  \ 'coc-tabnine'
 \ ]
 
 function! s:show_documentation()
