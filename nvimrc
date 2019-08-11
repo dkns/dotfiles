@@ -528,6 +528,7 @@ let g:EditorConfig_exclude_patterns = ['fugitive://.\*', 'scp://.\*']
 " }}}
 " lightline {{{
 let g:lightline = {
+      \ 'colorscheme': 'oceanicnext',
       \ 'active': {
       \   'left': [
       \     [ 'mode', 'paste' ],
@@ -543,6 +544,7 @@ let g:lightline = {
       \   'cocstatus': 'coc#status'
       \ }
       \ }
+
 
 function! LightlineGitBlame() abort
   let blame = get(b:, 'coc_git_blame', '')
