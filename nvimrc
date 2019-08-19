@@ -392,6 +392,13 @@ endif
 " coc.nvim {{{
 nmap <silent> [c <Plug>(coc-diagnostic-prev)
 nmap <silent> ]c <Plug>(coc-diagnostic-next)
+" navigate chunks
+nmap [g <Plug>(coc-git-prevchunk)
+nmap ]g <Plug>(coc-git-nextchunk)
+" show chunk diff at current position
+nmap <leader>cgd <Plug>(coc-git-chunkinfo)
+" show blame for current line
+nmap <leader>cgc <Plug>(coc-git-commit)
 " Remap keys for gotos
 nmap <silent> <leader>cd <Plug>(coc-definition)
 nmap <silent> <leader>ctd <Plug>(coc-type-definition)

@@ -38,6 +38,7 @@
   "importCost.typescriptExtensions": [
     "\\.tsx?$"
   ],
+  "emmet.showExpandedAbbreviation": "always",
   "git.enableGutters": true,
   "git.addGlameToVirtualText": false,
   "git.addedSign.text": "┃",
