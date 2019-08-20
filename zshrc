@@ -263,6 +263,7 @@ alias churn="git log --all -M -C --name-only --format='format:' "$@" | sort | gr
 alias changelog='_get_changelog'
 alias ww="nvim -c ':NV'"
 alias history="history -i"
+alias docui="docker run --rm -itv /var/run/docker.sock:/var/run/docker.sock skanehira/docui"
 
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
