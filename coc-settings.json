@@ -16,7 +16,7 @@
   "diagnostic.infoSign": "●",
   "diagnostic.hintSign": "?",
   "python.jediEnabled": false,
-  "codeLens.enable": true,
+  "codeLens.enable": false,
   "suggest.noselect": true,
   "list.nextKeymap": "<C-n>",
   "list.previousKeymap": "<C-p>",
