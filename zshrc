@@ -236,6 +236,10 @@ ftmk() {
   session=$(tmux list-sessions -F "#{session_name}" 2>/dev/null | fzf --exit-0) &&  tmux kill-session -t "$session" || echo "No session found to delete."
 }
 
+take_screenshot() {
+  scrot -s '/tmp/%F_%T_$wx$h.png' -e 'xclip -selection clipboard -target image/png -i $f'
+}
+
 ################################################################################
 # aliases
 ################################################################################
@@ -254,7 +258,7 @@ alias rsync="rsync -v --info=progress2"
 alias grep="grep --color=auto"
 alias chmod='chmod --preserve-root -v'
 alias chown='chown --preserve-root -v'
-alias screenshot="scrot -s '/tmp/%F_%T_$wx$h.png' -e 'xclip -selection clipboard -target image/png -i $f'"
+alias screenshot="take_screenshot"
 alias pogoda='curl -s wttr.in/Szczecin'
 alias tmx='_tmux'
 alias dcssh='_dcssh'
