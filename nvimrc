@@ -16,6 +16,7 @@ endif
 Plug 'kkvh/vim-docker-tools'
 Plug 'itchyny/lightline.vim'
 Plug 'cohama/lexima.vim'
+Plug 'https://gitlab.com/code-stats/code-stats-vim.git'
 Plug 'junegunn/vim-plug'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': 'yes \| ./install' }
 Plug 'sickill/vim-pasta'
@@ -580,6 +581,9 @@ nnoremap <silent> <Leader>ac :call ActionMenuCodeActions()<CR>
 let g:vrc_set_default_mapping = 0
 let g:vrc_horizontal_split = 1
 nnoremap <leader>re :call VrcQuery()<CR>
+" }}}
+" {{{ code-stats-vim
+let g:codestats_api_key = 'SFMyNTY.Wkd0dWN3PT0jI05qWXlPQT09.RyIB_9tEmw2WImkKtn83Ifco5-XSbVMMdgexHy6G5YQ'
 " }}}
 " }}}
 " projectionist {{{
