@@ -66,6 +66,7 @@ if !exists('g:gui_oni')
     Plug 'othree/csscomplete.vim', { 'for': 'css' }
 endif
 Plug 'dominikduda/vim_current_word'
+Plug 'dominikduda/vim_yank_with_context'
 Plug 'mhartington/oceanic-next'
 if !has('nvim')
     Plug 'xtal8/traces.vim'
