@@ -324,7 +324,7 @@ noremap <down>  <C-W>-
 noremap <left>  3<C-W><
 noremap <right> 3<C-W>>
 " (c)opy (e)verything to clipboard
-nnoremap <leader>ce mmgg"+yG`m
+nnoremap <leader>ce :%y<CR>
 " save read only file
 cnoremap w!! w !sudo tee % >/dev/null
 " I've had enough
