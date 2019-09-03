@@ -13,6 +13,7 @@ Plug 'Valloric/python-indent', { 'for': 'python' }
 if !empty($TMUX)
   Plug 'christoomey/vim-tmux-navigator'
 endif
+Plug 'thaerkh/vim-indentguides'
 Plug 'kkvh/vim-docker-tools'
 Plug 'cohama/lexima.vim'
 Plug 'https://gitlab.com/code-stats/code-stats-vim.git'
@@ -610,6 +611,10 @@ nnoremap <leader>re :call VrcQuery()<CR>
 " }}}
 " {{{ code-stats-vim
 let g:codestats_api_key = 'SFMyNTY.Wkd0dWN3PT0jI05qWXlPQT09.RyIB_9tEmw2WImkKtn83Ifco5-XSbVMMdgexHy6G5YQ'
+" }}}
+" {{{ indentguides
+let g:indentguides_tabchar = '▏'
+let g:indentguides_spacechar = '▏'
 " }}}
 " }}}
 " projectionist {{{
