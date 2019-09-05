@@ -13,6 +13,7 @@ Plug 'Valloric/python-indent', { 'for': 'python' }
 if !empty($TMUX)
   Plug 'christoomey/vim-tmux-navigator'
 endif
+Plug 'reedes/vim-colors-pencil'
 Plug 'thaerkh/vim-indentguides'
 Plug 'kkvh/vim-docker-tools'
 Plug 'cohama/lexima.vim'
@@ -117,7 +118,7 @@ endif
 if has('nvim')
   set termguicolors
 endif
-colorscheme OceanicNext
+colorscheme pencil
 set t_co=
 
 " copy the previous indentation on autoindenting
