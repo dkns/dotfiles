@@ -451,7 +451,8 @@ let g:coc_global_extensions = [
   \ 'coc-sh',
   \ 'coc-tabnine',
   \ 'coc-lit-html',
-  \ 'coc-angular'
+  \ 'coc-angular',
+  \ 'coc-explorer'
 \ ]
 
 function! s:show_documentation()
