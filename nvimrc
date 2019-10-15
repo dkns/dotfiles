@@ -50,6 +50,7 @@ Plug 'vimwiki/vimwiki'
 Plug 'scrooloose/nerdtree'
 Plug 'mbbill/undotree', { 'on': 'UndotreeToggle' }
 Plug 'alvan/vim-closetag', { 'for': 'html' }
+Plug 'nanotech/jellybeans.vim'
 Plug 'junegunn/fzf.vim'
 Plug 'TaDaa/vimade'
 Plug 'editorconfig/editorconfig-vim'
@@ -118,7 +119,7 @@ endif
 if has('nvim')
   set termguicolors
 endif
-colorscheme pencil
+colorscheme jellybeans
 set t_co=
 
 " copy the previous indentation on autoindenting
