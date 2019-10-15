@@ -446,7 +446,6 @@ let g:coc_global_extensions = [
   \ 'coc-marketplace',
   \ 'coc-project',
   \ 'coc-sh',
-  \ 'coc-tabnine',
   \ 'coc-lit-html',
   \ 'coc-angular',
   \ 'coc-explorer'
