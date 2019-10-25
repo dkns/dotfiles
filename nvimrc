@@ -38,7 +38,9 @@ Plug 'tpope/vim-dispatch'
 Plug 'inside/vim-search-pulse'
 Plug 'kizza/ask-vscode.nvim'
 Plug 'kizza/actionmenu.nvim'
-Plug 'alok/notational-fzf-vim'
+if (executable('rg') == 1)
+  Plug 'alok/notational-fzf-vim'
+endif
 Plug 'heavenshell/vim-jsdoc', { 'for': ['typescript', 'javascript', 'javascript.jsx'] }
 Plug 'rhysd/git-messenger.vim'
 Plug 'wakatime/vim-wakatime'
