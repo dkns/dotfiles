@@ -48,7 +48,9 @@ Plug 'sheerun/vim-polyglot'
 Plug 'liuchengxu/vista.vim'
 Plug 'mg979/vim-visual-multi'
 Plug 'wellle/tmux-complete.vim'
-Plug 'vimwiki/vimwiki'
+if !empty(glob('~/Dropbox/vimwiki'))
+    Plug 'vimwiki/vimwiki'
+endif
 Plug 'scrooloose/nerdtree'
 Plug 'mbbill/undotree', { 'on': 'UndotreeToggle' }
 Plug 'alvan/vim-closetag', { 'for': 'html' }
