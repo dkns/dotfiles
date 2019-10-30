@@ -68,7 +68,9 @@ Plug 'sheerun/vim-polyglot'
 Plug 'liuchengxu/vista.vim'
 Plug 'mg979/vim-visual-multi'
 Plug 'wellle/tmux-complete.vim'
-Plug 'vimwiki/vimwiki'
+if !empty(glob('~/Dropbox/vimwiki'))
+    Plug 'vimwiki/vimwiki'
+endif
 Plug 'scrooloose/nerdtree'
 Plug 'mbbill/undotree', { 'on': 'UndotreeToggle' }
 Plug 'alvan/vim-closetag', { 'for': 'html' }
@@ -79,16 +81,12 @@ Plug 'editorconfig/editorconfig-vim'
 Plug 'tpope/vim-fugitive'
 Plug 'romainl/vim-devdocs'
 if has('nvim') || v:version > 800
-  if !exists("g:gui_oni")
-    Plug 'w0rp/ale'
-  endif
+  Plug 'w0rp/ale'
   Plug 'romainl/vim-cool'
   Plug 'machakann/vim-highlightedyank'
   Plug 'fcpg/vim-showmap'
 endif
-if !exists('g:gui_oni')
-    Plug 'othree/csscomplete.vim', { 'for': 'css' }
-endif
+Plug 'othree/csscomplete.vim', { 'for': 'css' }
 Plug 'dominikduda/vim_current_word'
 Plug 'dominikduda/vim_yank_with_context'
 Plug 'mhartington/oceanic-next'
