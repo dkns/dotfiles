@@ -56,8 +56,10 @@ Plug 'tpope/vim-rsi'
 Plug 'tpope/vim-eunuch'
 Plug 'tpope/vim-dispatch'
 Plug 'inside/vim-search-pulse'
-Plug 'kizza/ask-vscode.nvim'
-Plug 'kizza/actionmenu.nvim'
+if has('nvim')
+  Plug 'kizza/ask-vscode.nvim'
+  Plug 'kizza/actionmenu.nvim'
+endif
 if (executable('rg') == 1)
   Plug 'alok/notational-fzf-vim'
 endif
