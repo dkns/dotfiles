@@ -76,7 +76,9 @@ Plug 'mbbill/undotree', { 'on': 'UndotreeToggle' }
 Plug 'alvan/vim-closetag', { 'for': 'html' }
 Plug 'nanotech/jellybeans.vim'
 Plug 'junegunn/fzf.vim'
-Plug 'TaDaa/vimade'
+if has('python3') == 1
+  Plug 'TaDaa/vimade'
+endif
 Plug 'editorconfig/editorconfig-vim'
 Plug 'tpope/vim-fugitive'
 Plug 'romainl/vim-devdocs'
