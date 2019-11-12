@@ -4,13 +4,23 @@
 
 (setq load-prefer-newer t)
 
-(require 'package)
 (setq package-enable-at-startup nil)
-(add-to-list 'package-archives
-             '("melpa" . "https://melpa.org/packages/")
-             )
 
-(package-initialize)
+(defvar bootstrap-version)
+(let ((bootstrap-file
+       (expand-file-name "straight/repos/straight.el/bootstrap.el" user-emacs-directory))
+      (bootstrap-version 5))
+  (unless (file-exists-p bootstrap-file)
+    (with-current-buffer
+        (url-retrieve-synchronously
+         "https://raw.githubusercontent.com/raxod502/straight.el/develop/install.el"
+         'silent 'inhibit-cookies)
+      (goto-char (point-max))
+      (eval-print-last-sexp)))
+  (load bootstrap-file nil 'nomessage))
+
+(straight-use-package 'use-package)
+(setq straight-use-package-by-default t)
 
 (defvar dkns/emacs-dir (eval-when-compile (file-truename user-emacs-directory))
   "Path to this emacs.d directory.")
@@ -22,18 +32,10 @@ Use this for files that change often, like cache files.")
 (setq custom-file (concat dkns/cache-dir "/custom.el"))
 (setq vc-follow-symlinks nil)
 
-;; Bootstrap `use-package'
-(unless (package-installed-p 'use-package)
-  (package-refresh-contents)
-  (package-install 'use-package))
-
 ;; basic config stuff
 (setq-default indent-tabs-mode nil) ;; don't use spaces
 (global-auto-revert-mode t) ;; automatically refresh buffers when file changes
 (setq linum-format "%d ")
-
-(eval-when-compile
-  (require 'use-package))
 
 (require 'bind-key)
 
@@ -106,17 +108,9 @@ Use this for files that change often, like cache files.")
   (find-file "/home/daniel/dotfiles/emacs/init.el")
   )
 
-; ;; packages
-; (use-package use-package
-;  :custom
-;  (use-package-verbose t)
-;  (use-package-always-ensure t)
-;  (use-package-always-defer t))
-
 (setq exec-path (append exec-path '("~/.nvm/versions/node/v10.14.2/bin")))
 
 (use-package evil
-  :ensure t
   :init
   (with-eval-after-load 'evil
     (defalias #'forward-evil-word #'forward-evil-symbol)) ;; treat _ and - as part of words
@@ -133,7 +127,6 @@ Use this for files that change often, like cache files.")
   )
 
 (use-package evil-leader
-  :ensure t
   :after evil
   :config
   (evil-leader/set-key "v" 'dkns/open-window-vertically)
@@ -150,17 +143,14 @@ Use this for files that change often, like cache files.")
 
 (use-package evil-collection
   :after evil
-  :ensure t
   :config
   (evil-collection-init))
 
 (use-package evil-magit
-  :ensure t
   :after evil
   )
 
 (use-package php-mode
-  :ensure t
   :defer t
   :config
   (progn
@@ -168,7 +158,6 @@ Use this for files that change often, like cache files.")
   )
 
 (use-package js2-mode
-  :ensure t
   :defer t
   :config
   (progn
@@ -176,61 +165,51 @@ Use this for files that change often, like cache files.")
   )
 
 (use-package org
-  :ensure t
   :defer t
   )
 
 (use-package flycheck
-  :ensure t
   :config
   (add-hook 'prog-mode-hook 'flycheck-mode)
   )
 
 (use-package which-func
-  :ensure t
   :config
   (add-hook 'prog-mode-hook 'which-function-mode)
   )
 
 (use-package which-key
-  :ensure t
   :config
   (require 'which-key)
   (which-key-mode)
   )
 
 (use-package auto-compile
-  :ensure t
   :config
   (auto-compile-on-load-mode)
   (auto-compile-on-save-mode))
 
 (use-package evil-escape
-  :ensure t
   :config
   (setq-default evil-escape-key-sequence "ESCESC")
   )
 
 (use-package magit
-  :ensure t
   :bind
   (:map evil-normal-state-map ("<SPC> g s" . magit-status))
   )
 
 (use-package evil-commentary
-  :ensure t
   :config
   (evil-commentary-mode)
   )
 
 (use-package evil-surround
-  :ensure t
   :config
   (global-evil-surround-mode 1)
   )
 
 (use-package volatile-highlights
-  :ensure t
   :after 'evil
   :init
   (volatile-highlights-mode t)
@@ -241,7 +220,6 @@ Use this for files that change often, like cache files.")
   )
 
 (use-package web-mode
-  :ensure t
   :config
     (add-to-list 'auto-mode-alist '("\\.phtml\\'" . web-mode))
     (add-to-list 'auto-mode-alist '("\\.tpl\\.php\\'" . web-mode))
@@ -256,7 +234,6 @@ Use this for files that change often, like cache files.")
   )
 
 (use-package adaptive-wrap
-  :ensure t
   :config
   (with-eval-after-load 'adaptive-wrap
   (setq-default adaptive-wrap-extra-indent 2))
@@ -269,20 +246,13 @@ Use this for files that change often, like cache files.")
   (global-visual-line-mode +1)
   )
 
-(use-package jinja2-mode
-  :ensure t
-  )
+(use-package jinja2-mode)
 
-(use-package fzf
-  :ensure t
-  )
+(use-package fzf)
 
-(use-package indium
-  :ensure t
-  )
+(use-package indium)
 
 (use-package company
-  :ensure t
   :diminish company-mode
   :init
   (setq company-idle-delay 0.1)
@@ -307,7 +277,6 @@ Use this for files that change often, like cache files.")
   )
 
 (use-package projectile
-  :ensure t
   :defer t
   :after (evil)
   :config
@@ -316,75 +285,76 @@ Use this for files that change often, like cache files.")
   )
 
 (use-package git-gutter
-  :ensure t
   :diminish git-gutter-mode
   :init
   (global-git-gutter-mode)
 
   :config
-  (use-package git-gutter-fringe
-    :ensure t))
+  (use-package git-gutter-fringe)
+  )
 
 (use-package lsp-mode
   :commands lsp
-  :ensure t
   :config
   (require 'lsp-clients)
   (setq lsp-prefer-flymake nil)
   (add-hook 'prog-mode-hook #'lsp)
   )
 
-(use-package typescript-mode
-  :ensure t)
+(use-package typescript-mode)
 
 (use-package lsp-ui
-  :ensure t
   :custom
   (lsp-ui-doc-position 'bottom)
   (lsp-ui-sideline-enable t)
   (lsp-ui-peek-peek-height 5))
 
+(use-package powershell
+  :straight (powershell
+             :host github
+             :repo "jschaf/powershell.el")
+  :config
+  (add-to-list 'auto-mode-alist '("\\.ps1\\'" . powershell-mode))
+  )
+
+(use-package lsp-pwsh
+  :straight (lsp-pwsh
+             :host github
+             :repo "kiennq/lsp-powershell")
+  :hook (powershell-mode . (lambda () (require 'lsp-pwsh) (lsp)))
+  :defer t)
+
 (use-package company-lsp
-    :ensure t
     :commands company-lsp
     :config
     (push 'company-lsp company-backends))
 
-(use-package yaml-mode
-  :ensure t
-  )
+(use-package yaml-mode)
 
 (use-package dtrt-indent
-  :ensure t
   :diminish dtrt-indent-mode
   :config
   (dtrt-indent-global-mode)
   )
 
 (use-package exec-path-from-shell
-  :ensure t
   :config
   (when (memq window-system '(mac ns x))
   (exec-path-from-shell-initialize))
   )
 
-(use-package dockerfile-mode
-  :ensure t
-  )
+(use-package dockerfile-mode)
 
-(use-package docker-compose-mode
-  :ensure t)
+(use-package docker-compose-mode)
 
-(use-package docker-tramp
-  :ensure t)
+(use-package docker-tramp)
 
 (use-package oceanic-theme
   :config
   (load-theme 'oceanic t)
-  :ensure t)
+  )
 
 (use-package dap-mode
-  :ensure t
   :config
   (dap-mode 1)
   (dap-ui-mode 1)
@@ -394,7 +364,6 @@ Use this for files that change often, like cache files.")
   )
 
 (use-package helm
-  :ensure t
   :diminish helm-mode
   :bind
   (:map evil-normal-state-map ("<SPC> b" . 'helm-buffer-list))
@@ -406,23 +375,18 @@ Use this for files that change often, like cache files.")
   )
 
 (use-package helm-projectile
-  :ensure t
   :config
   (global-set-key (kbd "C-S-p") 'helm-projectile-switch-project)
   (global-set-key (kbd "C-p") 'helm-projectil-find-file)
   )
 
 (use-package helm-dash
-  :ensure t
   :after helm)
 
-(use-package diminish
-  :ensure t)
+(use-package diminish)
 
 (when (not (version< emacs-version "25.2"))
-  (use-package treemacs
-    :ensure t
-    )
+  (use-package treemacs)
   )
 
 (provide 'init)
