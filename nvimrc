@@ -42,7 +42,9 @@ Plug 'junegunn/vim-plug'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': 'yes \| ./install' }
 Plug 'sickill/vim-pasta'
 Plug 'neoclide/coc.nvim', {'tag': '*'}
-Plug 'meain/vim-package-info', { 'do': 'npm install' }
+if has('nvim')
+  Plug 'meain/vim-package-info', { 'do': 'npm install' }
+endif
 Plug 'diepm/vim-rest-console'
 Plug 'junegunn/goyo.vim'
 Plug 'dyng/ctrlsf.vim'
