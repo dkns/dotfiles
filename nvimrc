@@ -1,25 +1,6 @@
 " vim:foldmethod=marker
 
-if has('win32')
-  set shell=powershell.exe
-  "set shellcmdflag=-NoProfile\ -NoLogo\ -NonInteractive\ -Command
-  set shellpipe=|
-  set shellredir=>
-
-  if has('nvim')
-    if empty(glob('~\AppData\Local\nvim\autoload\plug.vim'))
-      silent !md ~\AppData\Local\nvim\autoload
-      silent !(New-Object Net.WebClient).DownloadFile('https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim', $ExecutionContext.SessionState.Path.GetUnresolvedProviderPathFromPSPath("~\AppData\Local\nvim\autoload\plug.vim"))
-    endif
-  endif
-
-  if empty(glob('~\vimfiles\autoload'))
-    silent !md ~\AppData\Local\nvim\autoload
-    silent !(New-Object Net.WebClient).DownloadFile('https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim', $ExecutionContext.SessionState.Path.GetUnresolvedProviderPathFromPSPath("~\vimfiles\autoload\plug.vim"))
-  endif
-endif
-
-if empty(glob('~/.config/nvim/autoload/plug.vim'))
+if empty(glob('~/.config/nvim/autoload/plug.vim')) && has('unix')
   silent !curl -fLo ~/.config/nvim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 endif
 
