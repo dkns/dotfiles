@@ -112,6 +112,7 @@ syntax enable
 
 " remove gui
 if has('gui')
+  set guifont=Iosevka:h10
   set guioptions-=m
   set guioptions-=T
   set guioptions-=r
