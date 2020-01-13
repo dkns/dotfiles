@@ -14,6 +14,7 @@ Plug 'Valloric/python-indent', { 'for': 'python' }
 if !empty($TMUX)
   Plug 'christoomey/vim-tmux-navigator'
 endif
+Plug 'glacambre/firenvim', { 'do': { _ -> firenvim#install(0) } }
 Plug 'reedes/vim-colors-pencil'
 Plug 'thaerkh/vim-indentguides'
 Plug 'kkvh/vim-docker-tools'
