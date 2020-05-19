@@ -16,6 +16,7 @@ if !empty($TMUX)
 endif
 Plug 'glacambre/firenvim', { 'do': { _ -> firenvim#install(0) } }
 Plug 'reedes/vim-colors-pencil'
+Plug 'puremourning/vimspector'
 Plug 'axelf4/vim-strip-trailing-whitespace'
 Plug 'thaerkh/vim-indentguides'
 Plug 'kkvh/vim-docker-tools'
