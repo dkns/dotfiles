@@ -24,6 +24,7 @@ Plug 'cohama/lexima.vim'
 Plug 'https://gitlab.com/code-stats/code-stats-vim.git'
 Plug 'junegunn/vim-plug'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': 'yes \| ./install' }
+Plug 'hzchirs/vim-material'
 Plug 'sickill/vim-pasta'
 Plug 'neoclide/coc.nvim', {'tag': '*'}
 if has('nvim')
@@ -130,7 +131,8 @@ endif
 if has('nvim')
   set termguicolors
 endif
-colorscheme jellybeans
+set background=dark
+colorscheme vim-material
 set t_co=
 
 " copy the previous indentation on autoindenting
