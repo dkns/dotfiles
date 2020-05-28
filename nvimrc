@@ -44,6 +44,7 @@ Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-rsi'
 Plug 'tpope/vim-eunuch'
 Plug 'tpope/vim-dispatch'
+Plug 'AndrewRadev/linediff.vim'
 Plug 'inside/vim-search-pulse'
 if has('nvim')
   Plug 'kizza/ask-vscode.nvim'
