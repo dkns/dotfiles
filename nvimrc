@@ -231,7 +231,9 @@ set lazyredraw
 
 set showmatch " show matching brackets
 set matchtime=2 " reduce blinking time
-set list listchars=tab:»•,trail:•,extends:>,precedes:<
+set list
+set listchars=tab:»•,trail:•,extends:>,precedes:<
+set listchars+=eol:↴
 
 " Yank to clipboard
 set clipboard+=unnamedplus,unnamed
