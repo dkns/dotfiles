@@ -40,7 +40,7 @@
   ],
   "emmet.showExpandedAbbreviation": "always",
   "git.enableGutters": true,
-  "git.addGlameToVirtualText": false,
+  "git.addGBlameToVirtualText": false,
   "git.addedSign.text": "┃",
   "git.changedSign.text": "┃",
   "git.removedSign.text": "◢",
