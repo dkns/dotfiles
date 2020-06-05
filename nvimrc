@@ -552,55 +552,17 @@ let g:nv_search_paths = ['~/Dropbox/vimwiki']
 let g:EditorConfig_exclude_patterns = ['fugitive://.\*', 'scp://.\*']
 " }}}
 " statusline {{{
-
-function! StatusLineGetGitBranch() abort
-  if !exists('*fugitive#head')
-    return ''
-  endif
-
-  let l:out =''
-  let l:out.= fugitive#head(10)
-
-  return l:out
-endfunction
-
-function! StatusLineDiffColors() abort
-  return ['%#DiffDelete#', '%#DiffChange#', '%#DiffAdd#']
-endfunction
-
-function! StatusLineGetPath() abort
-  let l:basename = expand('%:h')
-  let l:filename = expand('%:t')
-  let l:extension = expand('%:e')
-  let l:prefix = (l:basename ==# '' || l:basename ==# '.') ?
-        \ '' : substitute(l:basename . '/', '\C^' . $HOME, '~', '')
-
-  let l:diffColors = StatusLineDiffColors()
-
-  if empty(l:prefix) && empty(l:filename)
-    return printf('%%4* %%f%%* %s%%m%%*', l:diffColors[2])
-  else
-    return printf('%%4* %s%%*%s%s%%*', l:prefix, &modified ? l:diffColors[2] : '%6*', l:filename)
-  endif
-endfunction
-
-function! StatusLine() abort
-  let l:line=''
-
-  let l:line.='%6*%{StatusLineGetGitBranch()}'
-  let l:line.=StatusLineGetPath()
-  let l:line.='%{coc#status()}'
-
-  return l:line
-endfunction
-
-set statusline=%!StatusLine()
-
-function! StatuslineGitBlame() abort
-  let blame = get(b:, 'coc_git_blame', '')
-  " return blame
-  return winwidth(0) > 120 ? blame : ''
-endfunction
+set statusline=
+set statusline+=%#Special#
+set statusline+=%#LineNr#
+set statusline+=\ %f%r
+set statusline+=%m
+set statusline+=%=
+set statusline+=%#Comment#
+set statusline+=%{&filetype}
+set statusline+=\ \[%{&fileformat}\]
+set statusline+=\ %p%%
+set statusline+=\ %l:%-4c
 " }}}
 " actionmenu.nvim {{{
 let s:code_actions = []
