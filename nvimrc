@@ -1,5 +1,19 @@
 " vim:foldmethod=marker
 
+if exists('g:vscode')
+  let mapleader=" "
+  nnoremap <silent> <leader>K <Cmd>call VSCodeCall('editor.action.showHover')<CR>
+  nnoremap <silent> <leader>v <Cmd>call VSCodeCall('workbench.action.splitEditorOrthogonal')<CR>
+  nnoremap <silent> <leader>h <Cmd>call VSCodeCall('workbench.action.splitEditor')<CR>
+
+  set hlsearch
+  set incsearch
+  set ignorecase
+  set smartcase
+
+  finish
+endif
+
 if empty(glob('~/.config/nvim/autoload/plug.vim')) && has('unix')
   silent !curl -fLo ~/.config/nvim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 endif
