@@ -24,7 +24,9 @@ Plug 'Yggdroot/indentLine'
 Plug 'lukas-reineke/indent-blankline.nvim'
 Plug 'kkvh/vim-docker-tools'
 Plug 'cohama/lexima.vim'
-Plug 'https://gitlab.com/code-stats/code-stats-vim.git'
+if has('python3') || has('python')
+  Plug 'https://gitlab.com/code-stats/code-stats-vim.git', { 'tag': 'v0.6.0' }
+endif
 Plug 'junegunn/vim-plug'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': 'yes \| ./install' }
 Plug 'hzchirs/vim-material'
