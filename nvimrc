@@ -20,7 +20,8 @@ endif
 Plug 'reedes/vim-colors-pencil'
 Plug 'puremourning/vimspector'
 Plug 'axelf4/vim-strip-trailing-whitespace'
-Plug 'thaerkh/vim-indentguides'
+Plug 'Yggdroot/indentLine'
+Plug 'lukas-reineke/indent-blankline.nvim'
 Plug 'kkvh/vim-docker-tools'
 Plug 'cohama/lexima.vim'
 Plug 'https://gitlab.com/code-stats/code-stats-vim.git'
@@ -590,9 +591,11 @@ nnoremap <leader>re :call VrcQuery()<CR>
 " {{{ code-stats-vim
 let g:codestats_api_key = 'SFMyNTY.Wkd0dWN3PT0jI05qWXlPQT09.RyIB_9tEmw2WImkKtn83Ifco5-XSbVMMdgexHy6G5YQ'
 " }}}
-" {{{ indentguides
-let g:indentguides_tabchar = '▏'
-let g:indentguides_spacechar = '▏'
+" {{{ indentLine
+let g:indentLine_char = '▏'
+" }}}
+" {{{ indent-blankline.nvim
+let g:indent_blankline_char = '▏'
 " }}}
 " }}}
 " projectionist {{{
