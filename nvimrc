@@ -523,8 +523,7 @@ if executable('bat')
   let g:fzf_file_options = "--preview 'bat --color \"always\" {}'"
 endif
 
-nnoremap <silent> <c-p> :GFiles<cr>
-nnoremap <leader>ff :Files<cr>
+nnoremap <silent> <c-p> :Files<cr>
 nnoremap <leader>pf :GFiles<cr>
 
 command! -bang -nargs=? -complete=dir Files
