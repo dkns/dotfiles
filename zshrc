@@ -9,28 +9,26 @@ if [ -f ~/.zsh.local ]; then
 fi
 
 bindkey -e
+
 HISTFILE=~/.histfile
-HISTSIZE=10000
-SAVEHIST=10000
-setopt inc_append_history
-setopt share_history
+HISTSIZE=1000000
+SAVEHIST=1000000
+
+setopt INC_APPEND_HISTORY
+setopt SHARE_HISTORY
 setopt EXTENDED_HISTORY
 setopt HIST_EXPIRE_DUPS_FIRST
-setopt HIST_IGNORE_DUPS
 setopt HIST_IGNORE_ALL_DUPS
 setopt HIST_IGNORE_SPACE
 setopt HIST_FIND_NO_DUPS
 setopt HIST_SAVE_NO_DUPS
 setopt HIST_BEEP
-setopt promptsubst
+setopt PROMPTSUBST
 setopt AUTO_PARAM_SLASH
 setopt AUTO_CD
-setopt CORRECT
-setopt CORRECT_ALL
 setopt LIST_PACKED
 setopt MENU_COMPLETE
 setopt PRINT_EXIT_VALUE
-setopt SHARE_HISTORY
 setopt PROMPT_SUBST
 
 export BROWSER="firefox"
