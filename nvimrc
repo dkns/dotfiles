@@ -110,6 +110,7 @@ Plug 'airblade/vim-rooter'
 Plug 'cdata/vim-tagged-template'
 Plug 'metakirby5/codi.vim'
 Plug 'janko/vim-test'
+Plug 'mhinz/vim-startify'
 
 call plug#end()
 " }}}
