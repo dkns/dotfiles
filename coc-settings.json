@@ -40,7 +40,7 @@
   ],
   "emmet.showExpandedAbbreviation": "always",
   "git.enableGutters": true,
-  "git.addGBlameToVirtualText": false,
+  "git.addGBlameToVirtualText": true,
   "git.addedSign.text": "┃",
   "git.changedSign.text": "┃",
   "git.removedSign.text": "◢",
@@ -55,6 +55,12 @@
     "http://json.schemastore.org/package": "package.json",
     "http://json.schemastore.org/eslintrc": ".eslintrc",
     "http://json.schemastore.org/prettierrc": ".prettierrc.json"
+  },
+  "explorer.width": 30,
+  "explorer.previewAction.onHover": false,
+  "explorer.keyMappings": {
+    "<cr>": ["expandable?", "expand", "open"],
+    "v": "open:vsplit"
   },
   "diagnostic-languageserver.filetypes": {
     "sh": "shellcheck"
