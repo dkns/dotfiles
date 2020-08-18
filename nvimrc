@@ -457,28 +457,20 @@ let g:coc_global_extensions = [
   \ 'coc-emmet',
   \ 'coc-html',
   \ 'coc-json',
-  \ 'coc-jest',
-  \ 'coc-snippets',
-  \ 'coc-tag',
   \ 'coc-lists',
+  \ 'coc-omni',
   \ 'coc-yank',
-  \ 'coc-python',
   \ 'coc-yaml',
   \ 'coc-tsserver',
-  \ 'coc-phpls',
   \ 'coc-lua',
   \ 'coc-vimlsp',
   \ 'coc-stylelint',
-  \ 'coc-import-cost',
   \ 'coc-git',
   \ 'coc-diagnostic',
-  \ 'coc-docker',
-  \ 'coc-marketplace',
-  \ 'coc-project',
   \ 'coc-sh',
   \ 'coc-lit-html',
-  \ 'coc-angular',
-  \ 'coc-explorer'
+  \ 'coc-explorer',
+  \ 'coc-omnisharp'
 \ ]
 
 function! s:show_documentation()
