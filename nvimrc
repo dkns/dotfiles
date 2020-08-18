@@ -64,7 +64,6 @@ Plug 'tpope/vim-dispatch'
 Plug 'AndrewRadev/linediff.vim'
 Plug 'inside/vim-search-pulse'
 if has('nvim')
-  Plug 'kizza/ask-vscode.nvim'
   Plug 'kizza/actionmenu.nvim'
 endif
 if (executable('rg') == 1)
@@ -83,7 +82,6 @@ endif
 Plug 'scrooloose/nerdtree'
 Plug 'mbbill/undotree', { 'on': 'UndotreeToggle' }
 Plug 'alvan/vim-closetag', { 'for': 'html' }
-Plug 'nanotech/jellybeans.vim'
 Plug 'junegunn/fzf.vim'
 if has('python3') == 1
   Plug 'TaDaa/vimade'
@@ -92,15 +90,11 @@ Plug 'editorconfig/editorconfig-vim'
 Plug 'tpope/vim-fugitive'
 Plug 'romainl/vim-devdocs'
 if has('nvim') || v:version > 800
-  Plug 'w0rp/ale'
   Plug 'romainl/vim-cool'
   Plug 'machakann/vim-highlightedyank'
   Plug 'fcpg/vim-showmap'
 endif
-Plug 'othree/csscomplete.vim', { 'for': 'css' }
 Plug 'dominikduda/vim_current_word'
-Plug 'dominikduda/vim_yank_with_context'
-Plug 'mhartington/oceanic-next'
 if !has('nvim')
     Plug 'xtal8/traces.vim'
 endif
