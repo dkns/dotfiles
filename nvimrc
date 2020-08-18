@@ -35,7 +35,9 @@ Plug 'reedes/vim-colors-pencil'
 Plug 'puremourning/vimspector'
 Plug 'axelf4/vim-strip-trailing-whitespace'
 Plug 'Yggdroot/indentLine'
-Plug 'lukas-reineke/indent-blankline.nvim'
+if has('nvim')
+  Plug 'lukas-reineke/indent-blankline.nvim'
+endif
 Plug 'kkvh/vim-docker-tools'
 Plug 'cohama/lexima.vim'
 if has('python3') || has('python')
@@ -594,7 +596,11 @@ nnoremap <leader>re :call VrcQuery()<CR>
 let g:codestats_api_key = 'SFMyNTY.Wkd0dWN3PT0jI05qWXlPQT09.RyIB_9tEmw2WImkKtn83Ifco5-XSbVMMdgexHy6G5YQ'
 " }}}
 " {{{ indentLine
-let g:indentLine_char = '▏'
+if has('nvim')
+    let g:indentLine_char = '▏'
+else
+    let g:indentLine_char = '|'
+endif
 " }}}
 " {{{ indent-blankline.nvim
 let g:indent_blankline_char = '▏'
