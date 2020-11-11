@@ -34,6 +34,7 @@ endif
 Plug 'reedes/vim-colors-pencil'
 Plug 'puremourning/vimspector'
 Plug 'axelf4/vim-strip-trailing-whitespace'
+Plug 'unblevable/quick-scope'
 Plug 'Yggdroot/indentLine'
 if has('nvim')
   Plug 'lukas-reineke/indent-blankline.nvim'
@@ -604,6 +605,13 @@ endif
 " }}}
 " {{{ indent-blankline.nvim
 let g:indent_blankline_char = '▏'
+" }}}
+" {{{ quick-scope
+augroup qs_colors
+  autocmd!
+  autocmd ColorScheme * highlight QuickScopePrimary guifg='#afff5f' ctermfg=155
+  autocmd ColorScheme * highlight QuickScopeSecondary guifg='#5fffff' ctermfg=81
+augroup END
 " }}}
 " }}}
 " projectionist {{{
