@@ -45,7 +45,7 @@ Plug 'junegunn/vim-plug'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': 'yes \| ./install' }
 Plug 'hzchirs/vim-material'
 Plug 'sickill/vim-pasta'
-Plug 'neoclide/coc.nvim', {'tag': '*'}
+Plug 'neoclide/coc.nvim', { 'branch': 'release' }
 if has('nvim')
   Plug 'meain/vim-package-info', { 'do': 'npm install' }
 endif
