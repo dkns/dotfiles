@@ -35,7 +35,9 @@ Plug 'reedes/vim-colors-pencil'
 Plug 'puremourning/vimspector'
 Plug 'axelf4/vim-strip-trailing-whitespace'
 Plug 'Yggdroot/indentLine'
-Plug 'lukas-reineke/indent-blankline.nvim'
+if has('nvim')
+  Plug 'lukas-reineke/indent-blankline.nvim'
+endif
 Plug 'kkvh/vim-docker-tools'
 Plug 'cohama/lexima.vim'
 if has('python3') || has('python')
@@ -64,7 +66,6 @@ Plug 'tpope/vim-dispatch'
 Plug 'AndrewRadev/linediff.vim'
 Plug 'inside/vim-search-pulse'
 if has('nvim')
-  Plug 'kizza/ask-vscode.nvim'
   Plug 'kizza/actionmenu.nvim'
 endif
 if (executable('rg') == 1)
@@ -83,7 +84,6 @@ endif
 Plug 'scrooloose/nerdtree'
 Plug 'mbbill/undotree', { 'on': 'UndotreeToggle' }
 Plug 'alvan/vim-closetag', { 'for': 'html' }
-Plug 'nanotech/jellybeans.vim'
 Plug 'junegunn/fzf.vim'
 if has('python3') == 1
   Plug 'TaDaa/vimade'
@@ -92,15 +92,11 @@ Plug 'editorconfig/editorconfig-vim'
 Plug 'tpope/vim-fugitive'
 Plug 'romainl/vim-devdocs'
 if has('nvim') || v:version > 800
-  Plug 'w0rp/ale'
   Plug 'romainl/vim-cool'
   Plug 'machakann/vim-highlightedyank'
   Plug 'fcpg/vim-showmap'
 endif
-Plug 'othree/csscomplete.vim', { 'for': 'css' }
 Plug 'dominikduda/vim_current_word'
-Plug 'dominikduda/vim_yank_with_context'
-Plug 'mhartington/oceanic-next'
 if !has('nvim')
     Plug 'xtal8/traces.vim'
 endif
@@ -110,6 +106,7 @@ Plug 'airblade/vim-rooter'
 Plug 'cdata/vim-tagged-template'
 Plug 'metakirby5/codi.vim'
 Plug 'janko/vim-test'
+Plug 'mhinz/vim-startify'
 
 call plug#end()
 " }}}
@@ -462,28 +459,20 @@ let g:coc_global_extensions = [
   \ 'coc-emmet',
   \ 'coc-html',
   \ 'coc-json',
-  \ 'coc-jest',
-  \ 'coc-snippets',
-  \ 'coc-tag',
   \ 'coc-lists',
+  \ 'coc-omni',
   \ 'coc-yank',
-  \ 'coc-python',
   \ 'coc-yaml',
   \ 'coc-tsserver',
-  \ 'coc-phpls',
   \ 'coc-lua',
   \ 'coc-vimlsp',
   \ 'coc-stylelint',
-  \ 'coc-import-cost',
   \ 'coc-git',
   \ 'coc-diagnostic',
-  \ 'coc-docker',
-  \ 'coc-marketplace',
-  \ 'coc-project',
   \ 'coc-sh',
   \ 'coc-lit-html',
-  \ 'coc-angular',
-  \ 'coc-explorer'
+  \ 'coc-explorer',
+  \ 'coc-omnisharp'
 \ ]
 
 function! s:show_documentation()
@@ -607,7 +596,11 @@ nnoremap <leader>re :call VrcQuery()<CR>
 let g:codestats_api_key = 'SFMyNTY.Wkd0dWN3PT0jI05qWXlPQT09.RyIB_9tEmw2WImkKtn83Ifco5-XSbVMMdgexHy6G5YQ'
 " }}}
 " {{{ indentLine
-let g:indentLine_char = '▏'
+if has('nvim')
+    let g:indentLine_char = '▏'
+else
+    let g:indentLine_char = '|'
+endif
 " }}}
 " {{{ indent-blankline.nvim
 let g:indent_blankline_char = '▏'
