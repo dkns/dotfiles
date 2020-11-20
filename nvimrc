@@ -474,7 +474,10 @@ let g:coc_global_extensions = [
   \ 'coc-sh',
   \ 'coc-lit-html',
   \ 'coc-explorer',
-  \ 'coc-omnisharp'
+  \ 'coc-styled-components',
+  \ 'coc-omnisharp',
+  \ 'coc-project',
+  \ 'coc-import-cost'
 \ ]
 
 function! s:show_documentation()
