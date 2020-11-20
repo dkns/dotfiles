@@ -46,6 +46,7 @@ if has('python3') || has('python')
 endif
 Plug 'junegunn/vim-plug'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': 'yes \| ./install' }
+Plug 'yuki-ycino/fzf-preview.vim', { 'branch': 'release', 'do': ':UpdateRemotePlugins' }
 Plug 'hzchirs/vim-material'
 Plug 'sickill/vim-pasta'
 Plug 'neoclide/coc.nvim', { 'branch': 'release' }
