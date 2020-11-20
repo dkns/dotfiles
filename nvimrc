@@ -528,8 +528,10 @@ if executable('bat')
   let g:fzf_file_options = "--preview 'bat --color \"always\" {}'"
 endif
 
-nnoremap <silent> <c-p> :Files<cr>
+nnoremap <silent> <c-p> :BetterGFiles<cr>
 nnoremap <leader>pf :GFiles<cr>
+
+command! BetterGFiles call fzf#run(fzf#wrap({'source': 'git ls-files --exclude-standard --cached --others'}))
 
 command! -bang -nargs=? -complete=dir Files
   \ call fzf#vim#files(<q-args>, fzf#vim#with_preview(), <bang>0)
