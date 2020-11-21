@@ -35,10 +35,6 @@ Plug 'reedes/vim-colors-pencil'
 Plug 'puremourning/vimspector'
 Plug 'axelf4/vim-strip-trailing-whitespace'
 Plug 'unblevable/quick-scope'
-Plug 'Yggdroot/indentLine'
-if has('nvim')
-  Plug 'lukas-reineke/indent-blankline.nvim'
-endif
 Plug 'kkvh/vim-docker-tools'
 Plug 'cohama/lexima.vim'
 if has('python3') || has('python')
@@ -46,6 +42,7 @@ if has('python3') || has('python')
 endif
 Plug 'junegunn/vim-plug'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': 'yes \| ./install' }
+Plug 'junegunn/fzf.vim'
 Plug 'yuki-ycino/fzf-preview.vim', { 'branch': 'release', 'do': ':UpdateRemotePlugins' }
 Plug 'hzchirs/vim-material'
 Plug 'sickill/vim-pasta'
@@ -55,7 +52,6 @@ if has('nvim')
 endif
 Plug 'diepm/vim-rest-console'
 Plug 'junegunn/goyo.vim'
-Plug 'dyng/ctrlsf.vim'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-sleuth'
 Plug 'tpope/vim-projectionist'
@@ -66,15 +62,10 @@ Plug 'tpope/vim-rsi'
 Plug 'tpope/vim-eunuch'
 Plug 'tpope/vim-dispatch'
 Plug 'AndrewRadev/linediff.vim'
-Plug 'inside/vim-search-pulse'
-if has('nvim')
-  Plug 'kizza/actionmenu.nvim'
-endif
 if (executable('rg') == 1)
   Plug 'alok/notational-fzf-vim'
 endif
 Plug 'heavenshell/vim-jsdoc', { 'for': ['typescript', 'javascript', 'javascript.jsx'] }
-Plug 'rhysd/git-messenger.vim'
 Plug 'wakatime/vim-wakatime'
 Plug 'sheerun/vim-polyglot'
 Plug 'liuchengxu/vista.vim'
@@ -86,17 +77,13 @@ endif
 Plug 'scrooloose/nerdtree'
 Plug 'mbbill/undotree', { 'on': 'UndotreeToggle' }
 Plug 'alvan/vim-closetag', { 'for': 'html' }
-Plug 'junegunn/fzf.vim'
 if has('python3') == 1
   Plug 'TaDaa/vimade'
 endif
-Plug 'editorconfig/editorconfig-vim'
 Plug 'tpope/vim-fugitive'
-Plug 'romainl/vim-devdocs'
 if has('nvim') || v:version > 800
   Plug 'romainl/vim-cool'
   Plug 'machakann/vim-highlightedyank'
-  Plug 'fcpg/vim-showmap'
 endif
 Plug 'dominikduda/vim_current_word'
 if !has('nvim')
@@ -575,24 +562,6 @@ set statusline+=%{&filetype}
 set statusline+=\ \[%{&fileformat}\]
 set statusline+=\ %p%%
 set statusline+=\ %l:%-4c
-" }}}
-" actionmenu.nvim {{{
-let s:code_actions = []
-
-func! ActionMenuCodeActions() abort
-  let s:code_actions = CocAction('codeActions')
-  let l:menu_items = map(copy(s:code_actions), { index, item -> item['title'] })
-  call actionmenu#open(l:menu_items, 'ActionMenuCodeActionsCallback')
-endfunc
-
-func! ActionMenuCodeActionsCallback(index, item) abort
-  if a:index >= 0
-    let l:selected_code_action = s:code_actions[a:index]
-    let l:response = CocAction('doCodeAction', l:selected_code_action)
-  endif
-endfunc
-
-nnoremap <silent> <Leader>ac :call ActionMenuCodeActions()<CR>
 " }}}
 " vim-rest-console {{{
 let g:vrc_set_default_mapping = 0
