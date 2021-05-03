@@ -2,3 +2,4 @@
 tags
 *.swo
 *.swp
+local_config.lua
