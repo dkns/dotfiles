@@ -42,6 +42,12 @@ require('packer').startup(function()
   use 'https://gitlab.com/code-stats/code-stats-vim.git'
   use 'sickill/vim-pasta'
   use 'JoosepAlviste/nvim-ts-context-commentstring'
+  use {
+    'windwp/nvim-ts-autotag',
+    config = function()
+      require('nvim-ts-autotag').setup()
+    end
+  }
   use { 'nvim-treesitter/nvim-treesitter', run = ':TSUpdate' }
   use {
     'nvim-telescope/telescope.nvim',
