@@ -28,6 +28,12 @@ require('packer').startup(function()
   use 'tpope/vim-eunuch'
   use 'tpope/vim-dispatch'
   use 'hrsh7th/nvim-compe'
+  use {
+    'steelsojka/pears.nvim',
+    config = function()
+      require('pears').setup()
+    end
+  }
   use 'folke/tokyonight.nvim'
   use 'kabouzeid/nvim-lspinstall'
   use 'machakann/vim-highlightedyank'
