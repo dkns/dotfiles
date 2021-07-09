@@ -48,6 +48,10 @@ require('packer').startup(function()
       require('nvim-ts-autotag').setup()
     end
   }
+  use {
+    'kyazdani42/nvim-tree.lua',
+    requires = "kyazdani42/nvim-web-devicons"
+  }
   use { 'nvim-treesitter/nvim-treesitter', run = ':TSUpdate' }
   use {
     'nvim-telescope/telescope.nvim',
