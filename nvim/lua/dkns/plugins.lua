@@ -1,9 +1,7 @@
 local fn = vim.fn
+local execute = vim.api.nvim_command
 
 local install_path = fn.stdpath('data') .. '/site/pack/packer/start/packer.nvim'
-
-local fn = vim.fn
-local execute = vim.api.nvim_command
 
 if fn.empty(fn.glob(install_path)) > 0 then
     fn.system({'git', 'clone', 'https://github.com/wbthomason/packer.nvim', install_path})
@@ -27,11 +25,39 @@ require('packer').startup(function()
   use 'tpope/vim-rsi'
   use 'tpope/vim-eunuch'
   use 'tpope/vim-dispatch'
-  use 'hrsh7th/nvim-compe'
+  use 'Pocco81/DAPInstall.nvim'
+  use 'mfussenegger/nvim-dap'
+  use {
+    'lewis6991/gitsigns.nvim',
+    requires = {
+      'nvim-lua/plenary.nvim'
+    },
+    config = function()
+      require('gitsigns').setup()
+    end
+  }
   use {
     'steelsojka/pears.nvim',
     config = function()
       require('pears').setup()
+    end
+  }
+  use {
+    'hrsh7th/nvim-compe',
+    config = function()
+      require('compe').setup {
+	enabled = true,
+	autocomplete = true,
+	debug = false,
+
+	source = {
+	    path = true,
+	    buffer = true,
+	    nvim_lsp = true,
+	    nvim_lua = true,
+	    tags = true
+	}
+      }
     end
   }
   use 'folke/tokyonight.nvim'
@@ -40,6 +66,8 @@ require('packer').startup(function()
   use 'wellle/tmux-complete.vim'
   use 'wakatime/vim-wakatime'
   use 'https://gitlab.com/code-stats/code-stats-vim.git'
+  use 'vim-test/vim-test'
+  use 'dense-analysis/ale'
   use 'sickill/vim-pasta'
   use 'JoosepAlviste/nvim-ts-context-commentstring'
   use {
@@ -47,6 +75,10 @@ require('packer').startup(function()
     config = function()
       require('nvim-ts-autotag').setup()
     end
+  }
+  use {
+    'jose-elias-alvarez/nvim-lsp-ts-utils',
+    requires = {{'nvim-lua/plenary.nvim'}, {'neovim/nvim-lspconfig'}, {'jose-elias-alvarez/null-ls.nvim'}}
   }
   use {
     'kyazdani42/nvim-tree.lua',
@@ -66,7 +98,6 @@ require('packer').startup(function()
 	fold_closed = ">", -- icon used for closed folds
 	indent_lines = false, -- add an indent guide below the fold icons
 	signs = {
-	  -- icons / text used for a diagnostic
 	  error = "error",
 	  warning = "warn",
 	  hint = "hint",
@@ -77,3 +108,4 @@ require('packer').startup(function()
     end
   }
 end)
+
