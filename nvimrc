@@ -14,13 +14,30 @@ call plug#begin()
 
 Plug 'junegunn/vim-plug'
 Plug 'nvim-treesitter/nvim-treesitter'
+Plug 'sindrets/diffview.nvim'
 Plug 'tpope/vim-fugitive'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'folke/tokyonight.nvim'
-Plug 'nvim-lua/popup.nvim'
-Plug 'nvim-lua/plenary.nvim'
-Plug 'nvim-telescope/telescope.nvim'
-Plug 'lewis6991/gitsigns.nvim'
+Plug 'mg979/vim-visual-multi'
+Plug 'winston0410/range-highlight.nvim'
+Plug 'winston0410/cmd-parser.nvim'
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+Plug 'airblade/vim-rooter'
+Plug 'junegunn/fzf.vim'
+Plug 'JoosepAlviste/nvim-ts-context-commentstring'
+Plug 'mbbill/undotree'
+Plug 'windwp/nvim-ts-autotag'
+Plug 'kyazdani42/nvim-tree.lua',
+Plug 'kyazdani42/nvim-web-devicons',
+Plug 'steelsojka/pears.nvim'
+Plug 'vim-test/vim-test'
+Plug 'rcarriga/vim-ultest'
+Plug 'mfussenegger/nvim-dap'
+Plug 'Pocco81/DAPInstall.nvim'
+Plug 'rcarriga/nvim-dap-ui'
+Plug 'vuki656/package-info.nvim'
+Plug 'f-person/git-blame.nvim'
+Plug 'lambdalisue/pastefix.vim'
 
 call plug#end()
 
@@ -238,12 +255,19 @@ nnoremap <silent><nowait> <space>k  :<C-u>CocPrev<CR>
 " Resume latest coc list.
 nnoremap <silent><nowait> <space>p  :<C-u>CocListResume<CR>
 
-lua << EOF
-require('gitsigns').setup()
-EOF
+iabbrev date- <c-r>=strftime("%Y-%m-%d")<cr>
 
-nnoremap <C-p> <cmd>lua require('telescope.builtin').git_files()<cr>
-nnoremap <leader>tf <cmd>lua require('telescope.builtin').find_files()<cr>
-nnoremap <leader>fg <cmd>lua require('telescope.builtin').live_grep()<cr>
-nnoremap <leader>b <cmd>lua require('telescope.builtin').buffers()<cr>
-nnoremap <leader>r <cmd>lua require('telescope.builtin').oldfiles()<cr>
+nnoremap <C-p> :CocList files<CR>
+nnoremap <leader>b :Buffers<CR>
+nnoremap <leader>fw :Rg<CR>
+nnoremap <leader>r :History<CR>
+
+nnoremap <leader>nt :NvimTreeToggle<CR>
+
+lua require('range-highlight').setup()
+
+lua require('nvim-ts-autotag').setup()
+
+lua require('pears').setup()
+
+lua require('dapui').setup()

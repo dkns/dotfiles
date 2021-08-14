@@ -1,21 +1,16 @@
 {
-  "coc.preferences.formatOnType": true,
-  "coc.preferences.hoverTarget": "float",
-  "coc.preferences.previewAutoClose": true,
-  "prettier.eslintIntegration": true,
-  "prettier.tslintIntegration": true,
-  "eslint.filetypes": ["javascript", "javascriptreact", "javascript.jsx", "typescript"],
-  "eslint.autoFix": true,
+  "coc.preferences.floatActions": false,
+  "coc.preferences.formatOnSaveFiletypes": ["javascript", "javascriptreact", "javascript.jsx", "typescriptreact", "typescript.tsx", "typescript"],
+  "prettier.eslintIntegration": false,
+  "prettier.tslintIntegration": false,
   "eslint.autoFixOnSave": true,
-  "diagnostic.virtualText": false,
+  "diagnostic.virtualText": true,
   "diagnostic.virtualTextPrefix": ">> ",
-  "diagnostic.displayByAle": false,
   "diagnostic.virtualTextLineSeparator": " \\ ",
   "diagnostic.errorSign": "×",
   "diagnostic.warningSign": "!",
   "diagnostic.infoSign": "●",
   "diagnostic.hintSign": "?",
-  "python.jediEnabled": false,
   "codeLens.enable": false,
   "suggest.noselect": true,
   "list.nextKeymap": "<C-n>",
@@ -28,19 +23,9 @@
     ".projections.json",
     ".env"
   ],
-  "docker.enable": true,
-  "importCost.bundleSizeDecoration": "both",
-  "importCost.showCalculatingDecoration": true,
-  "importCost.javascriptExtensions": [
-    "\\.js?$",
-    "\\.jsx?$"
-  ],
-  "importCost.typescriptExtensions": [
-    "\\.tsx?$"
-  ],
   "emmet.showExpandedAbbreviation": "always",
   "git.enableGutters": true,
-  "git.addGBlameToVirtualText": true,
+  "git.addGBlameToVirtualText": false,
   "git.addedSign.text": "┃",
   "git.changedSign.text": "┃",
   "git.removedSign.text": "◢",
@@ -58,10 +43,6 @@
   },
   "explorer.width": 30,
   "explorer.previewAction.onHover": false,
-  "explorer.keyMappings": {
-    "<cr>": ["expandable?", "expand", "open"],
-    "v": "open:vsplit"
-  },
   "diagnostic-languageserver.filetypes": {
     "sh": "shellcheck"
   },
