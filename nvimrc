@@ -34,6 +34,7 @@ Plug 'winston0410/cmd-parser.nvim'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'airblade/vim-rooter'
 Plug 'junegunn/fzf.vim'
+Plug 'junegunn/gv.vim'
 Plug 'JoosepAlviste/nvim-ts-context-commentstring'
 Plug 'mbbill/undotree'
 Plug 'windwp/nvim-ts-autotag'
