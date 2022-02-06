@@ -35,6 +35,7 @@ Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'airblade/vim-rooter'
 Plug 'junegunn/fzf.vim'
 Plug 'junegunn/gv.vim'
+Plug 'kevinhwang91/nvim-hlslens'
 Plug 'JoosepAlviste/nvim-ts-context-commentstring'
 Plug 'mbbill/undotree'
 Plug 'windwp/nvim-ts-autotag'
@@ -282,3 +283,11 @@ lua require('nvim-ts-autotag').setup()
 lua require('pears').setup()
 
 lua require('dapui').setup()
+noremap <silent> n <Cmd>execute('normal! ' . v:count1 . 'n')<CR>
+            \<Cmd>lua require('hlslens').start()<CR>
+noremap <silent> N <Cmd>execute('normal! ' . v:count1 . 'N')<CR>
+            \<Cmd>lua require('hlslens').start()<CR>
+noremap * *<Cmd>lua require('hlslens').start()<CR>
+noremap # #<Cmd>lua require('hlslens').start()<CR>
+noremap g* g*<Cmd>lua require('hlslens').start()<CR>
+noremap g# g#<Cmd>lua require('hlslens').start()<CR>
