@@ -8,9 +8,16 @@ end
 return require('packer').startup(function(use)
   use 'wbthomason/packer.nvim'
   use 'lewis6991/impatient.nvim'
-  use 'nvim-treesitter/nvim-treesitter'
   use 'tpope/vim-sleuth'
   use 'tpope/vim-fugitive'
+  use 'tpope/vim-commentary'
+  use 'tpope/vim-surround'
+  use 'tpope/vim-repeat'
+  use 'airblade/vim-rooter'
+
+  use {
+    'nvim-treesitter/nvim-treesitter', run = ':TSUpdate'
+  }
 
   use {
     'rebelot/kanagawa.nvim',
@@ -26,9 +33,7 @@ return require('packer').startup(function(use)
     requires = {
       'nvim-lua/plenary.nvim'
     },
-    config = function()
-      require('gitsigns').setup()
-    end
+    config = function() require('gitsigns').setup {} end
   } 
 
   use {
@@ -37,6 +42,16 @@ return require('packer').startup(function(use)
   }
   use {'nvim-telescope/telescope-fzf-native.nvim', run = 'make' }
   use {'nvim-telescope/telescope-project.nvim' }
+  use {'elianiva/telescope-npm.nvim' }
+  use {
+    'nvim-telescope/telescope-frecency.nvim',
+    requires = { 'tami5/sqlite.lua' }
+  }
+
+  use {
+    'williamboman/nvim-lsp-installer',
+    requires = { 'neovim/nvim-lspconfig' }
+  }
 
   use {
     'kyazdani42/nvim-tree.lua',
