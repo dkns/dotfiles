@@ -11,6 +11,7 @@ require('dkns.plugins')
 require('dkns.telescope')
 require('dkns.treesitter')
 require('dkns.lsp')
+require('dkns.cmp')
 
 -- local local_config_path = './local_config.lua'
 
