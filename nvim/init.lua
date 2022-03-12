@@ -1,5 +1,5 @@
-require('impatient_setup')
-require('impatient')
+-- require('impatient_setup')
+-- require('impatient')
 local fn = vim.fn
 vim.g.mapleader = ' '
 
