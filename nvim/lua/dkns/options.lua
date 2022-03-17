@@ -10,4 +10,4 @@ o.splitbelow = true
 o.completeopt = 'menuone,noselect'
 o.breakindent = true
 
-vim.cmd("colorscheme kanagawa")
+vim.cmd("colorscheme nightfox")

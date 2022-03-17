@@ -17,6 +17,15 @@ return require('packer').startup(function(use)
   use 'airblade/vim-rooter'
 
   use {
+    "EdenEast/nightfox.nvim",
+    config = function()
+      require('nightfox').setup({
+        dim_inactive = true
+      })
+    end
+  }
+
+  use {
     'nvim-treesitter/nvim-treesitter', run = ':TSUpdate'
   }
 
