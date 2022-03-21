@@ -25,6 +25,8 @@ return require('packer').startup(function(use)
     end
   }
 
+  use 'marko-cerovac/material.nvim'
+
   use {
     'nvim-treesitter/nvim-treesitter', run = ':TSUpdate'
   }
@@ -75,6 +77,7 @@ return require('packer').startup(function(use)
     'hrsh7th/nvim-cmp',
     requires = {
       'hrsh7th/cmp-nvim-lsp',
+      'hrsh7th/cmp-nvim-lua',
       'hrsh7th/cmp-buffer',
       'hrsh7th/cmp-path',
       'L3MON4D3/LuaSnip',
@@ -99,6 +102,9 @@ return require('packer').startup(function(use)
     'windwp/nvim-ts-autotag',
     config = function() require('nvim-ts-autotag').setup() end
   }
+
+  use 'mbbill/undotree'
+
   if packer_bootstrap then
     require('packer').sync()
   end

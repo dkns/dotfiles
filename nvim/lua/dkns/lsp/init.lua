@@ -1,8 +1,48 @@
 local lsp_installer = require('nvim-lsp-installer')
 local capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities())
+local map = require('dkns.utils').map
+local diagnostic = require('vim.diagnostic')
+local cmd = vim.cmd
+local fn = vim.fn
 
-local function on_attach(client, bufnr)
-  -- buffer local keymaps
+-- local function on_attach(client, bufnr)
+--   -- buffer local keymaps
+-- end
+
+diagnostic.config({
+  severity_sort = true
+})
+
+local sign_char = '•' -- U+2022 BULLET
+
+fn.sign_define('DiagnosticSignError', {
+  text = sign_char,
+  texthl = 'DiagnosticSignError',
+})
+
+fn.sign_define('DiagnosticSignWarn', {
+  text = sign_char,
+  texthl = 'DiagnosticSignWarn',
+})
+
+fn.sign_define('DiagnosticSignInfo', {
+  text = sign_char,
+  texthl = 'DiagnosticSignInfo',
+})
+
+fn.sign_define('DiagnosticSignHint', {
+  text = sign_char,
+  texthl = 'DiagnosticSignHint',
+})
+
+local function on_attach(client)
+  if client.resolved_capabilities.document_highlight then
+    cmd('autocmd CursorHold <buffer> lua vim.lsp.buf.document_highlight()')
+    cmd('autocmd CursorHoldI <buffer> lua vim.lsp.buf.document_highlight()')
+    cmd('autocmd CursorMoved <buffer> lua vim.lsp.buf.clear_references()')
+  end
+
+  map('n', 'K', '<cmd>lua vim.lsp.buf.hover()<CR>')
 end
 
 local runtime_path = vim.split(package.path, ';')
@@ -28,6 +68,30 @@ local enhance_server_opts = {
         }
       }
     }
+  end,
+  ['tsserver'] = function(opts)
+    opts.on_attach = function(client)
+      client.resolved_capabilities.document_formatting = false
+      client.resolved_capabilities.document_range_formatting = false
+
+      on_attach(client)
+    end
+  end,
+  ['eslint'] = function(opts)
+    opts.settings = {
+      codeActionOnSave = {
+        enable = true,
+        mode = "all"
+      },
+      format = {
+        enable = true
+      }
+    }
+    opts.on_attach = function(client)
+      map('n', '<leader>fd', '<cmd>EslintFixAll<CR>')
+
+      on_attach(client)
+    end
   end,
 }
 
