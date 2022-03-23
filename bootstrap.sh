@@ -51,6 +51,16 @@ function bootstrap_rg() {
   sudo apt-get update
   install_package "ripgrep"
 }
-  
-bootstrap_docker
-bootstrap_rg
+
+function setup_clipboard_for_nvim() {
+  if [ ! -f /usr/local/bin/win32yank.exe ]; then
+    curl -sLo/tmp/win32yank.zip https://github.com/equalsraf/win32yank/releases/download/v0.0.4/win32yank-x64.zip
+    unzip -p /tmp/win32yank.zip win32yank.exe > /tmp/win32yank.exe
+    chmod +x /tmp/win32yank.exe
+    sudo mv /tmp/win32yank.exe /usr/local/bin/
+  fi
+}  
+
+#bootstrap_docker
+#bootstrap_rg
+setup_clipboard_for_nvim
