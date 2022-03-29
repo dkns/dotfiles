@@ -3,8 +3,8 @@
 local fn = vim.fn
 vim.g.mapleader = ' '
 
-require('dkns.plugins')
 require('dkns.disable_builtin')
+require('dkns.plugins')
 require('dkns.options')
 require('dkns.keybinds')
 require('dkns.plugins')
@@ -13,6 +13,7 @@ require('dkns.telescope')
 require('dkns.treesitter')
 require('dkns.lsp')
 require('dkns.cmp')
+require('dkns.neotree')
 
 -- local local_config_path = './local_config.lua'
 

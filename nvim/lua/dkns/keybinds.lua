@@ -21,7 +21,7 @@ map('n', '<C-H>', '<C-W><C-H>')
 
 map('t', '<ESC>', "<C-\\><C-n>")
 
-map('n', '<leader>nt', '<cmd>NvimTreeToggle<cr>')
+map('n', '<leader>nt', '<cmd>Neotree toggle<cr>')
 
 map('i', 'jk', '<ESC>')
 
