@@ -105,6 +105,11 @@ return require('packer').startup(function(use)
 
   use 'mbbill/undotree'
 
+  use {
+    'j-hui/fidget.nvim',
+    config = function() require('fidget').setup({}) end
+  }
+
   if packer_bootstrap then
     require('packer').sync()
   end
