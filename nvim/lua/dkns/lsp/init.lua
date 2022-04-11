@@ -43,6 +43,7 @@ local function on_attach(client)
   end
 
   map('n', 'K', '<cmd>lua vim.lsp.buf.hover()<CR>')
+  map('n', 'gd', '<cmd>lua vim.lsp.buf.definition()<CR>')
 end
 
 local runtime_path = vim.split(package.path, ';')
