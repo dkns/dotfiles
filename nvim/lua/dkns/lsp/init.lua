@@ -10,7 +10,22 @@ local fn = vim.fn
 -- end
 
 diagnostic.config({
-  severity_sort = true
+  severity_sort = true,
+  virtual_text = false,
+  signs = true,
+  underline = false,
+  update_in_insert = true,
+  float = {
+    border = "single",
+    format = function(diag)
+      return string.format(
+        "%s (%s) [%s]",
+        diag.message,
+        diag.source,
+        diag.code or diag.user_data.lsp.code
+      )
+    end
+  }
 })
 
 local sign_char = '•' -- U+2022 BULLET
@@ -43,6 +58,7 @@ local function on_attach(client)
   end
 
   map('n', 'K', '<cmd>lua vim.lsp.buf.hover()<CR>')
+  map('n', '<leader>K', '<cmd>lua vim.diagnostic.open_float()<CR>')
   map('n', 'gd', '<cmd>lua vim.lsp.buf.definition()<CR>')
 end
 
