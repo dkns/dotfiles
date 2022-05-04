@@ -120,6 +120,8 @@ return require('packer').startup(function(use)
     config = function() require('fidget').setup({}) end
   }
 
+  use 'mg979/vim-visual-multi'
+
   if packer_bootstrap then
     require('packer').sync()
   end
