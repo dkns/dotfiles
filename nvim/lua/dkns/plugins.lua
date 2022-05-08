@@ -103,6 +103,8 @@ return require('packer').startup(function(use)
     config = function() require('nvim-ts-autotag').setup() end
   }
 
+  use 'JoosepAlviste/nvim-ts-context-commentstring'
+
   use {
     "nvim-neo-tree/neo-tree.nvim",
     branch = "v2.x",
