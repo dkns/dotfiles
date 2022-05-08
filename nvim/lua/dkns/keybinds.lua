@@ -14,10 +14,10 @@ map('n', '<leader>b', "<cmd>lua require('telescope.builtin').buffers{ show_all_b
 map('n', '<leader>fg', "<cmd>lua require('telescope.builtin').live_grep()<cr>")
 map('n', '<leader>fp', ":lua require('telescope').extensions.project.project{}<cr>")
 
-map('n', '<C-J>', '<C-W><C-J>')
-map('n', '<C-K>', '<C-W><C-K>')
-map('n', '<C-L>', '<C-W><C-L>')
-map('n', '<C-H>', '<C-W><C-H>')
+map('n', '<C-J>', '<cmd>TmuxNavigateUp<cr>')
+map('n', '<C-K>', '<cmd>TmuxNavigateDown<cr>')
+map('n', '<C-L>', '<cmd>TmuxNavigateRight<cr>')
+map('n', '<C-H>', '<cmd>TmuxNavigateLeft<cr>')
 
 map('t', '<ESC>', "<C-\\><C-n>")
 
