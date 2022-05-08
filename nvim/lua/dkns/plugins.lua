@@ -124,6 +124,8 @@ return require('packer').startup(function(use)
 
   use 'mg979/vim-visual-multi'
 
+  use 'vim-test/vim-test'
+
   use 'christoomey/vim-tmux-navigator'
 
   if packer_bootstrap then
