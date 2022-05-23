@@ -11,8 +11,7 @@ o.splitright = true
 o.splitbelow = true
 o.completeopt = 'menuone,noselect'
 o.breakindent = true
---vim.g.material_style = 'deep ocean'
-
+o.laststatus = 3
 o.undofile = true
 
 vim.cmd("colorscheme nightfox")
