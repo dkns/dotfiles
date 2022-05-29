@@ -8,8 +8,6 @@ local cmp = require("cmp")
 
 cmp.setup({
 
-  -- ... Your other configuration ...
-
   snippet = {
     expand = function(args)
       require('luasnip').lsp_expand(args.body)
@@ -24,9 +22,6 @@ cmp.setup({
     { name = 'cmp_git' },
   }),
   mapping = {
-
-    -- ... Your other mappings ...
-
     ["<Tab>"] = cmp.mapping(function(fallback)
       if cmp.visible() then
         cmp.select_next_item()
@@ -49,8 +44,9 @@ cmp.setup({
       end
     end, { "i", "s" }),
   },
-
-  -- ... Your other configuration ...
+  window = {
+    documentation = cmp.config.window.bordered()
+  }
 })
 
 require('cmp_git').setup()
