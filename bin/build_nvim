@@ -1,0 +1,16 @@
+#!/bin/bash -x
+
+set -euo pipefail
+
+if [ -d "$HOME/projects/neovim" ]; then
+    nvim_dir="$HOME/projects/neovim"
+else
+    nvim_dir="$HOME/code/neovim"
+fi
+
+cd "$nvim_dir"
+git pull origin master
+make distclean
+make clean
+make CMAKE_BUILD_TYPE=Release
+sudo make install
