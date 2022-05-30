@@ -51,7 +51,7 @@ fn.sign_define('DiagnosticSignHint', {
 })
 
 local function on_attach(client)
-  if client.resolved_capabilities.document_highlight then
+  if client.server_capabilities.document_highlight then
     cmd('autocmd CursorHold <buffer> lua vim.lsp.buf.document_highlight()')
     cmd('autocmd CursorHoldI <buffer> lua vim.lsp.buf.document_highlight()')
     cmd('autocmd CursorMoved <buffer> lua vim.lsp.buf.clear_references()')
@@ -89,8 +89,8 @@ local enhance_server_opts = {
   end,
   ['tsserver'] = function(opts)
     opts.on_attach = function(client)
-      client.resolved_capabilities.document_formatting = false
-      client.resolved_capabilities.document_range_formatting = false
+      client.server_capabilities.document_formatting = false
+      client.server_capabilities.document_range_formatting = false
 
       on_attach(client)
     end
