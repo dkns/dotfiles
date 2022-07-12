@@ -14,4 +14,5 @@ if [ ! -f "$init_lua" ]; then
     ln -s ~/dotfiles/nvim/init.lua ~/.config/nvim/init.lua
 fi
 
-ln -s ~/dotfiles/nvim/lua ~/.config/nvim/lua
+ln -s ~/dotfiles/nvim/lua "$nvim_dir/lua"
+ln -s ~/dotfiles/nvim/ftdetect "$nvim_dir/ftdetect"
