@@ -11,7 +11,7 @@ local fn = vim.fn
 
 diagnostic.config({
   severity_sort = true,
-  virtual_text = false,
+  virtual_text = true,
   signs = true,
   underline = false,
   update_in_insert = true,
