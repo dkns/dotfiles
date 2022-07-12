@@ -13,5 +13,6 @@ o.completeopt = 'menuone,noselect'
 o.breakindent = true
 o.laststatus = 3
 o.undofile = true
+o.winbar = '%f'
 
 vim.cmd("colorscheme nightfox")
