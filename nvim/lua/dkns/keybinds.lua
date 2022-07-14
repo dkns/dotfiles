@@ -13,6 +13,7 @@ map('n', '<leader>r', '<cmd>Telescope oldfiles<cr>')
 map('n', '<leader>b', "<cmd>lua require('telescope.builtin').buffers{ show_all_buffers = true }<cr>")
 map('n', '<leader>fg', "<cmd>lua require('telescope.builtin').live_grep()<cr>")
 map('n', '<leader>fp', ":lua require('telescope').extensions.project.project{}<cr>")
+map('n', '<leader>ff', ":lua vim.lsp.buf.format { async = true }<cr>")
 
 map('n', '<C-J>', '<cmd>TmuxNavigateUp<cr>')
 map('n', '<C-K>', '<cmd>TmuxNavigateDown<cr>')

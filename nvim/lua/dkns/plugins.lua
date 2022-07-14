@@ -128,6 +128,18 @@ return require('packer').startup(function(use)
 
   use 'christoomey/vim-tmux-navigator'
 
+  use {
+    'jose-elias-alvarez/null-ls.nvim',
+    config = function()
+      require('null-ls').setup({
+        sources = {
+          require('null-ls').builtins.formatting.lua_format,
+          require('null-ls').builtins.formatting.prettier,
+        }
+      })
+    end
+  }
+
   if packer_bootstrap then
     require('packer').sync()
   end
