@@ -14,5 +14,6 @@ o.breakindent = true
 o.laststatus = 3
 o.undofile = true
 o.winbar = '%f'
+o.swapfile = false
 
 vim.cmd("colorscheme nightfox")
