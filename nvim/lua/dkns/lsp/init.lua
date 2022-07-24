@@ -61,6 +61,8 @@ local function on_attach(client)
   map('n', '<leader>K', '<cmd>lua vim.diagnostic.open_float()<CR>')
   map('n', 'gd', '<cmd>lua vim.lsp.buf.definition()<CR>')
   map('n', 'gr', '<cmd>lua vim.lsp.buf.references()<CR>')
+  map('n', '<leader>rn', '<cmd>lua vim.lsp.buf.rename')
+  map('n', '<leader>ca', '<cmd>lua vim.lsp.buf.code_action')
 end
 
 local runtime_path = vim.split(package.path, ';')
