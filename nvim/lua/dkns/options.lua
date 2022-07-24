@@ -17,3 +17,5 @@ o.winbar = '%f'
 o.swapfile = false
 
 vim.cmd("colorscheme nightfox")
+
+vim.cmd("set statusline=%!v:lua.require('dkns.statusline').statusline()")
