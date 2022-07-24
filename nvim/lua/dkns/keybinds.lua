@@ -9,7 +9,7 @@ map('i', '<S-Tab>', 'pumvisible() ? "\\<C-p>" : "\\<Tab>"', {expr = true})
 map('i', '<Tab>', 'pumvisible() ? "\\<C-n>" : "\\<Tab>"', {expr = true})
 
 map('n', '<C-p>', '<cmd>Telescope find_files<cr>')
-map('n', '<leader>r', '<cmd>Telescope oldfiles<cr>')
+map('n', '<leader>r', '<cmd>Telescope frecency<cr>')
 map('n', '<leader>b', "<cmd>lua require('telescope.builtin').buffers{ show_all_buffers = true }<cr>")
 map('n', '<leader>fg', "<cmd>lua require('telescope.builtin').live_grep()<cr>")
 map('n', '<leader>fp', ":lua require('telescope').extensions.project.project{}<cr>")
