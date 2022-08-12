@@ -1,130 +1,122 @@
-local lsp_installer = require('nvim-lsp-installer')
+require('dkns.lsp.diagnostics')
+require('nvim-lsp-installer').setup({})
+
+local lspconfig = require('lspconfig')
 local capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities())
 local map = require('dkns.utils').map
-local diagnostic = require('vim.diagnostic')
-local cmd = vim.cmd
-local fn = vim.fn
 
--- local function on_attach(client, bufnr)
---   -- buffer local keymaps
--- end
+local opts = { noremap=true, silent=true }
+vim.keymap.set('n', '<leader>K', vim.diagnostic.open_float, opts)
+vim.keymap.set('n', '[d', vim.diagnostic.goto_prev, opts)
+vim.keymap.set('n', ']d', vim.diagnostic.goto_next, opts)
+vim.keymap.set('n', '<space>q', vim.diagnostic.setloclist, opts)
 
-diagnostic.config({
-  severity_sort = true,
-  virtual_text = true,
-  signs = true,
-  underline = false,
-  update_in_insert = true,
-  float = {
-    border = "single",
-    format = function(diag)
-      return string.format(
-        "%s (%s) [%s]",
-        diag.message,
-        diag.source,
-        diag.code or diag.user_data.lsp.code
-      )
-    end
-  }
-})
-
-local sign_char = '•' -- U+2022 BULLET
-
-fn.sign_define('DiagnosticSignError', {
-  text = sign_char,
-  texthl = 'DiagnosticSignError',
-})
-
-fn.sign_define('DiagnosticSignWarn', {
-  text = sign_char,
-  texthl = 'DiagnosticSignWarn',
-})
-
-fn.sign_define('DiagnosticSignInfo', {
-  text = sign_char,
-  texthl = 'DiagnosticSignInfo',
-})
-
-fn.sign_define('DiagnosticSignHint', {
-  text = sign_char,
-  texthl = 'DiagnosticSignHint',
-})
-
-local function on_attach(client)
-  if client.server_capabilities.document_highlight then
-    cmd('autocmd CursorHold <buffer> lua vim.lsp.buf.document_highlight()')
-    cmd('autocmd CursorHoldI <buffer> lua vim.lsp.buf.document_highlight()')
-    cmd('autocmd CursorMoved <buffer> lua vim.lsp.buf.clear_references()')
+local function on_attach(client, bufnr)
+  if client.server_capabilities.documentHighlightProvider then
+    vim.api.nvim_create_augroup("lsp_document_highlight", { clear = true })
+    vim.api.nvim_clear_autocmds { buffer = bufnr, group = "lsp_document_highlight" }
+    vim.api.nvim_create_autocmd("CursorHold", {
+      callback = vim.lsp.buf.document_highlight,
+      buffer = bufnr,
+      group = "lsp_document_highlight",
+      desc = "Document Highlight",
+    })
+    vim.api.nvim_create_autocmd("CursorMoved", {
+      callback = vim.lsp.buf.clear_references,
+      buffer = bufnr,
+      group = "lsp_document_highlight",
+      desc = "Clear All the References",
+    })
   end
 
-  map('n', 'K', '<cmd>lua vim.lsp.buf.hover()<CR>')
-  map('n', '<leader>K', '<cmd>lua vim.diagnostic.open_float()<CR>')
-  map('n', 'gd', '<cmd>lua vim.lsp.buf.definition()<CR>')
-  map('n', 'gr', '<cmd>lua vim.lsp.buf.references()<CR>')
-  map('n', '<leader>rn', '<cmd>lua vim.lsp.buf.rename')
-  map('n', '<leader>ca', '<cmd>lua vim.lsp.buf.code_action')
+  local bufopts = { noremap=true, silent=true, buffer=bufnr }
+  vim.keymap.set('n', 'gD', vim.lsp.buf.declaration, bufopts)
+  vim.keymap.set('n', 'gd', vim.lsp.buf.definition, bufopts)
+  vim.keymap.set('n', 'K', vim.lsp.buf.hover, bufopts)
+  vim.keymap.set('n', 'gi', vim.lsp.buf.implementation, bufopts)
+  vim.keymap.set('n', '<C-k>', vim.lsp.buf.signature_help, bufopts)
+  vim.keymap.set('n', '<leader>wa', vim.lsp.buf.add_workspace_folder, bufopts)
+  vim.keymap.set('n', '<leader>wr', vim.lsp.buf.remove_workspace_folder, bufopts)
+  vim.keymap.set('n', '<leader>wl', function()
+    print(vim.inspect(vim.lsp.buf.list_workspace_folders()))
+  end, bufopts)
+  vim.keymap.set('n', '<leader>D', vim.lsp.buf.type_definition, bufopts)
+  vim.keymap.set('n', '<leader>rn', vim.lsp.buf.rename, bufopts)
+  vim.keymap.set('n', '<leader>ca', vim.lsp.buf.code_action, bufopts)
+  vim.keymap.set('n', '<leader>gr', vim.lsp.buf.references, bufopts)
+  vim.keymap.set('n', '<leader>f', vim.lsp.buf.formatting, bufopts)
 end
 
 local runtime_path = vim.split(package.path, ';')
 table.insert(runtime_path, 'lua/?.lua')
 table.insert(runtime_path, 'lua/?/init.lua')
 
-local enhance_server_opts = {
-  ['sumneko_lua'] = function(opts)
-    opts.settings = {
-      Lua = {
-        runtime = {
-          version = 'LuaJIT',
-          path = runtime_path
-        },
-        diagnostics = {
-          globals = { 'vim' }
-        },
-        workspace = {
-          library = vim.api.nvim_get_runtime_file("", true)
-        },
-        telemetry = {
-          enable = false
-        }
-      }
-    }
-  end,
-  ['tsserver'] = function(opts)
-    opts.on_attach = function(client)
-      client.server_capabilities.document_formatting = false
-      client.server_capabilities.document_range_formatting = false
-
-      on_attach(client)
-    end
-  end,
-  ['eslint'] = function(opts)
-    opts.settings = {
-      codeActionOnSave = {
-        enable = true,
-        mode = "all"
-      },
-      format = {
-        enable = true
-      }
-    }
-    opts.on_attach = function(client)
-      map('n', '<leader>fd', '<cmd>EslintFixAll<CR>')
-
-      on_attach(client)
-    end
-  end,
+local flags = {
+  debounce_text_changes = 150
 }
 
-lsp_installer.on_server_ready(function(server)
-
-  local opts = {
-    on_attach = on_attach,
-    capabilities = capabilities
+lspconfig.eslint.setup({
+  capabilities = capabilities,
+  on_attach = function(client)
+    map('n', '<leader>fd', '<cmd>EslintFixAll<CR>')
+    on_attach(client)
+  end,
+  settings = {
+    codeActionOnSave = {
+      enable = true,
+      mode = "all"
+    },
+    format = {
+      enable = true
+    }
   }
+})
 
-  if enhance_server_opts[server.name] then
-    enhance_server_opts[server.name](opts)
-  end
+lspconfig.tsserver.setup({
+  capabilities = capabilities,
+  on_attach = function(client)
+    print('hello?')
+    client.server_capabilities.document_formatting = false
+    client.server_capabilities.document_range_formatting = false
 
-  server:setup(opts)
-end)
+    on_attach(client)
+  end,
+  flags = flags
+})
+
+lspconfig.sumneko_lua.setup({
+  capabilities = capabilities,
+  on_attach = on_attach,
+  settings = {
+    Lua = {
+      runtime = {
+        version = 'LuaJIT',
+        path = runtime_path
+      },
+      diagnostics = {
+        globals = { 'vim' }
+      },
+      workspace = {
+        library = vim.api.nvim_get_runtime_file("", true)
+      },
+      telemetry = {
+        enable = false
+      }
+    }
+  }
+})
+
+local border = {
+    { "┌", "FloatBorder" },
+    { "─", "FloatBorder" },
+    { "┐", "FloatBorder" },
+    { "│", "FloatBorder" },
+    { "┘", "FloatBorder" },
+    { "─", "FloatBorder" },
+    { "└", "FloatBorder" },
+    { "│", "FloatBorder" },
+}
+
+vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, { border = border })
+vim.lsp.handlers["textDocument/signatureHelp"] =
+    vim.lsp.with(vim.lsp.handlers.signature_help, { border = border })

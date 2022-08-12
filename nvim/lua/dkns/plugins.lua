@@ -15,6 +15,7 @@ return require('packer').startup(function(use)
   use 'tpope/vim-surround'
   use 'tpope/vim-repeat'
   use 'airblade/vim-rooter'
+  use 'folke/tokyonight.nvim'
 
   use {
     "EdenEast/nightfox.nvim",
@@ -79,10 +80,16 @@ return require('packer').startup(function(use)
 
   use {
     'kyazdani42/nvim-tree.lua',
-    requires = {
-      'kyazdani42/nvim-web-devicons', -- optional, for file icon
-    },
-    config = function() require'nvim-tree'.setup {} end
+    config = function() require'nvim-tree'.setup({
+      actions = {
+        open_file = {
+          window_picker = {
+            enable = true
+          }
+        }
+      }
+    })
+    end
   }
 
   use {
@@ -129,6 +136,12 @@ return require('packer').startup(function(use)
           require('null-ls').builtins.formatting.prettier,
         }
       })
+    end
+  }
+  use {
+    'jose-elias-alvarez/typescript.nvim',
+    config = function()
+      require('typescript').setup()
     end
   }
 

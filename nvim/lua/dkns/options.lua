@@ -21,6 +21,6 @@ vim.opt.listchars = {
   trail = '·'
 }
 
-vim.cmd("colorscheme nightfox")
+vim.cmd("colorscheme tokyonight")
 
 vim.cmd("set statusline=%!v:lua.require('dkns.statusline').statusline()")
