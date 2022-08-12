@@ -15,6 +15,11 @@ o.laststatus = 3
 o.undofile = true
 o.winbar = '%f'
 o.swapfile = false
+-- ??????
+vim.opt.list = true
+vim.opt.listchars = {
+  trail = '·'
+}
 
 vim.cmd("colorscheme nightfox")
 
