@@ -138,6 +138,12 @@ return require('packer').startup(function(use)
       })
     end
   }
+  use {
+    'jose-elias-alvarez/typescript.nvim',
+    config = function()
+      require('typescript').setup()
+    end
+  }
 
   if packer_bootstrap then
     require('packer').sync()
