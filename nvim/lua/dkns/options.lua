@@ -16,6 +16,6 @@ o.undofile = true
 o.winbar = '%f'
 o.swapfile = false
 
-vim.cmd("colorscheme nightfox")
+vim.cmd("colorscheme tokyonight")
 
 vim.cmd("set statusline=%!v:lua.require('dkns.statusline').statusline()")

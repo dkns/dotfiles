@@ -15,6 +15,7 @@ return require('packer').startup(function(use)
   use 'tpope/vim-surround'
   use 'tpope/vim-repeat'
   use 'airblade/vim-rooter'
+  use 'folke/tokyonight.nvim'
 
   use {
     "EdenEast/nightfox.nvim",
