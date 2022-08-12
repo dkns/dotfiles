@@ -80,7 +80,16 @@ return require('packer').startup(function(use)
 
   use {
     'kyazdani42/nvim-tree.lua',
-    config = function() require'nvim-tree'.setup {} end
+    config = function() require'nvim-tree'.setup({
+      actions = {
+        open_file = {
+          window_picker = {
+            enable = true
+          }
+        }
+      }
+    })
+    end
   }
 
   use {
