@@ -11,5 +11,6 @@ require('nvim-treesitter.configs').setup {
   },
   context_commentstring = {
     enable = true
-  }
+  },
+  ignore_install = { 'phpdoc' }
 }
