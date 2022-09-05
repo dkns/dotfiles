@@ -291,3 +291,7 @@ fi
 if [ -f "$HOME/dotfiles/serenity_prompt/serenity.zsh" ]; then
   source "$HOME/dotfiles/serenity_prompt/serenity.zsh"
 fi
+
+if [[ "$OSTYPE" == "darwin"* ]]; then
+  eval $(/opt/homebrew/bin/brew shellenv)
+fi
