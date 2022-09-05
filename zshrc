@@ -243,7 +243,11 @@ take_screenshot() {
 ################################################################################
 
 alias ll='ls -lah'
-alias ls='ls --color=auto --human-readable --classify'
+if [[ "$OSTYPE" == "darwin"* ]]; then
+  alias ls='ls -F --color=auto'
+else
+  alias ls='ls --color=auto --human-readable --classify'
+fi
 alias gptar='gitptar.sh'
 alias nvi="/usr/local/bin/nvim"
 alias slp="sudo sh -c \"echo mem > /sys/power/state\""
