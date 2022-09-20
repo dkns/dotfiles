@@ -21,6 +21,8 @@ vim.opt.listchars = {
   trail = '·'
 }
 
+vim.g.cursorhold_updatetime = 100
+
 vim.cmd("colorscheme tokyonight")
 
 vim.cmd("set statusline=%!v:lua.require('dkns.statusline').statusline()")

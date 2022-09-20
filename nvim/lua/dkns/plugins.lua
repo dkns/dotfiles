@@ -18,17 +18,6 @@ return require('packer').startup(function(use)
   use 'folke/tokyonight.nvim'
 
   use {
-    "EdenEast/nightfox.nvim",
-    config = function()
-      require('nightfox').setup({
-        dim_inactive = true
-      })
-    end
-  }
-
-  use 'marko-cerovac/material.nvim'
-
-  use {
     'nvim-treesitter/nvim-treesitter', run = ':TSUpdate'
   }
 
@@ -89,20 +78,6 @@ return require('packer').startup(function(use)
   }
 
   use {
-    'kyazdani42/nvim-tree.lua',
-    config = function() require'nvim-tree'.setup({
-      actions = {
-        open_file = {
-          window_picker = {
-            enable = true
-          }
-        }
-      }
-    })
-    end
-  }
-
-  use {
     'windwp/nvim-autopairs',
     config = function() require('nvim-autopairs').setup({}) end
   }
@@ -144,14 +119,40 @@ return require('packer').startup(function(use)
         sources = {
           require('null-ls').builtins.formatting.lua_format,
           require('null-ls').builtins.formatting.prettier,
+          require('null-ls').builtins.code_actions.eslint
         }
       })
     end
   }
+
   use {
     'jose-elias-alvarez/typescript.nvim',
     config = function()
       require('typescript').setup()
+    end
+  }
+
+  use {
+    'antoinemadec/FixCursorHold.nvim'
+  }
+
+  use {
+    "nvim-neotest/neotest",
+    requires = {
+      "nvim-lua/plenary.nvim",
+      "nvim-treesitter/nvim-treesitter",
+      "antoinemadec/FixCursorHold.nvim",
+      'haydenmeade/neotest-jest',
+    },
+    config = function()
+      require('neotest').setup({
+        jestCommand = "npm test --",
+        jestConfigFile = "custom.jest.config.ts",
+        env = { CI = true },
+        cwd = function(path)
+          return vim.fn.getcwd()
+        end,
+      })
     end
   }
 
