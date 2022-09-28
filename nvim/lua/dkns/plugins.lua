@@ -119,7 +119,6 @@ return require('packer').startup(function(use)
         sources = {
           require('null-ls').builtins.formatting.lua_format,
           require('null-ls').builtins.formatting.prettier,
-          require('null-ls').builtins.code_actions.eslint
         }
       })
     end
@@ -128,7 +127,14 @@ return require('packer').startup(function(use)
   use {
     'jose-elias-alvarez/typescript.nvim',
     config = function()
-      require('typescript').setup()
+      require('typescript').setup({
+        server = {
+          on_attach = function(client)
+            client.server_capabilities.document_formatting = false
+            client.server_capabilities.document_range_formatting = false
+          end
+        }
+      })
     end
   }
 

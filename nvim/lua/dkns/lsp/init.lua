@@ -73,13 +73,7 @@ lspconfig.eslint.setup({
 
 lspconfig.tsserver.setup({
   capabilities = capabilities,
-  on_attach = function(client)
-    print('hello?')
-    client.server_capabilities.document_formatting = false
-    client.server_capabilities.document_range_formatting = false
-
-    on_attach(client)
-  end,
+  on_attach = on_attach,
   flags = flags
 })
 
