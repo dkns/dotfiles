@@ -32,7 +32,7 @@ local function on_attach(client, bufnr)
   vim.keymap.set('n', 'gD', vim.lsp.buf.declaration, bufopts)
   vim.keymap.set('n', 'gd', vim.lsp.buf.definition, bufopts)
   vim.keymap.set('n', 'K', vim.diagnostic.open_float, bufopts)
-  vim.keymap.set('n', 'gi', vim.lsp.buf.implementation, bufopts)
+  vim.keymap.set('n', '<leader>gi', vim.lsp.buf.implementation, bufopts)
   vim.keymap.set('n', '<leader>K', vim.lsp.buf.hover, bufopts)
   vim.keymap.set('n', '<leader>wa', vim.lsp.buf.add_workspace_folder, bufopts)
   vim.keymap.set('n', '<leader>wr', vim.lsp.buf.remove_workspace_folder, bufopts)
@@ -73,13 +73,7 @@ lspconfig.eslint.setup({
 
 lspconfig.tsserver.setup({
   capabilities = capabilities,
-  on_attach = function(client)
-    print('hello?')
-    client.server_capabilities.document_formatting = false
-    client.server_capabilities.document_range_formatting = false
-
-    on_attach(client)
-  end,
+  on_attach = on_attach,
   flags = flags
 })
 
@@ -103,6 +97,11 @@ lspconfig.sumneko_lua.setup({
       }
     }
   }
+})
+
+lspconfig.gopls.setup({
+  capabilities = capabilities,
+  on_attach = on_attach
 })
 
 local border = {
