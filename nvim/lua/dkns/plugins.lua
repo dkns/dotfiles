@@ -119,7 +119,6 @@ return require('packer').startup(function(use)
         sources = {
           require('null-ls').builtins.formatting.lua_format,
           require('null-ls').builtins.formatting.prettier,
-          require('null-ls').builtins.code_actions.eslint
         }
       })
     end
