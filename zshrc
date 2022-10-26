@@ -256,7 +256,7 @@ alias -g G="| grep"
 alias -g L="| less"
 alias ehosts="sudo -e /etc/hosts"
 alias bye="sudo shutdown -hP now"
-alias rsync="rsync -v --info=progress2"
+alias rsync="rsync -v"
 alias grep="grep --color=auto"
 alias chmod='chmod --preserve-root -v'
 alias chown='chown --preserve-root -v'
