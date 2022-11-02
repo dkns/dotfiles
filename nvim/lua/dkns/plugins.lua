@@ -130,9 +130,9 @@ return require('packer').startup(function(use)
       require('typescript').setup({
         server = {
           on_attach = function(client)
-            client.server_capabilities.document_formatting = false
-            client.server_capabilities.document_range_formatting = false
-          end
+            client.server_capabilities.documentFormattingProvider = false
+            client.server_capabilities.documentRangeFormattingProvider = false
+          end,
         }
       })
     end
