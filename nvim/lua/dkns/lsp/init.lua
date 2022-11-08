@@ -1,7 +1,7 @@
 require('dkns.lsp.diagnostics')
 
 local lspconfig = require('lspconfig')
-local capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities())
+local capabilities = require('cmp_nvim_lsp').default_capabilities(vim.lsp.protocol.make_client_capabilities())
 local map = require('dkns.utils').map
 
 local opts = { noremap=true, silent=true }
