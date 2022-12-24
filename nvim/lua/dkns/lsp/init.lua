@@ -72,6 +72,7 @@ lspconfig.eslint.setup({
 })
 
 lspconfig.tsserver.setup({
+  disable_formatting = true,
   capabilities = capabilities,
   on_attach = on_attach,
   flags = flags
