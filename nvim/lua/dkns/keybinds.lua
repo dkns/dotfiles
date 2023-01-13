@@ -34,5 +34,3 @@ map('t', '<ESC>', "<C-\\><C-n>")
 map('n', '<leader>nt', '<cmd>Neotree toggle<cr>')
 
 map('i', 'jk', '<ESC>')
-
-map('n', '<leader>vr', "require('plenary.reload').reload_module('dkns', true)")
