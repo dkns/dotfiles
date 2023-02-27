@@ -1,23 +1,25 @@
-local o = vim.o
+local opt = vim.opt;
 
-o.number = true
-o.relativenumber = true
-o.scrolloff = 5
-o.sidescrolloff = 5
-o.clipboard = 'unnamedplus'
-o.ignorecase = true
-o.inccommand = 'split'
-o.splitright = true
-o.splitbelow = true
-o.completeopt = 'menuone,noselect'
-o.breakindent = true
-o.laststatus = 3
-o.undofile = true
-o.winbar = '%f'
-o.swapfile = false
+opt.number = true
+opt.relativenumber = true
+opt.scrolloff = 5
+opt.sidescrolloff = 5
+opt.clipboard = 'unnamedplus'
+opt.ignorecase = true
+opt.inccommand = 'split'
+opt.splitright = true
+opt.splitbelow = true
+opt.completeopt = 'menuone,noselect'
+opt.breakindent = true
+opt.laststatus = 3
+opt.undofile = true
+opt.winbar = '%f'
+opt.swapfile = false
+opt.diffopt:append('algorithm:patience')
+opt.diffopt:append('linematch:60')
 -- ??????
-vim.opt.list = true
-vim.opt.listchars = {
+opt.list = true
+opt.listchars = {
   trail = '·'
 }
 
