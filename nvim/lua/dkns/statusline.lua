@@ -66,7 +66,7 @@ local function filename()
     return ""
   end
 
-  return fname .. " "
+  return fname
 end
 
 local function lsp_info()
@@ -83,14 +83,14 @@ local function lsp_info()
   end
 
   return string.format(
-    "| E:%s W:%s I:%s H:%s ",
+    "E:%s W:%s I:%s H:%s",
     result['errors'] or 0, result['warnings'] or 0,
     result['info'] or 0, result['hints'] or 0
   )
 end
 
 local function filetype()
-  return string.format(" %s ", vim.bo.filetype):upper()
+  return string.format("%s", vim.bo.filetype)
 end
 
 local function lineinfo()
@@ -107,7 +107,7 @@ local function vcs()
 
   return is_head_empty
     and string.format(
-      ' +%s ~%s -%s | %s ',
+      ' +%s ~%s -%s %s ',
       signs.added, signs.changed, signs.removed, signs.head
     )
   or ''
