@@ -137,6 +137,7 @@ return {
     end
   },
   'mfussenegger/nvim-dap',
+  'mbbill/undotree',
   {
     "mxsdev/nvim-dap-vscode-js",
     dependencies = {
