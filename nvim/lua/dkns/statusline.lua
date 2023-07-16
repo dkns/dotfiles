@@ -102,7 +102,7 @@ local function lineinfo()
 end
 
 local function vcs()
-  local signs = vim.b.gitsigns_status_dict or { heade = '', added = 0, changed = 0, removed = 0 }
+  local signs = vim.b.gitsigns_status_dict or { head = '', added = 0, changed = 0, removed = 0 }
   local is_head_empty = signs.head ~= ''
 
   return is_head_empty
