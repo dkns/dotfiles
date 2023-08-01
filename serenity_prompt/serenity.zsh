@@ -75,7 +75,7 @@ function serenity_prompt() {
   local first_line second_line composed
   first_line="${NEWLINE}$(get_time)$(get_path)$(git_info) $(get_git_diff) $background_job$WHITE"
   # https://stackoverflow.com/questions/13125825/zsh-update-prompt-with-current-time-when-a-command-is-started
-  second_line="> "
+  second_line="%F{%(?.white.red)}> $WHITE"
   composed="$first_line${NEWLINE}$second_line"
   echo "$composed"
 }
