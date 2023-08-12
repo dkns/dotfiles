@@ -1,6 +1,3 @@
 [submodule "pure_prompt"]
 	path = pure_prompt
 	url = https://github.com/sindresorhus/pure
-[submodule "pure"]
-	path = pure
-	url = https://github.com/sindresorhus/pure.git
